@@ -3563,6 +3563,13 @@ dom-serializer@^1.0.1:
     domhandler "^4.2.0"
     entities "^2.0.0"
 
+dom7@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.nlark.com/dom7/download/dom7-4.0.0.tgz#69c8fb9b170c92d64f385fdc37f81456e82b80a1"
+  integrity sha1-acj7mxcMktZPOF/cN/gUVugrgKE=
+  dependencies:
+    ssr-window "^4.0.0"
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -7669,6 +7676,11 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+ssr-window@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.nlark.com/ssr-window/download/ssr-window-4.0.0.tgz?cache=0&sync_timestamp=1629879357016&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fssr-window%2Fdownload%2Fssr-window-4.0.0.tgz#4ee82fc360c5f88a022f321740bcfec59ada1a61"
+  integrity sha1-Tugvw2DF+IoCLzIXQLz+xZraGmE=
+
 ssri@^6.0.1:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
@@ -7916,6 +7928,14 @@ svgo@^1.0.0:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+swiper@^7.0.8:
+  version "7.0.8"
+  resolved "https://registry.npmmirror.com/swiper/download/swiper-7.0.8.tgz#5727cf4c34ca11e4b038ccff2a984bbf41d2f6ad"
+  integrity sha1-VyfPTDTKEeSwOMz/KphLv0HS9q0=
+  dependencies:
+    dom7 "^4.0.0"
+    ssr-window "^4.0.0"
 
 systemjs@^6.10.2:
   version "6.10.3"
@@ -8401,6 +8421,11 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+
+vue-awesome-swiper@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npm.taobao.org/vue-awesome-swiper/download/vue-awesome-swiper-4.1.1.tgz#8f7ab221ad003021d756b86aa618f429924900fe"
+  integrity sha1-j3qyIa0AMCHXVrhqphj0KZJJAP4=
 
 vue-client-only@^2.0.0:
   version "2.1.0"

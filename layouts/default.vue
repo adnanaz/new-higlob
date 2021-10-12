@@ -1,18 +1,29 @@
 <template>
   <v-app>
-    <v-card class="overflow-hidden">
       <v-app-bar
         absolute
         color="white"
         elevate-on-scroll
         scroll-target="#scrolling-techniques-7"
-        app
       >
-        <v-container class="d-flex align-center">
+      <div style="width:100%;"  :class="$vuetify.breakpoint.mdAndDown ? 'd-flex':'d-none'">
+        <v-toolbar-title class="mx-3">
+            <img
+              style="width: 40px"
+              :src="require('@/assets/images/logo.png')"
+              alt="logo higlob"
+            />
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-app-bar-nav-icon class="" @click="drawer = true"><img :src="require('@/assets/images/bar-chart.png')" alt=""></v-app-bar-nav-icon>
+      </div>
+        
+        <v-container class="hidden-md-and-down ">
+          <div class="d-flex align-center">
           <v-toolbar-title>
             <img
-              style="width: 57.51px"
-              :src="require('@/assets/images/logo-higlob.png')"
+              style="width: 40px"
+              :src="require('@/assets/images/logo.png')"
               alt="logo higlob"
             />
           </v-toolbar-title>
@@ -49,15 +60,16 @@
               </v-list>
             </v-menu>
           </div>
+          </div>
         </v-container>
       </v-app-bar>
-      <v-sheet id="scrolling-techniques-7" class="overflow-y-auto">
-        <!-- max-height="600" -->
+      <v-sheet id="scrolling-techniques-7" class=" overflow-y-auto">
+        <v-main>
+        
         <v-container>
-          <v-main>
             <v-row>
               <!-- ==== HERO ==== -->
-              <v-col cols="6" class="container__text">
+              <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="container__text">
                 <div class="header__text">
                   Selamat Datang Di LPK Higlob Gabung dan
                   <span class="header__text-special">Raih Mimpimu</span>
@@ -74,45 +86,46 @@
                   <v-btn
                     style="
                       padding: 1rem;
-                      box-shadow: 10px 17px 56px rgba(36, 182, 234, 0.44) !important;
+                      box-shadow: 10px 17px 56px rgba(80, 96, 137, 0.31) !important;
                       border-radius: 50px !important;
                     "
-                    height="50px"
-                    width="160px"
-                    class="rounded-xl ma-2"
-                    color="#00BCFF"
+                    :height="$vuetify.breakpoint.mdAndDown ? '40px' : '50px'"
+                    :width=" $vuetify.breakpoint.mdAndDown ? '130px' : '160px'"
+                    class=" rounded-xl ma-2 header__btn"
+                    color="#FF9900"
                     dark
                   >
                     Ayo Mulai
                   </v-btn>
 
                   <v-btn
-                    class="ma-2"
+                    class="text-capitalize ma-2 rounded-xl"
                     text
                     color="#0A0A0A"
-                    height="50px"
-                    width="160px"
+                    :height="$vuetify.breakpoint.mdAndDown ? '40px' : '50px'"
+                    :width=" $vuetify.breakpoint.mdAndDown ? '160px' : '160px'"
                   >
-                    <v-icon class="mx-2">mdi-play-circle-outline</v-icon> Putar
+                    <v-icon class="mx-1">mdi-play-circle-outline</v-icon> Putar
                     Video
                   </v-btn>
                 </div>
               </v-col>
-              <v-col cols="6">
-                <div>
+              <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
+                <div class="push__top">
                   <v-img
-                    contain
-                    :src="require('@/assets/images/model2.png')"
+                  wdith="100%"
+                    cover
+                    :src="require('@/assets/images/model_hero.png')"
                     alt="logo higlob"
                   />
                 </div>
               </v-col>
               <!-- ==== BELIEVE ==== -->
-              <v-col cols="12" class="container3__text">
-                <div class="text-center">Dipercaya Oleh</div>
+              <v-col cols="12"  class="container3__text mt-0 mb-15">
+                <div class="text-center mb-5">Bekerja sama dengan</div>
                 <div class="d-flex justify-center align-center flex-wrap">
                   <div
-                    class="my-8 mx-4"
+                    class="my-8  "
                     v-for="(el, index) in media_patner"
                     :key="index"
                   >
@@ -123,152 +136,59 @@
                   </div>
                 </div>
               </v-col>
-              <!-- ==== YAKIN ==== -->
-              <v-col cols="6">
-                <div class="d-flex justify-center align-center flex-wrap">
-                  <v-hover v-slot="{ hover }">
-                    <v-card
-                      width="300"
-                      :style="
-                        hover
-                          ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
-                          : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
-                      "
-                      class="rounded-lg pa-2 ma-2"
-                    >
-                      <v-card-title
-                        style="
-                          font-weight: 600;
-                          font-size: 16px;
-                          line-height: 151.7%;
+              <!-- ==== CARD & YAKIN ==== -->
+              <v-col :order="$vuetify.breakpoint.mdAndDown ? '12' : ''" cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
+                <div
+                  class="d-flex justify-center align-center flex-wrap"
+                >
+                    <v-hover v-slot="{ hover }" v-for="(el, idx)  in card_menu" 
+                        :key="idx" >
+                      <v-card 
+                        width="300"
+                        :height='`${el.height}`'
+                        :style="
+                          hover
+                            ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
+                            : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
                         "
-                        class="mb-5"
+                        class="rounded-lg pa-2 ma-2"
                       >
-                        Hi Global telah memiliki lebih dari ratusan pelajar Hi
-                        global telah memiliki lebih dari 500 pelajar lebih yang
-                        telah bergabung dan membantu mereka dalam untuk meriah
-                        impianya
-                      </v-card-title>
-                      <v-card-subtitle
-                        style="
-                          font-weight: 500;
-                          font-size: 13px;
-                          line-height: 151.7%;
-                        "
-                      >
-                        Hi global telah memiliki lebih dari 500 pelajar lebih
-                        yang telah bergabung dan membantu mereka dalam untuk
-                        meriah impianya
-                      </v-card-subtitle>
-                    </v-card>
-                  </v-hover>
-                  <v-hover v-slot="{ hover }">
-                    <v-card
-                      width="300"
-                      :style="
-                        hover
-                          ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
-                          : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
-                      "
-                      class="rounded-lg pa-2 ma-2"
-                    >
-                      <v-card-title
-                        style="
-                          font-weight: 600;
-                          font-size: 16px;
-                          line-height: 151.7%;
-                        "
-                        class="mb-5"
-                      >
-                        Higlob telah beroperasi 5 tahun lamanya
-                      </v-card-title>
-                      <v-card-subtitle
-                        style="
-                          font-weight: 500;
-                          font-size: 13px;
-                          line-height: 151.7%;
-                        "
-                      >
-                        Selama lima tahun terakhir higlob perusahaan telah
-                        tumbuh dan memiliki membantu banyak siswa untuk raih
-                        mimpinya
-                      </v-card-subtitle>
-                    </v-card>
-                  </v-hover>
-                  <v-hover v-slot="{ hover }">
-                    <v-card
-                      width="300"
-                      :style="
-                        hover
-                          ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
-                          : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
-                      "
-                      class="rounded-lg pa-2 ma-2"
-                    >
-                      <v-card-title
-                        style="
-                          font-weight: 600;
-                          font-size: 16px;
-                          line-height: 151.7%;
-                        "
-                        class="mb-5"
-                      >
-                        hi Global Telah menyediakan berbagai jasa
-                      </v-card-title>
-                      <v-card-subtitle
-                        style="
-                          font-weight: 500;
-                          font-size: 13px;
-                          line-height: 151.7%;
-                        "
-                      >
-                        Hi Global telah menyediakan berbagai layanan yang
-                        memudahkan anda untuk bergabung dengan kami
-                      </v-card-subtitle>
-                    </v-card>
-                  </v-hover>
-                  <v-hover v-slot="{ hover }">
-                    <v-card
-                      width="300"
-                      :style="
-                        hover
-                          ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
-                          : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
-                      "
-                      class="rounded-lg pa-2 ma-2"
-                    >
-                      <v-card-title
-                        style="
-                          font-weight: 600;
-                          font-size: 16px;
-                          line-height: 151.7%;
-                        "
-                        class="mb-5"
-                      >
-                        Higlob telah terhubung berbeda negara
-                      </v-card-title>
-                      <v-card-subtitle
-                        style="
-                          font-weight: 500;
-                          font-size: 13px;
-                          line-height: 151.7%;
-                        "
-                      >
-                        Higlob telah terhubung dan bekerja sama dengan berbagai
-                        negara yang bertujuan untuk membantu anda menggapai
-                        impian anda
-                      </v-card-subtitle>
-                    </v-card>
-                  </v-hover>
+                        <v-card-title
+                          style="
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 151.7%;
+                          "
+                          class="mb-5"
+                        >
+                          <v-avatar>
+                            <img
+                              :src="require(`@/assets/images/${el.icon}`)"
+                              contain
+                            ></img>
+                          </v-avatar>
+                          {{ el.title }}
+                        </v-card-title>
+                        <v-card-subtitle
+                          style="
+                            font-weight: 500;
+                            font-size: 13px;
+                            line-height: 151.7%;
+                          "
+                        >
+                          {{ el.description }}
+                        </v-card-subtitle>
+                      </v-card>
+                    </v-hover>
                 </div>
               </v-col>
-              <v-col cols="6">
+              <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
                 <div>
                   <h5 class="text__1">Memiliki jaringan yang luas</h5>
-                  <h2 class="text__2">
+                  <h2 class="text__2 mt-2 mb-3">
                     Apa yang membuatmu yakin untuk memilih Hi Global
                   </h2>
-                  <p class="text__3" }>
+                  <p class="text__3">
                     Higlob menjadi tempat rekomendasi bagi teman - teman yang
                     ingin magang maupun bekerja diluar negeri, serta hi global
                     dapat membantu untuk bekerja di perusahaan yang sesuai
@@ -278,30 +198,474 @@
                   <v-btn
                     style="
                       padding: 1rem;
-                      box-shadow: 10px 17px 56px rgba(36, 182, 234, 0.44) !important;
+                      box-shadow: -2px 11px 55px rgba(80, 96, 137, 0.31) !important;
                       border-radius: 50px !important;
                     "
-                    height="50px"
-                    class="rounded-xl ma-2"
-                    color="#00BCFF"
+                    :height="$vuetify.breakpoint.mdAndDown ? '40px' : '50px'"
+                    :width=" $vuetify.breakpoint.mdAndDown ? '200px' : '160px'"
+                    class="rounded-xl text-capitalize"
+                    color="#FF9900"
                     dark
                   >
                     Pelajari Lebih Lanjut
                   </v-btn>
                 </div>
               </v-col>
+              <!-- ==== MAU BERGABUNG? ==== -->
             </v-row>
-          </v-main>
         </v-container>
+        
+        <v-container fluid style="background:#F3FBFE;" class="want__join">
+          <v-container>
+          <v-row>
+              <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6"  class="container__blue">
+                <div class="d-flex justify-space-between align-center flex-wrap">
+                  <h5 class="text__1 mb-2">Mulai bangun masa depan bersama kami</h5>
+                  <h2 class="text__2">Apa anda tertarik bergabung <br> dengan Hi Global?</h2>
+                  <p class="text__3-p">Dapatkan layanan terbaik mengenai persiapan, pendidikan, dan peluang kerja di luar negeri dengan mudah, nyaman, dan 
+                    terpercaya, bersama Hi Global. Hubungi kami untuk mendapatkan info lebih lengkap dan terkini.</p>
+                  <div>
+                    <v-btn
+                    style="
+                      padding: 1rem;
+                      box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
+                      border-radius: 50px !important;
+                    "
+                    height="50px"
+                    class="rounded-xl mt-4"
+                    color="#FF9900"
+                    dark
+                  >
+                    Hubungi Kami
+                  </v-btn>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
+                <div class="push__right">
+                  <v-img
+                    cover
+                    width="calc(100vh - 300px)"
+                    :src="require('@/assets/images/model_hero2.png')"
+                    alt="logo higlob"
+                  />
+                </div>
+              </v-col>
+          </v-row>
+          </v-container>
+        </v-container>
+
+        <v-container>
+          <section class="testimony">
+            <v-row>
+              <v-col cols="12">
+                <div class="d-flex justify-center align-center flex-wrap flex-column">
+                  <h1 class="testimony__title">Apa yang klien katakan</h1>
+                  <h3 class="testimony__subtitle">Apa yang telah klien katakan setelah bergabung dengan Hi Global</h3>
+                </div>
+              </v-col>
+              <v-col cols="12">
+          <v-carousel :style="$vuetify.breakpoint.mdAndDown ? 'height:380px': ''" cycle interval="6000" v-model="model">
+          <v-carousel-item
+            v-for="n in 4"
+              :key="n"
+          >
+              <v-row
+                class="fill-height"
+                align="center"
+                justify="center"
+              >
+                  <div :style="$vuetify.breakpoint.mdAndDown ? '': 'max-width:80%;'" class=" d-flex justify-center align-center flex-wrap">
+                      <div class="ma-5"  v-for="(el, index) in loading ? 4 : testimony_card"
+                        :key="index">
+                        <v-skeleton-loader
+                          class="ma-auto"
+                          height="135"
+                          :loading="loading"
+                          transition="scale-transition"
+                          :tile="false"
+                          type="card"
+                        >
+                              <v-hover v-slot="{ hover }">
+                              <v-card
+                                class="px-4 "
+                                max-width="462.4px"
+                                :height="$vuetify.breakpoint.mdAndDown ? 'auto': '217px'"
+                                :style="
+                                hover
+                                ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                                  : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
+                              "
+                              >
+                                <v-row>
+                                  <v-col cols="12" xs="12" sm="5" md="5" lg="5" xl="5"  class="ma-auto d-flex flex-wrap">
+                                      <v-img cover :height="$vuetify.breakpoint.mdAndDown ? 'auto': '148px'" :src="require(`@/assets/images/${el.image}`)"></v-img>
+                                  </v-col>
+                                  <v-col cols="12" xs="12" sm="7" md="7" lg="7" xl="7" class="ma-0 pa-0">
+                                    <v-card-title class="testimony__card-title">
+                                      {{el.author}}
+                                    </v-card-title>
+                                    <v-card-text class="testimony__card-caption">
+                                    <p>
+                                      “ {{el.caption | desc}} “
+                                    </p>
+                                      <v-icon color="#FF9900">mdi-star</v-icon> {{el.score}}
+                                    </v-card-text>
+                                  </v-col>
+                                </v-row>
+                                <!-- <v-card-actions>
+                                  
+                                </v-card-actions> -->
+                              </v-card>
+                              </v-hover>
+                        </v-skeleton-loader>
+                          </div>
+                  </div>
+              </v-row>
+          </v-carousel-item>
+          </v-carousel>
+              </v-col>
+            </v-row>
+          </section>
+
+          <section class="my-5">
+            <v-row>
+              <!-- #TITLE -->
+              <v-col cols="12">
+                  <div class="d-flex justify-center align-center flex-wrap flex-column">
+                  <h1 class="testimony__title">Artikel Terbaru</h1>
+                  <h3 class="testimony__subtitle">Dapatkan Artikel terbaru dari informasi pekerjaan, persiapan kerja maupun magang serta informasi lainya di LPK Higlob</h3>
+                  </div>
+              </v-col>
+              <!-- #ARTICLE -->
+              <v-col elevation="0" cols="12"  >
+              <div class=" d-flex justify-center align-center flex-wrap">
+                <div  v-for="(el, index) in article_card"
+                        :key="index">
+                <v-hover v-slot="{ hover }">
+                <v-card class="ma-5" max-width="300" height="555" :style="hover
+                                ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                                  : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'">
+                  <v-card-title class=""><v-img :src="require(`@/assets/images/${el.img_url}`)"></v-img></v-card-title>
+                  <v-card-text class="article">
+                    <h3 class="article__title">{{el.title}}</h3>
+                    <p class="article__desc">{{el.desc}}</p>
+                    <small class="article__more">Lanjut Baca</small>
+                  </v-card-text>
+                </v-card>
+                </v-hover>
+                </div>
+              </div>
+
+                <div class="d-flex justify-center flex-wrap">
+                  <v-btn
+                    style="
+                      padding: 1rem;
+                      box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
+                      border-radius: 50px !important;
+                    "
+                    height="50px"
+                    class="rounded-xl mt-4 text-capitalize"
+                    color="#FF9900"
+                    dark
+                  >
+                    Baca Berita lainya
+                  </v-btn>
+                </div>
+              </v-col>
+            </v-row>
+          </section>
+        </v-container>
+
+        <v-container class="pa-0 footer" fluid>
+          <v-footer
+          class="footer"
+          color="#011B4B"
+        >
+        <section class="footer__container">
+          <v-row style=" width:100%;" justify="space-around"
+            no-gutters class=" footer__row"
+          >
+          <v-col cols="12" sm="12" md="2" lg="2" xl="2"  style="width:100%">
+          <div class="footer__content ml-4 white--text">
+    <h4 class="footer__title" >Higlob</h4>
+    <div class="footer__item text-left ">
+      <span class="text-left text-capitalize" style="width:30%;line-height: 183%;">Jalan turi km 3,7 perum pondok idaman no A2 kadisobo, <br>
+      Kadisobo I / Pepen, Trimulyo, Kec. Sleman, <br>
+      Kabupaten Sleman, Daerah Istimewa Yogyakarta 55513</span>
+    </div>
+    </div>
+        </v-col>
+        <v-col cols="12"  sm="12" md="3" lg="3" xl="3" style="width:100%;"><div class="footer__content white--text">
+    <h4 class="footer__title ml-5" >Layanan</h4>
+    <div class="footer__item d-flex justify-start align-start flex-wrap flex-column">
+      <v-btn
+        color="white"
+        class="text-capitalize"
+        text
+        rounded
+      >
+        Persiapan Bahasa
+      </v-btn>
+      <v-btn
+        color="white"
+        class="text-capitalize"
+        text
+        rounded
+      >
+        Pendidikan Luar Negeri
+      </v-btn>
+      <v-btn
+        color="white"
+        class="text-capitalize"
+        text
+        rounded
+      >
+        Peluang Luar Negeri
+      </v-btn>
+      <v-btn
+        color="white"
+        class="text-capitalize"
+        text
+        rounded
+      >
+        Working Holiday
+      </v-btn>
+    </div>
+        </div></v-col>
+         <v-col cols="12"  sm="12" md="3" lg="3" xl="3" style="width:100%;">
+            <div class="footer__content white--text">
+    <h4 class="footer__title ml-5" >Bantuan</h4>
+    <div class="footer__item d-flex justify-start align-start flex-wrap flex-column">
+      <v-btn
+        color="white"
+        class="text-capitalize"
+        text
+        rounded
+      >
+        Kontak Kami
+      </v-btn>
+      <v-btn
+        color="white"
+        class="text-capitalize"
+        text
+        rounded
+      >
+        FAQs
+      </v-btn>
+      <h4 class="footer__title ml-5">Ikuti Kami : </h4>
+       <div class="d-flex justify-center flex-wrap align-center">
+<v-btn
+          v-for="icon in icons"
+          :key="icon"
+          class="mx-4 white--text"
+          icon
+        >
+          <v-icon size="24px">
+            {{ icon }}
+          </v-icon>
+        </v-btn>
+       </div>
+    </div>
+    </div>
+         </v-col>
+         <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width:100%;">
+            <div class="footer__content white--text">
+    <h4 class="footer__title ml-5" >Perusahaan</h4>
+    <div class="footer__item d-flex justify-start align-start flex-wrap flex-column">
+      <v-btn
+        color="white"
+        text
+        rounded
+      >
+        Tentang Kami
+      </v-btn>
+      <v-btn
+        color="white"
+        text
+        rounded
+      >
+        Galeri
+      </v-btn>
+      <v-btn
+        color="white"
+        text
+        rounded
+      >
+        Penghargaan
+      </v-btn>
+    </div>
+    </div>
+         </v-col>
+          <v-col align="center"
+        class="footer__copyright white--text mt-10"
+        cols="12"
+      >
+        Copyright © {{ new Date().getFullYear() }} PT Hi Global. All rights reserved
+      </v-col>
+          
+          </v-row>
+        </section>
+        </v-footer>
+        </v-container>
+        </v-main>
       </v-sheet>
-    </v-card>
+
+          <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Account</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
   </v-app>
 </template>
 
 <script>
 export default {
+  components: {},
   data() {
     return {
+      drawer: false,
+      group: null,
+
+      icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram'],
+      footer_links: [
+        {
+          link: 'Higlob',
+          content: `Jalan turi km 3,7 perum pondok 
+          idaman no A2 kadisobo,
+          Kadisobo I / Pepen, Trimulyo, Kec. Sleman,Kabupaten Sleman, 
+          Daerah Istimewa Yogyakarta 55513`,
+          // content_arr: ["Jalan turi km 3,7 perum pondok idaman no A2 kadisobo,Kadisobo I / Pepen, Trimulyo, Kec. Sleman,Kabupaten Sleman, Daerah Istimewa Yogyakarta 55513"]
+        },
+        {
+          link: 'Layanan',
+          content_arr: [
+            'Persiapan Bahasa',
+            'Pendidikan Luar Negeri',
+            'Peluang Luar Negeri',
+            'Working Holiday',
+          ],
+        },
+        {
+          link: 'Perusahaan',
+          content_arr: ['Tentang Kami', 'Galeri', 'Penghargaan'],
+        },
+        {
+          link: 'Bantuan',
+          content_arr: ['Hubungi Kami', 'FAQs'],
+        },
+      ],
+
+      colors: ['primary', 'secondary', 'yellow darken-2', 'red', 'orange'],
+      loading: false,
+      model: 0,
+      article_card: [
+        {
+          author: 'Adnan Aziz D',
+          img_url: 'article.png',
+          title: 'Rekayasa Program ke Jepang',
+          desc: 'Program kerja engineering ke Jepang merupakan program yang berbeda dengan program lainnya',
+        },
+        {
+          author: 'Adnan Aziz D',
+          img_url: 'article1.png',
+          title:
+            'Ketahui Persyaratan dan Gaji Menjadi Care Giver di Jepang yang Tinggi',
+          desc: 'Profesi care giver di Jepang sangat dibutuhkan dan merupakan salah satu profesi yang menjamin tunjangan',
+        },
+        {
+          author: 'Adnan Aziz D',
+          img_url: 'article2.png',
+          title:
+            'Peluang Kerja atau D3 Keperawatan Avokasi Lulusan Luar Negeri ',
+          desc: 'Menurut Badan Pusat Statistik (BPS) menyebutkan, jumlah pengangguran',
+        },
+      ],
+      testimony_card: [
+        {
+          author: 'Michael Dustin',
+          image: 'model6.png',
+          caption:
+            'Terima kasih kepada teman - teman hi global yang telah membantu saya untuk meraih mimpi saya',
+          score: '4.6',
+        },
+        {
+          author: 'Alexia Sania',
+          image: 'model5.png',
+          caption:
+            'Terima kasih Hi global yang telah membimbing saya selama 4 tahun ini, Love You!',
+          score: '4.9',
+        },
+        {
+          author: 'Christian James',
+          image: 'model7.png',
+          caption:
+            ' good luck! semoga hi global kedepanya makin maju dan berkembang.',
+          score: '5.0',
+        },
+        {
+          author: 'Reza Ballack',
+          image: 'model8.png',
+          caption:
+            'Terima kasih Hi global yang telah membantu saya bekerja di jerman',
+          score: '4.9',
+        },
+      ],
+      card_menu: [
+        {
+          icon: 'icon1.png',
+          height: '294px',
+          title: 'Hi Global telah memiliki lebih dari ratusan pelajar',
+          description:
+            ' Hi global telah memiliki lebih dari 500 pelajar lebih yang telah bergabung dan membantu mereka dalam untuk meriah impianya',
+        },
+        {
+          icon: 'icon2.png',
+          height: '250px',
+          title: 'Higlob telah beroperasi 3 tahun lamanya',
+          description:
+            'Selama tiga tahun terakhir higlob perusahaan telah tumbuh dan memiliki membantu banyak siswa untuk raih mimpinya',
+        },
+        {
+          icon: 'icon3.png',
+          height: '223px',
+          title: 'hi Global Telah menyediakan berbagai jasa',
+          description:
+            'Hi Global telah menyediakan berbagai layanan yang memudahkan anda untuk bergabung dengan kami',
+        },
+        {
+          icon: 'icon4.png',
+          height: '294px',
+          title: 'Higlob telah terhubung dengan berbagai negara',
+          description:
+            'Higlob telah terhubung dan bekerja sama dengan berbagai negara yang bertujuan untuk membantu anda menggapai impian anda ',
+        },
+      ],
+
       menu: [
         {
           label: 'Beranda',
@@ -336,25 +700,25 @@ export default {
 
       media_patner: [
         {
-          title: 'Facebook',
-          src: 'fb.png',
+          title: 'PT-Sarimadu Jayanusa',
+          src: 'kerjasama1.png',
         },
         {
-          title: 'Google',
-          src: 'google.png',
+          title: 'Parente Higlob',
+          src: 'kerjasama2.png',
         },
-        {
-          title: 'Newcastle University',
-          src: 'newcastle.png',
-        },
-        {
-          title: 'Linkedin',
-          src: 'linkedin.png',
-        },
-        {
-          title: 'Facebook',
-          src: 'microsoft.png',
-        },
+        // {
+        //   title: 'Newcastle University',
+        //   src: 'newcastle.png',
+        // },
+        // {
+        //   title: 'Linkedin',
+        //   src: 'linkedin.png',
+        // },
+        // {
+        //   title: 'Facebook',
+        //   src: 'microsoft.png',
+        // },
       ],
 
       clipped: false,
@@ -387,6 +751,46 @@ export default {
 </script>
 
 <style lang="scss">
+.note pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+}
+
+.v-window {
+  &-x-transition,
+  &-x-reverse-transition,
+  &-y-transition,
+  &-y-reverse-transition {
+    &-enter-active,
+    &-leave-active {
+      transition: 1.5s cubic-bezier(0.25, 0.8, 0.5, 1) !important;
+    }
+  }
+}
+
+.v-carousel__controls {
+  background: none;
+}
+
+.slide-fade-enter-active {
+  transition: all 5s ease;
+}
+
+.mdi-chevron-right::before {
+  content: '\F0142';
+  background: white;
+}
+
+.mdi-chevron-left::before {
+  content: '\F0141';
+  background: white;
+}
+
+.theme--dark.v-btn.v-btn--icon {
+  color: #3e00ff !important;
+}
+
 #app {
   font-family: 'Montserrat', sans-serif;
 }
@@ -415,7 +819,7 @@ export default {
   line-height: 127%;
 
   &-special {
-    color: #ff860e;
+    color: #3E00FF;
   }
 
   &-p {
@@ -436,8 +840,12 @@ export default {
   line-height: 160%;
 }
 
+.container__blue {
+  margin: 8rem 0;
+}
+
 .text__1 {
-  color: #ff860e;
+  color: #03914D;
   font-size: 18px;
   line-height: 160%;
   font-weight: normal;
@@ -451,5 +859,198 @@ export default {
 .text__3 {
   font-size: 18px;
   line-height: 180%;
+}
+
+.text__3-p {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 160%;
+  margin: 1rem 0;
+}
+.testimony {
+  &__title {
+    font-weight: 600;
+    font-size: 39px;
+    line-height: 160%;
+    margin: 0.5rem;
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    margin: 0.5rem;
+    font-size: 18px;
+    line-height: 160%;
+  }
+
+  .card__transition {
+    transition: 0.3s ease;
+  }
+
+  &__card-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    margin-top: 1rem;
+  }
+
+  &__card-caption {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 160%;
+  }
+}
+
+.article {
+  &__title {
+    margin: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 141.19%;
+    /* or 25px */
+    text-transform: capitalize;
+    color: #202020;
+  }
+
+  &__desc {
+    margin: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 160%;
+    /* or 22px */
+    color: #595959;
+  }
+
+  &__more {
+    margin: 1rem;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 141.19%;
+    /* identical to box height, or 17px */
+    text-transform: capitalize;
+    /* Colour : Font Title */
+    color: #171717;
+  }
+}
+
+.footer {
+  width: 100%;
+
+  &__container {
+    width: 100%;
+    margin: 1rem 5rem;
+  }
+
+  &__title {
+    margin: 1rem 0 1rem 0;
+  }
+
+  &__col {
+    padding: 1rem;
+  }
+
+  &__copyright {
+    font-weight: normal;
+    font-size: 0.9rem;
+    // line-height: 154.69%;
+  }
+}
+
+.address {
+  width: 30%;
+}
+.push__right {
+  margin-left: 5rem;
+}
+
+  .push__top {
+    margin-top: 7rem;
+  }
+
+@include media-xsAndUp {
+  .v-toolbar__content {
+    padding: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.05);
+  }
+  //HERO
+
+  .container__text {
+  margin-top: 5rem;
+
+  .header__text {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 130%;
+
+  &-special {
+    color: #ff860e;
+  }
+
+  &-p {
+    margin: 1.2rem 0;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 180%;
+  }
+
+  }
+  }
+
+  .text__2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 140%;
+  }
+  
+  .text__3 {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 180%;
+  }
+
+//want join?
+  .want__join {
+  .container__blue {
+  margin: 1rem 0;
+  }
+
+  .push__right {
+  margin-left: 0;
+  }
+
+  .text__3-p {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 170%;
+  margin: 1rem 0;
+  }
+}
+
+//testimony
+.testimony {
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 160%;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 160%;
+    text-align: center;
+  }
+}
+
+.footer {
+  width: 100%;
+  
+  &__container {
+    width: 100%;
+    margin:0;
+  }
+}
 }
 </style>
