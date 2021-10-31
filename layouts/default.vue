@@ -7,7 +7,7 @@
         scroll-target="#scrolling-techniques-7"
       >
       <div style="width:100%;"  :class="$vuetify.breakpoint.mdAndDown ? 'd-flex':'d-none'">
-        <v-toolbar-title class="mx-3">
+        <v-toolbar-title class="mx-5">
             <img
               style="width: 40px"
               :src="require('@/assets/images/logo.png')"
@@ -15,7 +15,7 @@
             />
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-app-bar-nav-icon class="" @click="drawer = true"><img :src="require('@/assets/images/bar-chart.png')" alt=""></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon class="mx-5" @click="drawer = true"><img :src="require('@/assets/images/bar-chart.png')" alt=""></v-app-bar-nav-icon>
       </div>
         
         <v-container class="hidden-md-and-down ">
@@ -64,8 +64,7 @@
         </v-container>
       </v-app-bar>
       <v-sheet id="scrolling-techniques-7" class=" overflow-y-auto">
-        <v-main>
-        
+        <v-main :class="$vuetify.breakpoint.xs ? 'mx-3' : ''">   
         <v-container>
             <v-row>
               <!-- ==== HERO ==== -->
@@ -121,7 +120,7 @@
                 </div>
               </v-col>
               <!-- ==== BELIEVE ==== -->
-              <v-col cols="12"  class="container3__text mt-0 mb-15">
+              <v-col cols="12"   :class="$vuetify.breakpoint.xs ? 'container3__text mt-0': 'container3__text mt-0 mb-15'">
                 <div class="text-center mb-5">Bekerja sama dengan</div>
                 <div class="d-flex justify-center align-center flex-wrap">
                   <div
@@ -137,14 +136,14 @@
                 </div>
               </v-col>
               <!-- ==== CARD & YAKIN ==== -->
-              <v-col :order="$vuetify.breakpoint.mdAndDown ? '12' : ''" cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
-                <div
+              <v-col :order="$vuetify.breakpoint.mdAndDown ? '12' : ''" cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
+                <div v-if="!$vuetify.breakpoint.xs"
                   class="d-flex justify-center align-center flex-wrap"
                 >
                     <v-hover v-slot="{ hover }" v-for="(el, idx)  in card_menu" 
                         :key="idx" >
                       <v-card 
-                        width="300"
+                        width="275"
                         :height='`${el.height}`'
                         :style="
                           hover
@@ -181,8 +180,68 @@
                       </v-card>
                     </v-hover>
                 </div>
+                <div v-else>
+
+                  <v-carousel cycle interval="6000"  :show-arrows="$vuetify.breakpoint.xs ? false : true" v-model="carousel">
+    <v-carousel-item
+     v-for="(el, idx)  in card_menu" 
+       :key="idx"
+    >
+      <v-sheet
+        height="100%"
+        tile
+      >
+        <v-row
+          class="fill-height"
+          align="center"
+          justify="center"
+        >
+          <v-hover v-slot="{ hover }" > 
+            <v-card 
+                        width="285"
+                        :height="$vuetify.breakpoint.xs ? '295' : `${el.height}`"
+                        :style="
+                          hover
+                            ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
+                            : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
+                        "
+                        class="rounded-lg pa-2 ma-2"
+                      >
+                        <v-card-title
+                          style="
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 151.7%;
+                          "
+                          class="mb-5"
+                        >
+                          <v-avatar>
+                            <img
+                              :src="require(`@/assets/images/${el.icon}`)"
+                              contain
+                            ></img>
+                          </v-avatar>
+                          {{ el.title }}
+                        </v-card-title>
+                        <v-card-subtitle
+                          style="
+                            font-weight: 500;
+                            font-size: 13px;
+                            line-height: 151.7%;
+                          "
+                        >
+                          {{ el.description }}
+                        </v-card-subtitle>
+            </v-card>
+          </v-hover>
+        </v-row>
+      </v-sheet>
+    </v-carousel-item>
+    </v-carousel>
+                </div>
+                
               </v-col>
-              <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
+              <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
                 <div>
                   <h5 class="text__1">Memiliki jaringan yang luas</h5>
                   <h2 class="text__2 mt-2 mb-3">
@@ -202,7 +261,7 @@
                       border-radius: 50px !important;
                     "
                     :height="$vuetify.breakpoint.mdAndDown ? '40px' : '50px'"
-                    :width=" $vuetify.breakpoint.mdAndDown ? '200px' : '160px'"
+                    :width=" $vuetify.breakpoint.mdAndDown ? '200px' : '190'"
                     class="rounded-xl text-capitalize"
                     color="#FF9900"
                     dark
@@ -216,7 +275,8 @@
         </v-container>
         
         <v-container fluid style="background:#F3FBFE;" class="want__join">
-          <v-container>
+        
+        <v-container>
           <v-row>
               <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6"  class="container__blue">
                 <div class="d-flex justify-space-between align-center flex-wrap">
@@ -252,7 +312,8 @@
                 </div>
               </v-col>
           </v-row>
-          </v-container>
+        </v-container>
+
         </v-container>
 
         <v-container>
@@ -265,7 +326,54 @@
                 </div>
               </v-col>
               <v-col cols="12">
-          <v-carousel :style="$vuetify.breakpoint.mdAndDown ? 'height:380px': ''" cycle interval="6000" v-model="model">
+          <v-carousel cycle interval="6000" :show-arrows="$vuetify.breakpoint.xs ? false : true" style="height:100%;"  v-model="model">
+          <!-- MOBILE -->
+          <div v-if="$vuetify.breakpoint.mdAndDown ? true : false ">
+          <v-carousel-item
+      v-for="(el, index) in loading ? 4 : testimony_card" :key="index"
+    >
+      <v-sheet
+        height="100%"
+        tile
+      >
+        <v-row
+          class="fill-height"
+          align="center"
+          justify="center"
+        >
+          <v-hover v-slot="{ hover }" > 
+            <v-card
+                                max-width="300px"
+                                height="400"
+                                :style="
+                                hover
+                                ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                                  : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
+                              "
+                              >
+                              <div  class="ma-auto align-center justify-center d-flex flex-wrap">
+ <v-img cover class="my-auto" style="max-width:28vh" :src="require(`@/assets/images/${el.image}`)"></v-img>
+                              </div>
+                              <div>
+                                <div class="text-center pa-0 testimony__card-title">
+                                      {{el.author}}
+                                    </div>
+                                    <div class="testimony__card-caption py-2 px-3 text-center">
+                                    <p>
+                                      “ {{el.caption | desc}} “
+                                    </p>
+                                      <v-icon color="#FF9900">mdi-star</v-icon> {{el.score}}
+                                    </div>
+                              </div>
+                              
+            </v-card>
+          </v-hover>
+        </v-row>
+      </v-sheet>
+          </v-carousel-item>
+          </div>
+          <!-- DESKTOP -->
+          <div v-else>
           <v-carousel-item
             v-for="n in 4"
               :key="n"
@@ -319,10 +427,11 @@
                               </v-card>
                               </v-hover>
                         </v-skeleton-loader>
-                          </div>
+                      </div>
                   </div>
               </v-row>
           </v-carousel-item>
+          </div>
           </v-carousel>
               </v-col>
             </v-row>
@@ -508,10 +617,11 @@
         </section>
         </v-footer>
         </v-container>
+        
         </v-main>
       </v-sheet>
 
-          <v-navigation-drawer
+      <v-navigation-drawer
       v-model="drawer"
       absolute
       temporary
@@ -525,17 +635,72 @@
           active-class="deep-purple--text text--accent-4"
         >
           <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-content>
+          <v-list-item-title class="font-weight-bold">
+            H I G L O B
+          </v-list-item-title>
+        
+        </v-list-item-content>
+          </v-list-item>
+        <v-divider></v-divider>
+
+          <v-list-item>
+            <v-list-item-title>Beranda</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
+        <v-expansion-panels flat dense >
+          <v-expansion-panel 
+          >
+            <v-expansion-panel-header class="pa-0 ">
+              <span style="font-size:13px; font-weight:500;">Layanan</span>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+                <v-list-item>
+                  <v-list-item-title>Persiapan Bahasa</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>Pendidikan Luar Negeri</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>Working Holiday</v-list-item-title>
+                </v-list-item>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Gallery</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>Berita</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>Tentang Kami</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>Kontak</v-list-item-title>
+          </v-list-item>
+
+              <v-list-item>
+        <v-expansion-panels flat dense >
+          <v-expansion-panel 
+          >
+            <v-expansion-panel-header class="pa-0 ">
+              <span style="font-size:13px; font-weight:500;">Bahasa</span>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+                <v-list-item>
+                  <v-list-item-title>Indonesia</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                  <v-list-item-title>Jepang</v-list-item-title>
+                </v-list-item>
+               
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -548,6 +713,14 @@ export default {
   components: {},
   data() {
     return {
+      carousel: 0,
+      colors: [
+        'primary',
+        'secondary',
+        'yellow darken-2',
+        'red',
+        'orange',
+      ],
       drawer: false,
       group: null,
 
@@ -1032,7 +1205,7 @@ export default {
 .testimony {
   &__title {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 28px;
     line-height: 160%;
   }
 
@@ -1040,7 +1213,6 @@ export default {
     font-weight: normal;
     font-size: 1rem;
     line-height: 160%;
-    text-align: center;
   }
 }
 
