@@ -10,9 +10,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -27,7 +24,7 @@ a {
 }
 
 @mixin media-xsAndUp {
-  @media screen and (min-width: 320px) and (max-width:960px){
+  @media screen and (min-width: 320px) and (max-width: 960px) {
     @content;
   }
 }

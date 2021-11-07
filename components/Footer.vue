@@ -9,7 +9,10 @@
           class="footer__row"
         >
           <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
-            <div class="footer__content ml-4 white--text">
+            <div
+              class="footer__content ml-4 white--text"
+              :class="$vuetify.breakpoint.xs ? 'mt-8' : ''"
+            >
               <h4 class="footer__title">Higlob</h4>
               <div class="footer__item text-left">
                 <span

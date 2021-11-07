@@ -57,10 +57,12 @@
               wdith="100%"
               cover
               :src="require('@/assets/images/model_hero.png')"
-              alt="logo higlob"
+              alt="Foto Model Higlob"
             />
           </div>
         </v-col>
+        <!-- ==== END HERO ==== -->
+
         <!-- ==== BELIEVE ==== -->
         <v-col
           cols="12"
@@ -80,16 +82,10 @@
             </div>
           </div>
         </v-col>
+        <!-- ==== END BELIEVE ==== -->
+
         <!-- ==== CARD & YAKIN ==== -->
-        <v-col
-          :order="$vuetify.breakpoint.mdAndDown ? '12' : ''"
-          cols="12"
-          xs="12"
-          sm="12"
-          md="12"
-          lg="6"
-          xl="6"
-        >
+        <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
           <div
             v-if="!$vuetify.breakpoint.xs"
             class="d-flex justify-center align-center flex-wrap"
@@ -100,14 +96,18 @@
               :key="idx"
             >
               <v-card
-                width="275"
-                :height="`${el.height}`"
+                :width="$vuetify.breakpoint.lgAndDown ? '235' : '275'"
+                :height="
+                  $vuetify.breakpoint.lgAndDown
+                    ? `${el.height_custom}`
+                    : `${el.height}`
+                "
                 :style="
                   hover
                     ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
                     : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
                 "
-                class="rounded-lg pa-2 ma-2"
+                class="rounded-lg pa-2 my-1 mx-3"
               >
                 <v-card-title
                   style="font-weight: 600; font-size: 16px; line-height: 151.7%"
@@ -119,7 +119,12 @@
                   {{ el.title }}
                 </v-card-title>
                 <v-card-subtitle
-                  style="font-weight: 500; font-size: 13px; line-height: 151.7%"
+                  style="
+                    font-weight: 500;
+                    font-size: 13px;
+                    line-height: 151.7%;
+                    overflow-wrap: break-word;
+                  "
                 >
                   {{ el.description }}
                 </v-card-subtitle>
@@ -182,6 +187,9 @@
             </v-carousel>
           </div>
         </v-col>
+        <!-- ==== END CARD & YAKIN ==== -->
+
+        <!-- ==== NETWORK ==== -->
         <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
           <div>
             <h5 class="text__1">Memiliki jaringan yang luas</h5>
@@ -211,6 +219,9 @@
             </v-btn>
           </div>
         </v-col>
+        <!-- ==== END NETWORK ==== -->
+
+        <!-- ==== TESTIMONY ==== -->
         <v-container>
           <section class="testimony">
             <v-row>
@@ -310,11 +321,7 @@
                         justify="center"
                       >
                         <div
-                          :style="
-                            $vuetify.breakpoint.mdAndDown
-                              ? ''
-                              : 'max-width:80%;'
-                          "
+                          :style="custom_maxWidth"
                           class="d-flex justify-center align-center flex-wrap"
                         >
                           <div
@@ -476,6 +483,7 @@
             </v-row>
           </section>
         </v-container>
+        <!-- ==== END TESTIMONY ==== -->
       </v-row>
     </v-container>
   </div>
@@ -546,6 +554,7 @@ export default {
         {
           icon: 'icon1.png',
           height: '294px',
+          height_custom: '320px',
           title: 'Hi Global telah memiliki lebih dari ratusan pelajar',
           description:
             ' Hi global telah memiliki lebih dari 500 pelajar lebih yang telah bergabung dan membantu mereka dalam untuk meriah impianya',
@@ -553,6 +562,7 @@ export default {
         {
           icon: 'icon2.png',
           height: '250px',
+          height_custom: '265px',
           title: 'Higlob telah beroperasi 3 tahun lamanya',
           description:
             'Selama tiga tahun terakhir higlob perusahaan telah tumbuh dan memiliki membantu banyak siswa untuk raih mimpinya',
@@ -560,6 +570,7 @@ export default {
         {
           icon: 'icon3.png',
           height: '223px',
+          height_custom: '250px',
           title: 'hi Global Telah menyediakan berbagai jasa',
           description:
             'Hi Global telah menyediakan berbagai layanan yang memudahkan anda untuk bergabung dengan kami',
@@ -567,6 +578,7 @@ export default {
         {
           icon: 'icon4.png',
           height: '294px',
+          height_custom: '294px',
           title: 'Higlob telah terhubung dengan berbagai negara',
           description:
             'Higlob telah terhubung dan bekerja sama dengan berbagai negara yang bertujuan untuk membantu anda menggapai impian anda ',
@@ -600,6 +612,22 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js',
     }
+  },
+  computed: {
+    custom_maxWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return ''
+        case 'sm':
+          return ''
+        case 'md':
+          return ''
+        case 'lg':
+          return 'max-width:100%'
+        case 'xl':
+          return 'max-width:80%'
+      }
+    },
   },
 }
 </script>
@@ -645,10 +673,6 @@ export default {
   color: #3e00ff !important;
 }
 
-#app {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .lang {
   cursor: pointer;
 }
@@ -685,7 +709,7 @@ export default {
 }
 
 .container__text {
-  margin-top: 10rem;
+  margin-top: 7rem;
 }
 
 .container3__text {
