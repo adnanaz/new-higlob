@@ -8,9 +8,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # Css
-assets/
-variables.css
-vairables.css.map
+# assets/
+# variables.css
+# vairables.css.map
 
 # Runtime data
 pids
