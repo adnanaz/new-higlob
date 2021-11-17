@@ -25,7 +25,7 @@
 
       <v-container class="hidden-md-and-down">
         <div class="d-flex align-center">
-          <v-toolbar-title>
+          <v-toolbar-title class="d-flex align-center flex-column">
             <img
               style="width: 40px"
               :src="require('@/assets/images/logo.png')"
@@ -93,19 +93,24 @@
                 <v-btn
                   text
                   color="black"
-                  class="rounded-sm"
+                  class="rounded-sm px-2"
                   v-bind="attrs"
                   v-on="on"
-                  icon
                 >
-                  <span style="margin-top: -1px; margin-left: 2rem">
-                    ID <v-icon>mdi-chevron-down</v-icon>
-                  </span>
+                  <div style="font-size: 16px; margin-top: 2px">
+                    ID <v-icon right>mdi-chevron-down</v-icon>
+                  </div>
                 </v-btn>
               </template>
 
               <v-list>
                 <v-list-item v-for="(item, index) in lang" :key="index">
+                  <v-list-item-icon class="d-flex justify-center align-center">
+                    <img
+                      style="width: 30px"
+                      :src="require(`@/assets/images/${item.icon}`)"
+                    />
+                  </v-list-item-icon>
                   <v-list-item-title class="lang">{{
                     item.title
                   }}</v-list-item-title>
@@ -146,11 +151,11 @@
                   <v-list-item>
                     <v-list-item-title>Persiapan Bahasa</v-list-item-title>
                   </v-list-item>
-                  <v-list-item>
+                  <!-- <v-list-item>
                     <v-list-item-title
                       >Pendidikan Luar Negeri</v-list-item-title
                     >
-                  </v-list-item>
+                  </v-list-item> -->
                   <v-list-item>
                     <v-list-item-title>Working Holiday</v-list-item-title>
                   </v-list-item>
@@ -201,10 +206,12 @@ export default {
     return {
       lang: [
         {
-          title: 'ID',
+          title: 'Indonesia',
+          icon: 'indonesia.png',
         },
         {
-          title: 'JP',
+          title: 'Jepang',
+          icon: 'japan.png',
         },
       ],
       group: null,

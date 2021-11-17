@@ -1,10 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  // server: {
-  //   port: 8000,
-  //   host: '0.0.0.0',
-  // },
+  server: {
+    port: 8000,
+    host: '0.0.0.0',
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - higlob',
@@ -28,7 +28,7 @@ export default {
   css: ['~/assets/variables.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/Convert.js'],
+  plugins: ['~plugins/Convert.js' ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

@@ -1,6 +1,6 @@
 <template>
   <div :class="$vuetify.breakpoint.xs ? 'mx-3' : ''">
-    <v-container>
+    <v-container :class="!$vuetify.breakpoint.xs ? 'override__container' : ''">
       <v-row>
         <!-- ==== HERO ==== -->
         <v-col
@@ -16,7 +16,10 @@
             Selamat Datang Di LPK Higlob Gabung dan
             <span class="header__text-special">Raih Mimpimu</span>
           </div>
-          <p class="header__text-p">
+          <p
+            class="header__text-p mb-10 mt-5"
+            :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
+          >
             Hi Global adalah sebuah pintu bagi anda untuk mencapai impian Studi
             maupun Bekerja di Luar Negeri. Kami membantu anda mulai dari
             persiapan berupa pembekalan skill bahasa dan segala informasi yang
@@ -33,7 +36,7 @@
               "
               :height="$vuetify.breakpoint.mdAndDown ? '40px' : '50px'"
               :width="$vuetify.breakpoint.mdAndDown ? '130px' : '160px'"
-              class="rounded-xl ma-2 header__btn"
+              class="header__btn text-capitalize font-weight-regular"
               color="#FF9900"
               dark
             >
@@ -41,7 +44,7 @@
             </v-btn>
 
             <v-btn
-              class="text-capitalize ma-2 rounded-xl"
+              class="text-capitalize mx-2 rounded-xl"
               text
               color="#0A0A0A"
               :height="$vuetify.breakpoint.mdAndDown ? '40px' : '50px'"
@@ -52,9 +55,9 @@
           </div>
         </v-col>
         <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
-          <div class="push__top">
-            <v-img
-              wdith="100%"
+          <div :class="$vuetify.breakpoint.xs ? '' : 'push__top'">
+            <img
+              :style="$vuetify.breakpoint.xs ? 'width:100%;' : 'width: 85vh'"
               cover
               :src="require('@/assets/images/model_hero.png')"
               alt="Foto Model Higlob"
@@ -68,13 +71,17 @@
           cols="12"
           :class="
             $vuetify.breakpoint.xs
-              ? 'container3__text mt-0'
-              : 'container3__text mt-0 mb-15'
+              ? 'container3__text mt-7'
+              : 'container3__text mt-15 mb-0 '
           "
         >
-          <div class="text-center mb-5">Bekerja sama dengan</div>
+          <div class="text-center mb-5">Patner Kerja Kami</div>
           <div class="d-flex justify-center align-center flex-wrap">
-            <div class="my-8" v-for="(el, index) in media_patner" :key="index">
+            <div
+              :class="$vuetify.breakpoint.xs ? 'mt-8' : 'my-8'"
+              v-for="(el, index) in media_patner"
+              :key="index"
+            >
               <v-img
                 :src="require(`@/assets/images/${el.src}`)"
                 :alt="el.title"
@@ -96,7 +103,8 @@
               :key="idx"
             >
               <v-card
-                :width="$vuetify.breakpoint.lgAndDown ? '235' : '275'"
+                elevation="0"
+                :width="$vuetify.breakpoint.lgAndDown ? '258' : '275'"
                 :height="
                   $vuetify.breakpoint.lgAndDown
                     ? `${el.height_custom}`
@@ -104,8 +112,8 @@
                 "
                 :style="
                   hover
-                    ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px'
-                    : 'box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px'
+                    ? 'box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 12px !important'
+                    : ''
                 "
                 class="rounded-lg pa-2 my-1 mx-3"
               >
@@ -133,10 +141,12 @@
           </div>
           <div v-else>
             <v-carousel
+              style="height: 450px"
               cycle
               interval="6000"
-              :show-arrows="$vuetify.breakpoint.xs ? false : true"
+              :show-arrows="$vuetify.breakpoint.xs ? true : true"
               v-model="carousel"
+              hide-delimiters
             >
               <v-carousel-item v-for="(el, idx) in card_menu" :key="idx">
                 <v-sheet height="100%" tile>
@@ -190,20 +200,36 @@
         <!-- ==== END CARD & YAKIN ==== -->
 
         <!-- ==== NETWORK ==== -->
-        <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6">
-          <div>
-            <h5 class="text__1">Memiliki jaringan yang luas</h5>
+        <v-col
+          cols="12"
+          xs="12"
+          sm="12"
+          md="12"
+          lg="6"
+          xl="6"
+          style="display: flex; align-items: center"
+        >
+          <div class="pa-2">
+            <h5
+              class="text__1"
+              :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
+            >
+              Memiliki jaringan yang luas
+            </h5>
             <h2 class="text__2 mt-2 mb-3">
               Apa yang membuatmu yakin untuk memilih Hi Global
             </h2>
-            <p class="text__3">
+            <p
+              class="text__3"
+              :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
+            >
               Higlob menjadi tempat rekomendasi bagi teman - teman yang ingin
               magang maupun bekerja diluar negeri, serta hi global dapat
               membantu untuk bekerja di perusahaan yang sesuai dengan passion
               yang anda miliki.
             </p>
 
-            <v-btn
+            <!-- <v-btn
               style="
                 padding: 1rem;
                 box-shadow: -2px 11px 55px rgba(80, 96, 137, 0.31) !important;
@@ -216,276 +242,332 @@
               dark
             >
               Pelajari Lebih Lanjut
-            </v-btn>
+            </v-btn> -->
           </div>
         </v-col>
         <!-- ==== END NETWORK ==== -->
+      </v-row>
+    </v-container>
 
-        <!-- ==== TESTIMONY ==== -->
-        <v-container>
-          <section class="testimony">
-            <v-row>
-              <v-col cols="12">
-                <div
-                  class="
-                    d-flex
-                    justify-center
-                    align-center
-                    flex-wrap flex-column
+    <div style="background: #f8faff">
+      <v-container
+        :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
+      >
+        <v-row>
+          <v-col
+            cols="12"
+            xs="12"
+            sm="12"
+            md="6"
+            lg="6"
+            xl="6"
+            class="container__blue"
+          >
+            <div class="d-flex justify-space-between align-center flex-wrap">
+              <h5
+                class="text__1 mb-2"
+                :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
+              >
+                Mulai bangun masa depan bersama kami
+              </h5>
+              <h2
+                class="text__2"
+                :style="$vuetify.breakpoint.xs ? 'font-size: 32px;' : ''"
+              >
+                Apa anda tertarik bergabung <br />
+                dengan
+                <span
+                  class="text__2-special"
+                  :style="$vuetify.breakpoint.xs ? 'font-size: 32px;' : ''"
+                  >Hi Global</span
+                >
+                ?
+              </h2>
+
+              <p
+                class="text__3-p"
+                :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
+              >
+                Dapatkan layanan terbaik mengenai persiapan, pendidikan, dan
+                peluang kerja di luar negeri dengan mudah, nyaman, dan
+                terpercaya, bersama Hi Global. Hubungi kami untuk mendapatkan
+                info lebih lengkap dan terkini.
+              </p>
+              <div>
+                <v-btn
+                  style="
+                    padding: 1rem;
+                    box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
+                    border-radius: 50px !important;
                   "
+                  height="50px"
+                  class="rounded-xl mt-4 text-capitalize font-weight-regular"
+                  color="#FF9900"
+                  dark
+                  width="180"
                 >
-                  <h1 class="testimony__title">Apa yang klien katakan</h1>
-                  <h3 class="testimony__subtitle">
-                    Apa yang telah klien katakan setelah bergabung dengan Hi
-                    Global
-                  </h3>
-                </div>
-              </v-col>
-              <v-col cols="12">
-                <v-carousel
-                  cycle
-                  interval="6000"
-                  :show-arrows="$vuetify.breakpoint.xs ? false : true"
-                  style="height: 100%"
-                  v-model="model"
+                  Hubungi Kami
+                </v-btn>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pa-0">
+            <div
+              :class="
+                $vuetify.breakpoint.xs ? 'mx-auto' : 'mx-auto push__right'
+              "
+            >
+              <v-img
+                cover
+                width="calc(100vh - 100px)"
+                :src="require('@/assets/images/model_hero2.png')"
+                alt="logo higlob"
+              />
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <!-- ==== TESTIMONY ==== -->
+    <v-container>
+      <section class="testimony">
+        <v-row>
+          <v-col cols="12" :class="$vuetify.breakpoint.xs ? 'my-7' : 'my-15'">
+            <div
+              class="d-flex justify-center align-center flex-wrap flex-column"
+            >
+              <h1 class="testimony__title">Apa yang klien katakan</h1>
+              <h3 class="testimony__subtitle text-center">
+                Apa yang telah klien katakan setelah bergabung dengan Hi Global
+              </h3>
+            </div>
+          </v-col>
+          <v-col cols="12">
+            <v-carousel
+              cycle
+              interval="6000"
+              hide-delimiters
+              :show-arrows="$vuetify.breakpoint.xs ? false : true"
+              style="height: 100%"
+              v-model="model"
+            >
+              <!-- MOBILE -->
+              <div v-if="$vuetify.breakpoint.mdAndDown ? true : false">
+                <v-carousel-item
+                  v-for="(el, index) in loading ? 4 : testimony_card"
+                  :key="index"
                 >
-                  <!-- MOBILE -->
-                  <div v-if="$vuetify.breakpoint.mdAndDown ? true : false">
-                    <v-carousel-item
-                      v-for="(el, index) in loading ? 4 : testimony_card"
-                      :key="index"
+                  <v-sheet height="100%" tile>
+                    <v-row class="fill-height" align="center" justify="center">
+                      <v-hover v-slot="{ hover }">
+                        <v-card
+                          max-width="300px"
+                          height="400"
+                          :style="
+                            hover
+                              ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                              : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
+                          "
+                        >
+                          <div
+                            class="
+                              ma-auto
+                              align-center
+                              justify-center
+                              d-flex
+                              flex-wrap
+                            "
+                          >
+                            <v-img
+                              cover
+                              class="my-auto"
+                              style="max-width: 28vh"
+                              :src="require(`@/assets/images/${el.image}`)"
+                            ></v-img>
+                          </div>
+                          <div>
+                            <div class="text-center pa-0 testimony__card-title">
+                              {{ el.author }}
+                            </div>
+                            <div
+                              class="
+                                testimony__card-caption
+                                py-2
+                                px-3
+                                text-center
+                              "
+                            >
+                              <p>“ {{ el.caption | desc }} “</p>
+                              <v-icon color="#FF9900">mdi-star</v-icon>
+                              {{ el.score }}
+                            </div>
+                          </div>
+                        </v-card>
+                      </v-hover>
+                    </v-row>
+                  </v-sheet>
+                </v-carousel-item>
+              </div>
+              <!-- DESKTOP -->
+              <div v-else>
+                <v-carousel-item v-for="n in 4" :key="n">
+                  <v-row class="fill-height" align="center" justify="center">
+                    <div
+                      :style="custom_maxWidth"
+                      class="d-flex justify-center align-center flex-wrap"
                     >
-                      <v-sheet height="100%" tile>
-                        <v-row
-                          class="fill-height"
-                          align="center"
-                          justify="center"
+                      <div
+                        class="ma-5"
+                        v-for="(el, index) in loading ? 4 : testimony_card"
+                        :key="index"
+                      >
+                        <v-skeleton-loader
+                          class="ma-auto"
+                          height="135"
+                          :loading="loading"
+                          transition="scale-transition"
+                          :tile="false"
+                          type="card"
                         >
                           <v-hover v-slot="{ hover }">
                             <v-card
-                              max-width="300px"
-                              height="400"
+                              class="px-4"
+                              max-width="462.4px"
+                              :height="
+                                $vuetify.breakpoint.mdAndDown ? 'auto' : '217px'
+                              "
                               :style="
                                 hover
                                   ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
                                   : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
                               "
                             >
-                              <div
-                                class="
-                                  ma-auto
-                                  align-center
-                                  justify-center
-                                  d-flex
-                                  flex-wrap
-                                "
-                              >
-                                <v-img
-                                  cover
-                                  class="my-auto"
-                                  style="max-width: 28vh"
-                                  :src="require(`@/assets/images/${el.image}`)"
-                                ></v-img>
-                              </div>
-                              <div>
-                                <div
-                                  class="text-center pa-0 testimony__card-title"
+                              <v-row>
+                                <v-col
+                                  cols="12"
+                                  xs="12"
+                                  sm="5"
+                                  md="5"
+                                  lg="5"
+                                  xl="5"
+                                  class="ma-auto d-flex flex-wrap"
                                 >
-                                  {{ el.author }}
-                                </div>
-                                <div
-                                  class="
-                                    testimony__card-caption
-                                    py-2
-                                    px-3
-                                    text-center
-                                  "
+                                  <v-img
+                                    cover
+                                    :height="
+                                      $vuetify.breakpoint.mdAndDown
+                                        ? 'auto'
+                                        : '148px'
+                                    "
+                                    :src="
+                                      require(`@/assets/images/${el.image}`)
+                                    "
+                                  ></v-img>
+                                </v-col>
+                                <v-col
+                                  cols="12"
+                                  xs="12"
+                                  sm="7"
+                                  md="7"
+                                  lg="7"
+                                  xl="7"
+                                  class="ma-0 pa-0"
                                 >
-                                  <p>“ {{ el.caption | desc }} “</p>
-                                  <v-icon color="#FF9900">mdi-star</v-icon>
-                                  {{ el.score }}
-                                </div>
-                              </div>
-                            </v-card>
-                          </v-hover>
-                        </v-row>
-                      </v-sheet>
-                    </v-carousel-item>
-                  </div>
-                  <!-- DESKTOP -->
-                  <div v-else>
-                    <v-carousel-item v-for="n in 4" :key="n">
-                      <v-row
-                        class="fill-height"
-                        align="center"
-                        justify="center"
-                      >
-                        <div
-                          :style="custom_maxWidth"
-                          class="d-flex justify-center align-center flex-wrap"
-                        >
-                          <div
-                            class="ma-5"
-                            v-for="(el, index) in loading ? 4 : testimony_card"
-                            :key="index"
-                          >
-                            <v-skeleton-loader
-                              class="ma-auto"
-                              height="135"
-                              :loading="loading"
-                              transition="scale-transition"
-                              :tile="false"
-                              type="card"
-                            >
-                              <v-hover v-slot="{ hover }">
-                                <v-card
-                                  class="px-4"
-                                  max-width="462.4px"
-                                  :height="
-                                    $vuetify.breakpoint.mdAndDown
-                                      ? 'auto'
-                                      : '217px'
-                                  "
-                                  :style="
-                                    hover
-                                      ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
-                                      : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
-                                  "
-                                >
-                                  <v-row>
-                                    <v-col
-                                      cols="12"
-                                      xs="12"
-                                      sm="5"
-                                      md="5"
-                                      lg="5"
-                                      xl="5"
-                                      class="ma-auto d-flex flex-wrap"
-                                    >
-                                      <v-img
-                                        cover
-                                        :height="
-                                          $vuetify.breakpoint.mdAndDown
-                                            ? 'auto'
-                                            : '148px'
-                                        "
-                                        :src="
-                                          require(`@/assets/images/${el.image}`)
-                                        "
-                                      ></v-img>
-                                    </v-col>
-                                    <v-col
-                                      cols="12"
-                                      xs="12"
-                                      sm="7"
-                                      md="7"
-                                      lg="7"
-                                      xl="7"
-                                      class="ma-0 pa-0"
-                                    >
-                                      <v-card-title
-                                        class="testimony__card-title"
-                                      >
-                                        {{ el.author }}
-                                      </v-card-title>
-                                      <v-card-text
-                                        class="testimony__card-caption"
-                                      >
-                                        <p>“ {{ el.caption | desc }} “</p>
-                                        <v-icon color="#FF9900"
-                                          >mdi-star</v-icon
-                                        >
-                                        {{ el.score }}
-                                      </v-card-text>
-                                    </v-col>
-                                  </v-row>
-                                  <!-- <v-card-actions>
+                                  <v-card-title class="testimony__card-title">
+                                    {{ el.author }}
+                                  </v-card-title>
+                                  <v-card-text class="testimony__card-caption">
+                                    <p>“ {{ el.caption | desc }} “</p>
+                                    <v-icon color="#FF9900">mdi-star</v-icon>
+                                    {{ el.score }}
+                                  </v-card-text>
+                                </v-col>
+                              </v-row>
+                              <!-- <v-card-actions>
                                     
                                 </v-card-actions> -->
-                                </v-card>
-                              </v-hover>
-                            </v-skeleton-loader>
-                          </div>
-                        </div>
-                      </v-row>
-                    </v-carousel-item>
-                  </div>
-                </v-carousel>
-              </v-col>
-            </v-row>
-          </section>
+                            </v-card>
+                          </v-hover>
+                        </v-skeleton-loader>
+                      </div>
+                    </div>
+                  </v-row>
+                </v-carousel-item>
+              </div>
+            </v-carousel>
+          </v-col>
+        </v-row>
+      </section>
 
-          <section class="my-5">
-            <v-row>
-              <!-- #TITLE -->
-              <v-col cols="12">
-                <div
-                  class="
-                    d-flex
-                    justify-center
-                    align-center
-                    flex-wrap flex-column
-                  "
-                >
-                  <h1 class="testimony__title">Artikel Terbaru</h1>
-                  <h3 class="testimony__subtitle">
-                    Dapatkan Artikel terbaru dari informasi pekerjaan, persiapan
-                    kerja maupun magang serta informasi lainya di LPK Higlob
-                  </h3>
-                </div>
-              </v-col>
-              <!-- #ARTICLE -->
-              <v-col elevation="0" cols="12">
-                <div class="d-flex justify-center align-center flex-wrap">
-                  <div v-for="(el, index) in article_card" :key="index">
-                    <v-hover v-slot="{ hover }">
-                      <v-card
-                        class="ma-5"
-                        max-width="300"
-                        height="555"
-                        :style="
-                          hover
-                            ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
-                            : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
-                        "
-                      >
-                        <v-card-title class=""
-                          ><v-img
-                            :src="require(`@/assets/images/${el.img_url}`)"
-                          ></v-img
-                        ></v-card-title>
-                        <v-card-text class="article">
-                          <h3 class="article__title">{{ el.title }}</h3>
-                          <p class="article__desc">{{ el.desc }}</p>
-                          <small class="article__more">Lanjut Baca</small>
-                        </v-card-text>
-                      </v-card>
-                    </v-hover>
-                  </div>
-                </div>
-
-                <div class="d-flex justify-center flex-wrap">
-                  <v-btn
-                    style="
-                      padding: 1rem;
-                      box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
-                      border-radius: 50px !important;
+      <section class="my-5">
+        <v-row>
+          <!-- #TITLE -->
+          <v-col cols="12">
+            <div
+              class="d-flex justify-center align-center flex-wrap flex-column"
+            >
+              <h1 class="testimony__title">Berita Terbaru</h1>
+              <h3
+                class="testimony__subtitle text-center"
+                style="font-size: 14px"
+              >
+                Dapatkan Berita terbaru dari informasi pekerjaan, persiapan
+                kerja maupun magang serta
+                <br v-show="!$vuetify.breakpoint.xs" />
+                informasi lainya hanya di LPK Hi Global
+              </h3>
+            </div>
+          </v-col>
+          <!-- #ARTICLE -->
+          <v-col elevation="0" cols="12">
+            <div class="d-flex justify-center align-center flex-wrap">
+              <div v-for="(el, index) in article_card" :key="index">
+                <v-hover v-slot="{ hover }">
+                  <v-card
+                    class="ma-5"
+                    max-width="300"
+                    height="555"
+                    :style="
+                      hover
+                        ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                        : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
                     "
-                    height="50px"
-                    class="rounded-xl mt-4 text-capitalize"
-                    color="#FF9900"
-                    dark
                   >
-                    Baca Berita lainya
-                  </v-btn>
-                </div>
-              </v-col>
-            </v-row>
-          </section>
-        </v-container>
-        <!-- ==== END TESTIMONY ==== -->
-      </v-row>
+                    <v-card-title class=""
+                      ><v-img
+                        :src="require(`@/assets/images/${el.img_url}`)"
+                      ></v-img
+                    ></v-card-title>
+                    <v-card-text class="article">
+                      <h3 class="article__title">{{ el.title }}</h3>
+                      <p class="article__desc">{{ el.desc }}</p>
+                      <small class="article__more">Lanjut Baca</small>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+              </div>
+            </div>
+
+            <div class="d-flex justify-center flex-wrap mb-15 mt-5">
+              <v-btn
+                style="
+                  padding: 1rem;
+                  box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
+                  border-radius: 50px !important;
+                "
+                height="50px"
+                class="rounded-xl mt-4 text-capitalize"
+                color="#FF9900"
+                dark
+              >
+                Baca Berita lainya
+              </v-btn>
+            </div>
+          </v-col>
+        </v-row>
+      </section>
     </v-container>
+    <!-- ==== END TESTIMONY ==== -->
   </div>
 </template>
 
@@ -633,6 +715,10 @@ export default {
 </script>
 
 <style lang="scss">
+.override__container {
+  margin: 0 5rem;
+}
+
 .note pre {
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -701,10 +787,12 @@ export default {
   }
 
   &-p {
+    color: #868686;
     margin: 1.2rem 0;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32.4px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 180%;
   }
 }
 
@@ -714,12 +802,12 @@ export default {
 
 .container3__text {
   font-weight: 600;
-  font-size: 26px;
+  font-size: 28px;
   line-height: 160%;
 }
 
 .container__blue {
-  margin: 8rem 0;
+  margin: auto;
 }
 
 .text__1 {
@@ -731,32 +819,43 @@ export default {
 
 .text__2 {
   font-weight: 600;
+  font-size: 38px;
+  line-height: 160%;
+  color: black;
+}
+
+.text__2-special {
+  font-weight: 600;
   font-size: 39px;
   line-height: 160%;
+  color: #3e00ff;
 }
 .text__3 {
   font-size: 18px;
   line-height: 180%;
+  color: #868686;
 }
 
 .text__3-p {
   font-weight: normal;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 160%;
   margin: 1rem 0;
+  color: #868686;
 }
 .testimony {
   &__title {
     font-weight: 600;
-    font-size: 39px;
+    font-size: 28px;
     line-height: 160%;
     margin: 0.5rem;
   }
 
   &__subtitle {
-    font-weight: 500;
+    font-weight: 400;
     margin: 0.5rem;
     font-size: 18px;
+    color: #868686;
     line-height: 160%;
   }
 
@@ -812,29 +911,6 @@ export default {
   }
 }
 
-.footer {
-  width: 100%;
-
-  &__container {
-    width: 100%;
-    margin: 1rem 5rem;
-  }
-
-  &__title {
-    margin: 1rem 0 1rem 0;
-  }
-
-  &__col {
-    padding: 1rem;
-  }
-
-  &__copyright {
-    font-weight: normal;
-    font-size: 0.9rem;
-    // line-height: 154.69%;
-  }
-}
-
 .address {
   width: 30%;
 }
@@ -863,7 +939,7 @@ export default {
       line-height: 130%;
 
       &-special {
-        color: #ff860e;
+        color: #3e00ff;
       }
 
       &-p {
