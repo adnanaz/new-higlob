@@ -46,8 +46,8 @@
               >
                 <!-- List Visi Perusahaan -->
                 <ul
-                  v-for="(item, index) in visi_perusahaan"
-                  :key="index"
+                  v-for="(item, idx) in visi_perusahaan"
+                  :key="idx"
                   style="list-style-type: none"
                 >
                   <li>
@@ -606,36 +606,35 @@ export default {
           return ''
       }
     },
-  },
+    visi_judul() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 'font-size:22px;color:red!important'
+        case 'sm':
+          return 'font-size:'
+        case 'md':
+          return ''
+        case 'lg':
+          return ''
+        case 'xl':
+          return ''
+      }
+    },
 
-  visi_judul() {
-    switch (this.$vuetify.breakpoint.name) {
-      case 'xs':
-        return 'font-size:22px;color:red!important'
-      case 'sm':
-        return 'font-size:'
-      case 'md':
-        return ''
-      case 'lg':
-        return ''
-      case 'xl':
-        return ''
-    }
-  },
-
-  visi_isi() {
-    switch (this.$vuetify.breakpoint.name) {
-      case 'xs':
-        return 'font-size:14px;line-height:2rem;text-align:center'
-      case 'sm':
-        return 'font-size:'
-      case 'md':
-        return ''
-      case 'lg':
-        return ''
-      case 'xl':
-        return ''
-    }
+    visi_isi() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 'font-size:14px;line-height:2rem;text-align:center'
+        case 'sm':
+          return 'font-size:'
+        case 'md':
+          return ''
+        case 'lg':
+          return ''
+        case 'xl':
+          return ''
+      }
+    },
   },
 }
 </script>

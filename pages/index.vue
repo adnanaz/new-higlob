@@ -797,7 +797,7 @@ export default {
 }
 
 .container__text {
-  margin-top: 7rem;
+  margin-top: 10rem;
 }
 
 .container3__text {

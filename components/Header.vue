@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-app-bar
+      :height="$vuetify.breakpoint.mdAndUp ? '100' : ''"
       absolute
       color="white"
       elevate-on-scroll
@@ -51,7 +52,7 @@
             style="text-decoration: none; color: black"
             to="#"
           >
-            <v-menu open-on-hover transition="slide-y-transition" bottom>
+            <v-menu transition="slide-y-transition" bottom>
               <template v-slot:activator="{ on, attrs }">
                 <div class="nuxt__link ma-2" v-on="on" v-bind="attrs">
                   Layanan <v-icon color="black">mdi-chevron-down</v-icon>
@@ -59,9 +60,11 @@
               </template>
               <v-list>
                 <v-list-item v-for="(item, i) in items" :key="i">
-                  <v-list-item-title class="lang">{{
-                    item.title
-                  }}</v-list-item-title>
+                  <v-list-item-title class="lang">
+                    <NuxtLink style="color: black" :to="item.url">
+                      {{ item.title }}
+                    </NuxtLink></v-list-item-title
+                  >
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -149,7 +152,11 @@
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-list-item>
-                    <v-list-item-title>Persiapan Bahasa</v-list-item-title>
+                    <v-list-item-title>
+                      <NuxtLink to="maintenance" class="black--text">
+                        Persiapan Bahasa
+                      </NuxtLink></v-list-item-title
+                    >
                   </v-list-item>
                   <!-- <v-list-item>
                     <v-list-item-title
@@ -157,7 +164,11 @@
                     >
                   </v-list-item> -->
                   <v-list-item>
-                    <v-list-item-title>Working Holiday</v-list-item-title>
+                    <v-list-item-title>
+                      <NuxtLink to="maintenance" class="black--text"
+                        >Working Holiday
+                      </NuxtLink></v-list-item-title
+                    >
                   </v-list-item>
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -171,10 +182,14 @@
             <v-list-item-title>Berita</v-list-item-title>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title>Tentang Kami</v-list-item-title>
+            <NuxtLink to="maintenance" class="black--text">
+              <v-list-item-title>Tentang Kami</v-list-item-title>
+            </NuxtLink>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title>Kontak</v-list-item-title>
+            <NuxtLink to="maintenance" class="black--text">
+              <v-list-item-title>Kontak</v-list-item-title>
+            </NuxtLink>
           </v-list-item>
 
           <v-list-item>
@@ -216,7 +231,10 @@ export default {
       ],
       group: null,
       drawer: false,
-      items: [{ title: 'Persiapan Bahasa' }, { title: 'Working Holiday' }],
+      items: [
+        { title: 'Persiapan Bahasa', url: 'maintenance' },
+        { title: 'Working Holiday', url: 'maintenance' },
+      ],
     }
   },
   mounted() {
@@ -231,15 +249,15 @@ export default {
         },
         {
           label: 'Berita',
-          link: '/',
+          link: '/maintenance',
         },
         {
           label: 'Tentang Kami',
-          link: '/tentang-kami',
+          link: '/maintenance',
         },
         {
           label: 'Kontak',
-          link: '/Kontak',
+          link: '/maintenance',
         },
       ]
     },
