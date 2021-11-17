@@ -113,9 +113,9 @@
             <li>
               <img
                 id="angel-card"
-                class="card-gambar"
+                class="card-gambar mx-auto"
                 :src="require(`@/assets/images/${item.berita_url}`)"
-                :style="cardberita_gambar"
+                :style="card_berita_gambar"
                 alt=""
                 style=""
               />
@@ -265,10 +265,10 @@ export default {
           return 'max-width:37rem'
       }
     },
-    cardberita_gambar() {
+    card_berita_gambar() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          return 'max-height:240px;padding-left:0.6rem'
+          return 'max-height:240px;text-align:center'
         case 'sm':
           return 'max-height:168px'
         case 'md':
@@ -364,6 +364,9 @@ p.p-section3 {
       line-height: 28px;
       width: 90%;
       font-size: 15px;
+    }
+    .section-3 {
+      padding-left: 2rem !important;
     }
   }
 }

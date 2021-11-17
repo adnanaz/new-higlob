@@ -1,39 +1,288 @@
 <template>
-  <v-container>
-    <section>
-      <!-- Banner 1 -->
-      <br />
-      <br />
-      <br />
-      <br />
-      <div class="d-flex justify-center">
-        <v-card
-          class="banner-1 pa-4"
-          max-width="1200"
-          max-height="160"
-          style="border-radius: 17px"
-          :style="banner1_tentangkami"
-        >
-          <v-card-title class="card-judul" :style="card_judul">
-            Company Profile LPK Higlob
-          </v-card-title>
-          <v-card-text class="card-isi" :style="card_isi">
-            LPK Higlob di dirikan pada tahun 2014 yang bergerak di bidang kursus
-            bahasa jepang, magang ke jepang, Pelatihan in house, Program
-            pelatihan eknis dan lain-lainya.
-          </v-card-text>
-        </v-card>
-        <br />
-        <br />
-      </div>
-      <!-- end Banner 1 -->
-
-      <!-- Section 1 -->
-      <br />
-      <br />
+  <div>
+    <v-container>
       <section>
-        <div>
+        <!-- Banner 1 -->
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="d-flex justify-center">
+          <v-card
+            class="banner-1 pa-4"
+            max-width="1200"
+            max-height="160"
+            style="border-radius: 17px"
+            :style="banner1_tentangkami"
+          >
+            <v-card-title class="card-judul" :style="card_judul">
+              Company Profile LPK Higlob
+            </v-card-title>
+            <v-card-text class="card-isi" :style="card_isi">
+              LPK Higlob di dirikan pada tahun 2014 yang bergerak di bidang
+              kursus bahasa jepang, magang ke jepang, Pelatihan in house,
+              Program pelatihan eknis dan lain-lainya.
+            </v-card-text>
+          </v-card>
+          <br />
+          <br />
+        </div>
+        <!-- end Banner 1 -->
+
+        <!-- Section 1 -->
+        <br />
+        <br />
+        <section>
+          <div>
+            <v-row>
+              <v-col
+                cols="12"
+                xs="12"
+                sm="12"
+                md="7"
+                lg="7"
+                xl="7"
+                class="list-section1 order-sm-1"
+              >
+                <!-- List Visi Perusahaan -->
+                <ul
+                  v-for="(item, index) in visi_perusahaan"
+                  :key="index"
+                  style="list-style-type: none"
+                >
+                  <li>
+                    <h2 :style="visi_judul">
+                      {{ item.judul_visi }}
+                    </h2>
+                  </li>
+                  <li :style="visi_isi">
+                    <p>{{ item.isi_visi }}</p>
+                  </li>
+                </ul>
+                <!-- End Visi Perusahaan -->
+
+                <!-- List Misi Perusahaan -->
+                <ul
+                  v-for="(item, index) in misi_perusahaan"
+                  :key="index"
+                  style="list-style-type: none"
+                >
+                  <li>
+                    <h2 :style="visi_judul">{{ item.judul_misi }}</h2>
+                  </li>
+
+                  <li>
+                    <p>
+                      {{ item.isi_misi }}
+                    </p>
+                  </li>
+                </ul>
+                <!-- End Misi Perusahaan -->
+              </v-col>
+              <v-col
+                cols="12"
+                xs="12"
+                sm="12"
+                md="5"
+                lg="5"
+                xl="5"
+                class="order-sm-2 gambar-visimisi"
+              >
+                <v-img
+                  :src="require('@/assets/images/section1-tentangkami.png')"
+                  style=""
+                ></v-img>
+              </v-col>
+            </v-row>
+            <br />
+            <br />
+          </div>
+        </section>
+        <!-- END Section 1 -->
+
+        <!-- Section 2 -->
+
+        <!-- heading 2 -->
+        <section>
+          <div class="heading2 text-center">
+            <h1 class="h1-heading2" style="font-family: 'poppins'">
+              Syarat dan ketentuan magang Jepang LPK Higlob
+            </h1>
+            <br /><br />
+          </div>
+
+          <!-- End Heading 2 -->
+
           <v-row>
+            <v-col
+              class="order-3 order-sm-3 order-md-1 gambar-section3"
+              cols="12"
+              xs="12"
+              sm="12"
+              md="4"
+              lg="4"
+              xl="4"
+            >
+              <v-img
+                :src="require('@/assets/images/section3-tentangkami.png')"
+              ></v-img>
+            </v-col>
+            <v-col
+              class="order-1 order-sm-1 order-md-2"
+              cols="12"
+              xs="12"
+              sm="12"
+              md="4"
+              lg="4"
+              xl="4"
+            >
+              <!-- List Persyaratan -->
+
+              <ul
+                v-for="(item, index) in persyaratan_umum"
+                :key="index"
+                class="col-tentangkami"
+                style="list-style-type: none"
+              >
+                <li>
+                  <h2
+                    class="h2-keseluruhan"
+                    style="
+                      font-family: 'poppins';
+                      font-size: 18px;
+                      font-weight: 600;
+                      font-style: normal;
+                    "
+                  >
+                    {{ item.judul_persyaratan }}
+                  </h2>
+                </li>
+
+                <li class="ul-tentangkami">
+                  <p
+                    class="p-keseluruhan"
+                    style="display: inline-flex; font-family: 'poppins'"
+                  >
+                    <v-img
+                      :src="require('@/assets/images/checklist.svg')"
+                      style="width: 25px; height: 24px; margin-right: 0.8rem"
+                    ></v-img>
+                    {{ item.isi_persyaratan }}
+                  </p>
+                </li>
+              </ul>
+              <!-- End List Pertanyaan -->
+            </v-col>
+            <v-col
+              cols="12"
+              xs="12"
+              sm="12"
+              md="4"
+              lg="4"
+              xl="4"
+              class="col-tentangkami order-2 order-sm-2 order-md-3"
+            >
+              <!-- List Catatan Khusus -->
+              <ul
+                v-for="(item, index) in catatan_khusus"
+                :key="index"
+                style="list-style-type: none"
+              >
+                <li>
+                  <h2
+                    class="h2-keseluruhan"
+                    style="
+                      font-family: 'poppins';
+                      font-size: 18px;
+                      font-weight: 600;
+                      font-style: normal;
+                    "
+                  >
+                    {{ item.judul_catatan }}
+                  </h2>
+                </li>
+
+                <li>
+                  <p
+                    class="p-keseluruhan"
+                    style="display: inline-flex; font-family: 'poppins'"
+                  >
+                    <v-img
+                      :src="require('@/assets/images/checklist.svg')"
+                      style="width: 25px; height: 24px; margin-right: 0.8rem"
+                    ></v-img>
+                    {{ item.isi_catatan }}
+                  </p>
+                </li>
+              </ul>
+
+              <!-- End List Catatan Khusus -->
+            </v-col>
+          </v-row>
+        </section>
+
+        <!-- End Section 2 -->
+
+        <!-- Section Persyaratan -->
+        <section fluid>
+          <v-row>
+            <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
+              <!-- List Persyaratan Khusus -->
+              <ul
+                v-for="(item, index) in persyaratan_khusus"
+                :key="index"
+                class="col-tentangkami"
+                style="list-style-type: none"
+              >
+                <li>
+                  <h2
+                    class="h2-keseluruhan"
+                    style="
+                      font-family: 'poppins';
+                      font-size: 18px;
+                      font-weight: 600;
+                      font-style: normal;
+                    "
+                  >
+                    {{ item.judul_persyaratan }}
+                  </h2>
+                </li>
+
+                <li class="ul-tentangkami">
+                  <p
+                    class="p-keseluruhan"
+                    style="display: inline-flex; font-family: 'poppins'"
+                  >
+                    <v-img
+                      :src="require('@/assets/images/checklist.svg')"
+                      style="width: 25px; height: 24px; margin-right: 0.8rem"
+                    ></v-img>
+                    {{ item.isi_persyaratan }}
+                  </p>
+                </li>
+              </ul>
+              <!-- end List Persyaratan Khusus -->
+
+              <v-btn
+                style="
+                  font-family: 'Poppins', sans-serif;
+                  margin-left: 4rem;
+                  margin-top: 1.5rem;
+                "
+                align-end
+                color="#3E00FF"
+                large
+                elevation="4"
+                ><v-img
+                  left
+                  :src="require('@/assets/images/download.png')"
+                ></v-img
+                ><span class="white--text text-capitalize mx-2">
+                  Download Brosur</span
+                >
+              </v-btn>
+            </v-col>
+
             <v-col
               cols="12"
               xs="12"
@@ -41,356 +290,110 @@
               md="7"
               lg="7"
               xl="7"
-              class="list-section1 order-sm-1"
-            >
-              <!-- List Visi Perusahaan -->
-              <ul
-                v-for="(item, index) in visi_perusahaan"
-                :key="index"
-                style="list-style-type: none"
-              >
-                <li>
-                  <h2 :style="visi_judul">
-                    {{ item.judul_visi }}
-                  </h2>
-                </li>
-                <li :style="visi_isi">
-                  <p>{{ item.isi_visi }}</p>
-                </li>
-              </ul>
-              <!-- End Visi Perusahaan -->
-
-              <!-- List Misi Perusahaan -->
-              <ul
-                v-for="(item, index) in misi_perusahaan"
-                :key="index"
-                style="list-style-type: none"
-              >
-                <li>
-                  <h2 :style="visi_judul">{{ item.judul_misi }}</h2>
-                </li>
-
-                <li>
-                  <p>
-                    {{ item.isi_misi }}
-                  </p>
-                </li>
-              </ul>
-              <!-- End Misi Perusahaan -->
-            </v-col>
-            <v-col
-              cols="12"
-              xs="12"
-              sm="12"
-              md="5"
-              lg="5"
-              xl="5"
-              class="order-sm-2 gambar-visimisi"
+              class="gambar-persyaratan"
             >
               <v-img
-                :src="require('@/assets/images/section1-tentangkami.png')"
+                :src="require('@/assets/images/persyaratan-tentangkami.png')"
                 style=""
               ></v-img>
             </v-col>
           </v-row>
+        </section>
+        <!-- End Section Persyaratan -->
+
+        <!-- Start Pimpinan LPK -->
+        <section>
+          <h1 class="h1-pimpinan text-center">Pimpinan LPK Higlob</h1>
+          <p class="p-pimpinan text-center">
+            Pimpinan dari LPK Higlob yang telah membangun lembaga <br />menjadi
+            berkembang
+          </p>
           <br />
-          <br />
-        </div>
-      </section>
-      <!-- END Section 1 -->
 
-      <!-- Section 2 -->
-
-      <!-- heading 2 -->
-      <section>
-        <div class="heading2 text-center">
-          <h1 class="h1-heading2" style="font-family: 'poppins'">
-            Syarat dan ketentuan magang Jepang LPK Higlob
-          </h1>
-          <br /><br />
-        </div>
-
-        <!-- End Heading 2 -->
-
-        <v-row>
-          <v-col
-            class="order-3 order-sm-3 order-md-1 gambar-section3"
-            cols="12"
-            xs="12"
-            sm="12"
-            md="4"
-            lg="4"
-            xl="4"
-          >
-            <v-img
-              :src="require('@/assets/images/section3-tentangkami.png')"
-            ></v-img>
-          </v-col>
-          <v-col
-            class="order-1 order-sm-1 order-md-2"
-            cols="12"
-            xs="12"
-            sm="12"
-            md="4"
-            lg="4"
-            xl="4"
-          >
-            <!-- List Persyaratan -->
-
-            <ul
-              v-for="(item, index) in persyaratan_umum"
+          <v-row>
+            <v-col
+              v-for="(item, index) in pimpinan_lpk"
               :key="index"
-              class="col-tentangkami"
-              style="list-style-type: none"
+              cols="6"
+              xs="6"
+              sm="3"
+              md="3"
+              lg="3"
+              xl="3"
             >
-              <li>
-                <h2
-                  class="h2-keseluruhan"
-                  style="
-                    font-family: 'poppins';
-                    font-size: 18px;
-                    font-weight: 600;
-                    font-style: normal;
-                  "
-                >
-                  {{ item.judul_persyaratan }}
-                </h2>
-              </li>
-
-              <li class="ul-tentangkami">
-                <p
-                  class="p-keseluruhan"
-                  style="display: inline-flex; font-family: 'poppins'"
-                >
+              <ul class="text-center" style="list-style-type: none">
+                <li>
                   <v-img
-                    :src="require('@/assets/images/checklist.svg')"
-                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                    :src="require(`@/assets/images/${item.gambar_pimpinan}`)"
                   ></v-img>
-                  {{ item.isi_persyaratan }}
-                </p>
-              </li>
-            </ul>
-            <!-- End List Pertanyaan -->
-          </v-col>
-          <v-col
-            cols="12"
-            xs="12"
-            sm="12"
-            md="4"
-            lg="4"
-            xl="4"
-            class="col-tentangkami order-2 order-sm-2 order-md-3"
-          >
-            <!-- List Catatan Khusus -->
-            <ul
-              v-for="(item, index) in catatan_khusus"
-              :key="index"
-              style="list-style-type: none"
-            >
-              <li>
-                <h2
-                  class="h2-keseluruhan"
-                  style="
-                    font-family: 'poppins';
-                    font-size: 18px;
-                    font-weight: 600;
-                    font-style: normal;
-                  "
-                >
-                  {{ item.judul_catatan }}
-                </h2>
-              </li>
+                </li>
+                <li>
+                  <h4 class="h4-pimpinancard">{{ item.nama_pimpinan }}</h4>
+                </li>
+                <li>
+                  <p class="p-pimpinancard">{{ item.jabatan_pimpinan }}</p>
+                </li>
+              </ul>
+            </v-col>
+          </v-row>
+        </section>
+        <!-- END Pimpinan LPK Higlob -->
 
-              <li>
-                <p
-                  class="p-keseluruhan"
-                  style="display: inline-flex; font-family: 'poppins'"
-                >
-                  <v-img
-                    :src="require('@/assets/images/checklist.svg')"
-                    style="width: 25px; height: 24px; margin-right: 0.8rem"
-                  ></v-img>
-                  {{ item.isi_catatan }}
-                </p>
-              </li>
-            </ul>
+        <!-- Start Team IT Development -->
+        <section class="mb-5">
+          <v-spacer>
+            <div class="">
+              <h1 class="h1-teamit">
+                Team IT Development <br />
+                Kami
+              </h1>
+              <br />
+            </div>
 
-            <!-- End List Catatan Khusus -->
-          </v-col>
-        </v-row>
-      </section>
-
-      <!-- End Section 3 -->
-
-      <!-- Section Persyaratan -->
-      <section fluid style="background-color: red">
-        <v-row>
-          <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-            <!-- List Persyaratan Khusus -->
-            <ul
-              v-for="(item, index) in persyaratan_khusus"
-              :key="index"
-              class="col-tentangkami"
-              style="list-style-type: none"
-            >
-              <li>
-                <h2
-                  class="h2-keseluruhan"
-                  style="
-                    font-family: 'poppins';
-                    font-size: 18px;
-                    font-weight: 600;
-                    font-style: normal;
-                  "
-                >
-                  {{ item.judul_persyaratan }}
-                </h2>
-              </li>
-
-              <li class="ul-tentangkami">
-                <p
-                  class="p-keseluruhan"
-                  style="display: inline-flex; font-family: 'poppins'"
-                >
-                  <v-img
-                    :src="require('@/assets/images/checklist.svg')"
-                    style="width: 25px; height: 24px; margin-right: 0.8rem"
-                  ></v-img>
-                  {{ item.isi_persyaratan }}
-                </p>
-              </li>
-            </ul>
-            <!-- end List Persyaratan Khusus -->
-
-            <v-btn
-              style="
-                font-family: 'Poppins', sans-serif;
-                margin-left: 4rem;
-                margin-top: 1.5rem;
-              "
-              align-end
-              color="#3E00FF"
-              large
-              elevation="4"
-              ><v-img
-                left
-                :src="require('@/assets/images/download.png')"
-              ></v-img
-              ><span class="white--text text-capitalize mx-2">
-                Download Brosur</span
-              >
-            </v-btn>
-          </v-col>
-
-          <v-col
-            cols="12"
-            xs="12"
-            sm="12"
-            md="7"
-            lg="7"
-            xl="7"
-            class="gambar-persyaratan"
-          >
-            <v-img
-              :src="require('@/assets/images/persyaratan-tentangkami.png')"
-              style=""
-            ></v-img>
-          </v-col>
-        </v-row>
-      </section>
-      <!-- End Section Persyaratan -->
-
-      <!-- Start Pimpinan LPK -->
-      <section>
-        <h1 class="h1-pimpinan text-center">Pimpinan LPK Higlob</h1>
-        <p class="p-pimpinan text-center">
-          Pimpinan dari LPK Higlob yang telah membangun lembaga <br />menjadi
-          berkembang
-        </p>
-        <br />
-
-        <v-row>
-          <v-col
-            v-for="(item, index) in pimpinan_lpk"
-            :key="index"
-            cols="6"
-            xs="6"
-            sm="3"
-            md="3"
-            lg="3"
-            xl="3"
-          >
-            <ul class="text-center" style="list-style-type: none">
-              <li>
-                <v-img
-                  :src="require(`@/assets/images/${item.gambar_pimpinan}`)"
-                ></v-img>
-              </li>
-              <li>
-                <h4 class="h4-pimpinancard">{{ item.nama_pimpinan }}</h4>
-              </li>
-              <li>
-                <p class="p-pimpinancard">{{ item.jabatan_pimpinan }}</p>
-              </li>
-            </ul>
-          </v-col>
-        </v-row>
-      </section>
-      <!-- END Pimpinan LPK Higlob -->
-
-      <!-- Start Team IT Development -->
-      <section>
-        <v-spacer>
-          <div class="">
-            <h1 class="h1-teamit">
-              Team IT Development <br />
-              Kami
-            </h1>
+            <div class="p-teamit">
+              <p>
+                Dalam pengembangan tidak dilakukan oleh satu orang dengan ini
+                kami menyelesaikan secara bersama disinilah kami team IT
+                Development
+              </p>
+            </div>
             <br />
-          </div>
+          </v-spacer>
 
-          <div class="p-teamit">
-            <p>
-              Dalam pengembangan tidak dilakukan oleh satu orang dengan ini kami
-              menyelesaikan secara bersama disinilah kami team IT Development
-            </p>
-          </div>
-          <br />
-        </v-spacer>
-
-        <v-row class="justify-center float-none">
-          <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
-            <ul class="text-center" style="list-style-type: none">
-              <li>
-                <v-img :src="require('@/assets/images/adnan.png')"></v-img>
-              </li>
-              <li><h4 class="h4-pimpinancard">Adnan Aziz Dani</h4></li>
-              <li><p class="p-pimpinancard">Front End Develpoment</p></li>
-            </ul>
-          </v-col>
-          <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
-            <ul class="text-center" style="list-style-type: none">
-              <li>
-                <v-img :src="require('@/assets/images/fahreza.png')"></v-img>
-              </li>
-              <li><h4 class="h4-pimpinancard">Fahreza Adi Saputra</h4></li>
-              <li><p class="p-pimpinancard">Front End Development</p></li>
-            </ul>
-          </v-col>
-          <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
-            <ul class="text-center" style="list-style-type: none">
-              <li>
-                <v-img :src="require('@/assets/images/lupek.png')"></v-img>
-              </li>
-              <li><h4 class="h4-pimpinancard">Lutfi Surachman</h4></li>
-              <li><p class="p-pimpinancard">UI/UX Designer</p></li>
-            </ul>
-          </v-col>
-        </v-row>
+          <v-row class="justify-center float-none">
+            <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
+              <ul class="text-center" style="list-style-type: none">
+                <li>
+                  <v-img :src="require('@/assets/images/adnan.png')"></v-img>
+                </li>
+                <li><h4 class="h4-pimpinancard">Adnan Aziz Dani</h4></li>
+                <li><p class="p-pimpinancard">Front End Develpoment</p></li>
+              </ul>
+            </v-col>
+            <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
+              <ul class="text-center" style="list-style-type: none">
+                <li>
+                  <v-img :src="require('@/assets/images/fahreza.png')"></v-img>
+                </li>
+                <li><h4 class="h4-pimpinancard">Fahreza Adi Saputra</h4></li>
+                <li><p class="p-pimpinancard">Front End Development</p></li>
+              </ul>
+            </v-col>
+            <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
+              <ul class="text-center" style="list-style-type: none">
+                <li>
+                  <v-img :src="require('@/assets/images/lupek.png')"></v-img>
+                </li>
+                <li><h4 class="h4-pimpinancard">Lutfi Surachman</h4></li>
+                <li><p class="p-pimpinancard">UI/UX Designer</p></li>
+              </ul>
+            </v-col>
+          </v-row>
+        </section>
+        <!-- END Team IT Development -->
       </section>
-      <!-- END Team IT Development -->
-    </section>
-  </v-container>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -766,8 +769,6 @@ export default {
   .list-section1 p {
     font-size: 12px;
     text-align: center;
-  }
-  .h1-heading2 {
   }
 
   .h2-keseluruhan {
