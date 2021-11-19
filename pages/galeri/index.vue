@@ -499,6 +499,14 @@ export default {
 </script>
 
 <style lang="scss">
+@media screen and (min-width: 1904px) {
+  .v-image.v-responsive.theme--light {
+    max-height: 35rem;
+  }
+  .v-card.v-sheet.theme--light {
+    width: 18rem;
+  }
+}
 .gallery {
   margin-top: 5rem;
   &__title {

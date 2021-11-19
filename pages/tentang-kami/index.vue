@@ -9,9 +9,8 @@
         <br />
         <div class="d-flex justify-center">
           <v-card
-            class="banner-1 pa-4"
-            max-width="1200"
-            max-height="160"
+            elevation="0"
+            class="banner-1 pa-4 mb-5"
             style="border-radius: 17px"
             :style="banner1_tentangkami"
           >
@@ -27,262 +26,16 @@
           <br />
           <br />
         </div>
-        <!-- end Banner 1 -->
+      </section>
+    </v-container>
+    <!-- end Banner 1 -->
 
-        <!-- Section 1 -->
-        <br />
-        <br />
-        <section>
-          <div>
-            <v-row>
-              <v-col
-                cols="12"
-                xs="12"
-                sm="12"
-                md="7"
-                lg="7"
-                xl="7"
-                class="list-section1 order-sm-1"
-              >
-                <!-- List Visi Perusahaan -->
-                <ul
-                  v-for="(item, idx) in visi_perusahaan"
-                  :key="idx"
-                  style="list-style-type: none"
-                >
-                  <li>
-                    <h2 :style="visi_judul">
-                      {{ item.judul_visi }}
-                    </h2>
-                  </li>
-                  <li :style="visi_isi">
-                    <p>{{ item.isi_visi }}</p>
-                  </li>
-                </ul>
-                <!-- End Visi Perusahaan -->
+    <!-- Section 1 -->
 
-                <!-- List Misi Perusahaan -->
-                <ul
-                  v-for="(item, index) in misi_perusahaan"
-                  :key="index"
-                  style="list-style-type: none"
-                >
-                  <li>
-                    <h2 :style="visi_judul">{{ item.judul_misi }}</h2>
-                  </li>
-
-                  <li>
-                    <p>
-                      {{ item.isi_misi }}
-                    </p>
-                  </li>
-                </ul>
-                <!-- End Misi Perusahaan -->
-              </v-col>
-              <v-col
-                cols="12"
-                xs="12"
-                sm="12"
-                md="5"
-                lg="5"
-                xl="5"
-                class="order-sm-2 gambar-visimisi"
-              >
-                <v-img
-                  :src="require('@/assets/images/section1-tentangkami.png')"
-                  style=""
-                ></v-img>
-              </v-col>
-            </v-row>
-            <br />
-            <br />
-          </div>
-        </section>
-        <!-- END Section 1 -->
-
-        <!-- Section 2 -->
-
-        <!-- heading 2 -->
-        <section>
-          <div class="heading2 text-center">
-            <h1 class="h1-heading2" style="font-family: 'poppins'">
-              Syarat dan ketentuan magang Jepang LPK Higlob
-            </h1>
-            <br /><br />
-          </div>
-
-          <!-- End Heading 2 -->
-
+    <v-container>
+      <section>
+        <div>
           <v-row>
-            <v-col
-              class="order-3 order-sm-3 order-md-1 gambar-section3"
-              cols="12"
-              xs="12"
-              sm="12"
-              md="4"
-              lg="4"
-              xl="4"
-            >
-              <v-img
-                :src="require('@/assets/images/section3-tentangkami.png')"
-              ></v-img>
-            </v-col>
-            <v-col
-              class="order-1 order-sm-1 order-md-2"
-              cols="12"
-              xs="12"
-              sm="12"
-              md="4"
-              lg="4"
-              xl="4"
-            >
-              <!-- List Persyaratan -->
-
-              <ul
-                v-for="(item, index) in persyaratan_umum"
-                :key="index"
-                class="col-tentangkami"
-                style="list-style-type: none"
-              >
-                <li>
-                  <h2
-                    class="h2-keseluruhan"
-                    style="
-                      font-family: 'poppins';
-                      font-size: 18px;
-                      font-weight: 600;
-                      font-style: normal;
-                    "
-                  >
-                    {{ item.judul_persyaratan }}
-                  </h2>
-                </li>
-
-                <li class="ul-tentangkami">
-                  <p
-                    class="p-keseluruhan"
-                    style="display: inline-flex; font-family: 'poppins'"
-                  >
-                    <v-img
-                      :src="require('@/assets/images/checklist.svg')"
-                      style="width: 25px; height: 24px; margin-right: 0.8rem"
-                    ></v-img>
-                    {{ item.isi_persyaratan }}
-                  </p>
-                </li>
-              </ul>
-              <!-- End List Pertanyaan -->
-            </v-col>
-            <v-col
-              cols="12"
-              xs="12"
-              sm="12"
-              md="4"
-              lg="4"
-              xl="4"
-              class="col-tentangkami order-2 order-sm-2 order-md-3"
-            >
-              <!-- List Catatan Khusus -->
-              <ul
-                v-for="(item, index) in catatan_khusus"
-                :key="index"
-                style="list-style-type: none"
-              >
-                <li>
-                  <h2
-                    class="h2-keseluruhan"
-                    style="
-                      font-family: 'poppins';
-                      font-size: 18px;
-                      font-weight: 600;
-                      font-style: normal;
-                    "
-                  >
-                    {{ item.judul_catatan }}
-                  </h2>
-                </li>
-
-                <li>
-                  <p
-                    class="p-keseluruhan"
-                    style="display: inline-flex; font-family: 'poppins'"
-                  >
-                    <v-img
-                      :src="require('@/assets/images/checklist.svg')"
-                      style="width: 25px; height: 24px; margin-right: 0.8rem"
-                    ></v-img>
-                    {{ item.isi_catatan }}
-                  </p>
-                </li>
-              </ul>
-
-              <!-- End List Catatan Khusus -->
-            </v-col>
-          </v-row>
-        </section>
-
-        <!-- End Section 2 -->
-
-        <!-- Section Persyaratan -->
-        <section fluid>
-          <v-row>
-            <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
-              <!-- List Persyaratan Khusus -->
-              <ul
-                v-for="(item, index) in persyaratan_khusus"
-                :key="index"
-                class="col-tentangkami"
-                style="list-style-type: none"
-              >
-                <li>
-                  <h2
-                    class="h2-keseluruhan"
-                    style="
-                      font-family: 'poppins';
-                      font-size: 18px;
-                      font-weight: 600;
-                      font-style: normal;
-                    "
-                  >
-                    {{ item.judul_persyaratan }}
-                  </h2>
-                </li>
-
-                <li class="ul-tentangkami">
-                  <p
-                    class="p-keseluruhan"
-                    style="display: inline-flex; font-family: 'poppins'"
-                  >
-                    <v-img
-                      :src="require('@/assets/images/checklist.svg')"
-                      style="width: 25px; height: 24px; margin-right: 0.8rem"
-                    ></v-img>
-                    {{ item.isi_persyaratan }}
-                  </p>
-                </li>
-              </ul>
-              <!-- end List Persyaratan Khusus -->
-
-              <v-btn
-                style="
-                  font-family: 'Poppins', sans-serif;
-                  margin-left: 4rem;
-                  margin-top: 1.5rem;
-                "
-                align-end
-                color="#3E00FF"
-                large
-                elevation="4"
-                ><v-img
-                  left
-                  :src="require('@/assets/images/download.png')"
-                ></v-img
-                ><span class="white--text text-capitalize mx-2">
-                  Download Brosur</span
-                >
-              </v-btn>
-            </v-col>
-
             <v-col
               cols="12"
               xs="12"
@@ -290,108 +43,594 @@
               md="7"
               lg="7"
               xl="7"
-              class="gambar-persyaratan"
+              class="list-section1 order-sm-1 pt-7"
+            >
+              <!-- List Visi Perusahaan -->
+              <ul
+                v-for="(item, idx) in visi_perusahaan"
+                :key="idx"
+                style="list-style-type: none"
+              >
+                <li>
+                  <h2 :style="visi_judul">
+                    {{ item.judul_visi }}
+                  </h2>
+                </li>
+                <li :style="visi_isi">
+                  <p>{{ item.isi_visi }}</p>
+                </li>
+              </ul>
+              <br />
+              <!-- End Visi Perusahaan -->
+
+              <!-- List Misi Perusahaan -->
+              <ul
+                class=""
+                v-for="(item, index) in misi_perusahaan"
+                :key="index"
+                style="list-style-type: none"
+              >
+                <li>
+                  <h2 :style="visi_judul">{{ item.judul_misi }}</h2>
+                </li>
+
+                <li>
+                  <p>
+                    {{ item.isi_misi }}
+                  </p>
+                </li>
+              </ul>
+              <!-- End Misi Perusahaan -->
+            </v-col>
+            <v-col
+              cols="12"
+              xs="12"
+              sm="12"
+              md="5"
+              lg="5"
+              xl="5"
+              class="order-sm-2 gambar-visimisi"
             >
               <v-img
-                :src="require('@/assets/images/persyaratan-tentangkami.png')"
+                class="gambar-visimisi-ijo"
+                :src="require('@/assets/images/section1-tentangkami.png')"
                 style=""
               ></v-img>
             </v-col>
           </v-row>
-        </section>
-        <!-- End Section Persyaratan -->
-
-        <!-- Start Pimpinan LPK -->
-        <section>
-          <h1 class="h1-pimpinan text-center">Pimpinan LPK Higlob</h1>
-          <p class="p-pimpinan text-center">
-            Pimpinan dari LPK Higlob yang telah membangun lembaga <br />menjadi
-            berkembang
-          </p>
           <br />
-
-          <v-row>
-            <v-col
-              v-for="(item, index) in pimpinan_lpk"
-              :key="index"
-              cols="6"
-              xs="6"
-              sm="3"
-              md="3"
-              lg="3"
-              xl="3"
-            >
-              <ul class="text-center" style="list-style-type: none">
-                <li>
-                  <v-img
-                    :src="require(`@/assets/images/${item.gambar_pimpinan}`)"
-                  ></v-img>
-                </li>
-                <li>
-                  <h4 class="h4-pimpinancard">{{ item.nama_pimpinan }}</h4>
-                </li>
-                <li>
-                  <p class="p-pimpinancard">{{ item.jabatan_pimpinan }}</p>
-                </li>
-              </ul>
-            </v-col>
-          </v-row>
-        </section>
-        <!-- END Pimpinan LPK Higlob -->
-
-        <!-- Start Team IT Development -->
-        <section class="mb-5">
-          <v-spacer>
-            <div class="">
-              <h1 class="h1-teamit">
-                Team IT Development <br />
-                Kami
-              </h1>
-              <br />
-            </div>
-
-            <div class="p-teamit">
-              <p>
-                Dalam pengembangan tidak dilakukan oleh satu orang dengan ini
-                kami menyelesaikan secara bersama disinilah kami team IT
-                Development
-              </p>
-            </div>
-            <br />
-          </v-spacer>
-
-          <v-row class="justify-center float-none">
-            <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
-              <ul class="text-center" style="list-style-type: none">
-                <li>
-                  <v-img :src="require('@/assets/images/adnan.png')"></v-img>
-                </li>
-                <li><h4 class="h4-pimpinancard">Adnan Aziz Dani</h4></li>
-                <li><p class="p-pimpinancard">Front End Develpoment</p></li>
-              </ul>
-            </v-col>
-            <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
-              <ul class="text-center" style="list-style-type: none">
-                <li>
-                  <v-img :src="require('@/assets/images/fahreza.png')"></v-img>
-                </li>
-                <li><h4 class="h4-pimpinancard">Fahreza Adi Saputra</h4></li>
-                <li><p class="p-pimpinancard">Front End Development</p></li>
-              </ul>
-            </v-col>
-            <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
-              <ul class="text-center" style="list-style-type: none">
-                <li>
-                  <v-img :src="require('@/assets/images/lupek.png')"></v-img>
-                </li>
-                <li><h4 class="h4-pimpinancard">Lutfi Surachman</h4></li>
-                <li><p class="p-pimpinancard">UI/UX Designer</p></li>
-              </ul>
-            </v-col>
-          </v-row>
-        </section>
-        <!-- END Team IT Development -->
+          <br />
+        </div>
       </section>
+      <!-- END Section 1 -->
+    </v-container>
+    <!-- Section 2 -->
+    <v-container>
+      <!-- heading 2 -->
+      <section>
+        <div class="heading2 text-center">
+          <h1 class="h1-heading2" style="font-family: 'poppins'">
+            Syarat dan ketentuan magang<br />
+            Jepang LPK Higlob
+          </h1>
+          <br /><br />
+        </div>
+
+        <!-- End Heading 2 -->
+
+        <v-row>
+          <v-col
+            class="order-3 order-sm-3 order-md-1 gambar-section3"
+            cols="12"
+            xs="12"
+            sm="12"
+            md="4"
+            lg="4"
+            xl="4"
+          >
+            <v-img
+              class="gambar-persyaratan-angel"
+              :src="require('@/assets/images/section3-tentangkami.png')"
+            ></v-img>
+          </v-col>
+          <v-col
+            class="order-1 order-sm-1 order-md-2"
+            cols="12"
+            xs="12"
+            sm="12"
+            md="4"
+            lg="4"
+            xl="4"
+          >
+            <!-- List Persyaratan -->
+
+            <ul class="col-tentangkami" style="list-style-type: none">
+              <li>
+                <h2
+                  class="h2-keseluruhan mb-4"
+                  style="
+                    font-family: 'poppins';
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-style: normal;
+                  "
+                >
+                  Persyaratan Umum :
+                </h2>
+              </li>
+
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Laki-laki / Perempuan WNI Usia 18 - 27 Tahun
+                </p>
+              </li>
+
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Pendidikan terakhir minimal SMU/Sederajat
+                </p>
+              </li>
+
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Sehat Jasmani Rohani (Tidak cacat fisik maupun mental)
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Tinggi badan pria minimal (165cm) dan wanita (155cm)
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Laki-laki / Perempuan WNI Usia 18 - 27 Tahun
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Peserta benar - benar memiliki semangat dan kemauan yang untuk
+                  melakukan pelatihan
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Berdisiplin tinggi, mau mematuhi dan menaati peraturan yang
+                  ditetapkan LPK Higlob
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Belum pernah datang ke jepang sebagai training/Non Exc jepang
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Tidak cacat muka karna kriminal, patah tulang dan tidak
+                  bertato
+                </p>
+              </li>
+            </ul>
+            <!-- End List Pertanyaan -->
+          </v-col>
+          <v-col
+            cols="12"
+            xs="12"
+            sm="12"
+            md="4"
+            lg="4"
+            xl="4"
+            class="col-tentangkami order-2 order-sm-2 order-md-3"
+          >
+            <!-- List Catatan Khusus -->
+            <ul class="ul-khusus" style="list-style-type: none">
+              <li>
+                <h2
+                  class="h2-keseluruhan mb-4"
+                  style="
+                    font-family: 'poppins';
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-style: normal;
+                  "
+                >
+                  Catatan Khusus :
+                </h2>
+              </li>
+
+              <li>
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Calon peserta diharuskan memenuhi admnistrasi sebelum
+                  mengikuti program diklat
+                </p>
+              </li>
+              <li>
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Selama mengikuti pendidikan diklat peserta di wajibkan
+                  mengenakan kemeja putih, celana hitam bukan jeans, sepatu
+                  hitam dan dasi
+                </p>
+              </li>
+              <li>
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Menyediakan pakaian olahraga lengkap dengan sepatunya
+                </p>
+              </li>
+              <li>
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Peserta wajib mengikuti tata tertib yang ada di LPK Higlob
+                </p>
+              </li>
+            </ul>
+
+            <!-- End List Catatan Khusus -->
+          </v-col>
+        </v-row>
+      </section>
+    </v-container>
+
+    <!-- End Section 2 -->
+
+    <!-- Section Persyaratan -->
+    <v-container fluid style="background: #f8faff">
+      <section
+        class="mt-10"
+        :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
+      >
+        <v-row>
+          <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
+            <!-- List Persyaratan Khusus -->
+            <ul class="col-tentangkami" style="list-style-type: none">
+              <li>
+                <h2
+                  class="h2-keseluruhan mb-4"
+                  style="
+                    font-family: 'poppins';
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-style: normal;
+                  "
+                >
+                  Persyaratan Khusus :
+                </h2>
+              </li>
+
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Memiliki jiwa kewirausahaan yang tinggi
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Lolos seleksi yang diadakan oleh panitia, meliputi psikotes
+                  dan test wawancara
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Membayar administrasi peserta program magang
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Foto copy KK, KTP, Akter kelahiran, ijazah (SD-Terakhir)
+                  masing-masing 2 lembar
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Menyerahkan pas foto 3x4 (10 lembar) 4,5x4,5 (4 Lembar), 4x6
+                  (4 Lembar) Latar belakang Putih
+                </p>
+              </li>
+              <li class="ul-tentangkami">
+                <p
+                  class="p-keseluruhan"
+                  style="display: inline-flex; font-family: 'poppins'"
+                >
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img>
+                  Menyerahkan hasil pemeriksaan kesehatan (Medical Check Up)
+                  termasuk gigi ke intensi kesehatan yang telah ditunjuk pihak
+                  LPK Higlob
+                </p>
+              </li>
+            </ul>
+            <!-- end List Persyaratan Khusus -->
+
+            <v-btn
+              style="
+                font-family: 'Poppins', sans-serif;
+                margin-left: 4rem;
+                margin-top: 0.2rem;
+              "
+              class="mb-10 py-6"
+              align-end
+              color="#3E00FF"
+              large
+              elevation="0"
+              ><v-img
+                left
+                :src="require('@/assets/images/download.png')"
+              ></v-img
+              ><span
+                class="white--text text-capitalize mx-2"
+                style="font-weight: 400"
+              >
+                Download Brosur</span
+              >
+            </v-btn>
+          </v-col>
+
+          <v-col
+            cols="12"
+            xs="12"
+            sm="12"
+            md="7"
+            lg="7"
+            xl="7"
+            class="gambar-persyaratan"
+          >
+            <v-img
+              :src="require('@/assets/images/persyaratan-tentangkami.png')"
+              style=""
+            ></v-img>
+          </v-col>
+        </v-row>
+      </section>
+      <!-- End Section Persyaratan -->
+    </v-container>
+
+    <v-container>
+      <!-- Start Pimpinan LPK -->
+      <section class="mt-8">
+        <v-row></v-row>
+        <h1 class="h1-pimpinan text-center">Pimpinan LPK Higlob</h1>
+        <p class="p-pimpinan text-center">
+          Pimpinan dari LPK Higlob yang telah membangun lembaga <br />menjadi
+          berkembang
+        </p>
+        <br />
+
+        <v-row>
+          <v-col
+            v-for="(item, index) in pimpinan_lpk"
+            :key="index"
+            cols="6"
+            xs="6"
+            sm="3"
+            md="3"
+            lg="3"
+            xl="3"
+          >
+            <ul class="text-center" style="list-style-type: none">
+              <li>
+                <v-img
+                  :src="require(`@/assets/images/${item.gambar_pimpinan}`)"
+                ></v-img>
+              </li>
+              <li>
+                <h4 class="h4-pimpinancard">{{ item.nama_pimpinan }}</h4>
+              </li>
+              <li>
+                <p class="p-pimpinancard">{{ item.jabatan_pimpinan }}</p>
+              </li>
+            </ul>
+          </v-col>
+        </v-row>
+      </section>
+      <!-- END Pimpinan LPK Higlob -->
+    </v-container>
+
+    <v-container>
+      <!-- Start Team IT Development -->
+      <section class="mb-5 mt-10">
+        <v-row>
+          <v-col
+            cols="12"
+            xs="12"
+            sm="12"
+            md="6"
+            lg="6"
+            xl="6"
+            class="d-flex justify-start"
+            ><h1
+              class="h1-teamit"
+              :class="
+                $vuetify.breakpoint.xsAndUp
+                  ? 'justify-center;mx-auto'
+                  : 'justify-center'
+              "
+              :style="$vuetify.breakpoint.xsAndUp ? 'text-center' : 'text-left'"
+            >
+              Team IT Development <br />
+              Kami
+            </h1></v-col
+          >
+          <v-col
+            cols="12"
+            xs="12"
+            sm="12"
+            md="6"
+            lg="6"
+            xl="6"
+            class="d-flex justify-end"
+          >
+            <p
+              class="p-team-it"
+              :class="
+                $vuetify.breakpoint.xsAndUp ? 'justify-center' : 'justify-end'
+              "
+              :style="
+                $vuetify.breakpoint.xsAndUp ? 'text-center' : 'text-center'
+              "
+            >
+              Dalam pengembangan tidak dilakukan oleh satu orang dengan ini kami
+              menyelesaikan secara bersama disinilah kami team IT Development
+            </p>
+          </v-col>
+        </v-row>
+
+        <br />
+
+        <v-row class="justify-center float-none mt-5">
+          <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
+            <ul class="text-center" style="list-style-type: none">
+              <li>
+                <v-img :src="require('@/assets/images/adnan.png')"></v-img>
+              </li>
+              <li><h4 class="h4-pimpinancard">Adnan Aziz Dani</h4></li>
+              <li><p class="p-pimpinancard">Front End Develpoment</p></li>
+            </ul>
+          </v-col>
+          <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
+            <ul class="text-center" style="list-style-type: none">
+              <li>
+                <v-img :src="require('@/assets/images/fahreza.png')"></v-img>
+              </li>
+              <li><h4 class="h4-pimpinancard">Fahreza Adi Saputra</h4></li>
+              <li><p class="p-pimpinancard">Front End Development</p></li>
+            </ul>
+          </v-col>
+          <v-col cols="6" xs="6" sm="3" md="3" lg="3" xl="3">
+            <ul class="text-center" style="list-style-type: none">
+              <li>
+                <v-img :src="require('@/assets/images/lupek.png')"></v-img>
+              </li>
+              <li><h4 class="h4-pimpinancard">Lutfi Surachman</h4></li>
+              <li><p class="p-pimpinancard">UI/UX Designer</p></li>
+            </ul>
+          </v-col>
+        </v-row>
+      </section>
+      <!-- END Team IT Development -->
     </v-container>
   </div>
 </template>
@@ -569,11 +808,11 @@ export default {
         case 'sm':
           return 'max-height:168px'
         case 'md':
-          return ''
+          return 'max-width:830px;max-height:160px'
         case 'lg':
-          return ''
+          return 'max-width:1200px;max-height:160px'
         case 'xl':
-          return ''
+          return 'width:1700px;height:160px'
       }
     },
 
@@ -609,7 +848,7 @@ export default {
     visi_judul() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          return 'font-size:22px;color:red!important'
+          return 'font-size:22px;'
         case 'sm':
           return 'font-size:'
         case 'md':
@@ -636,10 +875,54 @@ export default {
       }
     },
   },
+  // h1_teamit() {
+  //   switch (this.$vuetify.breakpoint.name) {
+  //     case 'xs':
+  //       return 'text-align:center'
+  //     case 'sm':
+  //       return ''
+  //     case 'md':
+  //       return ''
+  //     case 'lg':
+  //       return ''
+  //     case 'xl':
+  //       return ''
+  //   }
+  // },
+
+  // p_teamit() {
+  //   switch (this.$vuetify.breakpoint.name) {
+  //     case 'xs':
+  //       return ''
+  //     case 'sm':
+  //       return ''
+  //     case 'md':
+  //       return ''
+  //     case 'lg':
+  //       return ''
+  //     case 'xl':
+  //       return ''
+  //   }
+  // },
 }
 </script>
 
 <style lang="scss">
+.override__container {
+  margin: 0 5rem;
+}
+
+.col-tentangkami {
+  padding: 2rem;
+}
+.v-application .mb-4 {
+  margin-bottom: 26px !important;
+}
+.p-team-it {
+  color: #868686;
+  padding-left: 3rem;
+  font-size: 14px;
+}
 .banner-1 {
   background: url('@/assets/images//bg-tentang-kami.svg');
   // :src="require('@/assets/images/kontak-1.png')"
@@ -728,7 +1011,28 @@ export default {
     margin-left: -30px !important;
     padding: 1rem !important;
   }
-
+  .gambar-visimisi-ijo {
+    margin-left: -0.5rem;
+  }
+  .ul-khusus {
+    margin-left: -1rem;
+  }
+  .v-application ul,
+  .v-application ol {
+    padding-left: 0 !important;
+  }
+  .banner-1 {
+    max-height: 200px;
+  }
+  .ul-khusus {
+    padding: 1px;
+  }
+  .h1-heading2 {
+    font-size: 20px;
+  }
+  .col-tentangkami {
+    margin-top: -1rem;
+  }
   .p-pimpinan {
     font-size: 11px !important;
   }
@@ -740,7 +1044,10 @@ export default {
   .h1-teamit {
     text-align: center;
   }
-
+  .gambar-persyaratan {
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+  }
   .gambar-section3 {
     padding: 2rem;
   }
@@ -749,6 +1056,7 @@ export default {
   }
   .list-section1 {
     padding: 1rem;
+    padding-left: 3rem;
   }
   .list-section1 h2 {
     font-size: 20px;
@@ -757,9 +1065,10 @@ export default {
   }
 
   .list-section1 p {
-    font-size: 12px;
+    font-size: 14px !important;
     text-align: center;
     margin-left: -2rem;
+    line-height: 1.5rem;
   }
   .list-section1 h2 {
     font-size: 20px;
@@ -838,10 +1147,17 @@ export default {
       line-height: 2rem;
     }
   }
+  .p-keseluruhan {
+    font-size: 14px;
+  }
+  .gambar-persyaratan-angel {
+    margin-top: 2rem;
+  }
 }
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
   .h1-teamit {
-    text-align: center;
+    text-align: left;
+    margin-left: 1.5rem;
   }
   .p-teamit {
     p {
@@ -850,6 +1166,18 @@ export default {
       font-size: 15px;
       line-height: 2rem;
     }
+  }
+  .p-keseluruhan {
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .col-tentangkami {
+    line-height: 0.5rem;
+
+    padding: 47px 0px 0px 0px;
+  }
+  .gambar-persyaratan-angel {
+    margin-top: 2rem;
   }
 }
 </style>

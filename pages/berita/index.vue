@@ -2,29 +2,42 @@
   <v-container>
     <section class="section1-berita">
       <!-- Start Banner 1 -->
-      <div class="text-center justify-center" style="margin-top: 5rem">
+      <div class="text-center justify-center pembungkus-berita">
         <h1 class="h1-bannerawal">Ada Berita Apa di LPK Higlob</h1>
         <p class="p-bannerawal">
           Baca berita terkait magang kerja, bekerja luar negeri hanya di LPK
           Higlob
         </p>
-        <v-row class="d-flex d-inline-flex">
+        <v-row class="d-flex d-inline-flex row-cari">
           <v-col cols="10" style="">
             <v-text-field
               class="kolom-pencarian"
-              label="Cari Berita Lainnya..."
+              label="Cari berita berdasarkan judul"
               outlined
-              style="width: 16rem; border-radius: 45px"
+              v-model="searching"
+              dense
+              height="45px"
+              style="width: 19rem; border-radius: 45px"
             ></v-text-field>
           </v-col>
           <v-col cols="2" style="padding: 0; margin-top: 0.5rem">
-            <v-btn class="" fab dark large color="none">
+            <!-- <v-btn class="" fab color="none">
               <img
                 class="search-button"
                 :src="require('@/assets/images/search-button.png')"
                 alt=""
-                style="width: 59px"
+                style="width: 5vh"
               />
+            </v-btn> -->
+            <v-btn
+              height="45px"
+              width="45px"
+              color="#011B4B"
+              small
+              class="white--text mt-1"
+              fab
+            >
+              <v-icon> mdi-magnify</v-icon>
             </v-btn>
           </v-col>
         </v-row>
@@ -35,8 +48,8 @@
 
     <!-- Start Section 2 -->
 
-    <section class="mt-7">
-      <v-row>
+    <section class="section2-beritaterbaru">
+      <v-row v-if="!searching">
         <v-col
           class="order-2 order-sm-2 order-md-1 d-flex justify-center"
           cols="12"
@@ -47,7 +60,6 @@
           xl="6"
         >
           <img
-            id="angel-berita"
             class="banner-berita text-center"
             :src="require('@/assets/images/banner-berita1.png')"
             :style="bannerberita_gambar"
@@ -96,11 +108,24 @@
 
     <!-- Section 3 -->
     <section class="section3">
-      <h4 class="mt-6 mb-6">Baca Juga lainnya</h4>
-      <v-row class="d-flex justify-center">
+      <div class="my-10">
+        <h4 style="font-size: 18px">Baca Juga lainnya</h4>
+        <hr
+          class="my-2"
+          style="border-bottom: 2px solid #3e00ff; width: 120px"
+        />
+      </div>
+
+      <!-- START CARD BERITA LENGKAP -->
+
+      <v-row class="d-flex justify-center section3__row">
+        <div v-if="searchingNotFound">
+          Maaf Berita yang kamu cari tidak ada.
+        </div>
         <v-col
-          class=""
-          v-for="(item, index) in cardberita_gambar"
+          class="section3__col"
+          style="padding: 0"
+          v-for="(post, index) in filteredList"
           :key="index"
           cols="12"
           xs="12"
@@ -109,33 +134,64 @@
           lg="3"
           xl="3"
         >
-          <ul class="card_berita" style="list-style-type: none">
-            <li>
-              <img
-                id="angel-card"
-                class="card-gambar mx-auto"
-                :src="require(`@/assets/images/${item.berita_url}`)"
-                :style="card_berita_gambar"
-                alt=""
-                style=""
-              />
-            </li>
-            <li>
-              <h3 class="h3-section3">{{ item.berita_judul }}</h3>
-            </li>
-            <li>
-              <p class="p-section3">{{ item.berita_isi }}</p>
-            </li>
-          </ul>
+          <v-hover v-slot="{ hover }">
+            <v-card
+              height="450px"
+              class="ma-5 section3__card"
+              :style="
+                hover
+                  ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px; cursor:pointer;'
+                  : 'box-shadow: none'
+              "
+            >
+              <v-card-title class="" style="padding: 0"
+                ><v-img
+                  class="section3__cardimg"
+                  :src="require(`@/assets/images/${post.berita_url}`)"
+                ></v-img
+              ></v-card-title>
+              <v-card-text class="section3__article">
+                <h3
+                  class="section3__article-h3"
+                  style="
+                    margin-top: 1rem;
+                    margin-left: -0.5rem;
+                    color: #202020;
+                    font-weight: 500;
+                  "
+                >
+                  {{ post.berita_judul | desc }}
+                </h3>
+                <p
+                  class="section3__article-p"
+                  style="
+                    margin-top: 1rem;
+                    margin-left: -0.5rem;
+                    color: #595959;
+                    max-width: 276px;
+                  "
+                >
+                  {{ post.berita_isi }}
+                </p>
+              </v-card-text>
+            </v-card>
+          </v-hover>
         </v-col>
       </v-row>
 
+      <!-- END CARD BERITA LENGKAP -->
+
       <div class="text-center mt-5 mb-5">
-        <v-pagination :length="4" circle></v-pagination>
+        <v-pagination
+          v-model="page"
+          :length="1"
+          elevation="0"
+          circle
+        ></v-pagination>
       </div>
 
-      <h4>Label</h4>
-      <ul class="mb-5 mt-5" style="list-style-type: none">
+      <h4>Label Berita</h4>
+      <ul class="mb-10 mt-8" style="list-style-type: none; margin-left: -31px">
         <li
           class="d-flex d-inline-flex"
           v-for="(item, index) in label_isi"
@@ -145,7 +201,7 @@
             style="border-radius: 25px"
             class="ma-1"
             outlined
-            color="indigo"
+            color="#868686"
           >
             {{ item.button_label }}
           </v-btn>
@@ -157,14 +213,20 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      page: 1,
-    }
-  },
+class Post {
+  constructor(title, link, desc) {
+    this.berita_judul = title
+    this.berita_url = link
+    this.berita_isi = desc
+  }
+}
 
+export default {
   data: () => ({
+    searchingNotFound: false,
+    isShowPagination: false,
+    searching: '',
+    page: 1,
     panel: [0, 1],
     disabled: false,
     readonly: false,
@@ -190,71 +252,88 @@ export default {
       },
     ],
 
-    cardberita_gambar: [
-      {
-        berita_url: 'berita1.png',
-        berita_judul: 'Intip Kerja Di Jepang',
-        berita_isi:
-          'Konnichiwa! Sebelumnya kita telah membahas untuk peluang masuk kerja.',
-      },
+    postList: [
+      new Post(
+        'Intip Kerja Di Jepang',
+        'berita1.png',
+        'Konnichiwa! Sebelumnya kita telah membahas untuk peluang masuk kerja.'
+      ),
 
-      {
-        berita_url: 'berita2.png',
-        berita_judul: 'Program Enginerring Ke Jepang',
-        berita_isi:
-          'Program kerja Engineering ke jepang merupakan program yang berbeda dengan',
-      },
+      new Post(
+        'Program Enginerring Ke Jepang',
+        'berita2.png',
+        'Progarm kerja Engineering ke jepang merupakan program yang berbeda dengan.'
+      ),
+      new Post(
+        'Prosedur Program Magang Kerja Cargiver ke Jepang',
+        'berita3.png',
+        'Bagi kamu yang ingin mendaftarkan diri dan mengikuti Program Magang Kerja Ke Jepang.'
+      ),
 
-      {
-        berita_url: 'berita3.png',
-        berita_judul: 'Prosedur Program Magang Kerja Cargiver ke Jepang',
-        berita_isi:
-          'Bagi kamu yang ingin mendaftarkan diri dan mengikuti Program Magang Kerja Ke Jepang',
-      },
+      new Post(
+        'Program Enginerring Ke Jepang',
+        'berita2.png',
+        'Progarm kerja Engineering ke jepang merupakan program yang berbeda dengan.'
+      ),
+      new Post(
+        'Peluang Kerja Lulusan Avokasi D3 Keperawatan ke Luar Negeri',
+        'berita4.png',
+        'Menurut Badan Pusat Statistika (BPS) menyatakan bahwa jumlah pengangguran...'
+      ),
 
-      {
-        berita_url: 'berita4.png',
-        berita_judul:
-          'Peluang Kerja Lulusan Avokasi D3 Keperawatan ke Luar Negeri',
-        berita_isi:
-          'Menurut Badan Pusat Statistika (BPS) menyatakan bahwa jumlah pengangguran..',
-      },
+      new Post(
+        'Toroku Shien Kikan',
+        'berita2.png',
+        'Parante Higlob adalah TOROKU SHIEN KIKAN(TSK) atau Registered Support Organization'
+      ),
+      new Post(
+        'Program Kerja di Jepang Bidang Pertanian,dan Kontruksi',
+        'berita6.png',
+        'Program Kerja Enggineering ke Jepang merupakan program yang berbeda dengan.'
+      ),
 
-      {
-        berita_url: 'berita5.png',
-        berita_judul: 'Toroku Shien Kikan',
-        berita_isi:
-          'Parante Higlob adalah TOROKU SHIEN KIKAN(TSK) atau Registered Support Organization',
-      },
-
-      {
-        berita_url: 'berita6.png',
-        berita_judul: 'Program Kerja di Jepang Bidang Pertanian,dan Kontruksi',
-        berita_isi:
-          'Program Kerja Enggineering ke Jepang merupakan program yang berbeda dengan.',
-      },
-
-      {
-        berita_url: 'berita7.png',
-        berita_judul: 'We Are Hiring! Program Magang Cargiver ke Jepang ',
-        berita_isi:
-          'Program Kerja Enggineering ke Jepang merupakan program yang berbeda dengan.',
-      },
-
-      {
-        berita_url: 'berita8.png',
-        berita_judul: 'Peluang Working Holiday Untuk 1000 Orang (2019)',
-        berita_isi:
-          'Visa working holiday subclass 462 Australia setiap tahunnya dibuka penerimaan bagi..',
-      },
+      new Post(
+        'We Are Hiring! Program Magang Cargiver ke Jepang',
+        'berita7.png',
+        'Program Kerja Engginering ke Jepang merupakan program yang berbeda dengan.'
+      ),
+      new Post(
+        'Peluang Working Holiday Untuk 1000 Orang (2019)',
+        'berita8.png',
+        'Visa working holiday subclass 462 Australia setiap tahunnya dibuka penerimaan bagi..'
+      ),
     ],
   }),
 
   computed: {
+    filteredList() {
+      let that = this
+      return this.postList.filter((post) => {
+        let a = post.berita_judul
+          .toLowerCase()
+          .includes(that.searching.toLowerCase())
+        // console.log(a)
+        if (a) {
+          this.searchingNotFound = false
+          return a
+        } else {
+          this.searchingNotFound = true
+          return a
+        }
+      })
+    },
+    // filteredList() {
+    //   return this.cardberita_gambar.filter((post) => {
+    //     return post.berita_judul
+    //       .toLowerCase()
+    //       .includes(this.searching.toLowerCase())
+    //   })
+    // },
+
     bannerberita_gambar() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          return ''
+          return 'margin:auto;max-width:95%'
         case 'sm':
           return ''
         case 'md':
@@ -265,35 +344,35 @@ export default {
           return 'max-width:37rem'
       }
     },
-    card_berita_gambar() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return 'max-height:240px;text-align:center'
-        case 'sm':
-          return 'max-height:168px'
-        case 'md':
-          return 'max-width:13rem'
-        case 'lg':
-          return 'max-width:17rem!important'
-        case 'xl':
-          return 'max-width:17rem!important'
-      }
-    },
+    // card_berita_gambar() {
+    //   switch (this.$vuetify.breakpoint.name) {
+    //     case 'xs':
+    //       return 'max-height:240px;text-align:center'
+    //     case 'sm':
+    //       return 'max-height:168px'
+    //     case 'md':
+    //       return 'max-width:13rem'
+    //     case 'lg':
+    //       return 'max-width:17rem!important'
+    //     case 'xl':
+    //       return 'max-width:17rem!important'
+    //   }
+    // },
 
-    padding_section2() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return 'padding:2rem'
-        case 'sm':
-          return ''
-        case 'md':
-          return ''
-        case 'lg':
-          return ''
-        case 'xl':
-          return ''
-      }
-    },
+    // padding_section2() {
+    //   switch (this.$vuetify.breakpoint.name) {
+    //     case 'xs':
+    //       return 'padding:2rem'
+    //     case 'sm':
+    //       return ''
+    //     case 'md':
+    //       return ''
+    //     case 'lg':
+    //       return ''
+    //     case 'xl':
+    //       return ''
+    //   }
+    // },
   },
 }
 </script>
@@ -302,6 +381,9 @@ export default {
 //
 .banner-berita {
   max-width: 27rem;
+}
+.section1-berita {
+  margin-top: 10rem;
 }
 img.card-gambar {
   max-width: 13rem;
@@ -312,9 +394,55 @@ h3.h3-section3 {
 p.p-section3 {
   font-size: 14px;
 }
-@media screen and (min-width: 0px) and (max-width: 600px) {
+.berita-h1 {
+  font-size: 31px;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+.berita-p {
+  margin-left: 0.5rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+}
+.h1-bannerawal {
+  margin-bottom: 1rem;
+  font-size: 35px;
+}
+.p-bannerawal {
+  color: #868686;
+  margin-bottom: 1rem;
+}
+.row-cari {
+  margin-top: 0.5rem;
+}
+.section2-beritaterbaru {
+  margin-top: 5rem;
+}
+.padding-section2 {
+  margin-top: 1rem;
+}
+.section3 {
+  margin-top: 5rem !important;
+  &__h4 {
+    margin-bottom: 3rem;
+    font-size: 22.5px;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 300px) {
+}
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .theme--dark.v-btn.v-btn--has-bg {
+    background-color: none;
+  }
+  .search-button {
+    width: 54px;
+  }
+  .padding-section2 {
+    margin-top: -6rem;
+  }
   .section1-berita {
     padding: 1rem;
+    margin-top: 5rem;
   }
   .h1-bannerawal {
     font-size: 21px;
@@ -331,9 +459,9 @@ p.p-section3 {
   }
 
   .banner-berita {
-    max-height: 200px;
-    padding-left: 2.4rem;
-    margin-bottom: 2rem;
+    // max-height: 200px;
+    // padding-left: 2.4rem;
+    // margin-bottom: 2rem;
   }
 
   .padding-section2 {
@@ -367,6 +495,22 @@ p.p-section3 {
     }
     .section-3 {
       padding-left: 2rem !important;
+      &__row {
+        padding: 4rem;
+      }
+      &__h4 {
+        font-size: 18px !important;
+        margin-left: 0.6rem;
+      }
+      &__cardimg {
+        height: 3rem !important;
+      }
+    }
+    .v-image.v-responsive.section3__cardimg.theme--light {
+      height: 13rem !important;
+    }
+    .card_berita p {
+      padding-right: 9rem;
     }
   }
 }
@@ -436,6 +580,29 @@ p.p-section3 {
   @media screen and (min-width: 960px) and (max-width: 1264px) {
   }
   @media screen and (min-width: 1264px) and (max-width: 1904px) {
+    .pembungkus-berita {
+      margin-top: 7rem !important;
+    }
+    .berita-h1 {
+      font-size: 31px !important;
+    }
+    .section3 {
+      &__berita {
+      }
+      &__card {
+        max-height: 483px;
+        max-width: 500px;
+      }
+      &-row {
+        margin-top: 10rem !important;
+      }
+      &__col {
+        padding: 0 !important;
+      }
+    }
+    h3.section3__article-h3 {
+      margin-top: 1rem;
+    }
   }
 }
 
