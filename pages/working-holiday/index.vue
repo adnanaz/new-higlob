@@ -447,7 +447,7 @@ ul {
   }
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 // END STYLE BANNER VISA
@@ -475,7 +475,7 @@ ul {
   }
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 // END STYLE KHUSUS BANNER KETENTUAN
@@ -489,7 +489,7 @@ ul {
   }
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
     margin-left: 2px;
   }
   &-h1 {
@@ -545,7 +545,7 @@ ul {
   color: #3e00ff;
 }
 .pertanyaan {
-  margin-top: 7rem;
+  margin-top: 4rem;
   margin-bottom: 5rem;
   &-img {
     max-width: 18rem;
@@ -606,7 +606,7 @@ ul {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
   // END STYLE BANNER VISA
@@ -636,7 +636,7 @@ ul {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
   // END STYLE KHUSUS BANNER KETENTUAN
@@ -651,7 +651,7 @@ ul {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
       margin-left: 2px;
     }
     &-h1 {
@@ -769,7 +769,7 @@ ul {
       color: #171717;
     }
     &-h1kolom {
-      margin-left: 1.8rem;
+      margin-left: 1rem;
     }
     &-p {
       font-size: 14px;
@@ -785,7 +785,7 @@ ul {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
   // END STYLE BANNER VISA
@@ -819,7 +819,7 @@ ul {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
   // END STYLE KHUSUS BANNER KETENTUAN
@@ -834,7 +834,7 @@ ul {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
       margin-left: 2px;
     }
     &-img {
@@ -904,6 +904,9 @@ ul {
       margin-top: 2rem;
       margin-left: -4rem;
     }
+    &-p {
+      padding-right: 5rem;
+    }
     &-col-kiri {
       margin-top: 1rem;
     }
@@ -916,11 +919,196 @@ ul {
       font-weight: 500;
       line-height: 1.6rem;
     }
+    &-panelisi {
+      font-size: 12px;
+    }
   }
   // END KHUSUS PERTANYAAN
 }
 // end ukuran tablet
 @media screen and (min-width: 960px) and (max-width: 1264px) {
+  // STYLE KHUSUS BANNER VISA
+
+  .banner__visa {
+    margin-top: 4rem;
+    padding: 2rem;
+    &-colkiri {
+      margin-top: 2rem;
+    }
+    &-img {
+      max-width: 38rem;
+      margin-top: 2rem;
+      margin-left: -4rem;
+    }
+    &-h1 {
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: #171717;
+    }
+    &-h1kolom {
+      margin-left: 2rem;
+    }
+    &-p {
+      font-size: 12px;
+      line-height: 26px;
+      color: #171717;
+    }
+    &-ul li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+    &-rowkecil {
+      margin-left: -37px !important;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE BANNER VISA
+
+  // STYLE KHUSUS BANNER KETENTUAN
+
+  .banner__ketentuan {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    &-colkanan {
+    }
+    &-colkiri {
+      padding-left: 5rem;
+      margin-top: 2rem;
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-p {
+      display: inline-flex;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    &-img {
+      max-width: 35rem;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 27px;
+      color: #171717;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 400;
+    }
+  }
+  // END STYLE KHUSUS BANNER KETENTUAN
+
+  // STYLE KHUSUS BANNER FASILITAS
+  .banner__fasilitas {
+    margin-top: 0;
+    padding: 2.2rem;
+
+    &-colkiri {
+      margin-top: 3rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      margin-left: 2px;
+    }
+    &-img {
+      max-width: 35rem;
+      margin-left: 3rem;
+      margin-top: 3rem;
+    }
+    &-h1 {
+      font-size: 32px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+    }
+    &-ul {
+      padding: 0 !important;
+    }
+    &-h5 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #171717;
+    }
+    &-p {
+      font-size: 14px;
+      color: #171717;
+    }
+  }
+  // END KHUSUS BANNER FASILITAS
+
+  // STYLE KHUSUS BANNER PETA
+
+  .banner__peta {
+    margin-top: 3rem;
+    padding: 2rem;
+    &-h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+    }
+    &-h1special {
+      color: #3e00ff;
+    }
+    &-p {
+      font-size: 14px;
+      text-align: center;
+    }
+    &-img {
+      margin-top: 4rem;
+      max-width: 73rem;
+    }
+  }
+  // END STYLE KHUSUS BANNER PETA
+
+  // STYLE KHUSUS PERTANYAAN
+  .v-expansion-panel--active > .v-expansion-panel-header {
+    color: #3e00ff;
+  }
+  .pertanyaan {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    &-img {
+      max-width: 18rem;
+      margin-top: 2rem;
+      margin-left: -4rem;
+    }
+    &-p {
+      padding-right: 5rem;
+      font-size: 13px;
+    }
+    &-col-kiri {
+      margin-top: 1rem;
+    }
+    &-h1 {
+      font-size: 21px;
+    }
+    &-paneljudul {
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      line-height: 1.6rem;
+    }
+    &-panelheader {
+      font-weight: 500;
+      line-height: 1.6rem;
+    }
+    &-panelisi {
+      font-size: 12px;
+    }
+  }
+  // END KHUSUS PERTANYAAN
 }
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
 }

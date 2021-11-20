@@ -14,8 +14,8 @@
               : ''
           "
         >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, neque
-          quae. Incidunt vero, possimus quae error maiores quisquam,
+          Dokumentasi proses kegiatan belajar mengajar dan penghargaan yang di
+          dapat lpk higlob
         </p>
       </div>
       <div class="gallery__tabs" style="margin-top: 50px; margin-bottom: 50px">

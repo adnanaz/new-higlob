@@ -447,7 +447,7 @@ li {
 
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 // END STYLE BANNER PERSIAPAN
@@ -485,7 +485,7 @@ li {
   }
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 // END STYLE KHUSUS BANNER SYARAT
@@ -499,7 +499,7 @@ li {
   }
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
     margin-left: 2px;
   }
   &-h1 {
@@ -546,7 +546,7 @@ li {
   }
   &-h4 {
     color: #3e00ff;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 // END STYLE KHUSUS BANNER BAHASA
@@ -625,7 +625,7 @@ li {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
   // END STYLE BANNER PERSIAPAN
@@ -665,7 +665,7 @@ li {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
 
@@ -680,7 +680,7 @@ li {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
       margin-left: 2px;
     }
     &-h1 {
@@ -747,7 +747,7 @@ li {
     }
     &-h4 {
       color: #3e00ff;
-      font-weight: 400;
+      font-weight: 500;
     }
   }
 
@@ -797,10 +797,426 @@ li {
   }
   // END STYLE KHUSUS PERTANYAAN BAHASA
 }
+// UKURAN TABLET
 @media screen and (min-width: 600px) and (max-width: 960px) {
+  // STYLE KHUSUS BANNER PERSIAPAN
+
+  .banner__persiapan {
+    // margin-top: 8rem;
+    margin-top: 4rem;
+    padding: 2rem;
+    &-colkiri {
+      margin-top: 2rem;
+    }
+    &-img {
+      max-width: 37rem;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+    &-h1 {
+      font-weight: 600;
+      font-size: 32px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: #171717;
+    }
+    &-h1kolom {
+      margin-left: 1rem;
+    }
+    &-p {
+      font-size: 14px;
+      line-height: 26px;
+      color: #171717;
+    }
+    &-ul li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+    &-rowkecil {
+      margin-left: -37px !important;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE BANNER PERSIAPAN
+
+  // STYLE KHUSUS BANNER SYARAT
+
+  .banner__syarat {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    &-colkanan {
+    }
+    &-row {
+      padding-left: 2rem;
+      margin-bottom: 0rem;
+    }
+    &-colkiri {
+      padding-left: 5rem;
+      margin-top: 2rem;
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-p {
+      display: inline-flex;
+    }
+    &-img {
+      max-width: 35rem;
+    }
+    &-tulisankanan {
+      padding-right: 4rem;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 25px;
+      color: #171717;
+    }
+    &-h1atas {
+      padding-right: 4.5rem;
+      font-size: 25px;
+    }
+    &-patas {
+      line-height: 2rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE KHUSUS BANNER SYARAT
+
+  // STYLE KHUSUS BANNER FASILITAS BAHASA
+  .banner__fasilitasbahasa {
+    margin-top: 2rem;
+    padding: 2.2rem;
+
+    &-colkiri {
+      margin-top: 3rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      margin-left: 2px;
+    }
+    &-img {
+      max-width: 38rem;
+      margin-left: 1rem;
+      margin-top: 1rem;
+    }
+    &-h1 {
+      font-size: 25px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+    }
+    &-ul {
+      padding: 0 !important;
+      margin-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    &-h5 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #171717;
+    }
+    &-p {
+      font-size: 14px;
+      color: #171717;
+    }
+  }
+  // END KHUSUS BANNER FASILITAS BAHASA
+
+  // STYLE KHUSUS BANNER LAYANAN BAHASA
+
+  .banner__layananbahasa {
+    margin-top: 3rem;
+    padding-left: 3rem;
+    &-colkanan {
+      padding-left: 0rem;
+      margin-top: 2rem;
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-img {
+      max-width: 38rem;
+      margin-left: 5rem;
+      margin-top: 3rem;
+    }
+    &-p {
+      display: inline-flex;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 32px;
+      color: #171717;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE KHUSUS BANNER BAHASA
+
+  // STYLE KHUSUS BANNER PERTANYAAN BAHASA
+  // STYLE KHUSUS PERTANYAAN
+  .v-expansion-panel--active > .v-expansion-panel-header {
+    color: #3e00ff;
+  }
+  .pertanyaan__bahasa {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    &-img {
+      max-width: 18rem;
+      margin-top: 2rem;
+      margin-left: -4rem;
+    }
+    &-p {
+      padding-right: 5rem;
+    }
+    &-col-kiri {
+      margin-top: 1rem;
+    }
+    &-paneljudul {
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      line-height: 1.6rem;
+    }
+    &-panelheader {
+      font-weight: 500;
+      line-height: 1.6rem;
+    }
+    &-panelisi {
+      font-size: 12px;
+    }
+  }
+  // END KHUSUS PERTANYAAN
+  // END STYLE KHUSUS BANNER PERTANYAAN BAHASA
 }
+//END UKURAN TABLET
+
+// ukuran IPAD PRO
 @media screen and (min-width: 960px) and (max-width: 1264px) {
+  // STYLE KHUSUS BANNER PERSIAPAN
+
+  .banner__persiapan {
+    // margin-top: 8rem;
+    margin-top: 4rem;
+    padding: 2rem;
+    &-colkiri {
+      margin-top: 2rem;
+    }
+    &-img {
+      max-width: 22rem;
+      margin-top: 1rem;
+      margin-left: 3rem;
+    }
+    &-h1 {
+      font-weight: 600;
+      font-size: 28px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: #171717;
+    }
+    &-h1kolom {
+      margin-left: 1rem;
+    }
+    &-p {
+      font-size: 12px;
+      line-height: 26px;
+      color: #171717;
+    }
+    &-ul li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+    &-rowkecil {
+      margin-left: -37px !important;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE BANNER PERSIAPAN
+
+  // STYLE KHUSUS BANNER SYARAT
+
+  .banner__syarat {
+    margin-top: 2rem;
+    padding-left: 1rem;
+    &-colkanan {
+    }
+    &-row {
+      padding-left: 2rem;
+      margin-bottom: 0rem;
+    }
+    &-colkiri {
+      padding-left: 5rem;
+      margin-top: 2rem;
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-p {
+      display: inline-flex;
+      font-size: 14px;
+    }
+    &-img {
+      max-width: 35rem;
+    }
+    &-tulisankanan {
+      padding-right: 4rem;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.7rem;
+      font-size: 22px;
+      color: #171717;
+    }
+    &-h1atas {
+      padding-right: 4.5rem;
+      font-size: 18px;
+    }
+    &-patas {
+      line-height: 1.3rem;
+      margin-top: 0rem;
+      font-size: 12px;
+      margin-left: 1rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE KHUSUS BANNER SYARAT
+
+  // STYLE KHUSUS BANNER FASILITAS BAHASA
+  .banner__fasilitasbahasa {
+    margin-top: 2rem;
+    padding: 2.2rem;
+
+    &-colkiri {
+      margin-top: 3rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      margin-left: 2px;
+    }
+    &-img {
+      max-width: 38rem;
+      margin-top: 1rem;
+    }
+    &-h1 {
+      font-size: 22px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+    }
+    &-ul {
+      padding: 0 !important;
+      margin-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    &-h5 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #171717;
+    }
+    &-p {
+      font-size: 12px;
+      color: #171717;
+    }
+  }
+
+  // END KHUSUS BANNER FASILITAS BAHASA
+
+  // STYLE KHUSUS BANNER LAYANAN BAHASA
+
+  .banner__layananbahasa {
+    margin-top: 3rem;
+    padding-left: 3rem;
+    &-colkanan {
+      padding-left: 0rem;
+      margin-top: 3rem;
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-img {
+      max-width: 38rem;
+      margin-top: 3rem;
+    }
+    &-p {
+      display: inline-flex;
+      font-size: 14px;
+      line-height: 1.8rem;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.7rem;
+      font-size: 26px;
+      color: #171717;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE KHUSUS BANNER BAHASA
+
+  // STYLE KHUSUS BANNER PERTANYAAN BAHASA
+  // STYLE KHUSUS PERTANYAAN
+  .v-expansion-panel--active > .v-expansion-panel-header {
+    color: #3e00ff;
+  }
+  .pertanyaan__bahasa {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    &-img {
+      max-width: 18rem;
+      margin-top: 2rem;
+      margin-left: -4rem;
+    }
+    &-h1 {
+      font-size: 20px;
+      margin-bottom: 0.8rem;
+    }
+    &-p {
+      padding-right: 5rem;
+    }
+    &-col-kiri {
+      margin-top: 1rem;
+    }
+    &-paneljudul {
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      line-height: 1.6rem;
+    }
+    &-panelheader {
+      font-weight: 500;
+      line-height: 1.6rem;
+    }
+    &-panelisi {
+      font-size: 12px;
+    }
+  }
+  // END KHUSUS PERTANYAAN
+  // END STYLE KHUSUS BANNER PERTANYAAN BAHASA
 }
+// END UKURAN IPAD PRO
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
 }
 </style>
