@@ -767,14 +767,14 @@ export default {
   color: rgba(15, 39, 177, 0.533);
 }
 
-.nuxt__link {
-  font-weight: 500;
-}
+// .nuxt__link {
+//   font-weight: 500;
+// }
 
-.nuxt__link:hover {
-  color: #002382;
-  @include transition-ease;
-}
+// .nuxt__link:hover {
+//   color: #002382;
+//   @include transition-ease;
+// }
 
 .header__text {
   font-style: normal;

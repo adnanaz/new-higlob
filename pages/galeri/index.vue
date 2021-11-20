@@ -3,9 +3,20 @@
     <section class="gallery">
       <div class="gallery__title text-center">
         <h1 class="gallery__title-h1">
-          Selamat datang di Gallery <br />
-          LPK HiGlob
+          Selamat datang di Galeri Foto <br />
+          LPK Higlob
         </h1>
+        <p
+          class="gallery__title-p"
+          :style="
+            $vuetify.breakpoint.mdAndUp
+              ? 'padding: 0 19rem; margin-top: 1rem'
+              : ''
+          "
+        >
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, neque
+          quae. Incidunt vero, possimus quae error maiores quisquam,
+        </p>
       </div>
       <div class="gallery__tabs" style="margin-top: 50px; margin-bottom: 50px">
         <v-tabs centered>
@@ -30,7 +41,7 @@
               >
                 <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card>
+                    <v-card class="card-angeltenan">
                       <v-img
                         :style="
                           $vuetify.breakpoint.md
@@ -61,7 +72,7 @@
               </v-col>
 
               <v-col
-                class="pa-2"
+                class=""
                 cols="12"
                 xs="12"
                 sm="12"
@@ -74,7 +85,7 @@
                   <v-col
                     v-for="(item, index) in kolomkanan_img"
                     :key="index"
-                    class="pa-2"
+                    class="pa-2 gambarkolomisi"
                     cols="12"
                     xs="12"
                     sm="6"
@@ -85,7 +96,7 @@
                   >
                     <v-hover>
                       <template v-slot:default="{ hover }">
-                        <v-card>
+                        <v-card class="card-angetenanisi">
                           <v-img
                             style="width: 400px"
                             :src="require(`@/assets/images/${item.img_url}`)"
@@ -108,84 +119,6 @@
                       </template>
                     </v-hover>
                   </v-col>
-
-                  <!-- <v-col
-                    class="pa-2"
-                    cols="12"
-                    xs="12"
-                    sm="6"
-                    md="4"
-                    lg="4"
-                    xl="4"
-                    style=""
-                  >
-                    <v-img
-                      style="width: 100%"
-                      :src="require('@/assets/images/gallery3.png')"
-                    ></v-img>
-                  </v-col>
-                  <v-col
-                    class="pa-2"
-                    cols="12"
-                    xs="12"
-                    sm="6"
-                    md="4"
-                    lg="4"
-                    xl="4"
-                    style=""
-                  >
-                    <v-img
-                      style="width: 100%"
-                      :src="require('@/assets/images/gallery4.png')"
-                    ></v-img>
-                  </v-col>
-
-                  <v-col
-                    class="pa-2"
-                    cols="12"
-                    xs="12"
-                    sm="6"
-                    md="4"
-                    lg="4"
-                    xl="4"
-                    style=""
-                  >
-                    <v-img
-                      style="width: 100%"
-                      :src="require('@/assets/images/gallery5.png')"
-                    ></v-img>
-                  </v-col>
-
-                  <v-col
-                    class="pa-2"
-                    cols="12"
-                    xs="12"
-                    sm="6"
-                    md="4"
-                    lg="4"
-                    xl="4"
-                    style=""
-                  >
-                    <v-img
-                      style="width: 100%"
-                      :src="require('@/assets/images/gallery6.png')"
-                    ></v-img>
-                  </v-col>
-                  <v-col
-                    class="pa-2"
-                    cols="12"
-                    xs="12"
-                    sm="6"
-                    md="4"
-                    lg="4"
-                    xl="4"
-                    style=""
-                  >
-                    <v-img
-                      style="width: 100%"
-                      :src="require('@/assets/images/gallery7.png')"
-                    ></v-img>
-                  </v-col> -->
                 </v-row>
               </v-col>
             </v-row>
@@ -487,7 +420,7 @@ export default {
         case 'lg':
           return 'padding:3rem'
         case 'xl':
-          return 'padding:3rem'
+          return 'padding:0rem'
       }
     },
   },
@@ -499,16 +432,54 @@ export default {
 </script>
 
 <style lang="scss">
-@media screen and (min-width: 1904px) {
-  .v-image.v-responsive.theme--light {
-    max-height: 35rem;
+@media screen and (min-width: 300) and (max-width: 600px) {
+  .h1atas {
+    font-size: 24px;
   }
-  .v-card.v-sheet.theme--light {
-    width: 18rem;
+  h1.gallery__title-h1 {
+    font-size: 24px !important;
+  }
+  .card-angeltenan {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .gambarkolomisi {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .gallery {
+    margin-top: 5rem;
+    &__title {
+      &-h1 {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px !important;
+        line-height: 145%;
+        text-align: center;
+      }
+      &-p {
+        margin-top: 2rem;
+      }
+    }
+    &__tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (min-width: 1904px) {
+  .card-angeltenan {
+    max-width: 34rem;
+  }
+  .card-angetenanisi {
+    width: 23vh;
   }
 }
 .gallery {
-  margin-top: 5rem;
+  margin-top: 8rem;
   &__title {
     &-h1 {
       font-family: 'Poppins', sans-serif;
@@ -516,7 +487,6 @@ export default {
       font-weight: 600;
       font-size: 32px;
       line-height: 145%;
-      /* or 46px */
       text-align: center;
     }
   }

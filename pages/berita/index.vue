@@ -248,7 +248,7 @@ export default {
         button_label: '#MagangLuarNegeri',
       },
       {
-        button_label: '#Cargiver',
+        button_label: '#Caregiver',
       },
     ],
 

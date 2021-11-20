@@ -1,7 +1,9 @@
 <template>
   <v-container class="pa-0 footer" fluid>
     <v-footer class="footer" color="#011B4B">
-      <section class="footer__container">
+      <section
+        :class="$vuetify.breakpoint.smAndDown ? '' : 'footer__container'"
+      >
         <v-row
           style="width: 100%"
           justify="space-around"
@@ -11,11 +13,11 @@
           <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
             <div
               class="footer__content white--text"
-              :class="$vuetify.breakpoint.xs ? 'mt-8' : ''"
+              :class="$vuetify.breakpoint.smAndDown ? 'mt-8' : ''"
             >
               <h4
                 :class="
-                  $vuetify.breakpoint.xs
+                  $vuetify.breakpoint.smAndDown
                     ? 'footer__title'
                     : 'footer__title-special'
                 "
@@ -25,7 +27,7 @@
               <div class="footer__item text-left">
                 <div
                   :class="
-                    $vuetify.breakpoint.xs
+                    $vuetify.breakpoint.smAndDown
                       ? ' footer__title text-left text-capitalize font-weight-regular'
                       : 'text-left text-capitalize font-weight-regular'
                   "

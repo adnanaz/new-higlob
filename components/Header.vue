@@ -11,9 +11,9 @@
         style="width: 100%"
         :class="$vuetify.breakpoint.mdAndDown ? 'd-flex' : 'd-none'"
       >
-        <v-toolbar-title class="mx-5">
+        <v-toolbar-title class="my-auto mx-5">
           <img
-            style="width: 40px"
+            style="width: 35px"
             :src="require('@/assets/images/logo.png')"
             alt="logo higlob"
           />
@@ -152,8 +152,8 @@
                 </v-expansion-panel-header>
                 <v-expansion-panel-content>
                   <v-list-item>
-                    <v-list-item-title>
-                      <NuxtLink to="maintenance" class="black--text">
+                    <v-list-item-title class="link">
+                      <NuxtLink to="persiapan-bahasa" class="black--text">
                         Persiapan Bahasa
                       </NuxtLink></v-list-item-title
                     >
@@ -165,7 +165,7 @@
                   </v-list-item> -->
                   <v-list-item>
                     <v-list-item-title>
-                      <NuxtLink to="maintenance" class="black--text"
+                      <NuxtLink to="working-holiday" class="black--text"
                         >Working Holiday
                       </NuxtLink></v-list-item-title
                     >
@@ -219,6 +219,9 @@
 export default {
   data() {
     return {
+      router: {
+        linkExactActiveClass: 'exact-active-link',
+      },
       lang: [
         {
           title: 'Indonesia',
@@ -232,13 +235,13 @@ export default {
       group: null,
       drawer: false,
       items: [
-        { title: 'Persiapan Bahasa', url: 'maintenance' },
-        { title: 'Working Holiday', url: 'maintenance' },
+        { title: 'Persiapan Bahasa', url: 'persiapan-bahasa' },
+        { title: 'Working Holiday', url: 'working-holiday' },
       ],
     }
   },
   mounted() {
-    // console.log(this.$router)
+    console.log(this.router)
   },
   computed: {
     menu() {
@@ -270,15 +273,14 @@ export default {
 
 <style lang="scss">
 .v-menu__content {
-  top: 50px !important;
+  top: 70px !important;
 }
 
-/* home route and active route will show in bold as it matches / and /about */
-// .nuxt-link-active {
-
-// }
+.link.nuxt-link-active {
+  font-weight: red;
+}
 /* exact link will show the primary color for only the exact matching link */
-.nuxt-link-exact-active {
-  color: #002382;
+.link.nuxt-link-exact-active {
+  color: red;
 }
 </style>
