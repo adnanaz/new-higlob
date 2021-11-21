@@ -4,7 +4,179 @@
       <section
         :class="$vuetify.breakpoint.smAndDown ? '' : 'footer__container'"
       >
+        <!-- ================================================================================== -->
+        <!-- JEPANG-->
+        <!-- ================================================================================== -->
         <v-row
+          v-if="!$store.state.toggleLang"
+          style="width: 100%"
+          justify="space-around"
+          no-gutters
+          class="footer__row"
+        >
+          <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
+            <div
+              class="footer__content white--text"
+              :class="$vuetify.breakpoint.smAndDown ? 'mt-8' : ''"
+            >
+              <h4
+                :class="
+                  $vuetify.breakpoint.smAndDown
+                    ? 'footer__title'
+                    : 'footer__title-special'
+                "
+              >
+                PT. Higlob Sinar Utama
+              </h4>
+              <div class="footer__item text-left">
+                <div
+                  :class="
+                    $vuetify.breakpoint.smAndDown
+                      ? ' footer__title text-left text-capitalize font-weight-regular'
+                      : 'text-left text-capitalize font-weight-regular'
+                  "
+                  style="line-height: 183%"
+                >
+                  Jalan turi km 3,7 perum pondok idaman no A2 kadisobo, <br />
+                  Kadisobo I / Pepen, Trimulyo, Kec. Sleman, <br />
+                  Kabupaten Sleman, Daerah Istimewa Yogyakarta 55513
+                </div>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
+            <div class="footer__content white--text">
+              <h4 class="footer__title">サービス</h4>
+              <div
+                class="
+                  footer__item
+                  d-flex
+                  justify-start
+                  align-start
+                  flex-wrap flex-column
+                "
+              >
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  言語の準備
+                </v-btn>
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  ワーキングホリデー
+                </v-btn>
+              </div>
+            </div></v-col
+          >
+          <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
+            <div class="footer__content white--text">
+              <h4 class="footer__title">会社</h4>
+              <div
+                class="
+                  footer__item
+                  d-flex
+                  justify-start
+                  align-start
+                  flex-wrap flex-column
+                "
+              >
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  私たちに関しては
+                </v-btn>
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  ギャラリー
+                </v-btn>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
+            <div class="footer__content white--text">
+              <h4 class="footer__title">ヘルプ</h4>
+              <div
+                class="
+                  footer__item
+                  d-flex
+                  justify-start
+                  align-start
+                  flex-wrap flex-column
+                "
+              >
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  お問い合わせ
+                </v-btn>
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  よくある質問
+                </v-btn>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="12" md="2" lg="2" xl="2" style="width: 100%">
+            <div class="footer__content white--text">
+              <h4 class="footer__title">フォローする</h4>
+              <div
+                class="
+                  footer__title
+                  d-flex
+                  justify-start
+                  flex-wrap
+                  align-center
+                "
+              >
+                <v-btn
+                  v-for="(el, index) in icon"
+                  :key="index"
+                  class="ma-1 white--text"
+                  icon
+                >
+                  <v-img
+                    :src="require(`@/assets/images/${el.url}`)"
+                    :alt="el.alt"
+                  ></v-img>
+                </v-btn>
+              </div>
+            </div>
+          </v-col>
+          <v-col
+            align="center"
+            class="footer__copyright white--text mt-5"
+            cols="12"
+          >
+            Copyright © {{ new Date().getFullYear() }} PT Hi Global. All rights
+            reserved
+          </v-col>
+        </v-row>
+        <!-- ================================================================================== -->
+        <!-- INDONESIA -->
+        <!-- ================================================================================== -->
+        <v-row
+          v-else
           style="width: 100%"
           justify="space-around"
           no-gutters
@@ -60,22 +232,6 @@
                 >
                   Persiapan Bahasa
                 </v-btn>
-                <!-- <v-btn
-                  color="white"
-                  class="text-capitalize font-weight-regular"
-                  text
-                  rounded
-                >
-                  Pendidikan Luar Negeri
-                </v-btn>
-                <v-btn
-                  color="white"
-                  class="text-capitalize font-weight-regular"
-                  text
-                  rounded
-                >
-                  Peluang Luar Negeri
-                </v-btn> -->
                 <v-btn
                   color="white"
                   class="text-capitalize font-weight-regular"
@@ -115,19 +271,6 @@
                 >
                   Galeri
                 </v-btn>
-                <!-- <h4 class="footer__title ">Ikuti Kami :</h4>
-                <div class="d-flex justify-center flex-wrap align-center">
-                  <v-btn
-                    v-for="icon in icons"
-                    :key="icon"
-                    class="mx-4 white--text"
-                    icon
-                  >
-                    <v-icon size="24px">
-                      {{ icon }}
-                    </v-icon>
-                  </v-btn>
-                </div> -->
               </div>
             </div>
           </v-col>
@@ -206,6 +349,9 @@
 export default {
   data() {
     return {
+      //conditional footer
+      toggleLang: false,
+
       icon: [
         {
           url: 'instagram.png',
@@ -224,6 +370,14 @@ export default {
           alt: 'Logo Facebook',
         },
       ],
+    }
+  },
+
+  mounted() {
+    if ($nuxt.$route.path === '/lang-jp') {
+      this.$store.state.toggleLang = true
+    } else {
+      this.$store.state.toggleLang = false
     }
   },
 }
@@ -253,7 +407,6 @@ export default {
   &__copyright {
     font-weight: normal;
     font-size: 0.9rem;
-    // line-height: 154.69%;
   }
 }
 </style>
