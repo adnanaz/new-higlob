@@ -57,7 +57,7 @@
         <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6">
           <div :class="$vuetify.breakpoint.xs ? '' : 'push__top'">
             <img
-              :style="$vuetify.breakpoint.xs ? 'width:100%;' : 'width: 85vh'"
+              :style="$vuetify.breakpoint.xs ? 'width:100%;' : 'width: 100vh'"
               cover
               :src="require('@/assets/images/model_hero-jp.png')"
               alt="Foto Model Higlob"
@@ -769,7 +769,7 @@ export default {
 .header__text {
   font-style: normal;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 48px;
   line-height: 127%;
 
   &-special {
@@ -909,7 +909,7 @@ export default {
 }
 
 .push__top {
-  margin-top: 7rem;
+  margin-top: 5rem;
 }
 
 @include media-xsAndUp {
