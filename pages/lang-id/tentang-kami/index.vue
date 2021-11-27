@@ -30,6 +30,52 @@
     </v-container>
     <!-- end Banner 1 -->
 
+    <!-- Histori LPK Higlob -->
+    <v-container>
+      <section class="histori__lpk">
+        <h1 class="text-center histori__lpk-h1">Histori LPK Higlob</h1>
+        <div>
+          <v-stepper
+            class="histori__lpk-stepper"
+            max-width="1000"
+            elevation="0"
+            alt-labels
+            color="black"
+          >
+            <v-stepper-header class="histori__lpk-stepperheader">
+              <v-stepper-step class="histori__lpk-stepperstep">
+                1
+              </v-stepper-step>
+              <v-stepper-step class="histori__lpk-stepperstep" step="">
+                Peresmian Higlob International Education dan dibukanya kelas
+                bahasa Jepang, Inggris, Jerman
+              </v-stepper-step>
+
+              <v-divider></v-divider>
+
+              <v-stepper-step class="histori__lpk-stepperstep" step="">
+                Mirae Academy Pembelajaran bahasa Korea
+              </v-stepper-step>
+
+              <v-divider></v-divider>
+
+              <v-stepper-step class="histori__lpk-stepperstep" step="">
+                Izin Sending Organization terbit dari Kementerian Tenaga kerja
+                Republik Indonesia.
+              </v-stepper-step>
+
+              <v-divider></v-divider>
+              <v-stepper-step class="histori__lpk-stepperstep" step="">
+                Perpanjangan Izin Sending Organization terbit dari Kementerian
+                Tenaga kerja Republik Indonesia.
+              </v-stepper-step>
+            </v-stepper-header>
+          </v-stepper>
+        </div>
+      </section>
+    </v-container>
+    <!-- END Histori LPK Higlob -->
+
     <!-- Section 1 -->
 
     <v-container>
@@ -910,6 +956,22 @@ export default {
 <style lang="scss">
 .override__container {
   margin: 0 5rem;
+}
+
+.v-stepper__label {
+  width: 12rem !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  color: #252525 !important;
+}
+
+.theme--light.v-stepper
+  .v-stepper__step:not(.v-stepper__step--active):not(.v-stepper__step--complete):not(.v-stepper__step--error)
+  .v-stepper__step__step {
+  background: #252525;
+}
+.theme--light.v-stepper .v-stepper__header .v-divider {
+  border-color: #bdbdbd;
 }
 
 .col-tentangkami {
