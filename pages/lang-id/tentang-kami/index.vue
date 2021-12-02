@@ -37,16 +37,15 @@
         <div>
           <v-stepper
             class="histori__lpk-stepper"
-            max-width="1000"
+            max-width="100%"
             elevation="0"
             alt-labels
             color="black"
+            vertical
           >
             <v-stepper-header class="histori__lpk-stepperheader">
-              <v-stepper-step class="histori__lpk-stepperstep">
-                1
-              </v-stepper-step>
               <v-stepper-step class="histori__lpk-stepperstep" step="">
+                <span class="histori__lpk-span">June 2016</span>
                 Peresmian Higlob International Education dan dibukanya kelas
                 bahasa Jepang, Inggris, Jerman
               </v-stepper-step>
@@ -54,18 +53,21 @@
               <v-divider></v-divider>
 
               <v-stepper-step class="histori__lpk-stepperstep" step="">
+                <span class="histori__lpk-span">July 2017</span>
                 Mirae Academy Pembelajaran bahasa Korea
               </v-stepper-step>
 
               <v-divider></v-divider>
 
-              <v-stepper-step class="histori__lpk-stepperstep" step="">
+              <v-stepper-step class="histori__lpk-stepperstepkhusus" step="">
+                <span class="histori__lpk-span">Maret 2018</span>
                 Izin Sending Organization terbit dari Kementerian Tenaga kerja
                 Republik Indonesia.
               </v-stepper-step>
 
               <v-divider></v-divider>
               <v-stepper-step class="histori__lpk-stepperstep" step="">
+                <span class="histori__lpk-span">Juni 2021</span>
                 Perpanjangan Izin Sending Organization terbit dari Kementerian
                 Tenaga kerja Republik Indonesia.
               </v-stepper-step>
@@ -93,8 +95,8 @@
             >
               <!-- List Visi Perusahaan -->
               <ul
-                v-for="(item, idx) in visi_perusahaan"
-                :key="idx"
+                v-for="(item, id) in visi_perusahaan"
+                :key="'A' + id"
                 style="list-style-type: none"
               >
                 <li>
@@ -112,8 +114,8 @@
               <!-- List Misi Perusahaan -->
               <ul
                 class=""
-                v-for="(item, index) in misi_perusahaan"
-                :key="index"
+                v-for="(item, idnx) in misi_perusahaan"
+                :key="'B' + idnx"
                 style="list-style-type: none"
               >
                 <li>
@@ -511,28 +513,30 @@
             </ul>
             <!-- end List Persyaratan Khusus -->
 
-            <v-btn
-              style="
-                font-family: 'Poppins', sans-serif;
-                margin-left: 4rem;
-                margin-top: 0.2rem;
-              "
-              class="mb-10 py-6"
-              align-end
-              color="#3E00FF"
-              large
-              elevation="0"
-              ><v-img
-                left
-                :src="require('@/assets/images/download.png')"
-              ></v-img
-              ><span
-                class="white--text text-capitalize mx-2"
-                style="font-weight: 400"
-              >
-                Download Brosur</span
-              >
-            </v-btn>
+            <div class="btn-downloadbrosur">
+              <v-btn
+                style="
+                  font-family: 'Poppins', sans-serif;
+                  margin-left: 4rem;
+                  margin-top: 0.2rem;
+                "
+                class="mb-10 py-6"
+                align-end
+                color="#3E00FF"
+                large
+                elevation="0"
+                ><v-img
+                  left
+                  :src="require('@/assets/images/download.png')"
+                ></v-img
+                ><span
+                  class="white--text text-capitalize mx-2"
+                  style="font-weight: 400"
+                >
+                  Download Brosur</span
+                >
+              </v-btn>
+            </div>
           </v-col>
 
           <v-col
@@ -567,8 +571,8 @@
 
         <v-row>
           <v-col
-            v-for="(item, index) in pimpinan_lpk"
-            :key="index"
+            v-for="(item, indx) in pimpinan_lpk"
+            :key="'C' + indx"
             cols="6"
             xs="6"
             sm="3"
@@ -606,15 +610,13 @@
             md="6"
             lg="6"
             xl="6"
-            class="d-flex justify-start"
+            class="d-flex align-center flex-wrap"
+            :class="
+              $vuetify.breakpoint.xsAndUp ? ' text-center' : ' justify-start'
+            "
             ><h1
               class="h1-teamit"
-              :class="
-                $vuetify.breakpoint.xsAndUp
-                  ? 'justify-center;mx-auto'
-                  : 'justify-center'
-              "
-              :style="$vuetify.breakpoint.xsAndUp ? 'text-center' : 'text-left'"
+              :style="$vuetify.breakpoint.xs ? 'margin:0 auto' : ''"
             >
               Team IT Development <br />
               Kami
@@ -627,16 +629,12 @@
             md="6"
             lg="6"
             xl="6"
-            class="d-flex justify-end"
+            class="d-flex align-center flex-wrap"
+            :class="$vuetify.breakpoint.xs ? ' text-center' : ' justify-end'"
           >
             <p
               class="p-team-it"
-              :class="
-                $vuetify.breakpoint.xsAndUp ? 'justify-center' : 'justify-end'
-              "
-              :style="
-                $vuetify.breakpoint.xsAndUp ? 'text-center' : 'text-center'
-              "
+              :style="$vuetify.breakpoint.xs ? 'margin:0 auto' : ''"
             >
               Dalam pengembangan tidak dilakukan oleh satu orang dengan ini kami
               menyelesaikan secara bersama disinilah kami team IT Development
@@ -686,166 +684,69 @@ export default {
   data: () => ({
     visi_perusahaan: [
       {
+        id: 0,
         judul_visi: 'Visi Perusahaan',
       },
       {
+        id: 1,
+
         isi_visi: 'Membangun jembatan karir dan kesuksesan di dunia global',
       },
       {
+        id: 2,
+
         isi_visi:
           ' Membangun jembatan karir dan kesuksesan menuju dunia global ',
       },
     ],
-
     misi_perusahaan: [
       {
+        id: 0,
+
         judul_misi: 'Misi Perusahaan',
       },
       {
+        id: 1,
+
         isi_misi:
           ' Mengembangkan sumber  daya manusia yang siap untuk bersaing',
       },
       {
+        id: 2,
+
         isi_misi: 'Meningkatkan sumber daya manusia untuk bersaing',
       },
       {
+        id: 3,
+
         isi_misi:
           ' Meningkatkan pengetahuan, peningkatan dan keterampilan kerja ',
-      },
-    ],
-
-    persyaratan_umum: [
-      {
-        judul_persyaratan: 'Persyaratan Umum :',
-      },
-      {
-        isi_persyaratan: 'Laki-laki / Perempuan WNI Usia 18 - 27 Tahun ',
-      },
-      {
-        isi_persyaratan: 'Pendidikan terakhir minimal SMU/Sederajat ',
-      },
-      {
-        isi_persyaratan:
-          'Sehat Jasmani Rohani (Tidak cacat fisik maupun mental) ',
-      },
-      {
-        isi_persyaratan:
-          'Tinggi badan pria minimal (165cm) dan wanita (155cm) ',
-      },
-      {
-        isi_persyaratan:
-          'Peserta benar - benar memiliki semangat dan kemauan yang untuk melakukan pelatihan ',
-      },
-      {
-        isi_persyaratan:
-          'Berdisiplin tinggi, mau mematuhi dan menaati peraturan yang ditetapkan LPK Higlob ',
-      },
-      {
-        isi_persyaratan:
-          'Belum pernah datang ke jepang sebagai training/Non Exc jepang ',
-      },
-      {
-        isi_persyaratan:
-          'Tidak cacat muka karna kriminal, patah tulang dan tidak bertato ',
-      },
-    ],
-
-    catatan_khusus: [
-      {
-        judul_catatan: 'Catatan Umum : ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_catatan:
-          'Calon peserta diharuskan memenuhi admnistrasi sebelum mengikuti program diklat ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_catatan:
-          'Selamat mengikuti pendidikan diklat peserta di wajibkan mengenakan kemeja putih, celana hitam bukan jeans, sepatu hitam dan dasi ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_catatan: 'Sehat Jasmani Rohani (Tidak cacat fisik maupun mental)  ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_catatan: 'Menyediakan pakaian olahraga lengkap dengan sepatunya  ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_catatan:
-          'Peserta wajib mengikuti tata tertib yang ada di LPK Higlob ',
-      },
-    ],
-
-    persyaratan_khusus: [
-      {
-        judul_persyaratan: 'Persyaratan Umum :',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan: 'Laki-laki / Perempuan WNI Usia 18 - 27 Tahun ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan: 'Pendidikan terakhir minimal SMU/Sederajat ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan:
-          'Sehat Jasmani Rohani (Tidak cacat fisik maupun mental) ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan:
-          'Tinggi badan pria minimal (165cm) dan wanita (155cm) ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan:
-          'Peserta benar - benar memiliki semangat dan kemauan yang untuk melakukan pelatihan ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan:
-          'Berdisiplin tinggi, mau mematuhi dan menaati peraturan yang ditetapkan LPK Higlob ',
-      },
-      {
-        checklist: 'checklist.svg',
-        isi_persyaratan:
-          'Belum pernah datang ke jepang sebagai training/Non Exc jepang ',
-      },
-      {
-        isi_persyaratan:
-          'Tidak cacat muka karna kriminal, patah tulang dan tidak bertato ',
       },
     ],
 
     pimpinan_lpk: [
       {
         gambar_pimpinan: 'pimpinan1.png',
-        nama_pimpinan: 'Reza Ramadhan',
-        jabatan_pimpinan: 'Direktur LPK Higlob',
+        nama_pimpinan: 'Sensei Puspita',
+        jabatan_pimpinan: 'Sensei LPK Higlob',
       },
       {
         gambar_pimpinan: 'pimpinan2.png',
-        nama_pimpinan: 'Agus Cahyo Putro',
-        jabatan_pimpinan: 'Manager LPK Higlob',
+        nama_pimpinan: 'Sensei Taufik',
+        jabatan_pimpinan: 'Sensei LPK Higlob',
       },
       {
         gambar_pimpinan: 'pimpinan3.png',
-        nama_pimpinan: 'Putri Suraya',
-        jabatan_pimpinan: 'Lead Marketing LPK Higlob',
+        nama_pimpinan: 'Sensei Munir',
+        jabatan_pimpinan: 'Sensei LPK Higlob',
       },
       {
         gambar_pimpinan: 'pimpinan4.png',
-        nama_pimpinan: 'Devi Cantika',
-        jabatan_pimpinan: 'Advisor LPK Higlob',
+        nama_pimpinan: 'Sensei Nur',
+        jabatan_pimpinan: 'Sensei LPK Higlob',
       },
     ],
   }),
-
   computed: {
     banner1_tentangkami() {
       switch (this.$vuetify.breakpoint.name) {
@@ -861,7 +762,6 @@ export default {
           return 'width:1700px;height:160px'
       }
     },
-
     card_judul() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
@@ -876,7 +776,6 @@ export default {
           return ''
       }
     },
-
     card_isi() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
@@ -905,7 +804,6 @@ export default {
           return ''
       }
     },
-
     visi_isi() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
@@ -921,35 +819,6 @@ export default {
       }
     },
   },
-  // h1_teamit() {
-  //   switch (this.$vuetify.breakpoint.name) {
-  //     case 'xs':
-  //       return 'text-align:center'
-  //     case 'sm':
-  //       return ''
-  //     case 'md':
-  //       return ''
-  //     case 'lg':
-  //       return ''
-  //     case 'xl':
-  //       return ''
-  //   }
-  // },
-
-  // p_teamit() {
-  //   switch (this.$vuetify.breakpoint.name) {
-  //     case 'xs':
-  //       return ''
-  //     case 'sm':
-  //       return ''
-  //     case 'md':
-  //       return ''
-  //     case 'lg':
-  //       return ''
-  //     case 'xl':
-  //       return ''
-  //   }
-  // },
 }
 </script>
 
@@ -957,23 +826,31 @@ export default {
 .override__container {
   margin: 0 5rem;
 }
-
+.histori__lpk {
+  &-span {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+    color: #868686;
+  }
+}
+.v-stepper__header {
+  box-shadow: none !important;
+}
 .v-stepper__label {
   width: 12rem !important;
+  line-height: 20px !important;
   font-size: 14px !important;
   text-align: center !important;
-  color: #252525 !important;
+  color: #3e00ff !important;
 }
-
 .theme--light.v-stepper
-  .v-stepper__step:not(.v-stepper__step--active):not(.v-stepper__step--complete):not(.v-stepper__step--error)
-  .v-stepper__step__step {
+  .v-stepper_step:not(.v-stepperstep--active):not(.v-stepperstep--complete):not(.v-stepper_step--error)
+  .v-stepper_step_step {
   background: #252525;
 }
 .theme--light.v-stepper .v-stepper__header .v-divider {
   border-color: #bdbdbd;
 }
-
 .col-tentangkami {
   padding: 2rem;
 }
@@ -991,7 +868,6 @@ export default {
   background-size: cover;
   height: 100vh;
 }
-
 .card-judul {
   color: white;
   font-family: 'Poppins';
@@ -1008,7 +884,6 @@ export default {
   font-size: 14px;
   line-height: 180%;
 }
-
 .list-section1 {
   h2 {
     font-family: 'Poppins';
@@ -1019,12 +894,10 @@ export default {
     font-family: 'Poppins';
     // line-height: 1.1rem;
   }
-
   .ul-tentangkami.img {
     margin-right: 1rem;
   }
 }
-
 .h1-pimpinan {
   font-family: 'poppins';
   line-height: 4rem;
@@ -1049,7 +922,6 @@ export default {
 }
 .h1-teamit {
   font-family: 'poppins';
-
   font-size: 21px;
 }
 .p-teamit {
@@ -1058,7 +930,6 @@ export default {
   line-height: 1.3rem;
   font-size: 11px;
 }
-
 @media screen and (min-width: 0px) and (max-width: 300px) {
   .p-pimpinan {
     font-size: 11px;
@@ -1073,6 +944,21 @@ export default {
     margin-left: -30px !important;
     padding: 1rem !important;
   }
+  .histori__lpk {
+    &-stepperstepkhusus {
+    }
+    &-stepper {
+    }
+  }
+
+  .v-stepper__label {
+    width: 13rem !important;
+    line-height: 20px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    color: #3e00ff !important;
+  }
+
   .gambar-visimisi-ijo {
     margin-left: -0.5rem;
   }
@@ -1098,8 +984,8 @@ export default {
   .p-pimpinan {
     font-size: 11px !important;
   }
-  .p-teamit {
-    font-size: 10.5px;
+  .p-team-it {
+    font-size: 14px;
     text-align: center !important;
     padding: 0 1rem 0 1rem;
   }
@@ -1125,7 +1011,6 @@ export default {
     text-align: center;
     margin-left: -2rem;
   }
-
   .list-section1 p {
     font-size: 14px !important;
     text-align: center;
@@ -1140,7 +1025,6 @@ export default {
     font-size: 12px;
     text-align: center;
   }
-
   .h2-keseluruhan {
     font-size: 14px;
     font-weight: 500;
@@ -1149,12 +1033,32 @@ export default {
     font-size: 14px;
     font-weight: 400px;
   }
+
+  .v-stepper:not(.v-stepper--vertical) .v-stepper__label {
+    display: flex !important;
+  }
 }
 @media screen and (min-width: 600px) and (max-width: 960px) {
   .h1-teamit {
     text-align: center;
+    margin: 0 auto;
   }
-  .p-teamit {
+  .histori__lpk-span {
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+    color: #868686;
+  }
+  .v-stepper__label {
+    width: 11rem !important;
+    line-height: 20px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+  .p-team-it {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 14px;
+    text-align: center;
     p {
       text-align: center !important;
       padding: 0 5rem 0 5rem;
@@ -1168,7 +1072,6 @@ export default {
   .gambar-section1 {
     padding: 1.8rem;
   }
-
   .v-row {
     padding: 2rem !important;
   }
@@ -1185,7 +1088,7 @@ export default {
     padding: 10rem;
   }
   .gambar-persyaratan {
-    padding: 5rem;
+    padding: 0;
   }
   .h1-heading2 {
     font-size: 21px;
@@ -1199,7 +1102,6 @@ export default {
 }
 @media screen and (min-width: 960px) and (max-width: 1264px) {
   .h1-teamit {
-    text-align: center;
   }
   .p-teamit {
     p {
@@ -1235,7 +1137,6 @@ export default {
   }
   .col-tentangkami {
     line-height: 0.5rem;
-
     padding: 47px 0px 0px 0px;
   }
   .gambar-persyaratan-angel {

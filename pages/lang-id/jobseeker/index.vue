@@ -12,6 +12,7 @@
             lg="6"
             xl="6"
           >
+            <h4 class="jobseeker__awal-h4">Job Info</h4>
             <h1 class="jobseeker__awal-h1">
               “ Temukan Pekerjaan yang sesuai passionmu sekarang. “
             </h1>
@@ -50,6 +51,13 @@
     <!-- SECTION JOBSeeker Banner -->
     <v-container>
       <section class="jobseeker__banner">
+        <h1 class="jobseeker__banner-h1 text-center">
+          Temukan Pekerjaan Impianmu
+        </h1>
+        <p class="jobseeker__banner-p text-center">
+          Berbagai macam Informasi pekerjaan yang kami sediakan untuk mendukung
+          kebutuhanmu
+        </p>
         <v-row class="jobseeker__banner-row">
           <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="3">
             <div class="jobseeker__banner-bungkus">
@@ -57,8 +65,8 @@
               <div class="jobseeker__banner-info">
                 <span>ELECTRICAL ENGGINERING</span> <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
+                <span>Location : Germany</span> <br />
+                <span>Wages : 1600 USD</span>
                 <span>Contract : 5 Year</span>
               </div>
             </div>
@@ -180,6 +188,21 @@ export default {
 <style lang="scss">
 .jobseeker__banner {
   margin-top: 5rem;
+  &-h1 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 170%;
+    margin-bottom: 2rem;
+  }
+  &-p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 160%;
+    padding: 0 16rem 0 16rem;
+    margin-bottom: 4rem !important;
+  }
+
   &-bungkus {
     width: 14rem;
   }
@@ -198,19 +221,30 @@ export default {
   &-bungkusbtn {
     margin-top: 5rem;
   }
+  &-btn {
+    margin-bottom: 2rem;
+  }
 }
 
 .jobseeker__awal {
   margin-top: 7rem;
+
   &-colkiri {
     margin-top: 2rem;
+  }
+  &-h4 {
+    color: #3e00ff;
   }
   &-h1 {
     font-size: 37px;
     margin-bottom: 2rem;
   }
   &-p {
-    line-height: 1.5rem;
+    line-height: 1.9rem;
+  }
+  &-img {
+    width: 35rem;
+    margin-left: 2rem;
   }
 }
 @media screen and (min-width: 0px) and (max-width: 300px) {
@@ -272,33 +306,47 @@ export default {
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
   .jobseeker__awal {
-    margin-top: 4rem;
+    margin-top: 3rem;
     &-row {
       padding: 1rem;
     }
     &-colkiri {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     &-colkanan {
       padding: 0 !important;
 
-      margin-left: 2rem;
+      margin-left: 0rem;
     }
     &-img {
-      width: 25rem;
+      width: 19rem;
+    }
+    &-h4 {
+      margin-bottom: 1rem;
     }
     &-h1 {
-      font-size: 22px !important;
+      font-size: 20px !important;
       margin-bottom: 2rem;
     }
     &-p {
-      line-height: 1.5rem;
-      font-size: 14px;
+      line-height: 1.8rem !important;
+      font-size: 14px !important;
     }
   }
 
   .jobseeker__banner {
     margin-top: 5rem;
+    padding-left: 1rem;
+    &-h1 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 160%;
+    }
+    &-p {
+      font-size: 14px;
+      line-height: 170%;
+      padding: 0;
+    }
     &-bungkus {
       width: 14rem;
     }
@@ -336,19 +384,18 @@ export default {
     }
     &-colkanan {
       padding: 0 !important;
-
-      margin-left: 11rem;
+      margin-top: 2rem;
     }
     &-img {
       width: 25rem;
     }
     &-h1 {
-      font-size: 26px;
+      font-size: 22px;
       margin-bottom: 2rem;
     }
     &-p {
-      line-height: 1.5rem;
-      font-size: 14px;
+      line-height: 1rem;
+      font-size: 12px;
     }
   }
 
@@ -380,7 +427,7 @@ export default {
     }
   }
 }
-@media screen and (min-width: 300px) and (max-width: 1264px) {
+@media screen and (min-width: 960px) and (max-width: 1264px) {
   .jobseeker__awal {
     margin-top: 5rem;
     &-row {
