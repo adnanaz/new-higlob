@@ -2,7 +2,7 @@
   <div>
     <!-- Banner Persiapan -->
 
-    <v-container>
+    <v-container fluid style="background-color: #f8faff">
       <section
         class="banner__persiapan"
         :style="$vuetify.breakpoint.mdAndUp ? 'margin-top : 8rem;' : ''"
@@ -20,8 +20,9 @@
             <h4 class="banner__persiapan-h4">Layanan Kami</h4>
             <h1 class="banner__persiapan-h1">Persiapan Bahasa</h1>
             <p class="banner__persiapan-p">
-              Higlob menyediakan kelas pembelajaran bahasa Jepang dan juga
-              asrama untuk persiapan bekerja maupun magang di Jepang.
+              Persiapan bahasa merupakan sebuah layanan dari LPK Higlob yang
+              menyediakan program bahasa jepang yang akan digunakan sebelum anda
+              melakukan pemberangkatan ke jepang
             </p>
           </v-col>
           <v-col
@@ -207,8 +208,8 @@
               </li>
               <li>
                 <p class="banner__fasilitasbahasa-p">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  Mendapatkan teman -teman yang mampu membantu untuk
+                  mengembangkan passion anda, dan masih banyak lagi
                 </p>
               </li>
             </ul>
@@ -234,7 +235,7 @@
 
     <!-- START BANNER LAYANAN BAHASA -->
 
-    <v-container>
+    <v-container fluid style="background-color: #f4fcff">
       <section class="banner__layananbahasa">
         <v-row>
           <v-col
@@ -264,12 +265,46 @@
             <h1 class="banner__layananbahasa-h1">
               Kenapa anda harus memilih Persiapan Bahasa?
             </h1>
-            <p class="banner__layananbahasa-p">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type
-            </p>
+
+            <ul class="banner__syarat-ul">
+              <li class="banner__syarat-ul">
+                <p class="banner__syarat-p">
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img
+                  >Untuk mendalami bahasa jepang menjadi lebih baik lagi
+                </p>
+              </li>
+              <li>
+                <p class="banner__syarat-p">
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img
+                  >Melatih ucapan bahasa jepang agar ucapan menjadi lebih fasih
+                </p>
+              </li>
+              <li>
+                <p class="banner__syarat-p">
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img
+                  >Memperbaiki bahasa kosa kata bahas jepang anda menjadi lebih
+                  baik
+                </p>
+              </li>
+              <li>
+                <p class="banner__syarat-p">
+                  <v-img
+                    :src="require('@/assets/images/checklist.svg')"
+                    style="width: 25px; height: 24px; margin-right: 0.8rem"
+                  ></v-img
+                  >Di bimbing oleh sensei khusus yang ramah dan mudah dipahami
+                </p>
+              </li>
+            </ul>
           </v-col>
         </v-row>
       </section>
@@ -423,20 +458,21 @@ li {
 
 .banner__persiapan {
   // margin-top: 8rem;
+  padding: 0 7rem;
   &-colkiri {
     margin-top: 4rem;
     padding: 2rem;
   }
   &-h1 {
     font-weight: 600;
-    font-size: 48px;
+    font-size: 46px;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     color: #171717;
   }
 
   &-p {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 26px;
     color: #171717;
   }
@@ -471,7 +507,7 @@ li {
     display: inline-flex;
   }
   &-h1atas {
-    font-size: 30px;
+    font-size: 26px;
   }
   &-patas {
     margin-top: 1rem;
@@ -480,7 +516,7 @@ li {
   &-h1 {
     margin-top: 0.5rem;
     margin-bottom: 2rem;
-    font-size: 32px;
+    font-size: 28px;
     color: #171717;
   }
   &-h4 {
@@ -503,16 +539,17 @@ li {
     margin-left: 2px;
   }
   &-h1 {
-    font-size: 32px;
+    font-size: 28px;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     color: #171717;
+    padding-right: 1rem;
   }
   &-ul {
     padding: 0 !important;
   }
   &-h5 {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 8px;
     color: #171717;
   }
@@ -526,10 +563,11 @@ li {
 // STYLE KHUSUS BANNER LAYANAN BAHASA
 
 .banner__layananbahasa {
-  margin-top: 6rem;
+  padding: 0 6rem;
+  margin-top: 4rem;
   &-colkanan {
     padding-left: 0rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   &-ul {
     list-style-type: none;
@@ -541,7 +579,7 @@ li {
   &-h1 {
     margin-top: 0.5rem;
     margin-bottom: 2rem;
-    font-size: 32px;
+    font-size: 24px;
     color: #171717;
   }
   &-h4 {
@@ -581,10 +619,221 @@ li {
 // END STYLE KHUSUS BANNER PERTANYAAN BAHASA
 
 // MEDIA QUERY
+//0-300
+@media screen and (min-width: 0px) and (max-width: 330px) {
+  .banner__persiapan {
+    padding: 7px;
+    margin-top: 2rem;
+    &-colkiri {
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+    &-colkanan {
+      margin-left: 2rem;
+    }
+    &-h1 {
+      font-weight: 600;
+      font-size: 26px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: #171717;
+    }
+    &-h1kolom {
+      margin-left: 2.4rem;
+    }
+    &-p {
+      font-size: 12px;
+      line-height: 26px;
+      color: #171717;
+    }
+    &-img {
+      margin-left: -2rem;
+      padding: 0 !important;
+    }
+    &-ul li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+    &-rowkecil {
+      margin-left: -24px !important;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+  // END STYLE BANNER PERSIAPAN
+  // STYLE KHUSUS BANNER SYARAT
 
-@media screen and (min-width: 0px) and (max-width: 300px) {
+  .banner__syarat {
+    padding: 7px;
+    margin-top: 2rem;
+    &-row {
+      margin-bottom: 2rem;
+    }
+    &-colkanan {
+      padding-left: 1rem;
+      margin-top: 0rem;
+    }
+    &-colkiri {
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-p {
+      display: inline-flex;
+      font-size: 12px;
+    }
+    &-patas {
+      font-size: 12px;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+      font-size: 22px;
+      color: #171717;
+    }
+    &-h1atas {
+      font-size: 16px;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+
+  // END STYLE KHUSUS BANNER SYARAT
+
+  .banner__fasilitasbahasa {
+    padding: 7px;
+    margin-top: 4rem;
+
+    &-colkiri {
+      margin-top: -1rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      margin-left: 2px;
+    }
+    &-h1 {
+      font-size: 17px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+    }
+    &-ul {
+      padding: 0 !important;
+    }
+    &-h5 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #171717;
+    }
+    &-p {
+      line-height: 1.5rem;
+      font-size: 12px;
+      color: #171717;
+    }
+  }
+  // END STYLE KHUSUS BANNER BAHASA
+
+  // STYLE KHUSUS BANNER LAYANAN BAHASA
+
+  .banner__layananbahasa {
+    padding: 7px;
+    margin-top: 4rem;
+    &-colkiri {
+      margin-top: 2rem;
+      padding: 0 !important;
+      margin-left: 2rem;
+    }
+    &-colkanan {
+      margin-left: 0rem;
+      padding-left: 1rem;
+    }
+    &-h1 {
+      font-weight: 600;
+      font-size: 17px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: #171717;
+    }
+    &-h1kolom {
+      margin-left: 2.4rem;
+    }
+    &-p {
+      font-size: 12px;
+      line-height: 26px;
+      color: #171717;
+    }
+    &-img {
+      margin-left: 1rem;
+      padding: 0 !important;
+    }
+    &-ul li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+    &-rowkecil {
+      margin-left: -24px !important;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+    }
+  }
+
+  // END STYLE KHUSUS BANNER LAYANAN BAHASA
+
+  // STYLE  KHSUSUS PERTANYAAN BAHASA
+  .v-expansion-panel--active > .v-expansion-panel-header {
+    color: #3e00ff;
+  }
+  .pertanyaan__bahasa {
+    padding: 7px;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    &-h1 {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    &-p {
+      font-size: 13px;
+    }
+    &-img {
+      max-width: 12rem;
+      margin-top: 2rem;
+      margin-left: -2rem;
+    }
+    &-colkiri {
+      margin-top: 1rem;
+    }
+    &-colkanan {
+      margin-top: 3rem;
+    }
+    &-paneljudul {
+      margin-bottom: 1rem;
+      border-radius: 6px;
+
+      line-height: 1.6rem;
+    }
+    &-panelisi {
+      font-size: 12px;
+    }
+    &-panelheader {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.6rem;
+    }
+  }
+  // END STYLE KHUSUS PERTANYAAN BAHASA
 }
-@media screen and (min-width: 300px) and (max-width: 600px) {
+
+//300-600
+@media screen and (min-width: 330px) and (max-width: 600px) {
   // STYLE KHUSUS BANNER PERSIAPAN
 
   .banner__persiapan {
@@ -797,7 +1046,8 @@ li {
   }
   // END STYLE KHUSUS PERTANYAAN BAHASA
 }
-// UKURAN TABLET
+// UKURAN 600-960
+//
 @media screen and (min-width: 600px) and (max-width: 960px) {
   // STYLE KHUSUS BANNER PERSIAPAN
 
@@ -934,8 +1184,8 @@ li {
   // STYLE KHUSUS BANNER LAYANAN BAHASA
 
   .banner__layananbahasa {
-    margin-top: 3rem;
-    padding-left: 3rem;
+    margin-top: 8rem !important;
+    padding: 0 3rem;
     &-colkanan {
       padding-left: 0rem;
       margin-top: 2rem;
@@ -1004,6 +1254,7 @@ li {
 //END UKURAN TABLET
 
 // ukuran IPAD PRO
+//960-1264
 @media screen and (min-width: 960px) and (max-width: 1264px) {
   // STYLE KHUSUS BANNER PERSIAPAN
 
@@ -1217,6 +1468,7 @@ li {
   // END STYLE KHUSUS BANNER PERTANYAAN BAHASA
 }
 // END UKURAN IPAD PRO
+//1264-1904
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
 }
 </style>

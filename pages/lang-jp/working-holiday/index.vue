@@ -2,8 +2,8 @@
   <div>
     <!-- Banner VISA -->
     <div>
-      <section class="banner__visa background">
-        <v-container>
+      <v-container fluid style="background-color: #f8faff">
+        <section class="banner__visa background">
           <v-row>
             <v-col
               class="banner__visa-colkiri order-1 order-sm-1 order-md-1"
@@ -15,9 +15,9 @@
               xl="6"
             >
               <h4 class="banner__visa-h4">当社のサービス</h4>
-              <h1 class="banner__visa-h1">ワーキングホリデービザ</h1>
+              <h1 class="banner__visa-h1">ビザワーキングホリデー</h1>
               <p class="banner__visa-p" style="color: #868686">
-                ワーキングホリデービザは、によって付与されるビザの一種です。
+                ワーキングホリデービザは、によって付与されるビザの一種です
                 国の政府から外国人へ 彼の国の領土での一時的な居住、また通常
                 休暇中に活動をする機会を与えることができます
                 仕事と勉強中（教育と訓練）。
@@ -71,12 +71,12 @@
             >
               <v-img
                 class="banner__visa-img"
-                :src="require('@/assets/images/visabanner-jp.png')"
+                :src="require('@/assets/images/visabanner.png')"
               ></v-img>
             </v-col>
           </v-row>
-        </v-container>
-      </section>
+        </section>
+      </v-container>
     </div>
 
     <!-- END BANNER VISA -->
@@ -108,8 +108,8 @@
             lg="6"
             xl="6"
           >
-            <h4 class="banner__ketentuan-h4">労働休暇の利用規約</h4>
-            <h1 class="banner__ketentuan-h1">ワーキングホリデー利用規約</h1>
+            <h4 class="banner__ketentuan-h4">S＆Kワーキングホリデー</h4>
+            <h1 class="banner__ketentuan-h1">休日の利用規約</h1>
             <ul class="banner__ketentuan-ul">
               <li>
                 <p class="banner__ketentuan-p">
@@ -117,7 +117,7 @@
                     :src="require('@/assets/images/checklist.svg')"
                     style="width: 25px; height: 24px; margin-right: 0.8rem"
                   ></v-img
-                  >男性のIeltsが4.5未満、英語のトレーニングを最大6年間受ける
+                  >4.5歳未満の男性Ieltsは最大6年間英語トレーニングに参加します
                 </p>
               </li>
               <li>
@@ -135,7 +135,7 @@
                     :src="require('@/assets/images/checklist.svg')"
                     style="width: 25px; height: 24px; margin-right: 0.8rem"
                   ></v-img
-                  >SKL、SKCK、Ielts証明書、およびフォトパスドキュメントを収集します
+                  >Mengumpulkan dokumen SKL, SKCK, Sertfikat Ielts, dan Pas Foto
                 </p>
               </li>
               <li>
@@ -207,7 +207,7 @@
               </li>
               <li>
                 <p class="banner__fasilitas-p">
-                  製造と介護者の3〜6か月間の語学クラスを受講する
+                  製造から3〜6か月間の語学クラスを受講する と介護者
                 </p>
               </li>
             </ul>
@@ -219,7 +219,7 @@
               </li>
               <li>
                 <p class="banner__fasilitas-p">
-                  製造と介護者の3〜6か月間の語学クラスを受講する
+                  製造から3〜6か月間の語学クラスを受講する と介護者
                 </p>
               </li>
             </ul>
@@ -229,8 +229,8 @@
               </li>
               <li>
                 <p class="banner__fasilitas-p">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  助けることができる友達を得る
+                  あなたの情熱を育て、そしてもっとたくさん
                 </p>
               </li>
             </ul>
@@ -319,7 +319,8 @@
               >
                 <v-expansion-panel class="pertanyaan-paneljudul">
                   <v-expansion-panel-header class="pertanyaan-panelheader">
-                    オーストラリアでのギャップイヤー/ワーキングホリデーのメリットは何ですか？</v-expansion-panel-header
+                    オーストラリアでのギャップイヤー/ワーキングホリデーの利点は何ですか
+                    ？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan-panelisi"
@@ -336,7 +337,8 @@
 
                 <v-expansion-panel class="pertanyaan-paneljudul">
                   <v-expansion-panel-header class="pertanyaan-panelheader">
-                    オーストラリアでのワーキングホリデーの年齢制限は何歳ですか？</v-expansion-panel-header
+                    オーストラリアでのワーキングホリデーの年齢制限は何歳ですか
+                    ？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan-panelisi"
@@ -351,7 +353,8 @@
 
                 <v-expansion-panel class="pertanyaan-paneljudul">
                   <v-expansion-panel-header class="pertanyaan-panelheader">
-                    オーストラリアのワーキングホリデービザ申請を完了するには何が必要ですか？</v-expansion-panel-header
+                    Apa saja yang diperlukan untuk melengkapi pengajuan visa
+                    Working Holiday Australia ?</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan-panelisi"
@@ -407,6 +410,7 @@ ul {
 
 .banner__visa {
   margin-top: 8rem;
+  padding: 0 6rem;
   &-colkiri {
     margin-top: 2rem;
   }
@@ -495,7 +499,7 @@ ul {
   }
   &-p {
     font-size: 14px;
-    color: #171717;
+    color: #868686;
   }
 }
 // END KHUSUS BANNER FASILITAS
@@ -567,7 +571,7 @@ ul {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 30px;
+      font-size: 22px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -576,7 +580,7 @@ ul {
       margin-left: 2.4rem;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 26px;
       color: #171717;
     }
@@ -612,13 +616,15 @@ ul {
       list-style-type: none;
       padding: 0 !important;
     }
+
     &-p {
       display: inline-flex;
+      font-size: 12px;
     }
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 22px;
+      font-size: 20px;
       color: #171717;
     }
     &-h4 {
@@ -642,7 +648,7 @@ ul {
       margin-left: 2px;
     }
     &-h1 {
-      font-size: 22px;
+      font-size: 20px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -651,13 +657,13 @@ ul {
       padding: 0 !important;
     }
     &-h5 {
-      font-size: 14px;
+      font-size: 12px;
       margin-bottom: 8px;
       color: #171717;
     }
     &-p {
       font-size: 12px;
-      color: #171717;
+      color: #868686;
     }
   }
   // END KHUSUS BANNER FASILITAS
@@ -668,7 +674,7 @@ ul {
     padding: 7px;
     margin-top: 6rem;
     &-h1 {
-      font-size: 21px;
+      font-size: 20px;
       text-align: center;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
@@ -679,7 +685,7 @@ ul {
       color: #3e00ff;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
     }
     &-img {
@@ -698,12 +704,12 @@ ul {
     margin-top: 5rem;
     margin-bottom: 5rem;
     &-h1 {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 1rem;
     }
 
     &-p {
-      font-size: 13px;
+      font-size: 12px;
     }
     &-img {
       max-width: 12rem;
@@ -727,7 +733,7 @@ ul {
     }
     &-panelheader {
       font-weight: 500;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.6rem;
     }
   }
@@ -845,7 +851,7 @@ ul {
     }
     &-p {
       font-size: 14px;
-      color: #171717;
+      color: #868686;
     }
   }
   // END KHUSUS BANNER FASILITAS
@@ -1026,7 +1032,7 @@ ul {
     }
     &-p {
       font-size: 14px;
-      color: #171717;
+      color: #868686;
     }
   }
   // END KHUSUS BANNER FASILITAS

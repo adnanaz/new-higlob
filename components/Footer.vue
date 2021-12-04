@@ -225,6 +225,7 @@
                 "
               >
                 <v-btn
+                  to="/lang-id/persiapan-bahasa"
                   color="white"
                   class="text-capitalize font-weight-regular"
                   text
@@ -233,12 +234,42 @@
                   Persiapan Bahasa
                 </v-btn>
                 <v-btn
+                  to="/lang-id/working-holiday"
                   color="white"
                   class="text-capitalize font-weight-regular"
                   text
                   rounded
                 >
                   Working Holiday
+                </v-btn>
+              </div>
+              <h4 class="footer__title">Job Seeker</h4>
+              <div
+                class="
+                  footer__item
+                  d-flex
+                  justify-start
+                  align-start
+                  flex-wrap flex-column
+                "
+              >
+                <v-btn
+                  to="/lang-id/job-info"
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  Job Info
+                </v-btn>
+                <v-btn
+                  to="/lang-id/candidates"
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  text
+                  rounded
+                >
+                  Candidates
                 </v-btn>
               </div>
             </div></v-col
@@ -256,6 +287,7 @@
                 "
               >
                 <v-btn
+                  to="/lang-id/tentang-kami"
                   color="white"
                   class="text-capitalize font-weight-regular"
                   text
@@ -266,10 +298,20 @@
                 <v-btn
                   color="white"
                   class="text-capitalize font-weight-regular"
+                  to="/lang-id/galeri"
                   text
                   rounded
                 >
                   Galeri
+                </v-btn>
+                <v-btn
+                  color="white"
+                  class="text-capitalize font-weight-regular"
+                  to="/lang-id/blog"
+                  text
+                  rounded
+                >
+                  Blog
                 </v-btn>
               </div>
             </div>
@@ -287,6 +329,7 @@
                 "
               >
                 <v-btn
+                  to="/lang-id/kontak"
                   color="white"
                   class="text-capitalize font-weight-regular"
                   text
@@ -295,6 +338,7 @@
                   Kontak Kami
                 </v-btn>
                 <v-btn
+                  to="/lang-id/faq"
                   color="white"
                   class="text-capitalize font-weight-regular"
                   text

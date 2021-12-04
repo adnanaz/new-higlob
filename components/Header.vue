@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- JEPANG -->
     <div v-if="!$store.state.toggleLang">
       <v-app-bar
         :height="$vuetify.breakpoint.mdAndUp ? '100' : ''"
@@ -12,9 +13,9 @@
           style="width: 100%"
           :class="$vuetify.breakpoint.mdAndDown ? 'd-flex' : 'd-none'"
         >
-          <v-toolbar-title class="my-auto mx-5">
+          <v-toolbar-title class="my-auto mx-5 pt-1">
             <img
-              style="width: 35px"
+              style="width: 150px"
               :src="require('@/assets/images/logo.png')"
               alt="logo higlob"
             />
@@ -29,7 +30,7 @@
           <div class="d-flex align-center">
             <v-toolbar-title class="d-flex align-center flex-column">
               <img
-                style="width: 40px"
+                style="width: 200px"
                 :src="require('@/assets/images/logo.png')"
                 alt="logo higlob"
               />
@@ -37,23 +38,32 @@
 
             <v-spacer></v-spacer>
             <nuxt-link
-              class="mx-3"
+              class="mx-3 link__color"
               style="text-decoration: none; color: black"
-              to="/"
+              to="/lang-jp"
             >
-              <div class="nuxt__link nuxt-link-exact-active ma-2">家</div>
+              <div class="nuxt__link ma-2">家</div>
             </nuxt-link>
 
             <v-menu transition="slide-y-transition" bottom>
               <template v-slot:activator="{ on, attrs }">
-                <div class="nuxt__link ma-2" v-on="on" v-bind="attrs">
+                <div
+                  class="link__color nuxt__link ma-2"
+                  v-on="on"
+                  v-bind="attrs"
+                >
                   サービス <v-icon color="black">mdi-chevron-down</v-icon>
                 </div>
               </template>
               <v-list>
                 <v-list-item v-for="(item, i) in items" :key="i">
                   <v-list-item-title class="lang">
-                    <NuxtLink style="color: black" :to="item.url" :key="i">
+                    <NuxtLink
+                      class="link__color"
+                      style="color: black"
+                      :to="item.url"
+                      :key="i"
+                    >
                       {{ item.title }}
                     </NuxtLink></v-list-item-title
                   >
@@ -65,7 +75,7 @@
               v-for="(item, index) in menu"
               :key="index"
               :to="item.link"
-              class="mx-3"
+              class="mx-3 link__color"
               style="text-decoration: none; color: black"
             >
               <div class="nuxt__link ma-2">
@@ -158,7 +168,7 @@
                       <v-list-item-title class="link">
                         <NuxtLink
                           to="/lang-jp/persiapan-bahasa"
-                          class="black--text"
+                          class="link__color black--text"
                         >
                           言語の準備
                         </NuxtLink></v-list-item-title
@@ -173,7 +183,7 @@
                       <v-list-item-title>
                         <NuxtLink
                           to="/lang-jp/working-holiday"
-                          class="black--text"
+                          class="black--text link__color"
                           >ワーキングホリデー
                         </NuxtLink></v-list-item-title
                       >
@@ -184,22 +194,25 @@
             </v-list-item>
 
             <v-list-item>
-              <NuxtLink to="/lang-jp/galeri" class="black--text">
+              <NuxtLink to="/lang-jp/galeri" class="link__color black--text">
                 <v-list-item-title>ギャラリー</v-list-item-title>
               </NuxtLink>
             </v-list-item>
             <v-list-item>
-              <NuxtLink to="/lang-jp/berita" class="black--text">
+              <NuxtLink to="/lang-jp/berita" class="link__color black--text">
                 <v-list-item-title>ニュース</v-list-item-title>
               </NuxtLink>
             </v-list-item>
             <v-list-item>
-              <NuxtLink to="/lang-jp/tentang-kami" class="black--text">
+              <NuxtLink
+                to="/lang-jp/tentang-kami"
+                class="link__color black--text"
+              >
                 <v-list-item-title>私たちに関しては</v-list-item-title>
               </NuxtLink>
             </v-list-item>
             <v-list-item>
-              <NuxtLink to="/lang-jp/kontak" class="black--text">
+              <NuxtLink to="/lang-jp/kontak" class="link__color black--text">
                 <v-list-item-title>コンタクト</v-list-item-title>
               </NuxtLink>
             </v-list-item>
@@ -229,7 +242,7 @@
         </v-list>
       </v-navigation-drawer>
     </div>
-
+    <!-- INDONESIA -->
     <div v-else>
       <v-app-bar
         :height="$vuetify.breakpoint.mdAndUp ? '100' : ''"
@@ -242,9 +255,9 @@
           style="width: 100%"
           :class="$vuetify.breakpoint.mdAndDown ? 'd-flex' : 'd-none'"
         >
-          <v-toolbar-title class="my-auto mx-5">
+          <v-toolbar-title class="my-auto mx-5 pt-1">
             <img
-              style="width: 35px"
+              style="width: 150px"
               :src="require('@/assets/images/logo.png')"
               alt="logo higlob"
             />
@@ -259,7 +272,7 @@
           <div class="d-flex align-center">
             <v-toolbar-title class="d-flex align-center flex-column">
               <img
-                style="width: 40px"
+                style="width: 200px"
                 :src="require('@/assets/images/logo.png')"
                 alt="logo higlob"
               />
@@ -267,46 +280,60 @@
 
             <v-spacer></v-spacer>
             <nuxt-link
-              class="mx-3"
+              class="mx-3 link__color"
               style="text-decoration: none; color: black"
-              to="/"
+              to="/lang-id"
             >
-              <div
-                class="nuxt__link nuxt-link-exact-active ma-2"
-                @click="$router.push('/lang-id')"
-              >
-                Beranda
-              </div>
+              <div class="nuxt__link ma-2">Beranda</div>
             </nuxt-link>
 
-            <nuxt-link
-              class="mx-3"
-              style="text-decoration: none; color: black"
-              to="#"
-            >
-              <v-menu transition="slide-y-transition" bottom>
-                <template v-slot:activator="{ on, attrs }">
-                  <div class="nuxt__link ma-2" v-on="on" v-bind="attrs">
-                    Layanan <v-icon color="black">mdi-chevron-down</v-icon>
-                  </div>
-                </template>
-                <v-list>
-                  <v-list-item v-for="(item, i) in items_id" :key="i">
-                    <v-list-item-title class="lang">
-                      <NuxtLink style="color: black" :to="item.url">
-                        {{ item.title }}
-                      </NuxtLink></v-list-item-title
+            <v-menu transition="slide-y-transition" bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <div class="nuxt__link ma-2" v-on="on" v-bind="attrs">
+                  Layanan <v-icon color="black">mdi-chevron-down</v-icon>
+                </div>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, i) in items_id" :key="i">
+                  <v-list-item-title class="lang">
+                    <NuxtLink
+                      class="link__color"
+                      style="color: black"
+                      :to="item.url"
                     >
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </nuxt-link>
+                      {{ item.title }}
+                    </NuxtLink></v-list-item-title
+                  >
+                </v-list-item>
+              </v-list>
+            </v-menu>
+
+            <v-menu transition="slide-y-transition" bottom>
+              <template v-slot:activator="{ on, attrs }">
+                <div class="nuxt__link ma-2" v-on="on" v-bind="attrs">
+                  Job Seeker <v-icon color="black">mdi-chevron-down</v-icon>
+                </div>
+              </template>
+              <v-list>
+                <v-list-item v-for="(item, i) in jobseeker_id" :key="i">
+                  <v-list-item-title class="lang">
+                    <NuxtLink
+                      class="link__color"
+                      style="color: black"
+                      :to="item.url"
+                    >
+                      {{ item.title }}
+                    </NuxtLink></v-list-item-title
+                  >
+                </v-list-item>
+              </v-list>
+            </v-menu>
 
             <NuxtLink
               v-for="(item, index) in menu_id"
               :key="index"
               :to="item.link"
-              class="mx-3"
+              class="mx-3 link__color"
               style="text-decoration: none; color: black"
             >
               <div class="nuxt__link ma-2">
@@ -421,22 +448,54 @@
             </v-list-item>
 
             <v-list-item>
+              <v-expansion-panels flat dense>
+                <v-expansion-panel>
+                  <v-expansion-panel-header class="pa-0">
+                    <span style="font-size: 13px; font-weight: 500"
+                      >Job Seeker</span
+                    >
+                  </v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <v-list-item>
+                      <v-list-item-title class="link">
+                        <NuxtLink to="/lang-id/job-info" class="black--text">
+                          Job Info
+                        </NuxtLink></v-list-item-title
+                      >
+                    </v-list-item>
+
+                    <v-list-item>
+                      <v-list-item-title>
+                        <NuxtLink to="/lang-id/candidates" class="black--text"
+                          >Candidates
+                        </NuxtLink></v-list-item-title
+                      >
+                    </v-list-item>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
+            </v-list-item>
+
+            <v-list-item>
               <v-list-item-title @click="$router.push('/lang-id/galeri')"
                 >Gallery</v-list-item-title
               >
             </v-list-item>
             <v-list-item>
-              <v-list-item-title @click="$router.push('/lang-id/berita')"
-                >Berita</v-list-item-title
+              <v-list-item-title @click="$router.push('/lang-id/blog')"
+                >Blog</v-list-item-title
               >
             </v-list-item>
             <v-list-item>
-              <NuxtLink to="/tetang-kami" class="black--text">
+              <NuxtLink
+                to="/lang-id/tentang-kami"
+                class="link__color lack--text"
+              >
                 <v-list-item-title>Tentang Kami</v-list-item-title>
               </NuxtLink>
             </v-list-item>
             <v-list-item>
-              <NuxtLink to="/kontak" class="black--text">
+              <NuxtLink to="/lang-id/kontak" class="link__color black--text">
                 <v-list-item-title>Kontak</v-list-item-title>
               </NuxtLink>
             </v-list-item>
@@ -445,8 +504,8 @@
               <v-expansion-panels flat dense>
                 <v-expansion-panel>
                   <v-expansion-panel-header class="pa-0">
-                    <span style="font-size: 13px; font-weight: 500"
-                      >Bahasa</span
+                    <span style="font-size: 13px; font-weight: 500">
+                      Bahasa</span
                     >
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
@@ -515,6 +574,10 @@ export default {
       items_id: [
         { title: 'Persiapan Bahasa', url: '/lang-id/persiapan-bahasa' },
         { title: 'Working Holiday', url: '/lang-id/working-holiday' },
+      ],
+      jobseeker_id: [
+        { title: 'Job Info', url: '/lang-id/job-info' },
+        { title: 'Candidate', url: '/lang-id/candidates' },
       ],
     }
   },
@@ -585,8 +648,8 @@ export default {
           link: '/lang-id/galeri',
         },
         {
-          label: 'Berita',
-          link: '/lang-id/berita',
+          label: 'Blog',
+          link: '/lang-id/blog',
         },
         {
           label: 'Tentang Kami',
@@ -603,15 +666,20 @@ export default {
 </script>
 
 <style lang="scss">
-.v-menu__content {
-  top: 70px !important;
+a.nuxt-link-exact-active {
+  color: #3e00ff !important;
 }
 
-.link.nuxt-link-active {
-  font-weight: red;
+a:hover {
+  color: green;
 }
-/* exact link will show the primary color for only the exact matching link */
-.link.nuxt-link-exact-active {
-  color: red;
+
+.link__color:hover {
+  color: #3e00ff !important;
+  transition: all 0.4s ease-in-out;
+}
+
+.v-menu__content {
+  top: 70px !important;
 }
 </style>

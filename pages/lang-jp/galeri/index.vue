@@ -6,15 +6,9 @@
           フォトギャラリーへようこそ <br />
           LPK Higlob
         </h1>
-        <p
-          class="gallery__title-p"
-          :style="
-            $vuetify.breakpoint.mdAndUp
-              ? 'padding: 0 19rem; margin-top: 1rem'
-              : ''
-          "
-        >
-          LPK Higlobが受賞した教育および学習活動と賞のプロセスの文書化
+        <p class="gallery__title-p">
+          教育および学習活動のプロセスと授与された賞の文書化
+          LPKHiglobalを入手する
         </p>
       </div>
       <div class="gallery__tabs" style="margin-top: 50px; margin-bottom: 50px">
@@ -23,7 +17,7 @@
             href="#search"
             style="font-family: 'Poppins', sans-serif; font-weigh: bold"
           >
-            LPKの写真
+            ギャラリー
           </v-tab>
 
           <v-tab-item :style="gallery_padding" value="search">
@@ -59,7 +53,8 @@
                         >
                           <div class="pa-3">
                             <h3 style="font-family: 'poppins'">
-                              LPKヒグロブでの教育と学習活動のプロセス
+                              教育と学習活動のプロセス <br />
+                              から LPK Higlobal
                             </h3>
                           </div>
                         </v-overlay>
@@ -107,9 +102,9 @@
                               color="#036358"
                             >
                               <div class="pa-3">
-                                <h3 style="font-family: 'poppins'">
+                                <h4 style="font-family: 'poppins'">
                                   {{ item.img_caption }}
-                                </h3>
+                                </h4>
                               </div>
                             </v-overlay>
                           </v-fade-transition>
@@ -145,9 +140,9 @@
                           color="#036358"
                         >
                           <div class="pa-3">
-                            <h3 style="font-family: 'poppins'">
+                            <h4 style="font-family: 'poppins'">
                               {{ item.img_caption }}
-                            </h3>
+                            </h4>
                           </div>
                         </v-overlay>
                       </v-fade-transition>
@@ -158,11 +153,11 @@
             </v-row>
           </v-tab-item>
 
-          <v-tab
+          <!-- <v-tab
             href="#penghargaan"
             style="font-family: 'Poppins', sans-serif; font-weight: bold"
           >
-            賞
+            Penghargaan
           </v-tab>
           <v-tab-item value="penghargaan" :style="gallery_padding">
             <v-row no-gutters>
@@ -196,7 +191,8 @@
                         >
                           <div class="pa-3">
                             <h3 style="font-family: 'poppins'">
-                              LPKHiglobalでの教育および学習活動のプロセス
+                              Proses kegiatan belajar mengajar <br />
+                              di LPK Higlobal
                             </h3>
                           </div>
                         </v-overlay>
@@ -293,7 +289,7 @@
                 </v-hover>
               </v-col>
             </v-row>
-          </v-tab-item>
+          </v-tab-item> -->
         </v-tabs>
       </div>
     </section>
@@ -317,7 +313,7 @@ export default {
       },
       {
         img_url: 'gallery4.png',
-        img_caption: 'クラスでの活動を学ぶプロセス',
+        img_caption: 'クラスでの学習活動のプロセス',
       },
       {
         img_url: 'gallery5.png',
@@ -343,62 +339,62 @@ export default {
         img_caption: 'LPKHiGlobalの日本語コンペティションルーム',
       },
       {
-        img_url: 'gallery11.png',
-        img_caption: 'ジョグジャカルタ全域でのLPKによるセミナー',
+        img_url: 'gallery10.png',
+        img_caption: 'ジョグジャカルタ全体でLPKとのセミナー',
       },
       {
-        img_url: 'gallery10.png',
+        img_url: 'gallery11.png',
         img_caption: 'リーダーやITチームとのミーティング活動',
       },
     ],
     // END GALLERY
 
     // DATA PENGHARGAAN
-    kolomkananpenghargaan_img: [
-      {
-        img_url: 'gallery2.png',
-        img_caption: 'HiGlobスタディスタジオ施設',
-      },
-      {
-        img_url: 'gallery3.png',
-        img_caption: ' LPKHiglobalでの教育および学習活動のプロセス',
-      },
-      {
-        img_url: 'gallery4.png',
-        img_caption: 'クラスでの活動を学ぶプロセス',
-      },
-      {
-        img_url: 'gallery5.png',
-        img_caption: '先輩とのプロセス活動の議論',
-      },
-      {
-        img_url: 'gallery6.png',
-        img_caption: '最年少のHiGlob学生',
-      },
-      {
-        img_url: 'gallery7.png',
-        img_caption: 'HiGlobの椅子設備',
-      },
-    ],
+    // kolomkananpenghargaan_img: [
+    //   {
+    //     img_url: 'gallery2.png',
+    //     img_caption: 'Fasilitas Studio Belajar HiGlob',
+    //   },
+    //   {
+    //     img_url: 'gallery3.png',
+    //     img_caption: ' Proses kegiatan belajar mengajar di LPK Higlobal',
+    //   },
+    //   {
+    //     img_url: 'gallery4.png',
+    //     img_caption: 'Proses kegiatan pembelajaran di kelas',
+    //   },
+    //   {
+    //     img_url: 'gallery5.png',
+    //     img_caption: 'Proses Kegiatan diskusi dengan para senpai',
+    //   },
+    //   {
+    //     img_url: 'gallery6.png',
+    //     img_caption: 'Pelajar HiGlob dengan umur termuda',
+    //   },
+    //   {
+    //     img_url: 'gallery7.png',
+    //     img_caption: 'Fasilitas Kursi dari HiGlob',
+    //   },
+    // ],
 
-    kolombawahpenghargaan_img: [
-      {
-        img_url: 'gallery8.png',
-        img_caption: 'LPKヒグロブでの合同試験活動のプロセス',
-      },
-      {
-        img_url: 'gallery9.png',
-        img_caption: 'LPKHiGlobalの日本語コンペティションルーム',
-      },
-      {
-        img_url: 'gallery11.png',
-        img_caption: 'ジョグジャカルタ全域でのLPKによるセミナー',
-      },
-      {
-        img_url: 'gallery10.png',
-        img_caption: 'リーダーやITチームとのミーティング活動  ',
-      },
-    ],
+    // kolombawahpenghargaan_img: [
+    //   {
+    //     img_url: 'gallery8.png',
+    //     img_caption: 'Proses Kegiatan Ujian Bersama di LPK Higlob',
+    //   },
+    //   {
+    //     img_url: 'gallery9.png',
+    //     img_caption: 'Ruang Lomba Bahasa Jepang di LPK HiGlobal',
+    //   },
+    //   {
+    //     img_url: 'gallery10.png',
+    //     img_caption: 'Seminar Bersama LPK Se-Yogyakarta',
+    //   },
+    //   {
+    //     img_url: 'gallery11.png',
+    //     img_caption: 'Kegiatan Meeting bersama Pimpinan dan Tim IT',
+    //   },
+    // ],
     // END DATA PENGHARGAAN
 
     overlay1: false,
@@ -429,52 +425,6 @@ export default {
 </script>
 
 <style lang="scss">
-@media screen and (min-width: 300) and (max-width: 600px) {
-  .h1atas {
-    font-size: 24px;
-  }
-  h1.gallery__title-h1 {
-    font-size: 24px !important;
-  }
-  .card-angeltenan {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-  .gambarkolomisi {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .gallery {
-    margin-top: 5rem;
-    &__title {
-      &-h1 {
-        font-family: 'Poppins', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px !important;
-        line-height: 145%;
-        text-align: center;
-      }
-      &-p {
-        margin-top: 2rem;
-      }
-    }
-    &__tabs {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-}
-
-@media screen and (min-width: 1904px) {
-  .card-angeltenan {
-    max-width: 34rem;
-  }
-  .card-angetenanisi {
-    width: 23vh;
-  }
-}
 .gallery {
   margin-top: 8rem;
   &__title {
@@ -491,6 +441,75 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .h1atas {
+    font-size: 24px;
+  }
+
+  .card-angeltenan {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .gambarkolomisi {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .gallery {
+    margin-top: 5rem;
+    &__title {
+      &-h1 {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px !important;
+        line-height: 145%;
+        text-align: center;
+      }
+      &-p {
+        margin-top: 2rem;
+        line-height: 30px;
+      }
+    }
+    &__tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  .gallery {
+    &__title {
+      &-p {
+        padding: 20px 90px 0 90px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  .gallery {
+    &__title {
+      &-p {
+        padding: 20px 90px 0 90px !important;
+        font-size: 16px;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1904px) {
+  .card-angeltenan {
+    max-width: 34rem;
+  }
+  .card-angetenanisi {
+    width: 23vh;
   }
 }
 </style>

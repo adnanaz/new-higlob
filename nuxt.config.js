@@ -28,7 +28,7 @@ export default {
   css: ['~/assets/variables.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/Convert.js'],
+  plugins: ['~plugins/Convert.js', '~plugins/social.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -41,8 +41,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxt/content',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'vue-social-sharing/nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

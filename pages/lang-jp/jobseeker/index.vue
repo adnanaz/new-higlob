@@ -12,20 +12,20 @@
             lg="6"
             xl="6"
           >
-            <h4 class="jobseeker__awal-h4">Job Info</h4>
+            <h4 class="jobseeker__awal-h4">仕事情報</h4>
             <h1 class="jobseeker__awal-h1">
-              “ Temukan Pekerjaan yang sesuai passionmu sekarang. “
+              「今、あなたの情熱に合った仕事を見つけましょう。 「」
             </h1>
             <p class="jobseeker__awal-p">
-              LPK Higlob memberikan solusi tenaga kerja inovatif yang cukup
-              gesit untuk memenuhi kebutuhan bakat yang berubah dengan cepat di
-              Era Manusia. Apa pun bentuk solusi ini – Perekrutan Permanen,
-              Pencarian Eksekutif, Pengalihdayaan, Kepegawaian Sementara,
-              Pengalihdayaan Proses Perekrutan atau Konsultasi Sumber Daya
-              Manusia – kami menyediakan akses cepat ke talenta yang sangat
-              berkualitas dan pendekatan yang lebih baik untuk mencocokkan
-              kandidat yang tepat dan bekerja sama dengan posisi yang tepat
-              menghasilkan hasil bisnis yang lebih baik.
+              LPK Higlobは、十分な革新的な労働力ソリューションを提供します
+              急速に変化する才能のニーズを満たすためのアジャイル 人間の年齢。
+              このソリューションがどのような形をとるにせよ–常用雇用、
+              エグゼクティブサーチ、アウトソーシング、一時的な人員配置、
+              採用プロセスまたはコンサルティングリソースのアウトソーシング
+              人間–評価の高い人材への即時アクセスを提供します
+              品質と一致するためのより良いアプローチ
+              適切な候補者と適切な立場での作業
+              より良いビジネス結果を生み出します。
             </p>
           </v-col>
           <v-col
@@ -52,22 +52,21 @@
     <v-container>
       <section class="jobseeker__banner">
         <h1 class="jobseeker__banner-h1 text-center">
-          Temukan Pekerjaan Impianmu
+          あなたの夢の仕事を見つける
         </h1>
         <p class="jobseeker__banner-p text-center">
-          Berbagai macam Informasi pekerjaan yang kami sediakan untuk mendukung
-          kebutuhanmu
+          サポートするために提供するさまざまな職務情報 あなたの必要性
         </p>
         <v-row class="jobseeker__banner-row">
           <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="3">
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker1.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>ELECTRICAL ENGGINERING</span> <br />
+                <span>電気工学</span> <br />
                 <br />
-                <span>Location : Germany</span> <br />
-                <span>Wages : 1600 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Germany</span> <br />
+                <span>賃金 : 1600 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -75,11 +74,11 @@
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker2.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>CONTRUCTION ENGGINERING</span> <br />
+                <span>建設エンジニアリング</span> <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Japan</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -87,11 +86,11 @@
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker3.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>FARMER</span> <br />
+                <span>農家</span> <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Japan</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -99,11 +98,11 @@
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker4.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>CAREGIVER</span> <br />
+                <span>介護者</span> <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Japan</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -113,14 +112,14 @@
               <v-img :src="require('@/assets/images/jobseeker5.png')"> </v-img>
               <div class="jobseeker__banner-info">
                 <span
-                  >AUTOMOTIF <br />
-                  TECHNICIAN
+                  >自動車 <br />
+                  技術者
                 </span>
                 <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Japan</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -129,11 +128,11 @@
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker6.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>HOUSEMAID</span> <br />
+                <span>ハウスメイド</span> <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Japan</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -142,11 +141,11 @@
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker7.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>NANIES</span> <br />
+                <span>申し込み</span> <br />
                 <br />
-                <span>Location : Japan</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Japan</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
@@ -155,18 +154,18 @@
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker1.png')"> </v-img>
               <div class="jobseeker__banner-info">
-                <span>ELECTRICAL ENGGINERING</span> <br />
+                <span>電気工学</span> <br />
                 <br />
-                <span>Location : Germany</span> <br />
-                <span>Wages : 1500 USD</span>
-                <span>Contract : 5 Year</span>
+                <span>位置 : Germany</span> <br />
+                <span>賃金 : 1500 USD</span>
+                <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
         </v-row>
         <div class="jobseeker__banner-bungkusbtn text-center">
           <v-btn color="#FF9900" class="jobseeker__banner-btn white--text"
-            >Lebih Banyak</v-btn
+            >もっと</v-btn
           >
         </div>
       </section>

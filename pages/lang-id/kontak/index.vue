@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container class="container-kontak">
       <section class="kontak">
         <div>
           <v-row class="kontak__row">
@@ -94,7 +94,7 @@
               lg="6"
               xl="6"
             >
-              <v-card elevation="1" style="padding: 1rem 1rem">
+              <v-card class="d-none" elevation="1" style="padding: 1rem 1rem">
                 <v-form v-model="valid">
                   <v-container>
                     <v-row>
@@ -197,19 +197,19 @@ export default {
     firstname: '',
     lastname: '',
     nameRules: [
-      (v) => !!v || 'Name is required',
-      (v) => v.length <= 10 || 'Name must be less than 10 characters',
+      (v) => !!v || 'Name tidak boleh kosong',
+      (v) => v.length <= 10 || 'Minimal 10 karakter',
     ],
     nomorwa: '',
     nomorwaRules: [
-      (v) => !!v || 'E-mail is required',
+      (v) => !!v || 'E-mail tidak boleh kosong',
       (v) => v.length <= 12 || 'Nomor wa tidak valid',
     ],
 
     email: '',
     emailRules: [
-      (v) => !!v || 'E-mail is required',
-      (v) => /.+@.+/.test(v) || 'E-mail must be valid',
+      (v) => !!v || 'E-mail tidak boleh kosong',
+      (v) => /.+@.+/.test(v) || 'E-mail must tidak valid',
     ],
 
     // const defaultForm = Object.freeze({
@@ -229,7 +229,7 @@ export default {
         case 'lg':
           return 'padding:3rem'
         case 'xl':
-          return 'padding:0rem'
+          return 'max-width: 42rem;margin: 0 auto;'
       }
     },
 
@@ -372,5 +372,11 @@ export default {
   }
 }
 @media screen and (min-width: 1904px) {
+  .kontak {
+    margin-top: 8rem;
+  }
+  .container-kontak {
+    padding: 0 10rem 0 10rem;
+  }
 }
 </style>

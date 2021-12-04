@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container>
+    <v-container class="container-all">
       <section>
         <!-- Banner 1 -->
         <br />
@@ -31,7 +31,7 @@
     <!-- end Banner 1 -->
 
     <!-- Histori LPK Higlob -->
-    <v-container>
+    <v-container class="container-all">
       <section class="histori__lpk">
         <h1 class="text-center histori__lpk-h1">Histori LPK Higlob</h1>
         <div>
@@ -80,7 +80,7 @@
 
     <!-- Section 1 -->
 
-    <v-container>
+    <v-container class="container-all">
       <section>
         <div>
           <v-row>
@@ -153,7 +153,7 @@
       <!-- END Section 1 -->
     </v-container>
     <!-- Section 2 -->
-    <v-container>
+    <v-container class="container-all">
       <!-- heading 2 -->
       <section>
         <div class="heading2 text-center">
@@ -410,13 +410,21 @@
     <!-- End Section 2 -->
 
     <!-- Section Persyaratan -->
-    <v-container fluid style="background: #f8faff">
+    <v-container class="container-all" fluid style="background: #f8faff">
       <section
-        class="mt-10"
+        class="mt-10 persyaratan__khusus"
         :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
       >
-        <v-row>
-          <v-col cols="12" xs="12" sm="12" md="5" lg="5" xl="5">
+        <v-row class="persyaratan__khusus-row">
+          <v-col
+            class="persyaratan__khusus-col"
+            cols="12"
+            xs="12"
+            sm="12"
+            md="5"
+            lg="5"
+            xl="5"
+          >
             <!-- List Persyaratan Khusus -->
             <ul class="col-tentangkami" style="list-style-type: none">
               <li>
@@ -549,6 +557,7 @@
             class="gambar-persyaratan"
           >
             <v-img
+              class="gambar-persyaratan-img"
               :src="require('@/assets/images/persyaratan-tentangkami.png')"
               style=""
             ></v-img>
@@ -826,6 +835,9 @@ export default {
 .override__container {
   margin: 0 5rem;
 }
+.persyatan__khusus {
+  padding: 0 2rem;
+}
 .histori__lpk {
   &-span {
     margin-left: 4rem;
@@ -945,10 +957,15 @@ export default {
     padding: 1rem !important;
   }
   .histori__lpk {
+    &-stepperstep {
+      margin: 0 auto;
+    }
     &-stepperstepkhusus {
+      margin: 0 auto;
     }
-    &-stepper {
-    }
+  }
+  .v-divider {
+    display: none;
   }
 
   .v-stepper__label {
@@ -979,7 +996,8 @@ export default {
     font-size: 20px;
   }
   .col-tentangkami {
-    margin-top: -1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
   }
   .p-pimpinan {
     font-size: 11px !important;
@@ -995,6 +1013,10 @@ export default {
   .gambar-persyaratan {
     margin-top: -2rem;
     margin-bottom: 2rem;
+  }
+  .gambar-persyaratan-angel {
+    max-width: 19rem;
+    margin: 0 auto;
   }
   .gambar-section3 {
     padding: 2rem;
@@ -1066,6 +1088,9 @@ export default {
       line-height: 2rem;
     }
   }
+  .col-tentangkami {
+    padding-left: 3rem;
+  }
   .gambar-section3 {
     padding: 2rem;
   }
@@ -1082,13 +1107,17 @@ export default {
     text-align: center;
   }
   .gambar-visimisi {
-    padding: 6rem;
+    padding: 4rem;
   }
   .gambar-section3 {
-    padding: 10rem;
+    padding: 1rem;
   }
   .gambar-persyaratan {
     padding: 0;
+  }
+  .gambar-persyaratan-angel {
+    max-width: 22rem;
+    margin: 0 auto;
   }
   .h1-heading2 {
     font-size: 21px;
@@ -1111,11 +1140,24 @@ export default {
       line-height: 2rem;
     }
   }
+  .list-section1 {
+    p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  }
+  .col-tentangkami {
+    padding: 0rem;
+    padding-left: 0rem;
+  }
   .p-keseluruhan {
-    font-size: 14px;
+    font-size: 12px;
   }
   .gambar-persyaratan-angel {
     margin-top: 2rem;
+  }
+  .btn-downloadbrosur {
+    margin: 15px 0 0 0;
   }
 }
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
@@ -1131,16 +1173,78 @@ export default {
       line-height: 2rem;
     }
   }
+  .persyaratan_khusus-row {
+    padding-left: 5rem !important;
+  }
   .p-keseluruhan {
-    line-height: 20px;
+    line-height: 25px;
     font-size: 14px;
+  }
+  .gambar-persyaratan-img {
+    max-width: 35rem;
+  }
+  .btn-downloadbrosur {
+    margin-top: 1rem;
   }
   .col-tentangkami {
     line-height: 0.5rem;
-    padding: 47px 0px 0px 0px;
+    padding: 32px 0px 0px 0px;
   }
   .gambar-persyaratan-angel {
-    margin-top: 2rem;
+    margin-top: -1rem;
+    max-width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1904px) {
+  .container-all {
+    padding: 0 4rem;
+  }
+  .banner-1 {
+    margin-top: 3rem;
+  }
+  .h1-teamit {
+    text-align: left;
+    margin-left: 1.5rem;
+  }
+  .list-section1 {
+    padding: 4rem;
+  }
+  .gambar-visimisi-ijo {
+    max-width: 35rem;
+    margin: 0 auto;
+  }
+  .p-teamit {
+    p {
+      text-align: center !important;
+      padding: 0 18rem 0 18rem;
+      font-size: 15px;
+      line-height: 2rem;
+    }
+  }
+  .persyaratan__khusus-row {
+    padding-left: 0rem !important;
+    margin-left: 25rem !important;
+  }
+  .p-keseluruhan {
+    line-height: 25px;
+    font-size: 14px;
+  }
+  .gambar-persyaratan-img {
+    max-width: 35rem;
+  }
+
+  .btn-downloadbrosur {
+    margin-top: 1rem;
+  }
+  .col-tentangkami {
+    line-height: 0.5rem;
+    padding: 32px 0px 0px 0px;
+  }
+  .gambar-persyaratan-angel {
+    margin-top: -1rem;
+    max-width: 24rem;
+    margin: 0 auto;
   }
 }
 </style>

@@ -2,8 +2,8 @@
   <div>
     <!-- Banner VISA -->
     <div>
-      <section class="banner__visa background">
-        <v-container>
+      <v-container fluid style="background-color: #f8faff">
+        <section class="banner__visa background">
           <v-row>
             <v-col
               class="banner__visa-colkiri order-1 order-sm-1 order-md-1"
@@ -76,8 +76,8 @@
               ></v-img>
             </v-col>
           </v-row>
-        </v-container>
-      </section>
+        </section>
+      </v-container>
     </div>
 
     <!-- END BANNER VISA -->
@@ -236,8 +236,8 @@
               </li>
               <li>
                 <p class="banner__fasilitas-p">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
+                  Mendapatkan teman -teman yang mampu membantu untuk
+                  mengembangkan passion anda, dan masih banyak lagi
                 </p>
               </li>
             </ul>
@@ -420,6 +420,7 @@ ul {
 
 .banner__visa {
   margin-top: 8rem;
+  padding: 0 6rem;
   &-colkiri {
     margin-top: 2rem;
   }
@@ -508,7 +509,7 @@ ul {
   }
   &-p {
     font-size: 14px;
-    color: #171717;
+    color: #868686;
   }
 }
 // END KHUSUS BANNER FASILITAS
@@ -580,7 +581,7 @@ ul {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 30px;
+      font-size: 22px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -589,7 +590,7 @@ ul {
       margin-left: 2.4rem;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 26px;
       color: #171717;
     }
@@ -625,13 +626,15 @@ ul {
       list-style-type: none;
       padding: 0 !important;
     }
+
     &-p {
       display: inline-flex;
+      font-size: 12px;
     }
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 22px;
+      font-size: 20px;
       color: #171717;
     }
     &-h4 {
@@ -655,7 +658,7 @@ ul {
       margin-left: 2px;
     }
     &-h1 {
-      font-size: 22px;
+      font-size: 20px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -664,13 +667,13 @@ ul {
       padding: 0 !important;
     }
     &-h5 {
-      font-size: 14px;
+      font-size: 12px;
       margin-bottom: 8px;
       color: #171717;
     }
     &-p {
       font-size: 12px;
-      color: #171717;
+      color: #868686;
     }
   }
   // END KHUSUS BANNER FASILITAS
@@ -681,7 +684,7 @@ ul {
     padding: 7px;
     margin-top: 6rem;
     &-h1 {
-      font-size: 21px;
+      font-size: 20px;
       text-align: center;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
@@ -692,7 +695,7 @@ ul {
       color: #3e00ff;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       text-align: center;
     }
     &-img {
@@ -711,12 +714,12 @@ ul {
     margin-top: 5rem;
     margin-bottom: 5rem;
     &-h1 {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 1rem;
     }
 
     &-p {
-      font-size: 13px;
+      font-size: 12px;
     }
     &-img {
       max-width: 12rem;
@@ -740,7 +743,7 @@ ul {
     }
     &-panelheader {
       font-weight: 500;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.6rem;
     }
   }
@@ -858,7 +861,7 @@ ul {
     }
     &-p {
       font-size: 14px;
-      color: #171717;
+      color: #868686;
     }
   }
   // END KHUSUS BANNER FASILITAS
@@ -1039,7 +1042,7 @@ ul {
     }
     &-p {
       font-size: 14px;
-      color: #171717;
+      color: #868686;
     }
   }
   // END KHUSUS BANNER FASILITAS

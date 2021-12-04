@@ -32,11 +32,11 @@
               <div class="kontak__title">
                 <p class="kontak__title-p1">お問い合わせ</p>
                 <h1 class="kontak__title-h1" :style="h1_banner">
-                  こんにちは素敵な一日を過ごします 今日は楽しい！
+                  こんにちは素敵な一日を過ごします <br />今日は楽しい！
                 </h1>
                 <p class="kontak__title-p" :style="p_banner">
-                  LPK
-                  higlobについて質問がある場合は、以下の連絡先からお問い合わせください。
+                  LPK higlobについて質問がある場合は、次のことができます。
+                  以下の連絡先からお問い合わせください。
                 </p>
               </div>
             </v-col>
@@ -64,7 +64,7 @@
                     Daerah Istimewa Yogyakarta 55513
                   </p>
                   <a href="" style="font-family: 'Poppins', sans-serif"
-                    >地図を開く -></a
+                    >Buka Map -></a
                   >
                 </li>
                 <li style="margin-top: 2rem">
@@ -74,12 +74,14 @@
 
                 <li style="margin-top: 10px">
                   <h4 class="judul__kontak-h4">電話</h4>
-                  <p class="judul__kontak-p">0877-8757-4848 / 0821-2345-1243</p>
+                  <p class="judul__kontak-p">
+                    +62 877-8757-4848 / +62 821-2345-1243
+                  </p>
                 </li>
                 <li style="margin-top: 10px">
                   <h4 class="judul__kontak-h4">労働時間</h4>
                   <p class="judul__kontak-p">
-                    月曜日–金曜日：9.00 – 17.00（インドネシア時間）
+                    月曜日–金曜日：9.00 – 17.00（インドネシア時間西部時間）
                   </p>
                 </li>
               </ul>
@@ -138,7 +140,7 @@
                           style="font-family: 'Poppins', sans-serif"
                           v-model="email"
                           :rules="emailRules"
-                          label="Eメール"
+                          label="E-mail"
                           outlined
                           required
                         ></v-text-field>
@@ -152,7 +154,8 @@
                         >
                           <template v-slot:label>
                             <div>
-                              質問を入力してください <small>(記入が必要)</small>
+                              質問を入力してください
+                              <small>（記入が必要）</small>
                             </div>
                           </template>
                         </v-textarea>

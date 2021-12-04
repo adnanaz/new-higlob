@@ -1,46 +1,51 @@
 <template>
-  <div :class="$vuetify.breakpoint.xs ? 'mx-3' : 'mx-0'">
-    <v-container
+  <div :class="$vuetify.breakpoint.xs ? 'mx-0' : 'mx-0'">
+    <!-- <v-container
       :class="!$vuetify.breakpoint.xs ? 'override__container' : 'mx-0'"
     >
-      <v-container class="hero__utama" fluid>
-        <template>
-          <v-parallax
-            dark
-            :src="require('@/assets/images/hero-landing-page.png')"
-          >
-            <v-row class="hero__utama-row" align="center" justify="center">
-              <v-col class="text-center hero__utama-col" cols="12">
-                <h1 class="mb-4 hero__utama-h1">
-                  Selamat Datang Di LPK Higlob Gabung dan
-                  <span class="hero__utama-h1special">Raih Mimpimu</span>
-                </h1>
-                <p class="hero__utama-p text-center">
-                  Hi Global adalah sebuah pintu bagi anda untuk mencapai impian
-                  Studi maupun Bekerja di Luar Negeri. Kami membantu anda mulai
-                  dari persiapan berupa pembekalan skill bahasa dan segala
-                  informasi yang diperlukan. Solusi integral dari persiapan,
-                  pendidikan, hingga pekerjaan di Luar Negeri.
-                </p>
+    </v-container> -->
+    <div class="hero__utama">
+      <template>
+        <v-parallax
+          class="hero__utama-parallax"
+          dark
+          :src="require('@/assets/images/hero-landing-page.png')"
+        >
+          <v-row class="hero__utama-row" align="center" justify="center">
+            <v-col class="text-center hero__utama-col" cols="12">
+              <h1 class="mb-5 hero__utama-h1">
+                Selamat Datang Di LPK Higlob Gabung dan
+                <span class="hero__utama-h1special">Raih Mimpimu</span>
+              </h1>
+              <p class="hero__utama-p text-center">
+                Hi Global adalah sebuah pintu bagi anda untuk mencapai impian
+                Studi maupun Bekerja di Luar Negeri. Kami membantu anda mulai
+                dari persiapan berupa pembekalan skill bahasa dan segala
+                informasi yang diperlukan. Solusi integral dari persiapan,
+                pendidikan, hingga pekerjaan di Luar Negeri.
+              </p>
 
-                <div class="text-center">
-                  <v-btn
-                    class="ma-2 text-capitalize"
-                    style="border-color: #ff9900; font-weight: 300"
-                    outlined
-                    color="white"
-                  >
-                    Ayo Mulai
-                  </v-btn>
-                </div>
-              </v-col>
-            </v-row>
-          </v-parallax>
-        </template>
-      </v-container>
-    </v-container>
+              <div class="text-center">
+                <v-btn
+                  @click="scrollMeTo('mulai')"
+                  class="ma-2 text-capitalize"
+                  style="border-color: #ff9900; font-weight: 300"
+                  outlined
+                  color="white"
+                >
+                  Ayo Mulai
+                </v-btn>
+              </div>
+            </v-col>
+          </v-row>
+        </v-parallax>
+      </template>
+    </div>
 
-    <v-container :class="!$vuetify.breakpoint.xs ? 'override__container' : ''">
+    <v-container
+      ref="mulai"
+      :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
+    >
       <v-row>
         <!-- ==== BELIEVE ==== -->
         <!-- <v-col
@@ -220,8 +225,8 @@
                 </li>
               </ul>
               <p class="program__kerja-p">
-                Program Kerja sebagai perawat yang di khususkan bagi anda yang
-                berminat
+                Program pemagangan ginou jisushei,<br />
+                TG tokutei Ginou /SSW dan Gakko
               </p>
             </v-card>
           </v-col>
@@ -247,8 +252,8 @@
                 </li>
               </ul>
               <p class="program__kerja-p">
-                Program Kerja sebagai perawat yang di khususkan bagi anda yang
-                berminat
+                Program Kerja ke Jepang sebagai <br />Teknisi atau dalam bidang
+                Kontruksi.
               </p>
             </v-card>
           </v-col>
@@ -274,8 +279,8 @@
                 </li>
               </ul>
               <p class="program__kerja-p">
-                Program Kerja sebagai perawat yang di khususkan bagi anda yang
-                berminat
+                Program kerja bagi anda yang berminat mengikuti program
+                pertanian di jepang
               </p>
             </v-card>
           </v-col>
@@ -301,8 +306,8 @@
                 </li>
               </ul>
               <p class="program__kerja-p">
-                Program Kerja sebagai perawat yang di khususkan bagi anda yang
-                berminat
+                Program pengolahan makanan ke jepang bagi yang berminat bekerja
+                di Jepang
               </p>
             </v-card>
           </v-col>
@@ -328,8 +333,8 @@
                 </li>
               </ul>
               <p class="program__kerja-p">
-                Program Kerja sebagai perawat yang di khususkan bagi anda yang
-                berminat
+                Program kerja cargiver ke jepang bagi anda yang berminat bekerja
+                di Jepang
               </p>
             </v-card>
           </v-col>
@@ -529,10 +534,10 @@
           cols="12"
           xs="12"
           sm="12"
-          md="6"
+          md="12"
           lg="6"
           xl="6"
-          class="order-2 order-sm-2 order-md-1 order-md-lg-1"
+          class="order-2 order-sm-2 order-md-2 order-lg-1"
         >
           <div
             v-if="!$vuetify.breakpoint.xs"
@@ -568,12 +573,7 @@
                   {{ el.title }}
                 </v-card-title>
                 <v-card-subtitle
-                  style="
-                    font-weight: 500;
-                    font-size: 13px;
-                    line-height: 151.7%;
-                    overflow-wrap: break-word;
-                  "
+                  style="font-weight: 500; font-size: 13px; line-height: 151.7%"
                 >
                   {{ el.description }}
                 </v-card-subtitle>
@@ -590,7 +590,7 @@
               hide-delimiters
             >
               <v-carousel-item v-for="(el, idx) in card_menu" :key="idx">
-                <v-sheet height="100%" tile>
+                <v-sheet height="70%" tile>
                   <v-row class="fill-height" align="center" justify="center">
                     <v-hover v-slot="{ hover }">
                       <v-card
@@ -645,13 +645,13 @@
           cols="12"
           xs="12"
           sm="12"
-          md="6"
+          md="12"
           lg="6"
           xl="6"
           style="display: flex; align-items: center"
-          class="order-1 order-sm-1 order-md-2 order-md-lg-2 col-yakin"
+          class="order-1 order-sm-1 order-md-1 order-lg-2 col-yakin"
         >
-          <div class="pa-2">
+          <div class="pa-2 yakin-bungkus">
             <h5
               class="text__1"
               :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
@@ -698,7 +698,7 @@
       <v-container
         :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
       >
-        <v-row>
+        <v-row class="bungkus-row">
           <v-col
             cols="12"
             xs="12"
@@ -712,6 +712,7 @@
               <h5
                 class="text__1 mb-2"
                 :style="$vuetify.breakpoint.xs ? 'font-size: 14px;' : ''"
+                style="color: #ffffff"
               >
                 Mulai bangun masa depan bersama kami
               </h5>
@@ -721,9 +722,7 @@
                 :style="$vuetify.breakpoint.xs ? 'font-size: 32px;' : ''"
               >
                 Apa anda tertarik bergabung dengan
-                <span class="text__2-special" style="color: #ffffff"
-                  >Hi Global</span
-                >
+                <span class="" style="color: #ffffff">Hi Global</span>
                 ?
               </h2>
 
@@ -739,6 +738,8 @@
               </p>
               <div>
                 <v-btn
+                  href="https://wa.me/6285713149249?text=Halo,%20Saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20HiGlob"
+                  target="_blank"
                   style="
                     padding: 1rem;
                     box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
@@ -756,11 +757,7 @@
             </div>
           </v-col>
           <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" class="pa-0">
-            <div
-              :class="
-                $vuetify.breakpoint.xs ? 'mx-auto' : 'mx-auto push__right'
-              "
-            >
+            <div :class="$vuetify.breakpoint.xs ? 'mx-auto' : 'mx-auto'">
               <v-img
                 class="container__blue-img"
                 cover
@@ -782,13 +779,10 @@
             <div
               class="d-flex justify-center align-center flex-wrap flex-column"
             >
-              <h1 class="testimony__title">Berita Terbaru</h1>
-              <h3
-                class="testimony__subtitle text-center"
-                style="font-size: 14px"
-              >
-                Dapatkan Berita terbaru dari informasi pekerjaan, persiapan
-                kerja maupun magang serta
+              <h1 class="testimony__title">Blog Terbaru</h1>
+              <h3 class="testimony__subtitle text-center">
+                Dapatkan Blog terbaru dari informasi pekerjaan, persiapan kerja
+                maupun magang serta
                 <br v-show="!$vuetify.breakpoint.xs" />
                 informasi lainya hanya di LPK Hi Global
               </h3>
@@ -826,6 +820,7 @@
 
             <div class="d-flex justify-center flex-wrap mb-15 mt-5">
               <v-btn
+                to="/lang-id/blog"
                 style="
                   padding: 1rem;
                   box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
@@ -836,7 +831,7 @@
                 color="#FF9900"
                 dark
               >
-                Baca Berita lainya
+                Baca Blog lainnya
               </v-btn>
             </div>
           </v-col>
@@ -967,6 +962,15 @@ export default {
       title: 'Vuetify.js',
     }
   },
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
   computed: {
     custom_maxWidth() {
       switch (this.$vuetify.breakpoint.name) {
@@ -990,17 +994,25 @@ export default {
 // ====================================== CSS Bikinan FAH =============================
 
 .container3__text {
-  padding-right: 2rem;
+  padding-right: 6rem;
   padding-left: 2rem;
-  font-size: 24px;
+  font-size: 20px !important;
 }
+.text__1 {
+  font-size: 12px !important;
+  line-height: 160%;
+}
+
 .hero__utama {
+  &-parallax {
+    height: 565px !important;
+  }
   &-h1special {
     color: #00ffa3;
   }
   &-h1 {
-    padding: 0px 14rem 0 14rem;
-    margin-top: 5rem;
+    padding: 0px 23rem 0 23rem;
+    margin-top: 8rem;
 
     font-family: Poppins;
     font-style: normal;
@@ -1008,13 +1020,13 @@ export default {
     font-size: 35px;
     line-height: 135%;
     /* or 68px */
-
+    margin-bottom: 30px !important;
     text-align: center;
 
     color: #ffffff;
   }
   &-p {
-    padding: 0 14.9rem 0 14.9rem;
+    padding: 0 21.9rem 0 21.9rem;
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
@@ -1035,12 +1047,14 @@ export default {
   padding: 2rem 1rem 0 1rem;
 }
 .introduction__directur {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   &-h1 {
     margin-bottom: 1rem;
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 160%;
     /* identical to box height, or 58px */
 
@@ -1050,11 +1064,15 @@ export default {
 
     color: #252525;
   }
+  &-colkanan {
+    margin-left: -23px;
+    margin-top: 1rem;
+  }
   &-p {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 170%;
     /* or 27px */
 
@@ -1062,30 +1080,35 @@ export default {
 
     color: #000000;
   }
+  &-img {
+    max-width: 25rem;
+    margin: 0 auto;
+  }
 }
 
 .program__kerja {
   margin-bottom: 5rem;
   &-h3 {
     color: #03914d;
+    font-size: 14px;
   }
   &-h1 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 170%;
     /* or 54px */
     letter-spacing: 0.003em;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
-    padding: 0 20rem 0 20rem;
+    padding: 0 22rem 0 22rem;
   }
   &-patas {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 160%;
     /* identical to box height, or 29px */
     text-align: center;
@@ -1096,6 +1119,7 @@ export default {
   }
   &-row {
     margin-top: 3rem;
+    margin-left: 5rem;
   }
   &-ul {
     padding-left: 0 !important;
@@ -1106,7 +1130,7 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 160%;
     /* or 35px */
     color: #000000;
@@ -1115,8 +1139,9 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 160%;
+    font-size: 14px;
+    padding-right: 2rem;
+    line-height: 26px;
     margin-bottom: 2rem;
     /* or 26px */
 
@@ -1131,14 +1156,15 @@ export default {
 }
 
 .pasar__global {
+  margin-top: 1rem;
   &-section {
-    height: 538px;
+    height: 452px;
   }
   &-h1 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 150%;
     /* or 48px */
 
@@ -1154,7 +1180,7 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 160%;
     /* identical to box height, or 29px */
 
@@ -1169,7 +1195,7 @@ export default {
     max-width: 872px;
     max-height: 414px;
     position: absolute;
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
 }
 
@@ -1179,7 +1205,7 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 160%;
     /* identical to box height, or 29px */
     color: #03914d;
@@ -1188,25 +1214,33 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 170%;
     width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-right: 11rem;
     /* or 54px */
     /* Colour : Font Title */
     color: #252525;
+  }
+  &-colkiri {
+    margin-top: 3rem;
   }
   &-p {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 190%;
+    padding-right: 7rem;
     /* or 34px */
     letter-spacing: 0.003em;
     color: #000000;
   }
   &-img {
-    max-width: 33rem;
+    max-width: 22rem;
+    margin-left: -25px;
   }
 }
 
@@ -1216,7 +1250,7 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 160%;
     /* identical to box height, or 29px */
     color: #03914d;
@@ -1225,14 +1259,15 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 170%;
     /* or 54px */
     /* Colour : Font Title */
     color: #252525;
   }
   &-colkiri {
-    margin-top: 2rem;
+    margin-top: 4rem;
+    padding-right: 4rem;
   }
   &-row {
     margin-top: 2rem;
@@ -1241,7 +1276,7 @@ export default {
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 190%;
     /* or 34px */
   }
@@ -1252,12 +1287,54 @@ export default {
 }
 //300-600
 @media screen and (min-width: 300px) and (max-width: 600px) {
+  .v-window.v-item-group.theme--dark.v-carousel {
+    height: 349px !important;
+  }
+  .v-application--is-ltr .v-window__next {
+    right: -17px !important;
+  }
+  .v-application--is-ltr .v-window__prev {
+    left: -17px !important;
+  }
+  .testimony__title {
+    font-weight: 600;
+    font-size: 20px !important;
+    line-height: 160%;
+  }
+  .testimony__subtitle {
+    font-weight: 400;
+    margin: 0.5rem;
+    font-size: 12px !important;
+    color: #868686;
+    line-height: 160%;
+  }
   .override__container {
     margin: 0 !important;
+  }
+  .yakin-bungkus {
+    padding: 1rem;
   }
   .container3__text {
     font-size: 18px !important;
     line-height: 160%;
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+  }
+
+  .container__blue {
+    padding: 1.5rem;
+    &-img {
+      width: calc(100vh - 100px);
+      max-width: 20rem !important;
+      margin: 0 auto !important;
+    }
+  }
+  .text__3-p {
+    font-weight: normal;
+    font-size: 12px !important;
+    line-height: 160%;
+    margin: 1rem 0;
+    color: #868686;
   }
   .hero__utama {
     &-h1special {
@@ -1303,6 +1380,7 @@ export default {
     font-size: 20px !important;
     &-unik {
       color: #ffffff;
+      font-size: 20px !important;
     }
   }
   .text__2-special {
@@ -1311,9 +1389,12 @@ export default {
     line-height: 160%;
     color: #ffffff !important;
   }
+
   .introduction__directur {
     &-colkanan {
-      padding-left: 0.8rem;
+      padding-left: 2.8rem;
+      margin-left: -16px;
+      margin-top: 1rem;
     }
     &-h1 {
       margin-bottom: 1rem;
@@ -1326,7 +1407,11 @@ export default {
       color: #252525;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
+    }
+    &-img {
+      width: calc(100vh - 100px);
+      max-width: 18rem;
     }
   }
   .program__kerja {
@@ -1348,16 +1433,18 @@ export default {
       text-align: center;
     }
     &-h4 {
-      font-size: 16px;
+      font-size: 14px;
     }
     &-p {
-      font-size: 13px;
+      font-size: 12px;
     }
     &-card {
       margin-bottom: 1rem;
     }
     &-row {
-      padding-left: 1rem;
+      padding-left: 0rem;
+      margin-top: 2rem;
+      margin-left: 1rem;
     }
   }
 
@@ -1401,9 +1488,13 @@ export default {
   }
   .tenaga__indonesia {
     margin-top: 7rem;
+
     &-h4 {
       font-size: 12px;
       line-height: 160%;
+    }
+    &-colkiri {
+      padding-left: 2rem;
     }
     &-h1 {
       font-weight: 600;
@@ -1411,10 +1502,12 @@ export default {
       line-height: 160%;
       margin-bottom: 1rem;
       margin-top: 7px;
+      padding-right: 1rem;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 190%;
+      padding-right: 2rem;
       /* or 27px */
 
       letter-spacing: 0.003em;
@@ -1437,12 +1530,13 @@ export default {
       line-height: 160%;
     }
     &-li {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 190%;
       /* or 27px */
     }
     &-colkiri {
       margin-top: 0;
+      padding-right: 1rem;
     }
   }
 }
@@ -1454,7 +1548,7 @@ export default {
   }
   .hero__utama {
     &-h1 {
-      padding: 0px 4rem 0 4rem;
+      padding: 0px 5rem 0 5rem;
       margin-top: 4rem;
       font-family: Poppins;
       font-style: normal;
@@ -1476,14 +1570,17 @@ export default {
     }
   }
   .container3__text {
-    font-size: 18px !important;
+    font-size: 17px !important;
+  }
+  .testimony__subtitle {
+    font-size: 14px !important;
   }
   .container__blue {
     padding: 3rem;
     &-img {
       width: calc(100vh - 100px);
-      max-width: 23rem;
-      margin: 0px auto;
+      max-width: 30rem !important;
+      margin: 0 auto !important;
     }
   }
   .text__1 {
@@ -1491,9 +1588,9 @@ export default {
   }
   .text__2 {
     font-size: 20px !important;
-    &-special {
-      font-size: 20px !important;
-    }
+  }
+  .text__2-special {
+    font-size: 20px !important;
   }
   .text__3 {
     font-size: 12px !important;
@@ -1516,6 +1613,9 @@ export default {
     &-img {
       max-width: 23rem;
       margin: 0 auto;
+    }
+    &-colkanan {
+      padding-left: 2rem;
     }
   }
   .program__kerja {
@@ -1555,6 +1655,11 @@ export default {
     }
     &-p {
       font-size: 14px;
+    }
+    &-row {
+      margin-top: 3rem;
+      padding: 0rem;
+      margin-left: 3rem;
     }
   }
   .pasar__global {
@@ -1610,11 +1715,14 @@ export default {
       margin-top: 7px;
     }
     &-colkiri {
-      padding: 2rem;
+      padding: 0;
+      margin-top: 1rem;
+      padding-left: 2rem;
     }
     &-p {
       font-size: 11px;
       line-height: 190%;
+      padding-right: 2rem;
       /* or 27px */
 
       letter-spacing: 0.003em;
@@ -1662,7 +1770,7 @@ export default {
   }
   .hero__utama {
     &-h1 {
-      padding: 0px 4rem 0 4rem !important;
+      padding: 0px 14rem 0 14rem !important;
       margin-top: 4rem;
       font-family: Poppins;
       font-style: normal;
@@ -1674,7 +1782,7 @@ export default {
       margin-bottom: 1rem !important;
     }
     &-p {
-      padding: 0 7rem 0 7rem !important;
+      padding: 0 14rem 0 14rem !important;
       font-family: Poppins;
       font-style: normal;
       font-weight: normal;
@@ -1688,25 +1796,26 @@ export default {
     font-size: 20px !important;
   }
   .container__blue {
-    padding: 3rem !important;
     &-img {
       width: calc(100vh - 100px);
-      max-width: 23rem !important;
-      margin: 0px auto !important;
+      max-width: 22rem !important;
+      margin: 0 auto !important;
     }
   }
   .text__1 {
     font-size: 14px !important;
   }
   .text__2 {
-    font-size: 20px !important;
-    &-special {
-      font-size: 20px !important;
-    }
+    font-size: 28px !important;
+    padding-right: 0rem;
   }
+  .text__2-special {
+    font-size: 28px !important;
+  }
+
   .text__3 {
     font-size: 12px !important;
-    padding-right: 5rem !important;
+    padding-right: 9rem !important;
     &-p {
       font-size: 13px !important;
     }
@@ -1720,11 +1829,17 @@ export default {
       font-size: 32px !important;
     }
     &-p {
-      font-size: 13px !important;
+      font-size: 12px !important;
     }
     &-img {
-      max-width: 23rem;
+      max-width: 22rem !important;
       margin: 0 auto;
+    }
+    &-colkanan {
+      margin-left: 0rem;
+
+      padding-left: 1rem;
+      margin-top: 1rem;
     }
   }
   .program__kerja {
@@ -1818,11 +1933,12 @@ export default {
       margin-top: 7px;
     }
     &-colkiri {
-      padding: 2rem;
+      padding: 0rem;
     }
     &-p {
       font-size: 12px !important;
       line-height: 190%;
+      padding: 0 42px 0 0;
       /* or 27px */
 
       letter-spacing: 0.003em;
@@ -1863,7 +1979,59 @@ export default {
     }
   }
 }
+//1264-1904
+@media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .text__2 {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 160%;
+    color: black;
+  }
+  .text__2-special {
+    font-size: 34px !important;
+  }
+  .container__blue {
+    &-img {
+      width: calc(100vh - 100px);
+      margin: 0 auto !important;
+      max-width: 34rem;
+    }
+  }
+}
 
+@media screen and (min-width: 1904px) {
+  .override__container {
+    margin: 0 24rem !important;
+  }
+
+  .hero__utama {
+    &-h1 {
+      padding: 0px 55rem 0 55rem;
+    }
+    &-p {
+      padding: 0 45.9rem 0 45.9rem;
+      font-size: 14px;
+    }
+  }
+  .program__kerja {
+    margin-left: 7rem;
+  }
+  .tenaga__indonesia {
+    margin-left: 7rem;
+  }
+  .tentang-indonesia {
+    margin-left: 7rem;
+  }
+  .statistik__indonesia {
+    margin-left: 7rem;
+  }
+  .text__2 {
+    padding-right: 9rem;
+  }
+  .bungkus-row {
+    margin-left: 7rem;
+  }
+}
 // ====================================== END CSS Bikinan FAH =========================
 .override__container {
   margin: 0 5rem;
@@ -1957,31 +2125,35 @@ export default {
 }
 
 .container__blue {
+  &-img {
+    margin: 0 auto;
+    max-width: 31rem;
+  }
   margin: auto;
 }
 
 .text__1 {
   color: #ffffff;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 160%;
   font-weight: normal;
 }
 
 .text__2 {
   font-weight: 600;
-  font-size: 38px;
+  font-size: 30px;
   line-height: 160%;
   color: black;
 }
 
 .text__2-special {
   font-weight: 600;
-  font-size: 39px;
+  font-size: 30px;
   line-height: 160%;
   color: #3e00ff;
 }
 .text__3 {
-  font-size: 18px;
+  font-size: 12px;
   line-height: 180%;
   color: #868686;
 }
@@ -2104,18 +2276,6 @@ export default {
     }
   }
 
-  .text__2 {
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 140%;
-  }
-
-  .text__3 {
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 180%;
-  }
-
   //want join?
   .want__join {
     .container__blue {
@@ -2125,29 +2285,9 @@ export default {
     .push__right {
       margin-left: 0;
     }
-
-    .text__3-p {
-      font-weight: normal;
-      font-size: 1rem;
-      line-height: 170%;
-      margin: 1rem 0;
-    }
   }
 
   //testimony
-  .testimony {
-    &__title {
-      font-weight: 600;
-      font-size: 28px;
-      line-height: 160%;
-    }
-
-    &__subtitle {
-      font-weight: normal;
-      font-size: 1rem;
-      line-height: 160%;
-    }
-  }
 
   .footer {
     width: 100%;

@@ -16,24 +16,35 @@
               ke email lpkhiglob1@gmail.com. Setelah dikirimkan, salah satu
               perekrut kami akan menghubungi Anda untuk melanjutkan proses.
             </p>
-            <ul class="candidates__cv-ul">
-              <li class="candidates__cv-li">
-                <v-btn
-                  depressed
-                  color="#3B5998"
-                  class="candidates__cv-btnkiri white--text text-capitalize"
-                  >Download Form CV English</v-btn
-                >
-              </li>
-              <li class="candidates__cv-li">
-                <v-btn
-                  depressed
-                  color="success"
-                  class="candidates__cv-btnkanan text-capitalize"
-                  >Download Form CV Japan</v-btn
-                >
-              </li>
-            </ul>
+            <div
+              class="d-flex align-center"
+              :class="
+                $vuetify.breakpoint.xs ? ' justify-center' : ' justify-start'
+              "
+            >
+              <ul class="candidates__cv-ul">
+                <li class="candidates__cv-li">
+                  <v-btn
+                    href="https://docs.google.com/document/d/1EcIPIkdRKGqg4e99_744OPjMfk-YRI6g/edit?usp=sharing&ouid=108920780784820677981&rtpof=true&sd=true"
+                    target="_blank"
+                    depressed
+                    color="#3B5998"
+                    class="candidates__cv-btnkiri white--text text-capitalize"
+                    >Download Form CV English</v-btn
+                  >
+                </li>
+                <li class="candidates__cv-li">
+                  <v-btn
+                    target="_blank"
+                    href="https://docs.google.com/spreadsheets/d/1zpkqpSloJbQoAkOEfqYmm0wlhRSYyF88/edit?usp=sharing&ouid=108920780784820677981&rtpof=true&sd=true"
+                    depressed
+                    color="success"
+                    class="candidates__cv-btnkanan text-capitalize"
+                    >Download Form CV Japan</v-btn
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </v-card>
       </section>
@@ -68,7 +79,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -114,7 +129,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -160,7 +179,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -206,7 +229,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -252,7 +279,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -298,7 +329,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -344,7 +379,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -389,7 +428,11 @@
               >
                 <v-hover value="true">
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
                         controls
                         aspect-ratio="1"
@@ -427,7 +470,9 @@
           </v-tab-item>
         </v-tabs>
         <div class="candidates__video-bungkusbtn text-center">
-          <v-btn color="#FF9900" class="candidates__video-btn white--text"
+          <v-btn
+            color="#FF9900"
+            class="candidates__video-btn text-capitalize white--text"
             >Lebih Banyak</v-btn
           >
         </div>
@@ -485,8 +530,10 @@ export default {
   }
 }
 
+//0-300
 @media screen and (min-width: 0px) and (max-width: 300px) {
 }
+//300-600
 @media screen and (min-width: 300px) and (max-width: 600px) {
   .candidates__cv {
     margin-top: 7rem;
@@ -504,23 +551,27 @@ export default {
     }
     &-ul {
       list-style-type: none;
-      display: inline-flex;
+      display: inline-grid;
       padding-left: 0 !important;
-      margin-left: -15px;
+      margin-left: 1rem;
+      margin-top: 2rem;
     }
     &-li {
       margin-right: 0.5rem;
+      margin-bottom: 2rem;
     }
     &-btnkiri {
-      font-size: 8px !important;
+      font-size: 12px !important;
       margin: 0 auto;
     }
     &-btnkanan {
-      font-size: 8px !important;
+      font-size: 12px !important;
       margin: 0 auto;
     }
   }
-
+  .v-overlay__scrim {
+    height: 80%;
+  }
   .candidates__video {
     &-tabitem {
       margin-top: 1rem;
@@ -530,7 +581,9 @@ export default {
     }
     &-row {
       margin: 0 auto;
-      padding-left: 2rem;
+    }
+    &-card {
+      margin: 0 auto;
     }
     &-bungkus {
       margin-bottom: 2rem !important;
@@ -540,6 +593,7 @@ export default {
     }
   }
 }
+//600-960
 @media screen and (min-width: 600px) and (max-width: 960px) {
   .candidates__cv {
     margin-top: 5rem;
@@ -556,7 +610,10 @@ export default {
     }
     &-row {
       margin: 0 auto;
-      padding-left: 2rem;
+      padding-left: 0rem;
+    }
+    &-card {
+      margin: 0 auto;
     }
     &-bungkus {
       margin-bottom: 2rem !important;
@@ -564,12 +621,63 @@ export default {
     &-btn {
       margin-bottom: 2rem !important;
     }
+    &-tabitem {
+      padding-left: 0rem;
+    }
   }
 }
-
+//960-1264
 @media screen and (min-width: 960px) and (max-width: 1264px) {
   .candidates__video {
     &-btn {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+    &-row {
+      margin-top: 1rem;
+    }
+    &-btn {
+      margin-bottom: 2rem;
+    }
+  }
+}
+//1264-1904
+@media screen and (min-width: 1264px) and (max-width: 1904px) {
+  iframe {
+    width: inherit;
+  }
+  .candidates__video {
+    &-btn {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+    &-row {
+      margin-top: 1rem;
+    }
+    &-btn {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// 1904 >
+@media screen and (min-width: 1904px) {
+  iframe {
+    width: 22rem;
+  }
+  .v-overlay.d-flex.align-start.justify-start.v-overlay--absolute.v-overlay--active.theme--dark {
+    width: 22rem;
+    z-index: 5;
+    height: 30%;
+  }
+  .candidates__video {
+    &-card {
+      width: 366px;
+    }
+    &-row {
+      margin-top: 3rem;
+    }
+    &-bungkusbtn {
       margin-bottom: 3rem;
       margin-top: 3rem;
     }

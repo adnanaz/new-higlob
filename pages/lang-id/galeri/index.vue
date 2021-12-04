@@ -17,7 +17,7 @@
             href="#search"
             style="font-family: 'Poppins', sans-serif; font-weigh: bold"
           >
-            Gallery
+            Foto LPK
           </v-tab>
 
           <v-tab-item :style="gallery_padding" value="search">
@@ -54,7 +54,6 @@
                           <div class="pa-3">
                             <h3 style="font-family: 'poppins'">
                               Proses kegiatan belajar mengajar <br />
-                              di LPK Higlobal
                             </h3>
                           </div>
                         </v-overlay>
@@ -89,8 +88,9 @@
                   >
                     <v-hover>
                       <template v-slot:default="{ hover }">
-                        <v-card class="card-angetenanisi">
+                        <v-card class="card-angeltenanisi">
                           <v-img
+                            class="card-angeltenanimg"
                             style="width: 400px"
                             :src="require(`@/assets/images/${item.img_url}`)"
                           ></v-img>
@@ -115,7 +115,7 @@
                 </v-row>
               </v-col>
             </v-row>
-            <v-row justify="center">
+            <v-row class="row-kolombawah" justify="center">
               <v-col
                 v-for="(item, index) in kolombawah_img"
                 :key="index"
@@ -153,7 +153,7 @@
             </v-row>
           </v-tab-item>
 
-          <v-tab
+          <!-- <v-tab
             href="#penghargaan"
             style="font-family: 'Poppins', sans-serif; font-weight: bold"
           >
@@ -289,7 +289,7 @@
                 </v-hover>
               </v-col>
             </v-row>
-          </v-tab-item>
+          </v-tab-item> -->
         </v-tabs>
       </div>
     </section>
@@ -305,46 +305,46 @@ export default {
     kolomkanan_img: [
       {
         img_url: 'gallery2.png',
-        img_caption: 'Fasilitas Studio Belajar HiGlob',
+        img_caption: 'Kegiatan Wawancara Ujian ',
       },
       {
         img_url: 'gallery3.png',
-        img_caption: ' Proses kegiatan belajar mengajar di LPK Higlobal',
+        img_caption: ' Kegiatan diskusi dengan atasan Hi Global',
       },
       {
         img_url: 'gallery4.png',
-        img_caption: 'Proses kegiatan pembelajaran di kelas',
+        img_caption: 'Foto bersama murid LPK Higlob',
       },
       {
         img_url: 'gallery5.png',
-        img_caption: 'Proses Kegiatan diskusi dengan para senpai',
+        img_caption: 'Proses Belajar Mengajar dengan para senpai',
       },
       {
         img_url: 'gallery6.png',
-        img_caption: 'Pelajar HiGlob dengan umur termuda',
+        img_caption: 'Praktek Kerja Menjadi Koki',
       },
       {
         img_url: 'gallery7.png',
-        img_caption: 'Fasilitas Kursi dari HiGlob',
+        img_caption: 'Foto murid sebelum diberangkatkan ke jepang',
       },
     ],
 
     kolombawah_img: [
       {
         img_url: 'gallery8.png',
-        img_caption: 'Proses Kegiatan Ujian Bersama di LPK Higlob',
+        img_caption: 'Foto bersama dengan murid lain',
       },
       {
         img_url: 'gallery9.png',
-        img_caption: 'Ruang Lomba Bahasa Jepang di LPK HiGlobal',
+        img_caption: 'Foto murid bersama pimpinan Higlobal',
       },
       {
         img_url: 'gallery10.png',
-        img_caption: 'Seminar Bersama LPK Se-Yogyakarta',
+        img_caption: 'Belajar bersama Senpai',
       },
       {
         img_url: 'gallery11.png',
-        img_caption: 'Kegiatan Meeting bersama Pimpinan dan Tim IT',
+        img_caption: 'Kondisi Ruangan di LPK Higlob',
       },
     ],
     // END GALLERY
@@ -464,7 +464,7 @@ export default {
         font-family: 'Poppins', sans-serif;
         font-style: normal;
         font-weight: 600;
-        font-size: 22px !important;
+        font-size: 19px !important;
         line-height: 145%;
         text-align: center;
       }
@@ -492,24 +492,54 @@ export default {
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 960px) and (max-width: 1264px) {
   .gallery {
     &__title {
       &-p {
-        padding: 20px 90px 0 90px !important;
         font-size: 16px;
         margin-top: 2rem;
       }
     }
   }
 }
-
-@media screen and (min-width: 1904px) {
-  .card-angeltenan {
-    max-width: 34rem;
+@media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .gallery__title {
+    &-p {
+      margin-top: 2rem;
+    }
   }
-  .card-angetenanisi {
-    width: 23vh;
+}
+@media screen and (min-width: 1904px) {
+  .v-window__container {
+    padding: 14px 25rem 25rem 25rem;
+  }
+  .row-kolombawah {
+    margin-top: -3rem !important;
+  }
+  .gallery {
+    margin-top: 8rem;
+    &__title {
+      &-h1 {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 145%;
+        text-align: center;
+      }
+    }
+    &__tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-angeltenan {
+      margin-top: 0rem;
+      margin-bottom: 3rem;
+    }
+    .card-angeltenanimg {
+      height: 9rem;
+    }
   }
 }
 </style>
