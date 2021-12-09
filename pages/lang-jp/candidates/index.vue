@@ -15,7 +15,7 @@
       </v-btn>
 
       <section class="candidates__cv" ref="awal">
-        <v-card elevation="1" outlined class="candidates__cv-card">
+        <v-card elevation="0" outlined class="candidates__cv-card">
           <div class="candidates__cv-div">
             <h1 class="candidates__cv-h1">候補者</h1>
             <p class="candidates__cv-p">
@@ -328,6 +328,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - 候補者',
+  },
   data: () => ({
     overlay: false,
     zIndex: 1,
@@ -527,6 +530,9 @@ export default {
 @media screen and (min-width: 1904px) {
   iframe {
     width: 22rem;
+  }
+  .v-window__container {
+    padding: 0 !important;
   }
   .v-overlay.d-flex.align-start.justify-start.v-overlay--absolute.v-overlay--active.theme--dark {
     width: 22rem;

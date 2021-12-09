@@ -422,7 +422,7 @@
 
         <v-row class="tentang__indonesia-row">
           <v-col
-            class="tentang__indonesia-colkiri"
+            class="tentang__indonesia-colkiri d-flex align-center"
             cols="12"
             xs="12"
             sm="12"
@@ -431,32 +431,32 @@
             xl="7"
           >
             <ul class="tentang__indonesia-ul">
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 インドネシアの現在の人口は276,446,216人です。
                 2021年7月7日水曜日、Worldometerの詳細に基づく 最新の国連データ
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 インドネシア2020年の人口は273,523,615人と推定されています
                 国連のデータによると、年の半ば。
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 インドネシアの人口は全世界の3.51％に相当します 人口。
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 インドネシアは国のリストで4位にランクされています（そして
                 依存関係）人口による。
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 インドネシアの人口密度は1平方キロメートルあたり151人（391人）
                 mi2あたり）。
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 総面積は1,811,570平方キロメートル（699,451平方マイル）です。)
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 人口の56.4％が都市部です（2020年には154,188,546人）
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 インドネシアの年齢の中央値は29.7歳です
               </li>
             </ul>
@@ -518,7 +518,7 @@
     </v-container>
     <!-- ================================end  BIKINAN FAH Statistik Indonesia =======================================-->
 
-    <v-container :class="!$vuetify.breakpoint.xs ? 'override__container' : ''">
+    <v-container :class="$vuetify.breakpoint.xs ? 'override__container' : ''">
       <v-row>
         <!-- ==== CARD & YAKIN ==== -->
         <v-col
@@ -880,6 +880,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - 家',
+  },
   async asyncData({ $content, params }) {
     let articles = await $content('lang-jp/articles')
       .limit(3)
@@ -963,33 +966,33 @@ export default {
           icon: 'icon1.png',
           height: '294px',
           height_custom: '320px',
-          title: 'Hi Global telah memiliki lebih dari ratusan pelajar',
+          title: 'こんにちはグローバルにはすでに数百人以上の学生がいます',
           description:
-            ' Hi global telah memiliki lebih dari 500 pelajar lebih yang telah bergabung dan membantu mereka dalam untuk meriah impianya',
+            ' こんにちはグローバルには500人以上の学生が参加し、彼らの夢を実現するのを助けました',
         },
         {
           icon: 'icon2.png',
           height: '250px',
           height_custom: '265px',
-          title: 'Higlob telah beroperasi 3 tahun lamanya',
+          title: 'Higlobは3年間運営されています',
           description:
-            'Selama tiga tahun terakhir higlob perusahaan telah tumbuh dan memiliki membantu banyak siswa untuk raih mimpinya',
+            '過去3年間で、higlobの会社は成長し、多くの学生が夢を実現するのを支援してきました。',
         },
         {
           icon: 'icon3.png',
           height: '223px',
           height_custom: '250px',
-          title: 'hi Global Telah menyediakan berbagai jasa',
+          title: 'こんにちはグローバルは様々なサービスを提供してきました',
           description:
-            'Hi Global telah menyediakan berbagai layanan yang memudahkan anda untuk bergabung dengan kami',
+            'こんにちはグローバルはあなたが私たちに参加するのを簡単にする様々なサービスを提供してきました',
         },
         {
           icon: 'icon4.png',
           height: '294px',
           height_custom: '294px',
-          title: 'Higlob telah terhubung dengan berbagai negara',
+          title: 'Higlobはさまざまな国とつながっています',
           description:
-            'Higlob telah terhubung dan bekerja sama dengan berbagai negara yang bertujuan untuk membantu anda menggapai impian anda ',
+            'Higlobは、あなたが夢を実現するのを支援することを目的として、さまざまな国とつながり、協力してきました。 ',
         },
       ],
 
@@ -2065,15 +2068,15 @@ export default {
 
 @media screen and (min-width: 1904px) {
   .override__container {
-    margin: 0 24rem !important;
+    margin: 0 auto !important;
   }
 
   .hero__utama {
     &-h1 {
-      padding: 0px 55rem 0 55rem;
+      padding: 0px 35rem !important;
     }
     &-p {
-      padding: 0 45.9rem 0 45.9rem;
+      padding: 0 36rem !important;
       font-size: 14px;
     }
   }
@@ -2085,15 +2088,21 @@ export default {
   }
   .tentang-indonesia {
     margin-left: 7rem;
+    &-row {
+      padding: 7rem !important;
+    }
   }
   .statistik__indonesia {
     margin-left: 7rem;
   }
   .text__2 {
-    padding-right: 9rem;
+    padding-right: 21rem;
   }
   .bungkus-row {
     margin-left: 7rem;
+  }
+  .text__3 {
+    padding-right: 29rem;
   }
 }
 // ====================================== END CSS Bikinan FAH =========================

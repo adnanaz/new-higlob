@@ -63,6 +63,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Maintenance',
+  },
   name: 'maintenance',
   mounted() {
     this.$store.state.isNotFound = true

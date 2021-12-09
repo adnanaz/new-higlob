@@ -188,6 +188,10 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - 仕事情報',
+  },
+
   data: () => ({
     overlay: false,
     zIndex: 1,

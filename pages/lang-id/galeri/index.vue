@@ -308,6 +308,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Galeri',
+  },
   data: () => ({
     overlay: false,
     zIndex: 1,

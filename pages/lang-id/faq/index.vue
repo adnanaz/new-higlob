@@ -72,7 +72,8 @@
               >Bagaimana cara mendaftar di LPK Higlob?</v-expansion-panel-header
             >
             <v-expansion-panel-content class="section__faq-panelp">
-              Pendaftaran dapat menghubungi nomor whatsapp sebagai berikut
+              Pendaftaran dapat menghubungi nomor whatsapp sebagai berikut +62
+              857 1314 9249
             </v-expansion-panel-content>
           </v-expansion-panel>
 
@@ -130,6 +131,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - FAQ',
+  },
   data: () => ({
     panel: [0, 1],
     disabled: false,

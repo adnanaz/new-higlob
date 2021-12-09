@@ -216,6 +216,10 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Blog',
+  },
+
   async asyncData({ $content, params }) {
     let articles = await $content('lang-id/articles')
       .only([

@@ -546,7 +546,7 @@
                 target="_blank"
                 class="mb-10 py-6"
                 align-end
-                color="#3E00FF"
+                color="#00346D"
                 large
                 elevation="0"
                 ><v-img
@@ -706,6 +706,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Tentang Kami',
+  },
   data: () => ({
     visi_perusahaan: [
       {
@@ -885,7 +888,7 @@ export default {
   line-height: 20px !important;
   font-size: 14px !important;
   text-align: center !important;
-  color: #3e00ff !important;
+  color: #00346d !important;
 }
 .theme--light.v-stepper
   .v-stepper_step:not(.v-stepperstep--active):not(.v-stepperstep--complete):not(.v-stepper_step--error)
@@ -1005,11 +1008,11 @@ export default {
     line-height: 20px !important;
     font-size: 14px !important;
     text-align: center !important;
-    color: #3e00ff !important;
+    color: #00346d !important;
   }
 
   .gambar-visimisi-ijo {
-    margin-left: 4.5rem;
+    margin-left: 0 !important;
     max-width: 21rem;
   }
   .ul-khusus {
@@ -1198,6 +1201,9 @@ export default {
     text-align: left;
     margin-left: 1.5rem;
   }
+  .banner-1 {
+    margin-top: 3rem;
+  }
   .p-teamit {
     p {
       text-align: center !important;
@@ -1214,7 +1220,7 @@ export default {
     font-size: 14px;
   }
   .gambar-persyaratan-img {
-    max-width: 35rem;
+    max-width: 46rem !important;
   }
   .btn-downloadbrosur {
     margin-top: 1rem;

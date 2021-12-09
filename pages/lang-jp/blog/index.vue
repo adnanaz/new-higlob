@@ -215,6 +215,10 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - ブログ',
+  },
+
   async asyncData({ $content, params }) {
     let articles = await $content('lang-jp/articles')
       .only([

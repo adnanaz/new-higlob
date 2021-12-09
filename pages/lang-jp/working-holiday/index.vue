@@ -340,11 +340,11 @@
                     class="pertanyaan-panelisi"
                     style="color: #868686"
                   >
-                    以下の番号に連絡することができます 0877-8757-4848 /
-                    0821-2345-1243 私たちのオフィスに直接来ることができます
-                    Jalan turi km 3,7 perum pondok idaman no A2 kadisobo,
-                    Kadisobo I / Pepen, Trimulyo, Kec. Sleman, Kabupaten Sleman,
-                    Daerah Istimewa Yogyakarta 55513
+                    以下の番号に連絡することができます +62 857 1314 9249
+                    私たちのオフィスに直接来ることができます Jalan turi km 3,7
+                    perum pondok idaman no A2 kadisobo, Kadisobo I / Pepen,
+                    Trimulyo, Kec. Sleman, Kabupaten Sleman, Daerah Istimewa
+                    Yogyakarta 55513
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -403,6 +403,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - ワーキングホリデー',
+  },
   methods: {
     scrollMeTo(refname) {
       let element = this.$refs[refname]
@@ -1172,7 +1175,7 @@ ul {
     padding: 4rem 15rem 0 15rem !important;
   }
   .banner__visa {
-    padding: 0 24rem !important;
+    padding: 0 !important;
   }
   .banner__peta {
     &-h1 {

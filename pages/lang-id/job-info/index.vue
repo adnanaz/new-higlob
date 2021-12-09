@@ -192,6 +192,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Job Info',
+  },
   data: () => ({
     overlay: false,
     zIndex: 1,

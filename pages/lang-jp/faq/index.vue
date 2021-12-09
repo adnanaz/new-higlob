@@ -68,7 +68,7 @@
               Higlobに登録するにはどうすればよいですか？</v-expansion-panel-header
             >
             <v-expansion-panel-content class="section__faq-panelp">
-              登録は次のようにwhatsapp番号に連絡できます
+              登録は次のようにwhatsapp番号に連絡できます +62 857 1314 9249
             </v-expansion-panel-content>
           </v-expansion-panel>
 
@@ -127,6 +127,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - よくある質問',
+  },
   data: () => ({
     panel: [0, 1],
     disabled: false,

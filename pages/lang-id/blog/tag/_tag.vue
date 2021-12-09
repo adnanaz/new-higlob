@@ -177,6 +177,10 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Tag',
+  },
+
   async asyncData({ $content, params }) {
     const tags = await $content('tags')
       .where({ slug: { $contains: params.tag } })

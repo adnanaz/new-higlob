@@ -429,7 +429,7 @@
 
         <v-row class="tentang__indonesia-row">
           <v-col
-            class="tentang__indonesia-colkiri"
+            class="tentang__indonesia-colkiri d-flex align-center"
             cols="12"
             xs="12"
             sm="12"
@@ -437,35 +437,35 @@
             lg="7"
             xl="7"
           >
-            <ul class="tentang__indonesia-ul">
-              <li class="tentang__indonesia-li">
+            <ul class="tentang__indonesia-ul" style="list-style-type: square">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 The current population of Indonesia is 276,446,216 as of
                 Wednesday, July 7, 2021, based on Worldometer elaboration of the
                 latest United Nations data
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 Indonesia 2020 population is estimated at 273,523,615 people at
                 mid year according to UN data.
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 Indonesia population is equivalent to 3.51% of the total world
                 population.
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 Indonesia ranks number 4 in the list of countries (and
                 dependencies) by population.
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 The population density in Indonesia is 151 per Km2 (391 people
                 per mi2).
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 The total land area is 1,811,570 Km2 (699,451 sq. miles)
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 56.4 % of the population is urban (154,188,546 people in 2020)
               </li>
-              <li class="tentang__indonesia-li">
+              <li class="tentang__indonesia-li" style="list-style-type: square">
                 The median age in Indonesia is 29.7 years
               </li>
             </ul>
@@ -527,7 +527,7 @@
     </v-container>
     <!-- ================================end  BIKINAN FAH Statistik Indonesia =======================================-->
 
-    <v-container :class="!$vuetify.breakpoint.xs ? 'override__container' : ''">
+    <v-container :class="$vuetify.breakpoint.xs ? 'override__container' : ''">
       <v-row>
         <!-- ==== CARD & YAKIN ==== -->
         <v-col
@@ -906,7 +906,9 @@ export default {
       articles,
     }
   },
-
+  head: {
+    titleTemplate: 'Higlob - Beranda',
+  },
   data() {
     return {
       carousel: 0,
@@ -1844,7 +1846,7 @@ export default {
   }
   .hero__utama {
     &-h1 {
-      padding: 0px 16rem 0 1rem !important;
+      padding: 0px 16rem 0 16rem !important;
       margin-top: 4rem;
       font-family: Poppins;
       font-style: normal;
@@ -2075,15 +2077,15 @@ export default {
 
 @media screen and (min-width: 1904px) {
   .override__container {
-    margin: 0 24rem !important;
+    margin: 0 auto !important;
   }
 
   .hero__utama {
     &-h1 {
-      padding: 0px 55rem 0 55rem;
+      padding: 0px 35rem !important;
     }
     &-p {
-      padding: 0 45.9rem 0 45.9rem;
+      padding: 0 36rem !important;
       font-size: 14px;
     }
   }
@@ -2095,15 +2097,21 @@ export default {
   }
   .tentang-indonesia {
     margin-left: 7rem;
+    &-row {
+      padding: 7rem;
+    }
   }
   .statistik__indonesia {
     margin-left: 7rem;
   }
   .text__2 {
-    padding-right: 9rem;
+    padding-right: 21rem;
   }
   .bungkus-row {
     margin-left: 7rem;
+  }
+  .text__3 {
+    padding-right: 29rem;
   }
 }
 // ====================================== END CSS Bikinan FAH =========================

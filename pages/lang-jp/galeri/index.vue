@@ -309,6 +309,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - ギャラリー',
+  },
   data: () => ({
     overlay: false,
     zIndex: 1,
@@ -566,7 +569,7 @@ export default {
       margin-bottom: 3rem;
     }
     .card-angeltenanimg {
-      height: 9rem;
+      height: 11.5rem;
     }
   }
 }

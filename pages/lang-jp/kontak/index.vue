@@ -73,7 +73,10 @@
                     Kadisobo I / Pepen, Trimulyo, Kec. Sleman, Kabupaten Sleman,
                     Daerah Istimewa Yogyakarta 55513
                   </p>
-                  <a href="" style="font-family: 'Poppins', sans-serif"
+                  <a
+                    target="_blank"
+                    href="https://goo.gl/maps/BShNbUVNzHq4qaG46"
+                    style="font-family: 'Poppins', sans-serif"
                     >マップを開く -></a
                   >
                 </li>
@@ -84,7 +87,7 @@
 
                 <li style="margin-top: 10px">
                   <h4 class="judul__kontak-h4">電話</h4>
-                  <p class="judul__kontak-p">0877-8757-4848 / 0821-2345-1243</p>
+                  <p class="judul__kontak-p">+62 857 1314 9249</p>
                 </li>
                 <li style="margin-top: 10px">
                   <h4 class="judul__kontak-h4">労働時間</h4>

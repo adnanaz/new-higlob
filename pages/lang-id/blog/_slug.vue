@@ -112,6 +112,10 @@
 <script>
 import { createSEOMeta } from '@/utils/seo'
 export default {
+  head: {
+    titleTemplate: 'Higlob - Slug',
+  },
+
   async asyncData({ $content, params }) {
     const article = await $content('lang-id/articles', params.slug).fetch()
     const tagsList = await $content('lang-id/tags')

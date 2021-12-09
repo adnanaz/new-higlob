@@ -16,7 +16,7 @@
       </v-btn>
 
       <section class="candidates__cv" ref="awal">
-        <v-card elevation="1" outlined class="candidates__cv-card">
+        <v-card elevation="0" outlined class="candidates__cv-card">
           <div class="candidates__cv-div">
             <h1 class="candidates__cv-h1">Candidates</h1>
             <p class="candidates__cv-p">
@@ -325,6 +325,9 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - Candidates',
+  },
   data: () => ({
     overlay: false,
     zIndex: 1,
@@ -374,9 +377,11 @@ export default {
   }
   &-btnkiri {
     font-size: 12px !important;
+    font-weight: 300;
   }
   &-btnkanan {
     font-size: 12px !important;
+    font-weight: 300;
   }
 }
 
@@ -524,6 +529,9 @@ export default {
 @media screen and (min-width: 1904px) {
   iframe {
     width: 22rem;
+  }
+  .v-window__container {
+    padding: 0 !important;
   }
   .v-overlay.d-flex.align-start.justify-start.v-overlay--absolute.v-overlay--active.theme--dark {
     width: 22rem;
