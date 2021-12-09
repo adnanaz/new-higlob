@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <section class="gallery">
+    <section class="gallery" ref="awal">
       <div class="gallery__title text-center">
         <h1 class="gallery__title-h1">
           Selamat datang di Galeri Foto <br />
@@ -293,6 +293,16 @@
         </v-tabs>
       </div>
     </section>
+    <v-btn
+      @click="scrollMeTo('awal')"
+      class="mx-2 btn-munggah"
+      fab
+      dark
+      large
+      color="#FF9900"
+    >
+      <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+    </v-btn>
   </v-container>
 </template>
 
@@ -419,7 +429,13 @@ export default {
   },
 
   methods: {
-    responsive() {},
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
   },
 }
 </script>
@@ -442,6 +458,9 @@ export default {
     justify-content: center;
     align-items: center;
   }
+}
+.v-overlay__scrim {
+  height: 100%;
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {

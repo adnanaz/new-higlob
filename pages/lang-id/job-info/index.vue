@@ -1,7 +1,18 @@
 <template>
   <div>
+    <v-btn
+      @click="scrollMeTo('awal')"
+      class="mx-2 btn-munggah"
+      fab
+      dark
+      large
+      color="#FF9900"
+    >
+      <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+    </v-btn>
+
     <v-container>
-      <section class="jobseeker__awal">
+      <section class="jobseeker__awal" ref="awal">
         <v-row class="jobseeker__awal-row">
           <v-col
             class="jobseeker__awal-colkiri"
@@ -185,10 +196,26 @@ export default {
     overlay: false,
     zIndex: 1,
   }),
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .jobseeker__banner {
   margin-top: 5rem;
   &-h1 {

@@ -2,8 +2,19 @@
   <div>
     <!-- Banner Persiapan -->
 
-    <v-container fluid style="background-color: #f8faff">
+    <v-container class="container-all" fluid style="background-color: #f8faff">
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
       <section
+        ref="awal"
         class="banner__persiapan"
         :style="$vuetify.breakpoint.mdAndUp ? 'margin-top : 8rem;' : ''"
       >
@@ -52,7 +63,7 @@
 
     <!--Start BANNER SYARAT -->
 
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__syarat">
         <v-row class="banner__syarat-row">
           <v-col
@@ -153,7 +164,7 @@
     <!-- End BANNER SYARAT -->
 
     <!-- START Banner Fasilitas  Bahasa -->
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__fasilitasbahasa">
         <v-row class="banner__fasilitasbahasa-row">
           <v-col
@@ -227,7 +238,7 @@
 
     <!-- START BANNER LAYANAN BAHASA -->
 
-    <v-container fluid style="background-color: #f4fcff">
+    <v-container class="container-all" fluid style="background-color: #f4fcff">
       <section class="banner__layananbahasa">
         <v-row>
           <v-col
@@ -303,7 +314,7 @@
     <!-- End Layanan Kami Persiapan Bahasa -->
 
     <!-- START BANNER FAQ BAHASA -->
-    <v-container>
+    <v-container class="container-all">
       <section class="pertanyaan__bahasa">
         <v-row>
           <v-col
@@ -329,6 +340,7 @@
           </v-col>
 
           <!-- Bagian FAQ -->
+          <!-- Bagian FAQ -->
           <v-col
             class="pertanyaan__bahasa-colkanan"
             cols="12"
@@ -350,19 +362,14 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    参加すると何が得られますか
-                    言語の準備？</v-expansion-panel-header
+                    いつ準備に登録できますか 言語？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    フォローすることには多くの専門的および個人的な利点があります
-                    ワーキングホリデーメーカー（WHM）プログラム。
-                    ギャップイヤー（学校休暇） 学ぶ素晴らしい機会です、
-                    自分自身を成長させ、経験を向上させます。 なぜなら
-                    旅行することで、新しい人と出会うでしょう。
-                    新しい文化を学び、スキルを開発し、 興味。
+                    終わったら語学準備を登録できます
+                    日本に行くときのすべてのテストと要件。
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -370,16 +377,17 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    いつ言語準備を登録できますか ？</v-expansion-panel-header
+                    準備に登録する方法 言語？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Molestias nesciunt repellendus fugit! Eveniet, ducimus!
-                    Corporis saepe, natus ex culpa, at ut tempore dolorum sit
-                    non nisi accusamus dolor! Doloribus, nihil.
+                    以下の番号に連絡することができます 0877-8757-4848 /
+                    0821-2345-1243 私たちのオフィスに直接来ることができます
+                    Jalan turi km 3,7 perum pondok idaman no A2 kadisobo,
+                    Kadisobo I / Pepen, Trimulyo, Kec. Sleman, Kabupaten Sleman,
+                    Daerah Istimewa Yogyakarta 55513
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -387,16 +395,15 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    言語準備に参加する方法 ？</v-expansion-panel-header
+                    準備に参加する際の特別な要件は何ですか
+                    言語？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo et magnam dolor est amet eaque ducimus saepe
-                    perferendis inventore! Incidunt odit dolorem ullam sunt
-                    voluptatem sapiente veritatis, error ab! Consequatur!
+                    特定の要件は、[サービス]ページにリストされています->
+                    言語の準備を選択します。
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -404,17 +411,16 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    オンライン言語準備に参加する方法
+                    言語準備に参加する利点は何ですか
                     ？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Obcaecati ratione delectus eligendi hic nesciunt quis
-                    expedita ab corporis dolor, porro, perspiciatis consequuntur
-                    ut cumque similique nihil, mollitia vero quod rem.
+                    言語準備に参加することの利点。 あなたはテストされます
+                    LPKヒグロブの口頭言語のプロの先生による
+                    インターンシップや仕事をするときにもう一度日本 日本では
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -433,6 +439,15 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
@@ -442,6 +457,14 @@ li {
 }
 
 // STYLE KHUSUS BANNER PERSIAPAN
+
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 
 .banner__persiapan {
   // margin-top: 8rem;
@@ -607,7 +630,7 @@ li {
 
 // MEDIA QUERY
 //0-300
-@media screen and (min-width: 0px) and (max-width: 330px) {
+@media screen and (min-width: 0px) and (max-width: 300px) {
   .banner__persiapan {
     padding: 7px;
     margin-top: 2rem;
@@ -820,7 +843,7 @@ li {
 }
 
 //300-600
-@media screen and (min-width: 330px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 600px) {
   // STYLE KHUSUS BANNER PERSIAPAN
 
   .banner__persiapan {
@@ -835,7 +858,7 @@ li {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 30px;
+      font-size: 28px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -844,7 +867,7 @@ li {
       margin-left: 2.4rem;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 26px;
       color: #171717;
     }
@@ -862,6 +885,7 @@ li {
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
   // END STYLE BANNER PERSIAPAN
@@ -880,28 +904,38 @@ li {
     }
     &-colkiri {
     }
+    &-tulisankiri {
+      text-align: center !important;
+    }
+    &-tulisankanan {
+      text-align: center !important;
+    }
     &-ul {
       list-style-type: none;
       padding: 0 !important;
     }
     &-p {
       display: inline-flex;
+      font-size: 12px;
     }
     &-patas {
       font-size: 12px;
+      text-align: center;
     }
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 22px;
+      font-size: 18px;
       color: #171717;
     }
     &-h1atas {
-      font-size: 19px;
+      font-size: 16px;
+      text-align: center;
     }
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
 
@@ -918,9 +952,10 @@ li {
       color: #3e00ff;
       font-weight: 500;
       margin-left: 2px;
+      font-size: 14px;
     }
     &-h1 {
-      font-size: 22px;
+      font-size: 20px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -957,7 +992,7 @@ li {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -984,6 +1019,7 @@ li {
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
 
@@ -998,12 +1034,12 @@ li {
     margin-top: 2rem;
     margin-bottom: 5rem;
     &-h1 {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 1rem;
     }
 
     &-p {
-      font-size: 13px;
+      font-size: 12px;
     }
     &-img {
       max-width: 12rem;
@@ -1037,13 +1073,16 @@ li {
 //
 @media screen and (min-width: 600px) and (max-width: 960px) {
   // STYLE KHUSUS BANNER PERSIAPAN
+  .container-all {
+    padding: 0 6rem 0rem 6rem;
+  }
 
   .banner__persiapan {
     // margin-top: 8rem;
     margin-top: 4rem;
     padding: 2rem;
     &-colkiri {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     &-img {
       max-width: 37rem;
@@ -1052,7 +1091,7 @@ li {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -1100,6 +1139,7 @@ li {
     }
     &-p {
       display: inline-flex;
+      font-size: 14px;
     }
     &-img {
       max-width: 35rem;
@@ -1110,15 +1150,17 @@ li {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 25px;
+      font-size: 22px;
       color: #171717;
     }
     &-h1atas {
-      padding-right: 4.5rem;
-      font-size: 25px;
+      padding-right: 5.5rem;
+      font-size: 24px;
+      text-align: center;
     }
     &-patas {
       line-height: 2rem;
+      text-align: center;
     }
     &-h4 {
       color: #3e00ff;
@@ -1146,7 +1188,7 @@ li {
       margin-top: 1rem;
     }
     &-h1 {
-      font-size: 25px;
+      font-size: 24px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -1175,7 +1217,7 @@ li {
     padding: 0 3rem;
     &-colkanan {
       padding-left: 0rem;
-      margin-top: 2rem;
+      margin-top: 0rem;
     }
     &-ul {
       list-style-type: none;
@@ -1192,7 +1234,7 @@ li {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 32px;
+      font-size: 30px;
       color: #171717;
     }
     &-h4 {
@@ -1251,6 +1293,7 @@ li {
     padding: 2rem;
     &-colkiri {
       margin-top: 2rem;
+      padding: 0px 0 0 83px;
     }
     &-img {
       max-width: 22rem;
@@ -1307,7 +1350,7 @@ li {
     }
     &-p {
       display: inline-flex;
-      font-size: 14px;
+      font-size: 12px;
     }
     &-img {
       max-width: 35rem;
@@ -1318,12 +1361,12 @@ li {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 0.7rem;
-      font-size: 22px;
+      font-size: 20px;
       color: #171717;
     }
     &-h1atas {
       padding-right: 4.5rem;
-      font-size: 18px;
+      font-size: 16px;
     }
     &-patas {
       line-height: 1.3rem;
@@ -1383,7 +1426,7 @@ li {
 
   .banner__layananbahasa {
     margin-top: 3rem;
-    padding-left: 3rem;
+    padding: 0 3rem 0 6rem;
     &-colkanan {
       padding-left: 0rem;
       margin-top: 3rem;
@@ -1393,23 +1436,24 @@ li {
       padding: 0 !important;
     }
     &-img {
-      max-width: 38rem;
-      margin-top: 3rem;
+      max-width: 26rem;
+      margin-top: 4rem;
     }
     &-p {
       display: inline-flex;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.8rem;
     }
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 0.7rem;
-      font-size: 26px;
+      font-size: 22px;
       color: #171717;
     }
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
   // END STYLE KHUSUS BANNER BAHASA
@@ -1457,5 +1501,35 @@ li {
 // END UKURAN IPAD PRO
 //1264-1904
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .banner__persiapan {
+    &-h1 {
+      font-size: 44px;
+    }
+  }
+  .banner__syarat {
+    &-patas {
+      padding-left: 10rem;
+    }
+    &-h1atas {
+      font-size: 22px;
+      padding-right: 10rem;
+    }
+  }
+}
+
+//1904 >
+@media screen and (min-width: 1904px) {
+  .container-all {
+    padding: 4rem 15rem 0 15rem !important;
+  }
+  .banner__persiapan {
+    padding: 0 22rem !important;
+    &-img {
+      max-width: 45rem !important;
+    }
+  }
+  .banner__layananbahasa {
+    padding: 0 23rem !important;
+  }
 }
 </style>

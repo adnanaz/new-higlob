@@ -3,7 +3,18 @@
     <!-- ============================================================================================== -->
     <!-- SECTION CANDIDATES -->
     <v-container>
-      <section class="candidates__cv">
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
+
+      <section class="candidates__cv" ref="awal">
         <v-card elevation="1" outlined class="candidates__cv-card">
           <div class="candidates__cv-div">
             <h1 class="candidates__cv-h1">候補者</h1>
@@ -15,24 +26,35 @@
               lpkhiglob1@gmail.comに電子メールを送信します。 送信された後、
               プロセスを続行するために、採用担当者から連絡があります。
             </p>
-            <ul class="candidates__cv-ul">
-              <li class="candidates__cv-li">
-                <v-btn
-                  depressed
-                  color="#3B5998"
-                  class="candidates__cv-btnkiri white--text text-capitalize"
-                  >フォームCV英語をダウンロード</v-btn
-                >
-              </li>
-              <li class="candidates__cv-li">
-                <v-btn
-                  depressed
-                  color="success"
-                  class="candidates__cv-btnkanan text-capitalize"
-                  >フォームCVジャパンをダウンロード</v-btn
-                >
-              </li>
-            </ul>
+            <div
+              class="d-flex align-center"
+              :class="
+                $vuetify.breakpoint.xs ? ' justify-center' : ' justify-start'
+              "
+            >
+              <ul class="candidates__cv-ul">
+                <li class="candidates__cv-li">
+                  <v-btn
+                    href="https://docs.google.com/document/d/1EcIPIkdRKGqg4e99_744OPjMfk-YRI6g/edit?usp=sharing&ouid=108920780784820677981&rtpof=true&sd=true"
+                    target="_blank"
+                    depressed
+                    color="#3B5998"
+                    class="candidates__cv-btnkiri white--text text-capitalize"
+                    >フォームCV英語をダウンロード</v-btn
+                  >
+                </li>
+                <li class="candidates__cv-li">
+                  <v-btn
+                    target="_blank"
+                    href="https://docs.google.com/spreadsheets/d/1zpkqpSloJbQoAkOEfqYmm0wlhRSYyF88/edit?usp=sharing&ouid=108920780784820677981&rtpof=true&sd=true"
+                    depressed
+                    color="success"
+                    class="candidates__cv-btnkanan text-capitalize"
+                    >フォームCVジャパンをダウンロード</v-btn
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </v-card>
       </section>
@@ -48,11 +70,11 @@
           align-with-title
           mobile-breakpoint="slider-size:2"
         >
-          <v-tab class="candidates__video-tab">Rumania</v-tab>
           <v-tab class="candidates__video-tab">Jepang</v-tab>
+          <!-- <v-tab class="candidates__video-tab">Jepang</v-tab>
           <v-tab class="candidates__video-tab">Jerman</v-tab>
           <v-tab class="candidates__video-tab">Kanada</v-tab>
-          <v-tab class="candidates__video-tab">Korea</v-tab>
+          <v-tab class="candidates__video-tab">Korea</v-tab> -->
 
           <v-tab-item class="candidates__video-tabitem">
             <v-row class="candidates__video-row">
@@ -65,15 +87,18 @@
                 lg="3"
                 xl="3"
               >
-                <v-hover value="true">
+                <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
-                        controls
                         aspect-ratio="1"
                         width="270"
                         height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
+                        src="https://www.youtube.com/embed/a1FFr16k1gs"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -90,9 +115,8 @@
                         >
                           <div class="pa-3">
                             <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
+                              名前 : Budi Prasetya <br />
+                              年 : 25 年 <br />経験 : 溶接
                             </h5>
                           </div>
                         </v-overlay>
@@ -111,15 +135,18 @@
                 lg="3"
                 xl="3"
               >
-                <v-hover value="true">
+                <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
-                        controls
                         aspect-ratio="1"
                         width="270"
                         height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
+                        src="https://www.youtube.com/embed/veHNMxL7iBc"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -136,9 +163,8 @@
                         >
                           <div class="pa-3">
                             <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
+                              名前 : Saiful Arman <br />
+                              年 : 23 年 <br />経験 : 溶接
                             </h5>
                           </div>
                         </v-overlay>
@@ -157,15 +183,18 @@
                 lg="3"
                 xl="3"
               >
-                <v-hover value="true">
+                <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
-                        controls
                         aspect-ratio="1"
                         width="270"
                         height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
+                        src="https://www.youtube.com/embed/zPnoa8FX-gA"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -182,9 +211,9 @@
                         >
                           <div class="pa-3">
                             <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
+                              名前 : Ahmad Zaki Mubarok <br />
+                              年 : 28 Tahun <br />経験 :
+                              マーケティング、ITサポート
                             </h5>
                           </div>
                         </v-overlay>
@@ -203,15 +232,18 @@
                 lg="3"
                 xl="3"
               >
-                <v-hover value="true">
+                <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
-                        controls
                         aspect-ratio="1"
                         width="270"
                         height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
+                        src="https://www.youtube.com/embed/2Iz3dqH-bWM"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -228,9 +260,8 @@
                         >
                           <div class="pa-3">
                             <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
+                              名前 : Lucky Wibisono <br />
+                              年 : 25 年 <br />経験 : 自動車
                             </h5>
                           </div>
                         </v-overlay>
@@ -249,15 +280,18 @@
                 lg="3"
                 xl="3"
               >
-                <v-hover value="true">
+                <v-hover>
                   <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
+                    <v-card
+                      class="candidates__video-card"
+                      width="270"
+                      height="386"
+                    >
                       <iframe
-                        controls
                         aspect-ratio="1"
                         width="270"
                         height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
+                        src="https://www.youtube.com/embed/D-u7R1bF-jg"
                         title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -274,146 +308,8 @@
                         >
                           <div class="pa-3">
                             <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
-                            </h5>
-                          </div>
-                        </v-overlay>
-                      </v-fade-transition>
-                    </v-card>
-                  </template>
-                </v-hover>
-              </v-col>
-
-              <v-col
-                class="candidates__video-col"
-                cols="12"
-                xs="12"
-                sm="6"
-                md="4"
-                lg="3"
-                xl="3"
-              >
-                <v-hover value="true">
-                  <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
-                      <iframe
-                        controls
-                        aspect-ratio="1"
-                        width="270"
-                        height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      ></iframe>
-
-                      <v-fade-transition>
-                        <v-overlay
-                          class="d-flex align-start justify-start"
-                          v-if="hover"
-                          absolute
-                          style="height: 30%"
-                          color="#036358"
-                        >
-                          <div class="pa-3">
-                            <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
-                            </h5>
-                          </div>
-                        </v-overlay>
-                      </v-fade-transition>
-                    </v-card>
-                  </template>
-                </v-hover>
-              </v-col>
-
-              <v-col
-                class="candidates__video-col"
-                cols="12"
-                xs="12"
-                sm="6"
-                md="4"
-                lg="3"
-                xl="3"
-              >
-                <v-hover value="true">
-                  <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
-                      <iframe
-                        controls
-                        aspect-ratio="1"
-                        width="270"
-                        height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      ></iframe>
-
-                      <v-fade-transition>
-                        <v-overlay
-                          class="d-flex align-start justify-start"
-                          v-if="hover"
-                          absolute
-                          style="height: 30%"
-                          color="#036358"
-                        >
-                          <div class="pa-3">
-                            <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
-                            </h5>
-                          </div>
-                        </v-overlay>
-                      </v-fade-transition>
-                    </v-card>
-                  </template>
-                </v-hover>
-              </v-col>
-              <v-col
-                class="candidates__video-col"
-                cols="12"
-                xs="12"
-                sm="6"
-                md="4"
-                lg="3"
-                xl="3"
-              >
-                <v-hover value="true">
-                  <template v-slot:default="{ hover }">
-                    <v-card width="270" height="386">
-                      <iframe
-                        controls
-                        aspect-ratio="1"
-                        width="270"
-                        height="386"
-                        src="https://www.youtube.com/embed/C0ESitKzc5I"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      ></iframe>
-
-                      <v-fade-transition>
-                        <v-overlay
-                          class="d-flex align-start justify-start"
-                          v-if="hover"
-                          absolute
-                          style="height: 30%"
-                          color="#036358"
-                        >
-                          <div class="pa-3">
-                            <h5 style="font-family: 'poppins'">
-                              Nama : Amrullah <br />
-                              Umur : 25 Tahun <br />Pengalaman : Marketing, IT
-                              Support
+                              名前 : Arman <br />
+                              年 : 22 年 <br />経験 : 工事
                             </h5>
                           </div>
                         </v-overlay>
@@ -425,11 +321,6 @@
             </v-row>
           </v-tab-item>
         </v-tabs>
-        <div class="candidates__video-bungkusbtn text-center">
-          <v-btn color="#FF9900" class="candidates__video-btn white--text"
-            >Lebih Banyak</v-btn
-          >
-        </div>
       </section>
     </v-container>
   </div>
@@ -441,10 +332,27 @@ export default {
     overlay: false,
     zIndex: 1,
   }),
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
+
 .candidates__cv {
   margin-top: 7rem;
   padding: 0.1rem;
@@ -478,14 +386,17 @@ export default {
 .candidates__video {
   &-tabitem {
     margin-top: 1rem;
+    margin-bottom: 4rem;
   }
   &-btn {
     margin-top: 2rem;
   }
 }
 
+//0-300
 @media screen and (min-width: 0px) and (max-width: 300px) {
 }
+//300-600
 @media screen and (min-width: 300px) and (max-width: 600px) {
   .candidates__cv {
     margin-top: 7rem;
@@ -503,23 +414,27 @@ export default {
     }
     &-ul {
       list-style-type: none;
-      display: inline-flex;
+      display: inline-grid;
       padding-left: 0 !important;
-      margin-left: -15px;
+      margin-left: 1rem;
+      margin-top: 2rem;
     }
     &-li {
       margin-right: 0.5rem;
+      margin-bottom: 2rem;
     }
     &-btnkiri {
-      font-size: 8px !important;
+      font-size: 12px !important;
       margin: 0 auto;
     }
     &-btnkanan {
-      font-size: 8px !important;
+      font-size: 12px !important;
       margin: 0 auto;
     }
   }
-
+  .v-overlay__scrim {
+    height: 80%;
+  }
   .candidates__video {
     &-tabitem {
       margin-top: 1rem;
@@ -529,7 +444,9 @@ export default {
     }
     &-row {
       margin: 0 auto;
-      padding-left: 2rem;
+    }
+    &-card {
+      margin: 0 auto;
     }
     &-bungkus {
       margin-bottom: 2rem !important;
@@ -539,6 +456,7 @@ export default {
     }
   }
 }
+//600-960
 @media screen and (min-width: 600px) and (max-width: 960px) {
   .candidates__cv {
     margin-top: 5rem;
@@ -555,7 +473,10 @@ export default {
     }
     &-row {
       margin: 0 auto;
-      padding-left: 2rem;
+      padding-left: 0rem;
+    }
+    &-card {
+      margin: 0 auto;
     }
     &-bungkus {
       margin-bottom: 2rem !important;
@@ -563,12 +484,63 @@ export default {
     &-btn {
       margin-bottom: 2rem !important;
     }
+    &-tabitem {
+      padding-left: 0rem;
+    }
   }
 }
-
+//960-1264
 @media screen and (min-width: 960px) and (max-width: 1264px) {
   .candidates__video {
     &-btn {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+    &-row {
+      margin-top: 1rem;
+    }
+    &-btn {
+      margin-bottom: 2rem;
+    }
+  }
+}
+//1264-1904
+@media screen and (min-width: 1264px) and (max-width: 1904px) {
+  iframe {
+    width: inherit;
+  }
+  .candidates__video {
+    &-btn {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+    &-row {
+      margin-top: 1rem;
+    }
+    &-btn {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// 1904 >
+@media screen and (min-width: 1904px) {
+  iframe {
+    width: 22rem;
+  }
+  .v-overlay.d-flex.align-start.justify-start.v-overlay--absolute.v-overlay--active.theme--dark {
+    width: 22rem;
+    z-index: 5;
+    height: 30%;
+  }
+  .candidates__video {
+    &-card {
+      width: 366px;
+    }
+    &-row {
+      margin-top: 3rem;
+    }
+    &-bungkusbtn {
       margin-bottom: 3rem;
       margin-top: 3rem;
     }

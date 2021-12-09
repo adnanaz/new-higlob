@@ -156,8 +156,8 @@ export default {
   },
   methods: {
     test() {
-      this.$router.push('/')
       this.$store.state.isNotFound = false
+      this.$router.push('/')
     },
   },
   head() {

@@ -1,7 +1,17 @@
 <template>
   <div>
-    <v-container>
-      <section>
+    <v-container class="container-all">
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
+      <section ref="awal">
         <!-- Banner 1 -->
         <br />
         <br />
@@ -31,9 +41,9 @@
     <!-- end Banner 1 -->
 
     <!-- Histori LPK Higlob -->
-    <v-container>
+    <v-container class="container-all">
       <section class="histori__lpk">
-        <h1 class="text-center histori__lpk-h1">歴史LPKヒグロブ</h1>
+        <h1 class="text-center histori__lpk-h1">LPKヒグロブの歴史</h1>
         <div>
           <v-stepper
             class="histori__lpk-stepper"
@@ -61,13 +71,13 @@
 
               <v-stepper-step class="histori__lpk-stepperstepkhusus" step="">
                 <span class="histori__lpk-span">2018年3月</span>
-                労働省が発行した送信組織許可 インドネシア共和国。
+                労働省が発行した送信機関許可 インドネシア共和国。
               </v-stepper-step>
 
               <v-divider></v-divider>
               <v-stepper-step class="histori__lpk-stepperstep" step="">
                 <span class="histori__lpk-span">2021年6月</span>
-                省によって発行された送信組織許可の延長 インドネシアの労働者。
+                省が発行した送信機関許可の延長 インドネシアの労働者。
               </v-stepper-step>
             </v-stepper-header>
           </v-stepper>
@@ -78,7 +88,7 @@
 
     <!-- Section 1 -->
 
-    <v-container>
+    <v-container class="container-all">
       <section>
         <div>
           <v-row>
@@ -151,7 +161,7 @@
       <!-- END Section 1 -->
     </v-container>
     <!-- Section 2 -->
-    <v-container>
+    <v-container class="container-all">
       <!-- heading 2 -->
       <section>
         <div class="heading2 text-center">
@@ -288,8 +298,8 @@
                     :src="require('@/assets/images/checklist.svg')"
                     style="width: 25px; height: 24px; margin-right: 0.8rem"
                   ></v-img>
-                  Berdisiplin tinggi, mau mematuhi dan menaati peraturan yang
-                  ditetapkan LPK Higlob
+                  高度に訓練され、規則に従い、従うことをいとわない
+                  LPKヒグロブによって設定
                 </p>
               </li>
               <li class="ul-tentangkami">
@@ -406,7 +416,7 @@
     <!-- End Section 2 -->
 
     <!-- Section Persyaratan -->
-    <v-container fluid style="background: #f8faff">
+    <v-container class="container-all" fluid style="background: #f8faff">
       <section
         class="mt-10 persyaratan__khusus"
         :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
@@ -458,8 +468,7 @@
                     :src="require('@/assets/images/checklist.svg')"
                     style="width: 25px; height: 24px; margin-right: 0.8rem"
                   ></v-img>
-                  心理テストを含む、委員会によって開催された選択に合格する
-                  と面接テスト
+                  心理テストを含む委員会の選考に合格 と面接テスト
                 </p>
               </li>
               <li class="ul-tentangkami">
@@ -471,7 +480,7 @@
                     :src="require('@/assets/images/checklist.svg')"
                     style="width: 25px; height: 24px; margin-right: 0.8rem"
                   ></v-img>
-                  Membayar administrasi peserta program magang
+                  見習いプログラム参加者の管理費を支払う
                 </p>
               </li>
               <li class="ul-tentangkami">
@@ -522,6 +531,8 @@
                   margin-left: 4rem;
                   margin-top: 0.2rem;
                 "
+                href="https://drive.google.com/file/d/1CBeA0H4rT3Fi2WtKz-GcMf8bq3iL44BV/view?usp=sharing"
+                target="_blank"
                 class="mb-10 py-6"
                 align-end
                 color="#3E00FF"
@@ -551,6 +562,7 @@
             class="gambar-persyaratan"
           >
             <v-img
+              class="gambar-persyaratan-img"
               :src="require('@/assets/images/persyaratan-tentangkami.png')"
               style=""
             ></v-img>
@@ -619,7 +631,7 @@
               class="h1-teamit"
               :style="$vuetify.breakpoint.xs ? 'margin:0 auto' : ''"
             >
-              チームIT開発 <br />
+              IT開発チーム <br />
               私たち
             </h1></v-col
           >
@@ -670,7 +682,7 @@
                 <v-img :src="require('@/assets/images/lupek.png')"></v-img>
               </li>
               <li><h4 class="h4-pimpinancard">Lutfi Surachman</h4></li>
-              <li><p class="p-pimpinancard">UI/UX Designer</p></li>
+              <li><p class="p-pimpinancard">UI / UXデザイナー</p></li>
             </ul>
           </v-col>
         </v-row>
@@ -817,10 +829,26 @@ export default {
       }
     },
   },
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .override__container {
   margin: 0 5rem;
 }
@@ -946,10 +974,15 @@ export default {
     padding: 1rem !important;
   }
   .histori__lpk {
+    &-stepperstep {
+      margin: 0 auto;
+    }
     &-stepperstepkhusus {
+      margin: 0 auto;
     }
-    &-stepper {
-    }
+  }
+  .v-divider {
+    display: none;
   }
 
   .v-stepper__label {
@@ -961,7 +994,8 @@ export default {
   }
 
   .gambar-visimisi-ijo {
-    margin-left: -0.5rem;
+    margin-left: 4.5rem;
+    max-width: 21rem;
   }
   .ul-khusus {
     margin-left: -1rem;
@@ -980,7 +1014,8 @@ export default {
     font-size: 20px;
   }
   .col-tentangkami {
-    margin-top: -1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
   }
   .p-pimpinan {
     font-size: 11px !important;
@@ -996,6 +1031,10 @@ export default {
   .gambar-persyaratan {
     margin-top: -2rem;
     margin-bottom: 2rem;
+  }
+  .gambar-persyaratan-angel {
+    max-width: 19rem;
+    margin: 0 auto;
   }
   .gambar-section3 {
     padding: 2rem;
@@ -1067,6 +1106,9 @@ export default {
       line-height: 2rem;
     }
   }
+  .col-tentangkami {
+    padding-left: 3rem;
+  }
   .gambar-section3 {
     padding: 2rem;
   }
@@ -1083,13 +1125,17 @@ export default {
     text-align: center;
   }
   .gambar-visimisi {
-    padding: 6rem;
+    padding: 4rem;
   }
   .gambar-section3 {
-    padding: 10rem;
+    padding: 1rem;
   }
   .gambar-persyaratan {
     padding: 0;
+  }
+  .gambar-persyaratan-angel {
+    max-width: 22rem;
+    margin: 0 auto;
   }
   .h1-heading2 {
     font-size: 21px;
@@ -1112,11 +1158,24 @@ export default {
       line-height: 2rem;
     }
   }
+  .list-section1 {
+    p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  }
+  .col-tentangkami {
+    padding: 0rem;
+    padding-left: 0rem;
+  }
   .p-keseluruhan {
-    font-size: 14px;
+    font-size: 12px;
   }
   .gambar-persyaratan-angel {
     margin-top: 2rem;
+  }
+  .btn-downloadbrosur {
+    margin: 15px 0 0 0;
   }
 }
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
@@ -1132,16 +1191,81 @@ export default {
       line-height: 2rem;
     }
   }
+  .persyaratan_khusus-row {
+    padding-left: 5rem !important;
+  }
   .p-keseluruhan {
-    line-height: 20px;
+    line-height: 25px;
     font-size: 14px;
+  }
+  .gambar-persyaratan-img {
+    max-width: 35rem;
+  }
+  .btn-downloadbrosur {
+    margin-top: 1rem;
   }
   .col-tentangkami {
     line-height: 0.5rem;
-    padding: 47px 0px 0px 0px;
+    padding: 32px 0px 0px 0px;
   }
   .gambar-persyaratan-angel {
-    margin-top: 2rem;
+    margin-top: -1rem;
+    max-width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1904px) {
+  .container-all {
+    padding: 0 4rem;
+  }
+  .banner-1 {
+    margin-top: 3rem;
+  }
+  .h1-teamit {
+    text-align: left;
+    margin-left: 1.5rem;
+  }
+  .list-section1 {
+    padding: 4rem;
+  }
+  .gambar-visimisi-ijo {
+    max-width: 35rem;
+    margin: 0 auto;
+  }
+  .p-teamit {
+    p {
+      text-align: center !important;
+      padding: 0 18rem 0 18rem;
+      font-size: 15px;
+      line-height: 2rem;
+    }
+  }
+  .persyaratan__khusus-col {
+    margin-top: 3rem;
+  }
+  .persyaratan__khusus-row {
+    padding-left: 6rem !important;
+  }
+  .p-keseluruhan {
+    line-height: 25px;
+    font-size: 14px;
+  }
+  .gambar-persyaratan-img {
+    max-width: 46rem !important;
+    margin-left: 10rem !important;
+  }
+
+  .btn-downloadbrosur {
+    margin-top: 1rem;
+  }
+  .col-tentangkami {
+    line-height: 0.5rem;
+    padding: 32px 0px 0px 0px;
+  }
+  .gambar-persyaratan-angel {
+    margin-top: -1rem;
+    max-width: 24rem;
+    margin: 0 auto;
   }
 }
 </style>

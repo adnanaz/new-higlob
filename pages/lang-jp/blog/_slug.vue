@@ -24,7 +24,7 @@
               />
             </v-avatar>
             <div class="date">
-              Dipost Oleh {{ article.author.name }},
+              投稿者 {{ article.author.name }},
               {{ formatDate(article.updatedAt) }}
             </div>
             <v-spacer></v-spacer>
@@ -33,7 +33,7 @@
                 <template v-slot:activator="{ on, attrs }">
                   <ShareNetwork
                     network="facebook"
-                    :url="`www.higlob.id/lang-id${$nuxt.$route.path}`"
+                    :url="`www.higlob.id/lang-jp${$nuxt.$route.path}`"
                     :title="`${article.title}`"
                     :description="`${article.description}`"
                     media="https://opengraph.githubassets.com/6a295dd63328cba2424fad9a4feecb41bdf15de307a0c9f088db14feaeb3757b/nuxt/nuxt.js/issues/6725"
@@ -45,7 +45,7 @@
                     </v-btn>
                   </ShareNetwork>
                 </template>
-                <span>Bagikan Ke Facebook</span>
+                <span>Facebookに共有</span>
               </v-tooltip>
 
               <v-tooltip bottom>
@@ -53,7 +53,7 @@
                   <ShareNetwork
                     media="https://opengraph.githubassets.com/6a295dd63328cba2424fad9a4feecb41bdf15de307a0c9f088db14feaeb3757b/nuxt/nuxt.js/issues/6725"
                     network="twitter"
-                    :url="`www.higlob.id/lang-id${$nuxt.$route.path}`"
+                    :url="`www.higlob.id/lang-jp${$nuxt.$route.path}`"
                     :title="`${article.title}`"
                     :description="`${article.description}`"
                     quote="Higlob Indonesia"
@@ -64,7 +64,7 @@
                     </v-btn>
                   </ShareNetwork>
                 </template>
-                <span>Bagikan Ke Twitter</span>
+                <span>Twitterで共有する</span>
               </v-tooltip>
 
               <v-tooltip bottom>
@@ -82,7 +82,7 @@
                     </v-btn>
                   </ShareNetwork>
                 </template>
-                <span>Bagikan Ke Linkedin</span>
+                <span>Linkedinに共有</span>
               </v-tooltip>
             </div>
           </div>
@@ -99,10 +99,10 @@
           <nuxt-content :document="article" />
         </p>
         <v-btn
-          @click="$router.push('/lang-id/blog')"
+          @click="$router.push('/lang-jp/blog')"
           text
           class="text-capitalize"
-          ><v-icon left>mdi-undo-variant</v-icon> Kembali Ke Semua Blog</v-btn
+          ><v-icon left>mdi-undo-variant</v-icon> すべてのブログに戻る</v-btn
         >
       </div>
     </article>
@@ -113,13 +113,13 @@
 import { createSEOMeta } from '@/utils/seo'
 export default {
   async asyncData({ $content, params }) {
-    const article = await $content('lang-id/articles', params.slug).fetch()
-    const tagsList = await $content('lang-id/tags')
+    const article = await $content('lang-jp/articles', params.slug).fetch()
+    const tagsList = await $content('lang-jp/tags')
       .only(['name', 'slug'])
       .where({ name: { $containsAny: article.tags } })
       .fetch()
     const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
-    const [prev, next] = await $content('lang-id/articles')
+    const [prev, next] = await $content('lang-jp/articles')
       .only(['title', 'slug'])
       .sortBy('createdAt', 'asc')
       .surround(params.slug)
@@ -143,7 +143,7 @@ export default {
   data: () => ({
     // SEO
     content: {
-      url: 'www.higlob.id/lang-id/blog',
+      url: 'www.higlob.id/lang-jp/blog',
       title: 'tesss',
       description: 'Solusi Dagang',
       image: '',

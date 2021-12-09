@@ -1,7 +1,18 @@
 <template>
   <div>
     <v-container class="container-all">
-      <section>
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
+
+      <section ref="awal">
         <!-- Banner 1 -->
         <br />
         <br />
@@ -81,9 +92,9 @@
     <!-- Section 1 -->
 
     <v-container class="container-all">
-      <section>
+      <section class="section__visimisi">
         <div>
-          <v-row>
+          <v-row class="section__visimisi-row">
             <v-col
               cols="12"
               xs="12"
@@ -95,16 +106,17 @@
             >
               <!-- List Visi Perusahaan -->
               <ul
+                class="section__visimisi-ul"
                 v-for="(item, id) in visi_perusahaan"
                 :key="'A' + id"
                 style="list-style-type: none"
               >
-                <li>
-                  <h2 :style="visi_judul">
+                <li class="section__visimisi-li">
+                  <h2 class="section__visimisi-h2" :style="visi_judul">
                     {{ item.judul_visi }}
                   </h2>
                 </li>
-                <li :style="visi_isi">
+                <li :style="visi_isi" class="section__visimisi-li">
                   <p>{{ item.isi_visi }}</p>
                 </li>
               </ul>
@@ -113,17 +125,19 @@
 
               <!-- List Misi Perusahaan -->
               <ul
-                class=""
+                class="section__visimisi-ul"
                 v-for="(item, idnx) in misi_perusahaan"
                 :key="'B' + idnx"
                 style="list-style-type: none"
               >
-                <li>
-                  <h2 :style="visi_judul">{{ item.judul_misi }}</h2>
+                <li class="section__visimisi-li">
+                  <h2 class="section__visimisi-h2" :style="visi_judul">
+                    {{ item.judul_misi }}
+                  </h2>
                 </li>
 
-                <li>
-                  <p>
+                <li class="section__visimisi-li">
+                  <p class="section__visimisi-p">
                     {{ item.isi_misi }}
                   </p>
                 </li>
@@ -528,6 +542,8 @@
                   margin-left: 4rem;
                   margin-top: 0.2rem;
                 "
+                href="https://drive.google.com/file/d/16ddfFEe6isyRCosFTkAOUWnzqWDT3L6j/view?usp=sharing"
+                target="_blank"
                 class="mb-10 py-6"
                 align-end
                 color="#3E00FF"
@@ -828,10 +844,26 @@ export default {
       }
     },
   },
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .override__container {
   margin: 0 5rem;
 }
@@ -977,7 +1009,8 @@ export default {
   }
 
   .gambar-visimisi-ijo {
-    margin-left: -0.5rem;
+    margin-left: 4.5rem;
+    max-width: 21rem;
   }
   .ul-khusus {
     margin-left: -1rem;
@@ -1222,16 +1255,19 @@ export default {
       line-height: 2rem;
     }
   }
+  .persyaratan__khusus-col {
+    margin-top: 3rem;
+  }
   .persyaratan__khusus-row {
-    padding-left: 0rem !important;
-    margin-left: 25rem !important;
+    padding-left: 6rem !important;
   }
   .p-keseluruhan {
     line-height: 25px;
     font-size: 14px;
   }
   .gambar-persyaratan-img {
-    max-width: 35rem;
+    max-width: 46rem !important;
+    margin-left: 10rem !important;
   }
 
   .btn-downloadbrosur {

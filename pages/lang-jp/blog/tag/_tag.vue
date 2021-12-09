@@ -15,7 +15,7 @@
         <div class="main">
           <h1>
             {{ articles.length }}
-            Artikel yang berlabel {{ tag.name }}
+            ラベルの付いた記事 {{ tag.name }}
           </h1>
           <!-- <p>Baca Artikel Berdasarkan Label</p> -->
           <div class="main__search d-flex justify-center" style="width: 100%">
@@ -26,7 +26,7 @@
               style="max-width: 75%; box-shadow: none !important"
               append-icon="mdi-magnify"
               outlined
-              label="Cari Blog Disini"
+              label="ここでブログを検索"
               rounded
             ></v-text-field>
           </div>
@@ -34,7 +34,7 @@
       </div>
 
       <div class="testt-blog ml-8 d-flex flex-wrap align-start flex-column">
-        <h2>Label</h2>
+        <h2>ラベル</h2>
 
         <v-chip
           style="border-radius: 25px"
@@ -56,7 +56,7 @@
           <v-hover v-slot="{ hover }">
             <NuxtLink
               :to="{
-                path: `/lang-id/blog/${article.slug}`,
+                path: `/lang-jp/blog/${article.slug}`,
                 params: { slug: article.slug },
               }"
             >
@@ -120,11 +120,11 @@
                             color: #00346d;
                           "
                         >
-                          By {{ article.author.name }}
+                          に {{ article.author.name }}
                         </div>
                         <v-spacer></v-spacer>
                         <small class="mr-5 admin__avatar-small"
-                          >Pada : {{ formatDate(article.updatedAt) }}</small
+                          >オン : {{ formatDate(article.updatedAt) }}</small
                         >
                       </div>
                     </div>
@@ -141,11 +141,11 @@
       <div class="text-center d-flex justify-center flex-wrap">
         <div class="main push__top d-flex justify-center flex-column">
           <span class="text-center">
-            Oops Admin Belum membuat artikel yang berlabel
+            管理者はラベルの付いた記事を作成していません
             <b> {{ tag.name }}</b>
           </span>
           <span class="mt-2"
-            >Tunggu dapet inspirasi dulu ya..
+            >最初にインスピレーションを待つ..
             <v-icon color="#252525">mdi-emoticon</v-icon>
           </span>
           <div class="text-center mx-auto">
@@ -157,7 +157,7 @@
             <v-tooltip bottom>
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
-                  @click="$router.push('/lang-id/blog')"
+                  @click="$router.push('/lang-jp/blog')"
                   v-bind="attrs"
                   v-on="on"
                   class="my-11 rounded-md"
@@ -166,7 +166,7 @@
                   <img :src="require('@/assets/images/btn-kembali.png')" />
                 </v-btn>
               </template>
-              <span>Kembali </span>
+              <span>戻る </span>
             </v-tooltip>
           </div>
         </div>

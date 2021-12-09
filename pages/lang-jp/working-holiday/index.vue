@@ -2,8 +2,23 @@
   <div>
     <!-- Banner VISA -->
     <div>
-      <v-container fluid style="background-color: #f8faff">
-        <section class="banner__visa background">
+      <v-container
+        class="container-all"
+        fluid
+        style="background-color: #f8faff"
+      >
+        <section class="banner__visa background" ref="awal">
+          <v-btn
+            @click="scrollMeTo('awal')"
+            class="mx-2 btn-munggah"
+            fab
+            dark
+            large
+            color="#FF9900"
+          >
+            <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+          </v-btn>
+
           <v-row>
             <v-col
               class="banner__visa-colkiri order-1 order-sm-1 order-md-1"
@@ -82,7 +97,7 @@
     <!-- END BANNER VISA -->
 
     <!-- START BANNER KETENTUAN -->
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__ketentuan">
         <v-row>
           <v-col
@@ -182,7 +197,7 @@
     <!-- END Banner KETENTUAN -->
 
     <!-- START Banner Fasilitas -->
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__fasilitas">
         <v-row>
           <v-col
@@ -255,7 +270,7 @@
     <!-- END Banner Fasilitas -->
 
     <!-- Start Banner Peta -->
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__peta">
         <h1 class="banner__peta-h1">
           参加した学生
@@ -274,7 +289,7 @@
     <!-- End BANNER PETA-->
 
     <!-- FAQ -->
-    <v-container>
+    <v-container class="container-all">
       <section class="pertanyaan">
         <v-row>
           <v-col
@@ -319,66 +334,60 @@
               >
                 <v-expansion-panel class="pertanyaan-paneljudul">
                   <v-expansion-panel-header class="pertanyaan-panelheader">
-                    オーストラリアでのギャップイヤー/ワーキングホリデーの利点は何ですか
+                    ワーキングホリデーの申請方法 ？</v-expansion-panel-header
+                  >
+                  <v-expansion-panel-content
+                    class="pertanyaan-panelisi"
+                    style="color: #868686"
+                  >
+                    以下の番号に連絡することができます 0877-8757-4848 /
+                    0821-2345-1243 私たちのオフィスに直接来ることができます
+                    Jalan turi km 3,7 perum pondok idaman no A2 kadisobo,
+                    Kadisobo I / Pepen, Trimulyo, Kec. Sleman, Kabupaten Sleman,
+                    Daerah Istimewa Yogyakarta 55513
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+
+                <v-expansion-panel class="pertanyaan-paneljudul">
+                  <v-expansion-panel-header class="pertanyaan-panelheader">
+                    就労ビザに参加する際の特別な要件は何ですか
+                    休日？</v-expansion-panel-header
+                  >
+                  <v-expansion-panel-content
+                    class="pertanyaan-panelisi"
+                    style="color: #868686"
+                  >
+                    ワーキングホリデービザの特定の要件は、サービスページ->ワーキングホリデービザの選択に記載されています。
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+
+                <v-expansion-panel class="pertanyaan-paneljudul">
+                  <v-expansion-panel-header class="pertanyaan-panelheader">
+                    ビザワーキングホリデーに参加する利点は何ですか
                     ？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan-panelisi"
                     style="color: #868686"
                   >
-                    フォローすることには多くの専門的および個人的な利点があります
-                    ワーキングホリデーメーカー（WHM）プログラム。
-                    ギャップイヤー（学校休暇） 学ぶ素晴らしい機会です、
-                    自分自身を成長させ、経験を向上させます。 なぜなら
-                    旅行することで、新しい人と出会うでしょう。
-                    新しい文化を学び、スキルを開発し、 興味。
+                    あなたは仕事をしながら休暇を感じるだけでなく、あなたに追加することができます
+                    あなたの可能性をもっと探求する人生経験 再び
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
                 <v-expansion-panel class="pertanyaan-paneljudul">
                   <v-expansion-panel-header class="pertanyaan-panelheader">
-                    オーストラリアでのワーキングホリデーの年齢制限は何歳ですか
+                    SRPIプロセスにはどのくらい時間がかかりますか？
                     ？</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Molestias nesciunt repellendus fugit! Eveniet, ducimus!
-                    Corporis saepe, natus ex culpa, at ut tempore dolorum sit
-                    non nisi accusamus dolor! Doloribus, nihil.
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-
-                <v-expansion-panel class="pertanyaan-paneljudul">
-                  <v-expansion-panel-header class="pertanyaan-panelheader">
-                    Apa saja yang diperlukan untuk melengkapi pengajuan visa
-                    Working Holiday Australia ?</v-expansion-panel-header
-                  >
-                  <v-expansion-panel-content
-                    class="pertanyaan-panelisi"
-                    style="color: #868686"
-                  >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo et magnam dolor est amet eaque ducimus saepe
-                    perferendis inventore! Incidunt odit dolorem ullam sunt
-                    voluptatem sapiente veritatis, error ab! Consequatur!
-                  </v-expansion-panel-content>
-                </v-expansion-panel>
-
-                <v-expansion-panel class="pertanyaan-paneljudul">
-                  <v-expansion-panel-header class="pertanyaan-panelheader">
-                    どのビザを申請すればよいですか？</v-expansion-panel-header
-                  >
-                  <v-expansion-panel-content
-                    class="pertanyaan-panelisi"
-                    style="color: #868686"
-                  >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Obcaecati ratione delectus eligendi hic nesciunt quis
-                    expedita ab corporis dolor, porro, perspiciatis consequuntur
-                    ut cumque similique nihil, mollitia vero quod rem.
+                    SRPIの発行プロセスは、次の2つの段階に分かれています。
+                    時間がかかるその他の要件文書の検証
+                    最大4営業日およびレターの発行 インドネシア政府の勧告1日後
+                    インタビュー。
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -393,16 +402,27 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
+}
 </script>
 
 <style lang="scss">
-// .background {
-//   background-image: url('~/assets/images/background-workingholiday.svg');
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
-
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 ul {
   list-style-type: none;
 }
@@ -558,8 +578,10 @@ ul {
 }
 // END KHUSUS PERTANYAAN
 
+// 0-300
 @media screen and (min-width: 0px) and (max-width: 300px) {
 }
+// 300-600
 @media screen and (min-width: 300px) and (max-width: 600px) {
   // STYLE KHUSUS BANNER VISA
   .banner__visa {
@@ -571,13 +593,16 @@ ul {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 22px;
+      font-size: 28px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
     }
     &-h1kolom {
-      margin-left: 2.4rem;
+      margin-left: 0rem !important;
+    }
+    &-pkolom {
+      margin-left: 0 !important;
     }
     &-p {
       font-size: 12px;
@@ -593,11 +618,12 @@ ul {
       display: inline-flex;
     }
     &-rowkecil {
-      margin-left: -24px !important;
+      margin-left: 1rem !important;
     }
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
   // END STYLE BANNER VISA
@@ -630,6 +656,7 @@ ul {
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
   // END STYLE KHUSUS BANNER KETENTUAN
@@ -646,6 +673,7 @@ ul {
       color: #3e00ff;
       font-weight: 500;
       margin-left: 2px;
+      font-size: 14px;
     }
     &-h1 {
       font-size: 20px;
@@ -657,7 +685,7 @@ ul {
       padding: 0 !important;
     }
     &-h5 {
-      font-size: 12px;
+      font-size: 14px;
       margin-bottom: 8px;
       color: #171717;
     }
@@ -704,7 +732,7 @@ ul {
     margin-top: 5rem;
     margin-bottom: 5rem;
     &-h1 {
-      font-size: 14px;
+      font-size: 18px;
       margin-bottom: 1rem;
     }
 
@@ -740,8 +768,13 @@ ul {
   // END KHUSUS PERTANYAAN
 }
 // ukuran tablet
+// 600-960
 @media screen and (min-width: 600px) and (max-width: 960px) {
   // STYLE KHUSUS BANNER VISA
+
+  .container-all {
+    padding: 0 6rem 0rem 6rem;
+  }
 
   .banner__visa {
     margin-top: 4rem;
@@ -750,13 +783,13 @@ ul {
       margin-top: 2rem;
     }
     &-img {
-      max-width: 38rem;
-      margin-top: 2rem;
-      margin-left: -4rem;
+      max-width: 37rem;
+      margin-top: 1rem;
+      margin-left: 1rem;
     }
     &-h1 {
       font-weight: 600;
-      font-size: 40px;
+      font-size: 32px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -779,6 +812,7 @@ ul {
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 16px;
     }
   }
   // END STYLE BANNER VISA
@@ -800,6 +834,7 @@ ul {
     }
     &-p {
       display: inline-flex;
+      font-size: 14px;
     }
     &-img {
       max-width: 35rem;
@@ -807,12 +842,13 @@ ul {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 32px;
+      font-size: 24px;
       color: #171717;
     }
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 16px;
     }
   }
   // END STYLE KHUSUS BANNER KETENTUAN
@@ -829,195 +865,15 @@ ul {
       color: #3e00ff;
       font-weight: 500;
       margin-left: 2px;
-    }
-    &-img {
-      max-width: 35rem;
-      margin-left: 3rem;
-      margin-top: 3rem;
-    }
-    &-h1 {
-      font-size: 32px;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      color: #171717;
-    }
-    &-ul {
-      padding: 0 !important;
-    }
-    &-h5 {
       font-size: 16px;
-      margin-bottom: 8px;
-      color: #171717;
-    }
-    &-p {
-      font-size: 14px;
-      color: #868686;
-    }
-  }
-  // END KHUSUS BANNER FASILITAS
-
-  // STYLE KHUSUS BANNER PETA
-
-  .banner__peta {
-    margin-top: 3rem;
-    padding: 2rem;
-    &-h1 {
-      text-align: center;
-      font-size: 28px;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      color: #171717;
-      padding-left: 0rem !important;
-      padding-right: 0rem !important;
-    }
-    &-h1special {
-      color: #3e00ff;
-    }
-    &-p {
-      font-size: 14px;
-      text-align: center;
-    }
-    &-img {
-      margin-top: 4rem;
-      max-width: 73rem;
-    }
-  }
-  // END STYLE KHUSUS BANNER PETA
-
-  // STYLE KHUSUS PERTANYAAN
-  .v-expansion-panel--active > .v-expansion-panel-header {
-    color: #3e00ff;
-  }
-  .pertanyaan {
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    padding: 2rem;
-    &-img {
-      max-width: 18rem;
-      margin-top: 2rem;
-      margin-left: -4rem;
-    }
-    &-p {
-      padding-right: 5rem;
-    }
-    &-col-kiri {
-      margin-top: 1rem;
-    }
-    &-paneljudul {
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      line-height: 1.6rem;
-    }
-    &-panelheader {
-      font-weight: 500;
-      line-height: 1.6rem;
-    }
-    &-panelisi {
-      font-size: 12px;
-    }
-  }
-  // END KHUSUS PERTANYAAN
-}
-// end ukuran tablet
-@media screen and (min-width: 960px) and (max-width: 1264px) {
-  // STYLE KHUSUS BANNER VISA
-
-  .banner__visa {
-    margin-top: 4rem;
-    padding: 2rem;
-    &-colkiri {
-      margin-top: 2rem;
     }
     &-img {
       max-width: 38rem;
-      margin-top: 2rem;
-      margin-left: -4rem;
+      margin-left: 1rem;
+      margin-top: 1rem;
     }
     &-h1 {
-      font-weight: 600;
-      font-size: 32px;
-      margin-bottom: 0.5rem;
-      margin-top: 0.5rem;
-      color: #171717;
-    }
-    &-h1kolom {
-      margin-left: 2rem;
-    }
-    &-p {
-      font-size: 12px;
-      line-height: 26px;
-      color: #171717;
-    }
-    &-ul li {
-      list-style-type: none;
-      display: inline-flex;
-    }
-    &-rowkecil {
-      margin-left: -37px !important;
-    }
-    &-h4 {
-      color: #3e00ff;
-      font-weight: 500;
-    }
-  }
-  // END STYLE BANNER VISA
-
-  // STYLE KHUSUS BANNER KETENTUAN
-
-  .banner__ketentuan {
-    margin-top: 2rem;
-    padding-left: 1rem;
-    &-colkanan {
-    }
-    &-colkiri {
-      padding-left: 5rem;
-      margin-top: 2rem;
-    }
-    &-ul {
-      list-style-type: none;
-      padding: 0 !important;
-    }
-    &-p {
-      display: inline-flex;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-    &-img {
-      max-width: 35rem;
-    }
-    &-h1 {
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 27px;
-      color: #171717;
-    }
-    &-h4 {
-      color: #3e00ff;
-      font-weight: 400;
-    }
-  }
-  // END STYLE KHUSUS BANNER KETENTUAN
-
-  // STYLE KHUSUS BANNER FASILITAS
-  .banner__fasilitas {
-    margin-top: 0;
-    padding: 2.2rem;
-
-    &-colkiri {
-      margin-top: 3rem;
-    }
-    &-h4 {
-      color: #3e00ff;
-      font-weight: 500;
-      margin-left: 2px;
-    }
-    &-img {
-      max-width: 35rem;
-      margin-left: 3rem;
-      margin-top: 3rem;
-    }
-    &-h1 {
-      font-size: 32px;
+      font-size: 25px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -1044,7 +900,7 @@ ul {
     padding: 2rem;
     &-h1 {
       text-align: center;
-      font-size: 26px;
+      font-size: 24px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -1080,13 +936,13 @@ ul {
     }
     &-p {
       padding-right: 5rem;
-      font-size: 13px;
+      font-size: 16px;
     }
     &-col-kiri {
       margin-top: 1rem;
     }
     &-h1 {
-      font-size: 21px;
+      font-size: 24px;
     }
     &-paneljudul {
       margin-bottom: 1rem;
@@ -1103,6 +959,231 @@ ul {
   }
   // END KHUSUS PERTANYAAN
 }
+// end ukuran tablet
+// 960-1264
+@media screen and (min-width: 960px) and (max-width: 1264px) {
+  // STYLE KHUSUS BANNER VISA
+  .container-all {
+    padding: 0 !important;
+  }
+
+  .banner__visa {
+    margin-top: 4rem;
+    padding: 2rem 8rem 0 8rem;
+    &-colkiri {
+      margin-top: 2rem;
+    }
+    &-img {
+      max-width: 38rem;
+      margin-top: 2rem;
+      margin-left: -4rem;
+    }
+    &-h1 {
+      font-weight: 600;
+      font-size: 28px;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      color: #171717;
+    }
+    &-h1kolom {
+      margin-left: 2rem;
+    }
+    &-p {
+      font-size: 12px;
+      line-height: 26px;
+      color: #171717;
+    }
+    &-ul li {
+      list-style-type: none;
+      display: inline-flex;
+    }
+    &-rowkecil {
+      margin-left: -37px !important;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+  // END STYLE BANNER VISA
+
+  // STYLE KHUSUS BANNER KETENTUAN
+
+  .banner__ketentuan {
+    margin-top: 2rem;
+    padding-left: 0rem;
+    &-colkanan {
+    }
+    &-colkiri {
+      padding-left: 5rem;
+      margin-top: 2rem;
+    }
+    &-ul {
+      list-style-type: none;
+      padding: 0 !important;
+    }
+    &-p {
+      display: inline-flex;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    &-img {
+      max-width: 35rem;
+    }
+    &-h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 20px;
+      color: #171717;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+  // END STYLE KHUSUS BANNER KETENTUAN
+
+  // STYLE KHUSUS BANNER FASILITAS
+  .banner__fasilitas {
+    margin-top: 0;
+    padding: 2.2rem;
+
+    &-colkiri {
+      margin-top: 3rem;
+    }
+    &-h4 {
+      color: #3e00ff;
+      font-weight: 500;
+      margin-left: 2px;
+      font-size: 16px;
+    }
+    &-img {
+      max-width: 35rem;
+      margin-left: 3rem;
+      margin-top: 3rem;
+    }
+    &-h1 {
+      font-size: 22px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+    }
+    &-ul {
+      padding: 0 !important;
+    }
+    &-h5 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #171717;
+    }
+    &-p {
+      font-size: 12px;
+      color: #868686;
+    }
+  }
+  // END KHUSUS BANNER FASILITAS
+
+  // STYLE KHUSUS BANNER PETA
+
+  .banner__peta {
+    margin-top: 3rem;
+    padding: 2rem;
+    &-h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      color: #171717;
+      padding-left: 8rem !important;
+      padding-right: 8rem !important;
+    }
+    &-h1special {
+      color: #3e00ff;
+    }
+    &-p {
+      font-size: 12px;
+      text-align: center;
+    }
+    &-img {
+      margin-top: 4rem;
+      max-width: 73rem;
+    }
+  }
+  // END STYLE KHUSUS BANNER PETA
+
+  // STYLE KHUSUS PERTANYAAN
+  .v-expansion-panel--active > .v-expansion-panel-header {
+    color: #3e00ff;
+  }
+  .pertanyaan {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    &-img {
+      max-width: 18rem;
+      margin-top: 2rem;
+      margin-left: -4rem;
+    }
+    &-p {
+      padding-right: 5rem;
+      font-size: 16px;
+    }
+    &-col-kiri {
+      margin-top: 1rem;
+    }
+    &-colkanan {
+      margin-top: 3rem;
+    }
+    &-h1 {
+      font-size: 20px;
+    }
+    &-paneljudul {
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      line-height: 1.6rem;
+    }
+    &-panelheader {
+      font-weight: 500;
+      line-height: 1.6rem;
+    }
+    &-panelisi {
+      font-size: 12px;
+    }
+  }
+  // END KHUSUS PERTANYAAN
+}
+// 1264-1904
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .banner__visa {
+    padding: 0 9rem;
+    &-img {
+      margin-top: 2rem;
+    }
+    &-h1 {
+      font-size: 46px;
+    }
+  }
+}
+// 1904 >
+@media screen and (min-width: 1904px) {
+  .container-all {
+    padding: 4rem 15rem 0 15rem !important;
+  }
+  .banner__visa {
+    padding: 0 24rem !important;
+  }
+  .banner__peta {
+    &-h1 {
+      padding-left: 12rem;
+      padding-right: 12rem;
+    }
+  }
+  .pertanyaan {
+    &-p {
+      padding-right: 12rem;
+    }
+  }
 }
 </style>

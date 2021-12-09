@@ -1,14 +1,25 @@
 <template>
   <v-container>
-    <section class="gallery">
+    <v-btn
+      @click="scrollMeTo('awal')"
+      class="mx-2 btn-munggah"
+      fab
+      dark
+      large
+      color="#FF9900"
+    >
+      <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+    </v-btn>
+
+    <section class="gallery" ref="awal">
       <div class="gallery__title text-center">
         <h1 class="gallery__title-h1">
           フォトギャラリーへようこそ <br />
-          LPK Higlob
+          LPKヒグロブ
         </h1>
         <p class="gallery__title-p">
           教育および学習活動のプロセスと授与された賞の文書化
-          LPKHiglobalを入手する
+          lpkhiglobを取得します
         </p>
       </div>
       <div class="gallery__tabs" style="margin-top: 50px; margin-bottom: 50px">
@@ -17,7 +28,7 @@
             href="#search"
             style="font-family: 'Poppins', sans-serif; font-weigh: bold"
           >
-            ギャラリー
+            LPKの写真
           </v-tab>
 
           <v-tab-item :style="gallery_padding" value="search">
@@ -54,7 +65,6 @@
                           <div class="pa-3">
                             <h3 style="font-family: 'poppins'">
                               教育と学習活動のプロセス <br />
-                              から LPK Higlobal
                             </h3>
                           </div>
                         </v-overlay>
@@ -89,8 +99,9 @@
                   >
                     <v-hover>
                       <template v-slot:default="{ hover }">
-                        <v-card class="card-angetenanisi">
+                        <v-card class="card-angeltenanisi">
                           <v-img
+                            class="card-angeltenanimg"
                             style="width: 400px"
                             :src="require(`@/assets/images/${item.img_url}`)"
                           ></v-img>
@@ -115,7 +126,7 @@
                 </v-row>
               </v-col>
             </v-row>
-            <v-row justify="center">
+            <v-row class="row-kolombawah" justify="center">
               <v-col
                 v-for="(item, index) in kolombawah_img"
                 :key="index"
@@ -305,46 +316,46 @@ export default {
     kolomkanan_img: [
       {
         img_url: 'gallery2.png',
-        img_caption: 'HiGlobスタディスタジオ施設',
+        img_caption: '試験面接活動 ',
       },
       {
         img_url: 'gallery3.png',
-        img_caption: ' LPKHiglobalでの教育および学習活動のプロセス',
+        img_caption: ' こんにちはグローバル上司とのディスカッション活動',
       },
       {
         img_url: 'gallery4.png',
-        img_caption: 'クラスでの学習活動のプロセス',
+        img_caption: 'LPKヒグロブの学生との写真',
       },
       {
         img_url: 'gallery5.png',
-        img_caption: '先輩とのプロセス活動の議論',
+        img_caption: '先輩との教育と学習のプロセス',
       },
       {
         img_url: 'gallery6.png',
-        img_caption: '最年少のHiGlob学生',
+        img_caption: 'シェフになる仕事の練習',
       },
       {
         img_url: 'gallery7.png',
-        img_caption: 'HiGlobの椅子設備',
+        img_caption: '日本に行く前の学生の写真',
       },
     ],
 
     kolombawah_img: [
       {
         img_url: 'gallery8.png',
-        img_caption: 'LPKヒグロブでの合同試験活動のプロセス',
+        img_caption: '他の学生との集合写真',
       },
       {
         img_url: 'gallery9.png',
-        img_caption: 'LPKHiGlobalの日本語コンペティションルーム',
+        img_caption: 'ハイグローバルリーダーのいる学生の写真',
       },
       {
         img_url: 'gallery10.png',
-        img_caption: 'ジョグジャカルタ全体でLPKとのセミナー',
+        img_caption: '先輩と一緒に勉強する',
       },
       {
         img_url: 'gallery11.png',
-        img_caption: 'リーダーやITチームとのミーティング活動',
+        img_caption: 'LPKヒグロブの部屋の状態',
       },
     ],
     // END GALLERY
@@ -419,12 +430,26 @@ export default {
   },
 
   methods: {
-    responsive() {},
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
   },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
+
 .gallery {
   margin-top: 8rem;
   &__title {
@@ -442,6 +467,9 @@ export default {
     justify-content: center;
     align-items: center;
   }
+}
+.v-overlay__scrim {
+  height: 100%;
 }
 
 @media screen and (min-width: 300px) and (max-width: 600px) {
@@ -464,7 +492,7 @@ export default {
         font-family: 'Poppins', sans-serif;
         font-style: normal;
         font-weight: 600;
-        font-size: 22px !important;
+        font-size: 19px !important;
         line-height: 145%;
         text-align: center;
       }
@@ -492,24 +520,54 @@ export default {
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 960px) {
+@media screen and (min-width: 960px) and (max-width: 1264px) {
   .gallery {
     &__title {
       &-p {
-        padding: 20px 90px 0 90px !important;
         font-size: 16px;
         margin-top: 2rem;
       }
     }
   }
 }
-
-@media screen and (min-width: 1904px) {
-  .card-angeltenan {
-    max-width: 34rem;
+@media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .gallery__title {
+    &-p {
+      margin-top: 2rem;
+    }
   }
-  .card-angetenanisi {
-    width: 23vh;
+}
+@media screen and (min-width: 1904px) {
+  .v-window__container {
+    padding: 14px 25rem 25rem 25rem;
+  }
+  .row-kolombawah {
+    margin-top: -3rem !important;
+  }
+  .gallery {
+    margin-top: 8rem;
+    &__title {
+      &-h1 {
+        font-family: 'Poppins', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 145%;
+        text-align: center;
+      }
+    }
+    &__tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-angeltenan {
+      margin-top: 0rem;
+      margin-bottom: 3rem;
+    }
+    .card-angeltenanimg {
+      height: 9rem;
+    }
   }
 }
 </style>

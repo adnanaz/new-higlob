@@ -1,7 +1,17 @@
 <template>
   <div>
     <v-container class="container-kontak">
-      <section class="kontak">
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
+      <section class="kontak" ref="awal">
         <div>
           <v-row class="kontak__row">
             <v-col
@@ -263,10 +273,26 @@ export default {
       }
     },
   },
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .judul__kontak {
   &-h4 {
     color: #868686;

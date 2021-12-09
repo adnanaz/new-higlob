@@ -14,12 +14,11 @@
     <div class="text-center d-flex justify-center flex-wrap">
       <div class="main">
         <h1>
-          Ada Blog Apa di <br v-show="$vuetify.breakpoint.xs" />
-          LPK Higlob
+          LPK Higlob <br v-show="$vuetify.breakpoint.xs" />
+          ブログには何がありますか？
         </h1>
         <p>
-          Baca blog terkait magang kerja, bekerja luar negeri hanya di LPK
-          Higlob
+          LPKでのみ海外で働くインターンシップに関連するブログを読む ヒグロブ
         </p>
         <div class="main__search d-flex justify-center" style="width: 100%">
           <v-text-field
@@ -29,7 +28,7 @@
             append-icon="mdi-magnify"
             outlined
             v-model="searching"
-            label="Cari Blog Disini"
+            label="ここでブログを検索"
             rounded
           ></v-text-field>
         </div>
@@ -70,7 +69,7 @@
             style="background-color: #eeefff; color: #3e00ff"
             label
           >
-            Blog Terbaru
+            最新のブログ
           </v-chip>
           <div class="blog__article">
             <!-- <pre>{{ newest_article }}</pre> -->
@@ -80,7 +79,7 @@
             </p>
             <v-btn
               :to="{
-                path: `/lang-id/blog/${el.slug}`,
+                path: `/lang-jp/blog/${el.slug}`,
                 params: { slug: el.slug },
               }"
               :small="$vuetify.breakpoint.mdAndDown"
@@ -88,7 +87,7 @@
               class="text-capitalize font-weight-regular lanjut__baca"
               elevation="0"
             >
-              Lanjut Baca <v-icon small>mdi-arrow-right</v-icon>
+              読み続けて <v-icon small>mdi-arrow-right</v-icon>
             </v-btn>
           </div>
         </v-col>
@@ -110,7 +109,7 @@
             $vuetify.breakpoint.xs ? 'padding:0 16px; margin:2rem 0;' : ''
           "
         >
-          <div class="baca__lainya">Baca juga lainnya</div>
+          <div class="baca__lainya">読み続けて</div>
           <v-spacer></v-spacer>
           <div class="divider"></div>
         </v-col>
@@ -131,7 +130,7 @@
             <v-hover v-slot="{ hover }">
               <NuxtLink
                 :to="{
-                  path: `/lang-id/blog/${article.slug}`,
+                  path: `/lang-jp/blog/${article.slug}`,
                   params: { slug: article.slug },
                 }"
               >
@@ -179,7 +178,7 @@
                         {{ article.author.name }}
                       </div>
                       <v-spacer></v-spacer>
-                      <small>Pada : {{ formatDate(article.updatedAt) }}</small>
+                      <small>オン : {{ formatDate(article.updatedAt) }}</small>
                     </div>
                   </v-card-text>
                 </v-card>
@@ -189,14 +188,14 @@
         </v-col>
 
         <v-col class="blog__padding" cols="12">
-          <h2>Label</h2>
+          <h2>ラベル</h2>
           <ul class="mb-10" style="list-style-type: none; margin-left: -31px">
             <li
               class="d-flex d-inline-flex"
               v-for="tag of tags"
               :key="tag.slug"
             >
-              <NuxtLink :to="`/lang-id/blog/tag/${tag.slug}`" class="">
+              <NuxtLink :to="`/lang-jp/blog/tag/${tag.slug}`" class="">
                 <v-btn
                   style="border-radius: 25px"
                   class="ma-1 btn__category text-capitalize"
@@ -217,7 +216,7 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    let articles = await $content('lang-id/articles')
+    let articles = await $content('lang-jp/articles')
       .only([
         'title',
         'description',
@@ -232,7 +231,7 @@ export default {
 
     console.log(articles)
 
-    let newest_article = await $content('lang-id/articles')
+    let newest_article = await $content('lang-jp/articles')
       .sortBy('createdAt', 'desc')
       .limit(1)
       .only([
@@ -246,7 +245,7 @@ export default {
       ])
       .fetch()
 
-    const tags = await $content('lang-id/tags')
+    const tags = await $content('lang-jp/tags')
       .only(['name', 'description', 'img', 'slug'])
       .sortBy('createdAt', 'asc')
       .fetch()
@@ -278,19 +277,19 @@ export default {
         button_label: '#Higlob',
       },
       {
-        button_label: '#GoesToJapan',
+        button_label: '#日本に行く',
       },
       {
-        button_label: '#MagangKerja',
+        button_label: '#見習い',
       },
       {
-        button_label: '#Pelatihan',
+        button_label: '#トレーニング',
       },
       {
-        button_label: '#MagangLuarNegeri',
+        button_label: '#海外インターン',
       },
       {
-        button_label: '#Caregiver',
+        button_label: '#介護者',
       },
     ],
   }),

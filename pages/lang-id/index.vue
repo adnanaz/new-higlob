@@ -4,7 +4,7 @@
       :class="!$vuetify.breakpoint.xs ? 'override__container' : 'mx-0'"
     >
     </v-container> -->
-    <div class="hero__utama">
+    <div class="hero__utama" ref="awal">
       <template>
         <v-parallax
           class="hero__utama-parallax"
@@ -770,6 +770,7 @@
         </v-row>
       </v-container>
     </div>
+
     <!-- ==== TESTIMONY ==== -->
     <v-container>
       <section class="my-5">
@@ -791,29 +792,59 @@
           <!-- #ARTICLE -->
           <v-col elevation="0" cols="12">
             <div class="d-flex justify-center align-center flex-wrap">
-              <div v-for="(el, index) in article_card" :key="index">
+              <div v-for="(el, slug) in articles" :key="slug">
                 <v-hover v-slot="{ hover }">
-                  <v-card
-                    class="ma-5"
-                    max-width="300"
-                    height="555"
-                    :style="
-                      hover
-                        ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
-                        : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
-                    "
+                  <NuxtLink
+                    :to="{
+                      path: `/lang-id/blog/${el.slug}`,
+                      params: { slug: el.slug },
+                    }"
                   >
-                    <v-card-title class=""
-                      ><v-img
-                        :src="require(`@/assets/images/${el.img_url}`)"
-                      ></v-img
-                    ></v-card-title>
-                    <v-card-text class="article">
-                      <h3 class="article__title">{{ el.title }}</h3>
-                      <p class="article__desc">{{ el.desc }}</p>
-                      <small class="article__more">Lanjut Baca</small>
-                    </v-card-text>
-                  </v-card>
+                    <v-card
+                      class="ma-5"
+                      max-width="300"
+                      height="486"
+                      :style="
+                        hover
+                          ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                          : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
+                      "
+                    >
+                      <!-- <pre>{{ el }}</pre> -->
+                      <v-card-title class=""
+                        ><v-img
+                          :src="require(`@/assets/blog_image/${el.img}`)"
+                        ></v-img
+                      ></v-card-title>
+                      <v-card-text class="article">
+                        <h3 class="article__title">{{ el.title }}</h3>
+                        <p class="article__desc">{{ el.description | desc }}</p>
+                        <div
+                          class="d-flex align-center flex-wrap admin__avatar"
+                        >
+                          <v-avatar class="" size="35">
+                            <v-img
+                              v-if="el.img"
+                              :src="
+                                require(`@/assets/blog_image/avatar/${el.author.img}`)
+                              "
+                            ></v-img>
+                          </v-avatar>
+                          <div
+                            style="
+                              font-size: 11.2px;
+                              margin-left: 5px;
+                              color: #00346d;
+                            "
+                          >
+                            {{ el.author.name }}
+                          </div>
+                          <v-spacer></v-spacer>
+                          <small>Pada : {{ formatDate(el.updatedAt) }}</small>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </NuxtLink>
                 </v-hover>
               </div>
             </div>
@@ -838,12 +869,44 @@
         </v-row>
       </section>
     </v-container>
+
+    <v-btn
+      @click="scrollMeTo('awal')"
+      class="mx-2 btn-munggah"
+      fab
+      dark
+      large
+      color="#FF9900"
+    >
+      <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+    </v-btn>
+
     <!-- ==== END TESTIMONY ==== -->
   </div>
 </template>
 
 <script>
 export default {
+  async asyncData({ $content, params }) {
+    let articles = await $content('lang-id/articles')
+      .limit(3)
+      .only([
+        'title',
+        'description',
+        'img',
+        'slug',
+        'author',
+        'createdAt',
+        'updatedAt',
+      ])
+      .sortBy('updatedAt', 'desc')
+      .fetch()
+
+    return {
+      articles,
+    }
+  },
+
   data() {
     return {
       carousel: 0,
@@ -855,22 +918,21 @@ export default {
         {
           author: 'Adnan Aziz D',
           img_url: 'article.png',
-          title: 'Rekayasa Program ke Jepang',
-          desc: 'Program kerja engineering ke Jepang merupakan program yang berbeda dengan program lainnya',
+          title:
+            'Sulitnya Tembus Kerja di Jepang, Kenapa Tidak Aplikasikan Tips Berikut?',
+          desc: 'Negeri Sakura memiliki aturan dan standar tersendiri kepada para pencari kerja. Apa saja?',
         },
         {
           author: 'Adnan Aziz D',
           img_url: 'article1.png',
-          title:
-            'Ketahui Persyaratan dan Gaji Menjadi Care Giver di Jepang yang Tinggi',
-          desc: 'Profesi care giver di Jepang sangat dibutuhkan dan merupakan salah satu profesi yang menjamin tunjangan',
+          title: '10 Hal yang Harus Diketahui Sebelum Berwisata ke Jepang',
+          desc: 'Bagi orang yang baru pertama atau beberapa kali ke Jepang, budaya dan masyarakat Jepang sangatlah mengejutkan. Oleh karena itu',
         },
         {
           author: 'Adnan Aziz D',
           img_url: 'article2.png',
-          title:
-            'Peluang Kerja atau D3 Keperawatan Avokasi Lulusan Luar Negeri ',
-          desc: 'Menurut Badan Pusat Statistik (BPS) menyebutkan, jumlah pengangguran',
+          title: '5 Tips Mudah Bekerja Di Jepang! ',
+          desc: 'Untuk mendapatkan pekerjaan di Negeri Sakura terbilang cukup sulit, sementara kompetisi sangat ketat. Tapi tenang saja, sebab tips berikut akan mempermudah Anda!',
         },
       ],
       testimony_card: [
@@ -963,6 +1025,11 @@ export default {
     }
   },
   methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('id', options)
+    },
+
     scrollMeTo(refname) {
       let element = this.$refs[refname]
       // let top = element.offsetTop
@@ -993,6 +1060,13 @@ export default {
 <style lang="scss">
 // ====================================== CSS Bikinan FAH =============================
 
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .container3__text {
   padding-right: 6rem;
   padding-left: 2rem;
@@ -1770,7 +1844,7 @@ export default {
   }
   .hero__utama {
     &-h1 {
-      padding: 0px 14rem 0 14rem !important;
+      padding: 0px 16rem 0 1rem !important;
       margin-top: 4rem;
       font-family: Poppins;
       font-style: normal;

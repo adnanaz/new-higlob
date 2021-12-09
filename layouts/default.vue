@@ -27,7 +27,13 @@ export default {
     this.showHideSpinner = true
   },
   mounted() {
-    // console.log(this.$store.state.isNotFound);
+    if (this.$route.fullPath.includes('/lang-jp')) {
+      this.$store.state.toggleLang = true
+      this.$store.state.language = 'JP'
+    } else if (this.$route.fullPath.includes('/lang-id')) {
+      this.$store.state.toggleLang = false
+      this.$store.state.language = 'ID'
+    }
     this.showHideSpinner = false
   },
   methods: {},

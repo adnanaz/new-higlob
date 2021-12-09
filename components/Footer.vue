@@ -8,7 +8,7 @@
         <!-- JEPANG-->
         <!-- ================================================================================== -->
         <v-row
-          v-if="!$store.state.toggleLang"
+          v-if="$store.state.toggleLang"
           style="width: 100%"
           justify="space-around"
           no-gutters
@@ -72,6 +72,35 @@
                 >
                   ワーキングホリデー
                 </v-btn>
+                <h4 class="footer__title">求職者</h4>
+                <div
+                  class="
+                    footer__item
+                    d-flex
+                    justify-start
+                    align-start
+                    flex-wrap flex-column
+                  "
+                >
+                  <v-btn
+                    to="/lang-jp/job-info"
+                    color="white"
+                    class="text-capitalize font-weight-regular"
+                    text
+                    rounded
+                  >
+                    仕事情報
+                  </v-btn>
+                  <v-btn
+                    to="/lang-jp/candidates"
+                    color="white"
+                    class="text-capitalize font-weight-regular"
+                    text
+                    rounded
+                  >
+                    候補者
+                  </v-btn>
+                </div>
               </div>
             </div></v-col
           >
@@ -154,6 +183,8 @@
                   :key="index"
                   class="ma-1 white--text"
                   icon
+                  :href="el.link"
+                  target="_blank"
                 >
                   <v-img
                     :src="require(`@/assets/images/${el.url}`)"
@@ -364,6 +395,8 @@
                 <v-btn
                   v-for="(el, index) in icon"
                   :key="index"
+                  :href="el.link"
+                  target="_blank"
                   class="ma-1 white--text"
                   icon
                 >
@@ -398,18 +431,22 @@ export default {
 
       icon: [
         {
+          link: 'https://www.instagram.com/lpkhiglob/',
           url: 'instagram.png',
           alt: 'Logo Instagram',
         },
+        // {
+        //   link: '',
+        //   url: 'twitter.png',
+        //   alt: 'Logo Twitter',
+        // },
         {
-          url: 'twitter.png',
-          alt: 'Logo Twitter',
-        },
-        {
+          link: 'https://www.youtube.com/channel/UCv59IWuN_UFViqlB-rIfm_A/featured',
           url: 'yt.png',
           alt: 'Logo Youtube',
         },
         {
+          link: 'https://www.facebook.com/Higlob-2048463658698862',
           url: 'facebook.png',
           alt: 'Logo Facebook',
         },
@@ -418,7 +455,7 @@ export default {
   },
 
   mounted() {
-    if ($nuxt.$route.path === '/lang-jp') {
+    if (this.$route.fullPath.includes('/lang-jp/')) {
       this.$store.state.toggleLang = true
     } else {
       this.$store.state.toggleLang = false

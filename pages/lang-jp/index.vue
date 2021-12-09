@@ -1,10 +1,6 @@
 <template>
   <div :class="$vuetify.breakpoint.xs ? 'mx-0' : 'mx-0'">
-    <!-- <v-container
-      :class="!$vuetify.breakpoint.xs ? 'override__container' : 'mx-0'"
-    >
-    </v-container> -->
-    <div class="hero__utama">
+    <div class="hero__utama" ref="awal">
       <template>
         <v-parallax
           class="hero__utama-parallax"
@@ -27,6 +23,7 @@
 
               <div class="text-center">
                 <v-btn
+                  @click="scrollMeTo('mulai')"
                   class="ma-2 text-capitalize"
                   style="border-color: #ff9900; font-weight: 300"
                   outlined
@@ -41,7 +38,10 @@
       </template>
     </div>
 
-    <v-container :class="!$vuetify.breakpoint.xs ? 'override__container' : ''">
+    <v-container
+      ref="mulai"
+      :class="!$vuetify.breakpoint.xs ? 'override__container' : ''"
+    >
       <v-row>
         <!-- ==== BELIEVE ==== -->
         <!-- <v-col
@@ -730,6 +730,8 @@
               </p>
               <div>
                 <v-btn
+                  href="https://wa.me/6285713149249?text=Halo,%20Saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20HiGlob"
+                  target="_blank"
                   style="
                     padding: 1rem;
                     box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
@@ -761,6 +763,8 @@
       </v-container>
     </div>
     <!-- ==== TESTIMONY ==== -->
+
+    <!-- ==== TESTIMONY ==== -->
     <v-container>
       <section class="my-5">
         <v-row>
@@ -769,10 +773,10 @@
             <div
               class="d-flex justify-center align-center flex-wrap flex-column"
             >
-              <h1 class="testimony__title">最新ニュース</h1>
+              <h1 class="testimony__title">最新のブログ</h1>
               <h3 class="testimony__subtitle text-center">
-                仕事情報、準備の最新ニュースを入手
-                仕事とインターンシップだけでなく
+                仕事情報、仕事の準備の最新のブログを入手してください
+                インターンシップだけでなく
                 <br v-show="!$vuetify.breakpoint.xs" />
                 LPK HiGlobalでのみその他の情報
               </h3>
@@ -781,35 +785,66 @@
           <!-- #ARTICLE -->
           <v-col elevation="0" cols="12">
             <div class="d-flex justify-center align-center flex-wrap">
-              <div v-for="(el, index) in article_card" :key="index">
+              <div v-for="(el, slug) in articles" :key="slug">
                 <v-hover v-slot="{ hover }">
-                  <v-card
-                    class="ma-5"
-                    max-width="300"
-                    height="555"
-                    :style="
-                      hover
-                        ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
-                        : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
-                    "
+                  <NuxtLink
+                    :to="{
+                      path: `/lang-jp/blog/${el.slug}`,
+                      params: { slug: el.slug },
+                    }"
                   >
-                    <v-card-title class=""
-                      ><v-img
-                        :src="require(`@/assets/images/${el.img_url}`)"
-                      ></v-img
-                    ></v-card-title>
-                    <v-card-text class="article">
-                      <h3 class="article__title">{{ el.title }}</h3>
-                      <p class="article__desc">{{ el.desc }}</p>
-                      <small class="article__more">読み続けて</small>
-                    </v-card-text>
-                  </v-card>
+                    <v-card
+                      class="ma-5"
+                      max-width="300"
+                      height="486"
+                      :style="
+                        hover
+                          ? 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 15%); border-radius: 10px;'
+                          : 'box-shadow: 14px 16px 50px rgba(0, 0, 0, 5%); border-radius: 10px;'
+                      "
+                    >
+                      <!-- <pre>{{ el }}</pre> -->
+                      <v-card-title class=""
+                        ><v-img
+                          :src="require(`@/assets/blog_image/${el.img}`)"
+                        ></v-img
+                      ></v-card-title>
+                      <v-card-text class="article">
+                        <h3 class="article__title">{{ el.title }}</h3>
+                        <p class="article__desc">{{ el.description | desc }}</p>
+                        <div
+                          class="d-flex align-center flex-wrap admin__avatar"
+                        >
+                          <v-avatar class="" size="35">
+                            <v-img
+                              v-if="el.img"
+                              :src="
+                                require(`@/assets/blog_image/avatar/${el.author.img}`)
+                              "
+                            ></v-img>
+                          </v-avatar>
+                          <div
+                            style="
+                              font-size: 11.2px;
+                              margin-left: 5px;
+                              color: #00346d;
+                            "
+                          >
+                            {{ el.author.name }}
+                          </div>
+                          <v-spacer></v-spacer>
+                          <small>オン : {{ formatDate(el.updatedAt) }}</small>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </NuxtLink>
                 </v-hover>
               </div>
             </div>
 
             <div class="d-flex justify-center flex-wrap mb-15 mt-5">
               <v-btn
+                to="/lang-jp/blog"
                 style="
                   padding: 1rem;
                   box-shadow: 9px 17px 50px rgba(30, 49, 99, 0.22) !important;
@@ -820,19 +855,51 @@
                 color="#FF9900"
                 dark
               >
-                ニュースをもっと読む
+                他のブログを読む
               </v-btn>
             </div>
           </v-col>
         </v-row>
       </section>
     </v-container>
+
     <!-- ==== END TESTIMONY ==== -->
+
+    <v-btn
+      @click="scrollMeTo('awal')"
+      class="mx-2 btn-munggah"
+      fab
+      dark
+      large
+      color="#FF9900"
+    >
+      <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+    </v-btn>
   </div>
 </template>
 
 <script>
 export default {
+  async asyncData({ $content, params }) {
+    let articles = await $content('lang-jp/articles')
+      .limit(3)
+      .only([
+        'title',
+        'description',
+        'img',
+        'slug',
+        'author',
+        'createdAt',
+        'updatedAt',
+      ])
+      .sortBy('updatedAt', 'desc')
+      .fetch()
+
+    return {
+      articles,
+    }
+  },
+
   data() {
     return {
       carousel: 0,
@@ -844,20 +911,21 @@ export default {
         {
           author: 'Adnan Aziz D',
           img_url: 'article.png',
-          title: '日本への工学プログラム',
-          desc: '日本へのエンジニアリング作業プログラムは、他のプログラムとは異なるプログラムです。',
+          title:
+            'Sulitnya Tembus Kerja di Jepang, Kenapa Tidak Aplikasikan Tips Berikut?',
+          desc: 'Negeri Sakura memiliki aturan dan standar tersendiri kepada para pencari kerja. Apa saja?',
         },
         {
           author: 'Adnan Aziz D',
           img_url: 'article1.png',
-          title: '日本で介護者になるための高い要件と給与を知っている',
-          desc: '日本の介護福祉士の職業は非常に必要とされており、利益を保証する職業の1つです。',
+          title: '10 Hal yang Harus Diketahui Sebelum Berwisata ke Jepang',
+          desc: 'Bagi orang yang baru pertama atau beberapa kali ke Jepang, budaya dan masyarakat Jepang sangatlah mengejutkan. Oleh karena itu',
         },
         {
           author: 'Adnan Aziz D',
           img_url: 'article2.png',
-          title: '就職の機会またはD3看護アドボカシー海外卒業生 ',
-          desc: '中央統計局（BPS）によると、失業者の数',
+          title: '5 Tips Mudah Bekerja Di Jepang! ',
+          desc: 'Untuk mendapatkan pekerjaan di Negeri Sakura terbilang cukup sulit, sementara kompetisi sangat ketat. Tapi tenang saja, sebab tips berikut akan mempermudah Anda!',
         },
       ],
       testimony_card: [
@@ -865,7 +933,7 @@ export default {
           author: 'Michael Dustin',
           image: 'model6.png',
           caption:
-            '私の夢を実現するのを助けてくれたグローバルなこんにちは友達に感謝します',
+            'Terima kasih kepada teman - teman hi global yang telah membantu saya untuk meraih mimpi saya',
           score: '4.6',
         },
         {
@@ -895,33 +963,33 @@ export default {
           icon: 'icon1.png',
           height: '294px',
           height_custom: '320px',
-          title: 'こんにちはグローバルにはすでに数百人以上の学生がいます',
+          title: 'Hi Global telah memiliki lebih dari ratusan pelajar',
           description:
-            ' こんにちはグローバルには500人以上の学生が参加し、彼らの夢を実現するのを助けました',
+            ' Hi global telah memiliki lebih dari 500 pelajar lebih yang telah bergabung dan membantu mereka dalam untuk meriah impianya',
         },
         {
           icon: 'icon2.png',
           height: '250px',
           height_custom: '265px',
-          title: 'Higlobは3年間運用されています',
+          title: 'Higlob telah beroperasi 3 tahun lamanya',
           description:
-            '過去3年間で、higlobの会社は成長し、多くの学生が夢を実現するのを支援してきました。',
+            'Selama tiga tahun terakhir higlob perusahaan telah tumbuh dan memiliki membantu banyak siswa untuk raih mimpinya',
         },
         {
           icon: 'icon3.png',
           height: '223px',
           height_custom: '250px',
-          title: 'こんにちはグローバルは様々なサービスを提供してきました',
+          title: 'hi Global Telah menyediakan berbagai jasa',
           description:
-            'こんにちはグローバルはあなたが私たちに参加するのを簡単にするさまざまなサービスを提供しています',
+            'Hi Global telah menyediakan berbagai layanan yang memudahkan anda untuk bergabung dengan kami',
         },
         {
           icon: 'icon4.png',
           height: '294px',
           height_custom: '294px',
-          title: 'Higlobはさまざまな国とつながっています',
+          title: 'Higlob telah terhubung dengan berbagai negara',
           description:
-            'Higlobは、あなたが夢を実現するのを支援することを目的として、さまざまな国とつながり、協力してきました。',
+            'Higlob telah terhubung dan bekerja sama dengan berbagai negara yang bertujuan untuk membantu anda menggapai impian anda ',
         },
       ],
 
@@ -949,6 +1017,18 @@ export default {
       title: 'Vuetify.js',
     }
   },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('id', options)
+    },
+
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
   computed: {
     custom_maxWidth() {
       switch (this.$vuetify.breakpoint.name) {
@@ -970,7 +1050,13 @@ export default {
 
 <style lang="scss">
 // ====================================== CSS Bikinan FAH =============================
-
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .container3__text {
   padding-right: 6rem;
   padding-left: 2rem;
@@ -1097,7 +1183,7 @@ export default {
   }
   &-row {
     margin-top: 3rem;
-    margin-left: 2rem;
+    margin-left: 5rem;
   }
   &-ul {
     padding-left: 0 !important;
@@ -1421,6 +1507,8 @@ export default {
     }
     &-row {
       padding-left: 0rem;
+      margin-top: 2rem;
+      margin-left: 1rem;
     }
   }
 
@@ -1464,6 +1552,7 @@ export default {
   }
   .tenaga__indonesia {
     margin-top: 7rem;
+
     &-h4 {
       font-size: 12px;
       line-height: 160%;
@@ -1523,7 +1612,7 @@ export default {
   }
   .hero__utama {
     &-h1 {
-      padding: 0px 4rem 0 4rem;
+      padding: 0px 5rem 0 5rem;
       margin-top: 4rem;
       font-family: Poppins;
       font-style: normal;
@@ -1545,7 +1634,10 @@ export default {
     }
   }
   .container3__text {
-    font-size: 18px !important;
+    font-size: 17px !important;
+  }
+  .testimony__subtitle {
+    font-size: 14px !important;
   }
   .container__blue {
     padding: 3rem;
@@ -1560,9 +1652,9 @@ export default {
   }
   .text__2 {
     font-size: 20px !important;
-    &-special {
-      font-size: 20px !important;
-    }
+  }
+  .text__2-special {
+    font-size: 20px !important;
   }
   .text__3 {
     font-size: 12px !important;
@@ -1585,6 +1677,9 @@ export default {
     &-img {
       max-width: 23rem;
       margin: 0 auto;
+    }
+    &-colkanan {
+      padding-left: 2rem;
     }
   }
   .program__kerja {
@@ -1624,6 +1719,11 @@ export default {
     }
     &-p {
       font-size: 14px;
+    }
+    &-row {
+      margin-top: 3rem;
+      padding: 0rem;
+      margin-left: 3rem;
     }
   }
   .pasar__global {
@@ -1679,11 +1779,14 @@ export default {
       margin-top: 7px;
     }
     &-colkiri {
-      padding: 2rem;
+      padding: 0;
+      margin-top: 1rem;
+      padding-left: 2rem;
     }
     &-p {
       font-size: 11px;
       line-height: 190%;
+      padding-right: 2rem;
       /* or 27px */
 
       letter-spacing: 0.003em;
@@ -1731,7 +1834,7 @@ export default {
   }
   .hero__utama {
     &-h1 {
-      padding: 0px 4rem 0 4rem !important;
+      padding: 0px 14rem 0 14rem !important;
       margin-top: 4rem;
       font-family: Poppins;
       font-style: normal;
@@ -1743,7 +1846,7 @@ export default {
       margin-bottom: 1rem !important;
     }
     &-p {
-      padding: 0 7rem 0 7rem !important;
+      padding: 0 14rem 0 14rem !important;
       font-family: Poppins;
       font-style: normal;
       font-weight: normal;
@@ -1759,7 +1862,7 @@ export default {
   .container__blue {
     &-img {
       width: calc(100vh - 100px);
-      max-width: 23rem !important;
+      max-width: 22rem !important;
       margin: 0 auto !important;
     }
   }
@@ -1767,14 +1870,16 @@ export default {
     font-size: 14px !important;
   }
   .text__2 {
-    font-size: 20px !important;
-    &-special {
-      font-size: 20px !important;
-    }
+    font-size: 28px !important;
+    padding-right: 0rem;
   }
+  .text__2-special {
+    font-size: 28px !important;
+  }
+
   .text__3 {
     font-size: 12px !important;
-    padding-right: 5rem !important;
+    padding-right: 9rem !important;
     &-p {
       font-size: 13px !important;
     }
@@ -1788,11 +1893,17 @@ export default {
       font-size: 32px !important;
     }
     &-p {
-      font-size: 13px !important;
+      font-size: 12px !important;
     }
     &-img {
-      max-width: 23rem;
+      max-width: 22rem !important;
       margin: 0 auto;
+    }
+    &-colkanan {
+      margin-left: 0rem;
+
+      padding-left: 1rem;
+      margin-top: 1rem;
     }
   }
   .program__kerja {
@@ -1886,11 +1997,12 @@ export default {
       margin-top: 7px;
     }
     &-colkiri {
-      padding: 2rem;
+      padding: 0rem;
     }
     &-p {
       font-size: 12px !important;
       line-height: 190%;
+      padding: 0 42px 0 0;
       /* or 27px */
 
       letter-spacing: 0.003em;
@@ -1939,15 +2051,51 @@ export default {
     line-height: 160%;
     color: black;
   }
+  .text__2-special {
+    font-size: 34px !important;
+  }
   .container__blue {
     &-img {
       width: calc(100vh - 100px);
-      margin: 0 12rem !important;
+      margin: 0 auto !important;
       max-width: 34rem;
     }
   }
 }
 
+@media screen and (min-width: 1904px) {
+  .override__container {
+    margin: 0 24rem !important;
+  }
+
+  .hero__utama {
+    &-h1 {
+      padding: 0px 55rem 0 55rem;
+    }
+    &-p {
+      padding: 0 45.9rem 0 45.9rem;
+      font-size: 14px;
+    }
+  }
+  .program__kerja {
+    margin-left: 7rem;
+  }
+  .tenaga__indonesia {
+    margin-left: 7rem;
+  }
+  .tentang-indonesia {
+    margin-left: 7rem;
+  }
+  .statistik__indonesia {
+    margin-left: 7rem;
+  }
+  .text__2 {
+    padding-right: 9rem;
+  }
+  .bungkus-row {
+    margin-left: 7rem;
+  }
+}
 // ====================================== END CSS Bikinan FAH =========================
 .override__container {
   margin: 0 5rem;
@@ -2040,6 +2188,14 @@ export default {
   line-height: 160%;
 }
 
+.container__blue {
+  &-img {
+    margin: 0 auto;
+    max-width: 31rem;
+  }
+  margin: auto;
+}
+
 .text__1 {
   color: #ffffff;
   font-size: 14px;
@@ -2049,7 +2205,7 @@ export default {
 
 .text__2 {
   font-weight: 600;
-  font-size: 30px !important;
+  font-size: 30px;
   line-height: 160%;
   color: black;
 }
@@ -2061,7 +2217,7 @@ export default {
   color: #3e00ff;
 }
 .text__3 {
-  font-size: 12px !important;
+  font-size: 12px;
   line-height: 180%;
   color: #868686;
 }
@@ -2186,6 +2342,10 @@ export default {
 
   //want join?
   .want__join {
+    .container__blue {
+      margin: 1rem 0;
+    }
+
     .push__right {
       margin-left: 0;
     }

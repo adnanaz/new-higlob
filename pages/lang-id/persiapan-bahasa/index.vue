@@ -2,8 +2,19 @@
   <div>
     <!-- Banner Persiapan -->
 
-    <v-container fluid style="background-color: #f8faff">
+    <v-container class="container-all" fluid style="background-color: #f8faff">
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
       <section
+        ref="awal"
         class="banner__persiapan"
         :style="$vuetify.breakpoint.mdAndUp ? 'margin-top : 8rem;' : ''"
       >
@@ -53,11 +64,12 @@
 
     <!--Start BANNER SYARAT -->
 
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__syarat">
         <v-row class="banner__syarat-row">
           <v-col
-            class="d-flex justify-start banner__syarat-tulisankiri"
+            class="d-flex banner__syarat-tulisankiri"
+            :class="$vuetify.breakpoint.xs ? ' Text-center' : ' justify-start'"
             cols="12"
             xs="12"
             sm="12"
@@ -69,7 +81,8 @@
             </h1></v-col
           >
           <v-col
-            class="d-flex justify-end banner__syarat-tulisankanan"
+            class="d-flex banner__syarat-tulisankanan"
+            :class="$vuetify.breakpoint.xs ? ' Text-center' : ' justify-end'"
             cols="12"
             xs="12"
             sm="12"
@@ -157,7 +170,7 @@
     <!-- End BANNER SYARAT -->
 
     <!-- START Banner Fasilitas  Bahasa -->
-    <v-container>
+    <v-container class="container-all">
       <section class="banner__fasilitasbahasa">
         <v-row class="banner__fasilitasbahasa-row">
           <v-col
@@ -235,7 +248,7 @@
 
     <!-- START BANNER LAYANAN BAHASA -->
 
-    <v-container fluid style="background-color: #f4fcff">
+    <v-container class="container-all" fluid style="background-color: #f4fcff">
       <section class="banner__layananbahasa">
         <v-row>
           <v-col
@@ -312,7 +325,7 @@
     <!-- End Layanan Kami Persiapan Bahasa -->
 
     <!-- START BANNER FAQ BAHASA -->
-    <v-container>
+    <v-container class="container-all">
       <section class="pertanyaan__bahasa">
         <v-row>
           <v-col
@@ -360,20 +373,15 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    Apa aja yang kita dapatkan ketika telah bergabung di
-                    persiapan bahasa ?</v-expansion-panel-header
+                    Kapan waktu dapat mendaftar di Persiapan
+                    Bahasa?</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Ada banyak manfaat profesional dan personal jika mengikuti
-                    program Working Holiday Maker (WHM). Gap year (cuti sekolah)
-                    adalah kesempatan yang luar biasa untuk belajar,
-                    mengembangkan diri, dan meningkatkan pengalaman. Karena
-                    dengan bepergian, Anda akan bertemu dengan orang-orang baru,
-                    belajar budaya baru, dan mengembangkan keterampilan serta
-                    minat.
+                    Anda dapat mendaftar persiapan bahasa ketika telah melakukan
+                    semua test dan persyaratan ketika akan berangkat ke jepang.
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -381,17 +389,18 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    kapan kita dapat mendaftar persiapan bahasa
-                    ?</v-expansion-panel-header
+                    Bagaimana cara mendaftar di Persiapan
+                    Bahasa?</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Molestias nesciunt repellendus fugit! Eveniet, ducimus!
-                    Corporis saepe, natus ex culpa, at ut tempore dolorum sit
-                    non nisi accusamus dolor! Doloribus, nihil.
+                    Dapat menghubungi nomor sebagai berikut 0877-8757-4848 /
+                    0821-2345-1243 dan dapat datang langsung ke kantor kami
+                    Jalan turi km 3,7 perum pondok idaman no A2 kadisobo,
+                    Kadisobo I / Pepen, Trimulyo, Kec. Sleman, Kabupaten Sleman,
+                    Daerah Istimewa Yogyakarta 55513
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -399,17 +408,15 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    Bagaimana cara bergabung di persiapan bahasa
-                    ?</v-expansion-panel-header
+                    Apakah persyaratan khusus ketika bergabung ke Persiapan
+                    Bahasa?</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo et magnam dolor est amet eaque ducimus saepe
-                    perferendis inventore! Incidunt odit dolorem ullam sunt
-                    voluptatem sapiente veritatis, error ab! Consequatur!
+                    Persyaratan khusus telah dicantumkan pada halaman Layanan ->
+                    Pilih Persiapan Bahasa.
                   </v-expansion-panel-content>
                 </v-expansion-panel>
 
@@ -417,17 +424,17 @@
                   <v-expansion-panel-header
                     class="pertanyaan__bahasa-panelheader"
                   >
-                    Bagaimana cara bergabung di persiapan bahasa secara online
+                    Apa keuntungan bergabung Persiapan Bahasa
                     ?</v-expansion-panel-header
                   >
                   <v-expansion-panel-content
                     class="pertanyaan__bahasa-panelisi"
                     style="color: #868686"
                   >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Obcaecati ratione delectus eligendi hic nesciunt quis
-                    expedita ab corporis dolor, porro, perspiciatis consequuntur
-                    ut cumque similique nihil, mollitia vero quod rem.
+                    Dalam keuntungan bergabung persiapan bahasa. anda akan diuji
+                    oleh sensei profesional LPK Higlob dalam ucapan bahasa
+                    jepang sekali lagi ketika anda akan melakukan magang/bekerja
+                    di jepang
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-expansion-panels>
@@ -446,6 +453,15 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
@@ -453,7 +469,13 @@ export default {
 li {
   list-style-type: none;
 }
-
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 // STYLE KHUSUS BANNER PERSIAPAN
 
 .banner__persiapan {
@@ -620,7 +642,7 @@ li {
 
 // MEDIA QUERY
 //0-300
-@media screen and (min-width: 0px) and (max-width: 330px) {
+@media screen and (min-width: 0px) and (max-width: 300px) {
   .banner__persiapan {
     padding: 7px;
     margin-top: 2rem;
@@ -833,7 +855,7 @@ li {
 }
 
 //300-600
-@media screen and (min-width: 330px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 600px) {
   // STYLE KHUSUS BANNER PERSIAPAN
 
   .banner__persiapan {
@@ -848,7 +870,7 @@ li {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 30px;
+      font-size: 28px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -857,7 +879,7 @@ li {
       margin-left: 2.4rem;
     }
     &-p {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 26px;
       color: #171717;
     }
@@ -875,6 +897,7 @@ li {
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
   // END STYLE BANNER PERSIAPAN
@@ -893,28 +916,38 @@ li {
     }
     &-colkiri {
     }
+    &-tulisankiri {
+      text-align: center !important;
+    }
+    &-tulisankanan {
+      text-align: center !important;
+    }
     &-ul {
       list-style-type: none;
       padding: 0 !important;
     }
     &-p {
       display: inline-flex;
+      font-size: 12px;
     }
     &-patas {
       font-size: 12px;
+      text-align: center;
     }
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 22px;
+      font-size: 18px;
       color: #171717;
     }
     &-h1atas {
-      font-size: 19px;
+      font-size: 16px;
+      text-align: center;
     }
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
 
@@ -931,9 +964,10 @@ li {
       color: #3e00ff;
       font-weight: 500;
       margin-left: 2px;
+      font-size: 14px;
     }
     &-h1 {
-      font-size: 22px;
+      font-size: 20px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -970,7 +1004,7 @@ li {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -997,6 +1031,7 @@ li {
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
 
@@ -1011,12 +1046,12 @@ li {
     margin-top: 2rem;
     margin-bottom: 5rem;
     &-h1 {
-      font-size: 16px;
+      font-size: 18px;
       margin-bottom: 1rem;
     }
 
     &-p {
-      font-size: 13px;
+      font-size: 12px;
     }
     &-img {
       max-width: 12rem;
@@ -1050,13 +1085,16 @@ li {
 //
 @media screen and (min-width: 600px) and (max-width: 960px) {
   // STYLE KHUSUS BANNER PERSIAPAN
+  .container-all {
+    padding: 0 6rem 0rem 6rem;
+  }
 
   .banner__persiapan {
     // margin-top: 8rem;
     margin-top: 4rem;
     padding: 2rem;
     &-colkiri {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     &-img {
       max-width: 37rem;
@@ -1065,7 +1103,7 @@ li {
     }
     &-h1 {
       font-weight: 600;
-      font-size: 32px;
+      font-size: 30px;
       margin-bottom: 0.5rem;
       margin-top: 0.5rem;
       color: #171717;
@@ -1113,6 +1151,7 @@ li {
     }
     &-p {
       display: inline-flex;
+      font-size: 14px;
     }
     &-img {
       max-width: 35rem;
@@ -1123,15 +1162,17 @@ li {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 25px;
+      font-size: 22px;
       color: #171717;
     }
     &-h1atas {
-      padding-right: 4.5rem;
-      font-size: 25px;
+      padding-right: 5.5rem;
+      font-size: 24px;
+      text-align: center;
     }
     &-patas {
       line-height: 2rem;
+      text-align: center;
     }
     &-h4 {
       color: #3e00ff;
@@ -1159,7 +1200,7 @@ li {
       margin-top: 1rem;
     }
     &-h1 {
-      font-size: 25px;
+      font-size: 24px;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       color: #171717;
@@ -1188,7 +1229,7 @@ li {
     padding: 0 3rem;
     &-colkanan {
       padding-left: 0rem;
-      margin-top: 2rem;
+      margin-top: 0rem;
     }
     &-ul {
       list-style-type: none;
@@ -1205,7 +1246,7 @@ li {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 2rem;
-      font-size: 32px;
+      font-size: 30px;
       color: #171717;
     }
     &-h4 {
@@ -1264,6 +1305,7 @@ li {
     padding: 2rem;
     &-colkiri {
       margin-top: 2rem;
+      padding: 0px 0 0 83px;
     }
     &-img {
       max-width: 22rem;
@@ -1320,7 +1362,7 @@ li {
     }
     &-p {
       display: inline-flex;
-      font-size: 14px;
+      font-size: 12px;
     }
     &-img {
       max-width: 35rem;
@@ -1331,12 +1373,12 @@ li {
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 0.7rem;
-      font-size: 22px;
+      font-size: 20px;
       color: #171717;
     }
     &-h1atas {
       padding-right: 4.5rem;
-      font-size: 18px;
+      font-size: 16px;
     }
     &-patas {
       line-height: 1.3rem;
@@ -1396,7 +1438,7 @@ li {
 
   .banner__layananbahasa {
     margin-top: 3rem;
-    padding-left: 3rem;
+    padding: 0 3rem 0 6rem;
     &-colkanan {
       padding-left: 0rem;
       margin-top: 3rem;
@@ -1406,23 +1448,24 @@ li {
       padding: 0 !important;
     }
     &-img {
-      max-width: 38rem;
-      margin-top: 3rem;
+      max-width: 26rem;
+      margin-top: 4rem;
     }
     &-p {
       display: inline-flex;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.8rem;
     }
     &-h1 {
       margin-top: 0.5rem;
       margin-bottom: 0.7rem;
-      font-size: 26px;
+      font-size: 22px;
       color: #171717;
     }
     &-h4 {
       color: #3e00ff;
       font-weight: 500;
+      font-size: 14px;
     }
   }
   // END STYLE KHUSUS BANNER BAHASA
@@ -1470,5 +1513,35 @@ li {
 // END UKURAN IPAD PRO
 //1264-1904
 @media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .banner__persiapan {
+    &-h1 {
+      font-size: 44px;
+    }
+  }
+  .banner__syarat {
+    &-patas {
+      padding-left: 10rem;
+    }
+    &-h1atas {
+      font-size: 22px;
+      padding-right: 10rem;
+    }
+  }
+}
+
+//1904 >
+@media screen and (min-width: 1904px) {
+  .container-all {
+    padding: 4rem 15rem 0 15rem !important;
+  }
+  .banner__persiapan {
+    padding: 0 22rem !important;
+    &-img {
+      max-width: 45rem !important;
+    }
+  }
+  .banner__layananbahasa {
+    padding: 0 23rem !important;
+  }
 }
 </style>

@@ -6,6 +6,7 @@ export default {
     return {}
   },
   created() {
+    this.$store.state.isNotFound = false
     this.$router.push('/lang-jp')
   },
 }

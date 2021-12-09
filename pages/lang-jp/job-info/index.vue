@@ -1,7 +1,18 @@
 <template>
   <div>
+    <v-btn
+      @click="scrollMeTo('awal')"
+      class="mx-2 btn-munggah"
+      fab
+      dark
+      large
+      color="#FF9900"
+    >
+      <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+    </v-btn>
+
     <v-container>
-      <section class="jobseeker__awal">
+      <section class="jobseeker__awal" ref="awal">
         <v-row class="jobseeker__awal-row">
           <v-col
             class="jobseeker__awal-colkiri"
@@ -65,7 +76,7 @@
                 <span>電気工学</span> <br />
                 <br />
                 <span>位置 : Germany</span> <br />
-                <span>賃金 : 1600 USD</span>
+                <span>賃金 : 1600 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -77,7 +88,7 @@
                 <span>建設エンジニアリング</span> <br />
                 <br />
                 <span>位置 : Japan</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -89,7 +100,7 @@
                 <span>農家</span> <br />
                 <br />
                 <span>位置 : Japan</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -101,7 +112,7 @@
                 <span>介護者</span> <br />
                 <br />
                 <span>位置 : Japan</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -118,7 +129,7 @@
                 <br />
                 <br />
                 <span>位置 : Japan</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -131,7 +142,7 @@
                 <span>ハウスメイド</span> <br />
                 <br />
                 <span>位置 : Japan</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -144,20 +155,20 @@
                 <span>申し込み</span> <br />
                 <br />
                 <span>位置 : Japan</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
           </v-col>
 
-          <v-col cols="3">
+          <v-col cols="12" xs="12" sm="6" md="4" lg="3" xl="3">
             <div class="jobseeker__banner-bungkus">
               <v-img :src="require('@/assets/images/jobseeker1.png')"> </v-img>
               <div class="jobseeker__banner-info">
                 <span>電気工学</span> <br />
                 <br />
                 <span>位置 : Germany</span> <br />
-                <span>賃金 : 1500 USD</span>
+                <span>賃金 : 1500 USD</span><br />
                 <span>契約 : 5 Year</span>
               </div>
             </div>
@@ -181,10 +192,28 @@ export default {
     overlay: false,
     zIndex: 1,
   }),
+
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
+
 .jobseeker__banner {
   margin-top: 5rem;
   &-h1 {
@@ -204,6 +233,7 @@ export default {
 
   &-bungkus {
     width: 14rem;
+    margin: 0 auto;
   }
   &-info {
     background-color: #0a1325;
@@ -246,6 +276,7 @@ export default {
     margin-left: 2rem;
   }
 }
+// 0-300
 @media screen and (min-width: 0px) and (max-width: 300px) {
   .jobseeker__awal {
     margin-top: 4rem;
@@ -262,7 +293,8 @@ export default {
       margin-left: 1rem;
     }
     &-img {
-      width: 25rem;
+      max-width: 25rem;
+      margin: 0 auto;
     }
     &-h1 {
       font-size: 16px;
@@ -278,6 +310,7 @@ export default {
     margin-top: 5rem;
     &-bungkus {
       width: 14rem;
+      max-width: 0 auto;
     }
     &-info {
       background-color: #0a1325;
@@ -303,6 +336,7 @@ export default {
   }
 }
 
+// 300-600
 @media screen and (min-width: 300px) and (max-width: 600px) {
   .jobseeker__awal {
     margin-top: 3rem;
@@ -319,6 +353,7 @@ export default {
     }
     &-img {
       width: 19rem;
+      margin: 0 auto;
     }
     &-h4 {
       margin-bottom: 1rem;
@@ -348,6 +383,7 @@ export default {
     }
     &-bungkus {
       width: 14rem;
+      margin: 0 auto;
     }
     &-info {
       background-color: #0a1325;
@@ -365,13 +401,15 @@ export default {
       margin-top: 5rem;
     }
     &-row {
-      margin-left: 2rem;
+      margin: 0 auto;
     }
     &-btn {
       margin-bottom: 2rem;
     }
   }
 }
+
+// 600-960
 @media screen and (min-width: 600px) and (max-width: 960px) {
   .jobseeker__awal {
     margin-top: 4rem;
@@ -386,7 +424,9 @@ export default {
       margin-top: 2rem;
     }
     &-img {
-      width: 25rem;
+      max-width: 20rem;
+      margin: 0 auto;
+      margin-top: 2rem !important;
     }
     &-h1 {
       font-size: 22px;
@@ -402,6 +442,16 @@ export default {
     margin-top: 5rem;
     &-bungkus {
       width: 14rem;
+      margin: 0 auto;
+    }
+    &-h1 {
+      font-size: 30px;
+    }
+    &-p {
+      font-size: 14px;
+      line-height: 152%;
+      padding: 0 9rem 0 9rem;
+      margin-bottom: 5rem !important;
     }
     &-info {
       background-color: #0a1325;
@@ -419,16 +469,18 @@ export default {
       margin-top: 5rem;
     }
     &-row {
-      margin-left: 3rem;
+      margin-left: 0rem;
     }
     &-btn {
       margin-bottom: 2rem;
     }
   }
 }
+
+// 960-1264
 @media screen and (min-width: 960px) and (max-width: 1264px) {
   .jobseeker__awal {
-    margin-top: 5rem;
+    margin-top: 7rem;
     &-row {
       padding: 1rem;
     }
@@ -472,6 +524,12 @@ export default {
     &-bungkusbtn {
       margin-top: 5rem;
     }
+    &-h1 {
+      font-size: 23px;
+    }
+    &-p {
+      padding: 0px 10rem 0 10rem;
+    }
     &-row {
     }
     &-btn {
@@ -479,6 +537,52 @@ export default {
     }
   }
 }
+
+// 1264-1904
+@media screen and (min-width: 1264px) and (max-width: 1904px) {
+  .jobseeker__awal {
+    margin-top: 10rem;
+    &-h1 {
+      font-size: 33px;
+    }
+    &-p {
+      font-size: 16px;
+    }
+    &-img {
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+    &-row {
+    }
+  }
+
+  .jobseeker__banner {
+    &-h1 {
+      font-size: 33px;
+    }
+    &-bungkus {
+      width: 14rem;
+      margin: 2rem auto;
+    }
+  }
+}
+//1904 >
 @media screen and (min-width: 1904px) {
+  .jobseeker__awal {
+    margin-top: 10rem;
+    &-h1 {
+      font-size: 33px;
+    }
+    &-p {
+      font-size: 16px;
+    }
+    &-img {
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+    &-row {
+      margin-left: 5rem;
+    }
+  }
 }
 </style>

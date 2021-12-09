@@ -1,7 +1,17 @@
 <template>
   <div>
-    <v-container>
-      <section class="kontak">
+    <v-container class="container-kontak">
+      <v-btn
+        @click="scrollMeTo('awal')"
+        class="mx-2 btn-munggah"
+        fab
+        dark
+        large
+        color="#FF9900"
+      >
+        <v-icon class="arrow1" dark> mdi-navigation </v-icon>
+      </v-btn>
+      <section class="kontak" ref="awal">
         <div>
           <v-row class="kontak__row">
             <v-col
@@ -32,7 +42,7 @@
               <div class="kontak__title">
                 <p class="kontak__title-p1">お問い合わせ</p>
                 <h1 class="kontak__title-h1" :style="h1_banner">
-                  こんにちは素敵な一日を過ごします <br />今日は楽しい！
+                  こんにちは、<br />今日は良い一日を
                 </h1>
                 <p class="kontak__title-p" :style="p_banner">
                   LPK higlobについて質問がある場合は、次のことができます。
@@ -64,7 +74,7 @@
                     Daerah Istimewa Yogyakarta 55513
                   </p>
                   <a href="" style="font-family: 'Poppins', sans-serif"
-                    >Buka Map -></a
+                    >マップを開く -></a
                   >
                 </li>
                 <li style="margin-top: 2rem">
@@ -74,9 +84,7 @@
 
                 <li style="margin-top: 10px">
                   <h4 class="judul__kontak-h4">電話</h4>
-                  <p class="judul__kontak-p">
-                    +62 877-8757-4848 / +62 821-2345-1243
-                  </p>
+                  <p class="judul__kontak-p">0877-8757-4848 / 0821-2345-1243</p>
                 </li>
                 <li style="margin-top: 10px">
                   <h4 class="judul__kontak-h4">労働時間</h4>
@@ -96,7 +104,7 @@
               lg="6"
               xl="6"
             >
-              <v-card elevation="1" style="padding: 1rem 1rem">
+              <v-card class="d-none" elevation="1" style="padding: 1rem 1rem">
                 <v-form v-model="valid">
                   <v-container>
                     <v-row>
@@ -140,7 +148,7 @@
                           style="font-family: 'Poppins', sans-serif"
                           v-model="email"
                           :rules="emailRules"
-                          label="E-mail"
+                          label="Eメール"
                           outlined
                           required
                         ></v-text-field>
@@ -200,19 +208,19 @@ export default {
     firstname: '',
     lastname: '',
     nameRules: [
-      (v) => !!v || '名前が必要です',
-      (v) => v.length <= 10 || '名前は10文字未満である必要があります',
+      (v) => !!v || 'Nama tidak boleh kosong',
+      (v) => v.length <= 10 || 'Minimal 10 karakter',
     ],
     nomorwa: '',
     nomorwaRules: [
-      (v) => !!v || 'メールが必要です',
-      (v) => v.length <= 12 || '無効なwa番号',
+      (v) => !!v || 'E-mail tidak boleh kosong',
+      (v) => v.length <= 12 || 'Nomor wa tidak valid',
     ],
 
     email: '',
     emailRules: [
-      (v) => !!v || 'メールが必要です',
-      (v) => /.+@.+/.test(v) || '電子メールは有効である必要があります',
+      (v) => !!v || 'E-mail tidak boleh kosong',
+      (v) => /.+@.+/.test(v) || 'E-mail must tidak valid',
     ],
 
     // const defaultForm = Object.freeze({
@@ -232,7 +240,7 @@ export default {
         case 'lg':
           return 'padding:3rem'
         case 'xl':
-          return 'padding:0rem'
+          return 'max-width: 42rem;margin: 0 auto;'
       }
     },
 
@@ -266,10 +274,26 @@ export default {
       }
     },
   },
+  methods: {
+    scrollMeTo(refname) {
+      let element = this.$refs[refname]
+      // let top = element.offsetTop
+      // window.scrollTo(0, top)
+
+      element.scrollIntoView({ behavior: 'smooth' })
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+.btn-munggah {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  top: 550px;
+  z-index: 3000;
+}
 .judul__kontak {
   &-h4 {
     color: #868686;
@@ -375,5 +399,11 @@ export default {
   }
 }
 @media screen and (min-width: 1904px) {
+  .kontak {
+    margin-top: 8rem;
+  }
+  .container-kontak {
+    padding: 0 10rem 0 10rem;
+  }
 }
 </style>

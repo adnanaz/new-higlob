@@ -2,7 +2,8 @@ export const strict = false
 
 export const state = () => ({
   isNotFound: false,
-  toggleLang: true,
+  toggleLang: false,
+  language: 'JP',
 })
 
 export const mutations = {}
