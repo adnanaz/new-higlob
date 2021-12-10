@@ -206,6 +206,10 @@
 
 <script>
 export default {
+  head: {
+    titleTemplate: 'Higlob - コンタクト',
+  },
+
   data: () => ({
     valid: false,
     firstname: '',

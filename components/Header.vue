@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- JEPANG -->
-    <div v-if="$store.state.toggleLang">
+    <div v-if="$store.state.gantiBahasa">
       <v-app-bar
         :height="$vuetify.breakpoint.mdAndUp ? '100' : ''"
         absolute
@@ -119,7 +119,8 @@
                   >
                     <div style="font-size: 16px; margin-top: 2px">
                       <v-icon class="mx-1">mdi-web</v-icon>
-                      {{ $store.state.language }} <v-icon right>mdi-chevron-down</v-icon>
+                      {{ $store.state.language }}
+                      <v-icon right>mdi-chevron-down</v-icon>
                     </div>
                   </v-btn>
                 </template>
@@ -148,7 +149,7 @@
       </v-app-bar>
 
       <v-navigation-drawer
-        v-if="$store.state.toggleLang"
+        v-if="$store.state.gantiBahasa"
         v-model="drawer"
         absolute
         temporary
@@ -405,7 +406,8 @@
                   >
                     <div style="font-size: 16px; margin-top: 2px">
                       <v-icon class="mx-1">mdi-web</v-icon>
-                      {{ $store.state.language }} <v-icon right>mdi-chevron-down</v-icon>
+                      {{ $store.state.language }}
+                      <v-icon right>mdi-chevron-down</v-icon>
                     </div>
                   </v-btn>
                 </template>
@@ -631,10 +633,19 @@ export default {
     }
   },
   mounted() {
+    // console.log(this.$store.state.toggleLang, 'Header')
+    // if (this.$route.fullPath.includes('/lang-jp')) {
+    //   this.$store.state.toggleLang = true
+    //   this.$store.state.language = 'JP'
+    // } else if (this.$route.fullPath.includes('/lang-id')) {
+    //   this.$store.state.toggleLang = false
+    //   this.$store.state.language = 'ID'
+    // }
+    console.log(this.$store.state.gantiBahasa)
   },
   methods: {
     toggleNav() {
-      if (this.$store.state.toggleLang) {
+      if (this.$store.state.gantiBahasa) {
         this.drawer = true
       } else {
         this.drawer_id = true
@@ -644,12 +655,12 @@ export default {
     mobileLangTrigger(key) {
       switch (key) {
         case 'id':
-          this.$store.state.toggleLang = false
+          this.$store.state.gantiBahasa = false
           this.$store.state.language = 'ID'
           this.$router.push('/lang-id')
           break
         case 'jp':
-          this.$store.state.toggleLang = true
+          this.$store.state.gantiBahasa = true
           this.$store.state.language = 'JP'
           this.$router.push('/lang-jp')
           break
@@ -663,11 +674,11 @@ export default {
       if (id === 0) {
         this.$router.push('/lang-id')
         this.$store.state.language = 'ID'
-        this.$store.state.toggleLang = false
+        this.$store.state.gantiBahasa = false
       } else if (id === 1) {
         this.$router.push('/lang-jp')
         this.$store.state.language = 'JP'
-        this.$store.state.toggleLang = true
+        this.$store.state.gantiBahasa = true
       }
     },
   },

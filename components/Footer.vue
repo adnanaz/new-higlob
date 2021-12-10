@@ -8,7 +8,7 @@
         <!-- JEPANG-->
         <!-- ================================================================================== -->
         <v-row
-          v-if="$store.state.toggleLang"
+          v-if="$store.state.gantiBahasa"
           style="width: 100%"
           justify="space-around"
           no-gutters
@@ -427,7 +427,7 @@ export default {
   data() {
     return {
       //conditional footer
-      toggleLang: false,
+      gantiBahasa: false,
 
       icon: [
         {
@@ -455,10 +455,10 @@ export default {
   },
 
   mounted() {
-    if (this.$route.fullPath.includes('/lang-jp/')) {
-      this.$store.state.toggleLang = true
+    if (this.$route.fullPath.includes('lang-jp/')) {
+      this.$store.state.gantiBahasa = false
     } else {
-      this.$store.state.toggleLang = false
+      this.$store.state.gantiBahasa = true
     }
   },
 }
