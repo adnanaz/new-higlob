@@ -266,7 +266,9 @@
               <v-expansion-panels flat dense>
                 <v-expansion-panel>
                   <v-expansion-panel-header class="pa-0">
-                    <span style="font-size: 13px; font-weight: 500"> 言語</span>
+                    <span style="font-size: 13px; font-weight: 500">
+                      Language</span
+                    >
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
                     <v-list-item>
